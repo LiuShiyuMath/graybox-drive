@@ -98,3 +98,12 @@ See [reproduction, before/after, scope and candidate manifest](flicker-verificat
 [full state inventory](../docs/STATE-MACHINES.md) and [TLC traces](flicker-tla/).
 The release workflow independently gates Linux verification, deployment and the
 complete live-site rerun. The project Page records that release outcome.
+
+
+The hidden-state/flicker runtime `547f808` is now published. Linux `verify`,
+Pages `deploy`, and full public-site `verify-live` all passed in
+[workflow 42674668709](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42674668709).
+Both retained artifact manifests match all 44 precommit source hashes and contain
+471 screenshots, six recordings, 990 new temporal/fixture frame checks, eight
+normal models and 17 named negative controls. All seven deployed assets match.
+[Release manifests](flicker-release.json) and [full result](flicker-verification.md).

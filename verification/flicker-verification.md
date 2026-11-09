@@ -1,6 +1,7 @@
 # Graybox Drive: flicker and hidden states
 
-Date: 2026-11-10 (Asia/Taipei). Baseline: `b5900c057928f1a41bd9106495e4631b7f5978bb`.
+Date: 2026-11-10 (Asia/Taipei). Release: **PASS**. Runtime commit: `547f8087713de0f3835173676ed7069aa539c92b`.
+Baseline: `b5900c057928f1a41bd9106495e4631b7f5978bb`.
 The source audit identifies 27 overlapping explicit, derived and temporal state groups.
 [Complete inventory and formal boundaries](../docs/STATE-MACHINES.md).
 
@@ -88,3 +89,35 @@ Safari/Firefox, every GPU driver and continuous numeric correctness are not prov
 TLC checks finite specifications, not a machine-checked JavaScript refinement.
 The pre-existing arbitrary corrupt best-score storage boundary is documented in
 the inventory; this rendering change does not modify score loading.
+
+
+## Published release result
+
+[Workflow 42674668709](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42674668709)
+completed `verify`, `deploy`, and `verify-live` successfully for runtime commit
+`547f8087713de0f3835173676ed7069aa539c92b`. Both Linux artifact manifests report
+19 successful commands, 471 screenshots, six recordings, 540 native-animation
+frames, 450 deterministic beam frames, eight normal TLC models and 17 required
+counterexamples. All 44 source hashes match the precommit candidate.
+[Retained Linux and live manifests](flicker-release.json).
+
+An independent public-site fetch matched all seven deployed dist assets.
+[Asset SHA-256 evidence](flicker-live-assets.json). A separate shared cloud browser
+loaded the public Mountain Road, clicked Start, held the actual gas control,
+observed 51 km/h and later 3% route progress / 2 m elevation, switched all three
+cameras and paused. The final chase view showed the complete car. The available
+error log contained browser-extension metadata messages and no game-script errors.
+[Actual cloud-browser screenshot](flicker-live-browser.jpg).
+
+The original push workflow 42673751361 failed before its verify job twice with
+GitHub Internal server error correlation IDs
+`a7e9e0b8-0b67-4cce-a770-54baf41b8df4` and
+`4af738b0-fbe9-4131-a4c9-fb093a679ecf`. GitHub's official status API reported an
+Actions / Checks API incident at that time. A manual dispatch of the unchanged
+workflow produced the successful release above. Startup failures were not counted
+as test passes.
+
+The subsequent documentation commit only retains release evidence. Its dist,
+models, tests, workflow and verification-instruction source hashes remain equal
+to the verified runtime commit. Physical-device and finite-model boundaries above
+remain explicit.

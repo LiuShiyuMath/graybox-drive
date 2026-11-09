@@ -101,7 +101,7 @@ open and must not be silently marked complete.
 - [x] Keep the crossbar and depth ordering; derive one camera pose for WebGL/software and retract before eligible nearby geometry with geometric easing.
 - [x] Reproduce lost WebGL still reporting successful drawing while output is stale; use software during loss and recreate GPU resources on restoration on the same context.
 - [x] Add 26 actual-runtime hidden-state contracts, 540 native animation frames, 450 deterministic beam frames, and repeated loss/restore/map/resize/fresh-renderer comparisons to the required verification command.
-- [ ] Final candidate full verification, direct main publication and live verification. See `verification/flicker-verification.md` for the run-specific result before changing this checkbox.
+- [x] Full candidate verification, direct main publication and full live verification passed for runtime commit `547f808`. [All three release gates](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42674668709). [Reproduction and exact-source evidence](../verification/flicker-verification.md).
 
 Finite model checking is not a JavaScript refinement proof. Continuous geometry,
 cross-partition combinations and physical-phone/GPU-driver behavior keep the
