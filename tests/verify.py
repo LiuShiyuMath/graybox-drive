@@ -24,10 +24,12 @@ def main():
                                 for p in sorted(files) if p.is_file()},
                'target': os.environ.get('DRIVE_URL', (ROOT / 'dist/index.html').as_uri()), 'evidence': str(OUT)}
     env = dict(os.environ, DRIVE_CAPTURE='1', DRIVE_VERIFY_DIR=str(OUT),
-               DRIVE_EVIDENCE_DIR=str(OUT / 'browser-states'))
-    commands = [['node', '--check', 'dist/game.js'], ['node', '--check', 'dist/perspective.js'],
-                ['node', 'tests/drive.cjs'], ['node', 'tests/state-contract.cjs'],
-                [sys.executable, 'tests/verify_tla.py'], ['node', 'tests/browser-states.cjs'],
+               DRIVE_EVIDENCE_DIR=str(OUT / 'browser-states'),
+               DRIVE_MOUNTAIN_EVIDENCE=str(OUT / 'mountain'),
+               DRIVE_MOUNTAIN_URL=os.environ.get('DRIVE_MOUNTAIN_URL', summary['target'].split('?')[0] + '?map=mountain'))
+    commands = [['node', '--check', 'dist/maps.js'], ['node', '--check', 'dist/game.js'], ['node', '--check', 'dist/perspective.js'],
+                ['node', 'tests/drive.cjs'], ['node', 'tests/mountain.cjs'], ['node', 'tests/state-contract.cjs'],
+                [sys.executable, 'tests/verify_tla.py'], ['node', 'tests/browser-states.cjs'], ['node', 'tests/browser-mountain.cjs'],
                 [sys.executable, 'tests/browser_e2e.py']]
     try:
         for index, command in enumerate(commands):
@@ -44,8 +46,13 @@ def main():
         for row in matrix['cases']:
             assert row['passed'] and row['screenshot'] and (OUT / 'browser-states' / row['screenshot']).is_file()
         assert all(row['passed'] for row in matrix['checks'])
-        assert len(list((OUT / 'python-e2e').glob('*.png'))) == 8
-        summary['screenshots'] = len(matrix['cases']) + 8
+        mountain = json.loads((OUT / 'mountain/results.json').read_text())
+        assert len(mountain['pictures']) == 42 and all(row['passed'] for row in mountain['checks'])
+        assert all(row['file'] and (OUT / 'mountain' / row['file']).is_file() for row in mountain['pictures'])
+        assert (OUT / 'mountain/canvas-fallback.jpg').is_file()
+        assert len(list((OUT / 'python-e2e').glob('*.png'))) == 16
+        summary['screenshots'] = len(matrix['cases']) + len(mountain['pictures']) + 1 + 16
+        summary['mountainChecks'] = len(mountain['checks'])
         summary['matrixChecks'] = len(matrix['checks'])
         summary['passed'] = True
     except Exception as error:

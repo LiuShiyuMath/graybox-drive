@@ -44,3 +44,19 @@ TLC establishes these bounded specifications, not an unbounded theorem or a
 refinement proof of JavaScript, floating-point physics or visual rendering.
 See `docs/STATE-MACHINES.md` for bounds, fairness assumptions and implementation
 mapping. Models and runtime checks must evolve together when maps or rules change.
+
+
+## Map 02 Mountain Road extension
+
+The complete project verification passed for the Mountain Road candidate on Mac mini using pinned Python/JavaScript Playwright 1.51.0. Its 29 measured source-file SHA-256 values were compared with and matched the cloud workspace candidate before publication.
+
+- 4,096 implementation input-source transitions passed.
+- Five exhaustive TLC models passed: Race, Input, Hazards, Persistence and Mountain, with 4,371 distinct states across the independent models.
+- All five named regression counterexamples were detected, including premature summit finish without checkpoints.
+- The circuit matrix passed 210 scenarios and 30 checks; the mountain matrix passed 42 scenarios and 51 checks, plus a Canvas-fallback capture.
+- Python real-animation E2E passed 12 checks across both maps, both orientations and all cameras, retaining 16 images.
+- The complete run retained 269 browser screenshots. Continuous mountain physics driving separately reached the summit in 45.68 seconds without teleporting, collisions or falls.
+
+[Machine-readable evidence and source hashes](mountain-full-verify.json) · [Map 02 scenes and screenshots](mountain-road.md).
+
+The cloud JavaScript scene matrices passed, but normal-animation Python Chromium exited/crashed on this Work host. The complete PASS above belongs to the Mac mini execution with matching source hashes. CI and deployed-source verification remain separate release gates. Physical Android/iPhone validation is still outstanding.

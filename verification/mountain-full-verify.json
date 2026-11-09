@@ -1,0 +1,232 @@
+{
+  "summary": {
+    "createdAt": "2026-11-09T10:37:29.518677+00:00",
+    "passed": true,
+    "steps": [
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/maps.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/game.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/perspective.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/drive.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/mountain.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/state-contract.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "tests/verify_tla.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-states.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-mountain.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "tests/browser_e2e.py"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "revision": "a3a6dc7bd7a9a329170d65cf7874e0f175725fa7",
+    "worktreeDirty": true,
+    "sourceSha256": {
+      ".agents/skills/verify/SKILL.md": "c17c0e0e4fdf25197fbae3cbd9cc487e70de7d492c86a2235af02cbf72c92464",
+      ".github/workflows/pages.yml": "109103d9b4e9342603bec51464fd9a57a049fd8fe98b137f163f79fb53364893",
+      "dist/game.js": "f00388612968192435b44b861a0d67b291ef7ef75b0f825b8669b1f6429f0e96",
+      "dist/index.html": "ebdac236e89b496424f20fbb9d19c5765e1ab640f554b021c19ecc1a1c3d147c",
+      "dist/maps.js": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
+      "dist/perspective.js": "974333b94f58fa53476fbca272bf3faccf212b812dad513ac38963db403ce389",
+      "dist/style.css": "82239a19664568ecf5027da45971b8f0e967f0437645d2b5974edbc409cdfe6a",
+      "package-lock.json": "d7fb1ffb112245f2b007ad0bccf71af1bd1eebe90e8aa1b6305d8af7a8da9536",
+      "package.json": "84ce6881d1e1b2cc6b1ed49f98557cd1a472d88835205d442c3a537a479d4600",
+      "specs/Hazards.cfg": "f05f54257ffef63c55e07aea93028ade3686c2519238039d61278b895e03d7e0",
+      "specs/Hazards.tla": "fe7a8448fe550a17fee4691f320f158c30d955bef068008372aac9046f951e35",
+      "specs/Input.cfg": "fa96765ce7e859bfd48861ab923c4697944b90bdf6d2c807d2dfaade79753071",
+      "specs/Input.tla": "6d145cbff97c3da7e32d1a01b96083f042c06850a32dc0eb58679b3e444c4446",
+      "specs/Mountain.cfg": "e53210cfcb4588cc2949f19d2dbcdb83c28dc4f03808961f7f0581ce6efed8e1",
+      "specs/Mountain.tla": "dfe67f114f8841eb35e758f7c68b8ca44d87891f73681013bf9269e6bcf6efe6",
+      "specs/Persistence.cfg": "90291c3002321e34d3e0936ce5ec36c9a683c74f90479c92a4436bc86e48f11a",
+      "specs/Persistence.tla": "7fd52d50041a2f8d7e4636e326d67e31eeddcfc9241264777aeb8679899fb2eb",
+      "specs/Race.cfg": "78acd830ab7245abd95ab35b7fb55f66af20d4fcc492dc38f0d1b057d6c97561",
+      "specs/Race.tla": "bb78c1d231bfdc4f114d5b90b5998c7335669d5f7d80cf8544749f7f69ace096",
+      "tests/browser-mountain.cjs": "06ff879c941a295e99ab61de650fc48905c965da28edeada5a3262cf9037ca26",
+      "tests/browser-states.cjs": "75148b8584cfcd31aee12334f50c3b8626e40f0b1bf7346ab85133d65e10c2c5",
+      "tests/browser_e2e.py": "1d73ba5d4bae513646188d4d6487d6c6b45e8fbe386f11aed926a6fe99474365",
+      "tests/build-state-report.py": "4725864bd47a37722df3b14e71ac1429442eb2dc54a6b17275a8279251c9874b",
+      "tests/drive.cjs": "2f350053741fbabb8c372b6e90f2c8face9b9ed616eb97e90cd5ff2628ebc796",
+      "tests/mountain.cjs": "4863fd9bf79341eee9040d627b7f298ca4af192d0be352a6831cc1f7b4554a72",
+      "tests/requirements-verify.txt": "3ac03b3e052baefd9bf6c5a9f06765194c63c546316e2b54bc30b38b3dedc2ad",
+      "tests/state-contract.cjs": "59c30c177a3a2bd27073e34afd5791863275a4cc5818b2f431e18d5e0fd702f1",
+      "tests/verify.py": "7c028690f7f885b0ffa5637c9d15a9249d9b50ccdbc145eec08cbd78e891de8f",
+      "tests/verify_tla.py": "6d58f7aebdf0064a9ded8c87496ca31d6c8bfe1ee24ca72ec1570cb977a9871d"
+    },
+    "target": "local HTTP server",
+    "evidence": "verification/latest/run-20261109T103729518013Z",
+    "screenshots": 269,
+    "mountainChecks": 51,
+    "matrixChecks": 30,
+    "executionEnvironment": "Mac mini, pinned Python and JavaScript Playwright 1.51.0; source hashes matched the cloud candidate"
+  },
+  "tla": {
+    "createdAt": "2026-11-09T10:37:55.967453+00:00",
+    "tlcVersion": "1.7.4",
+    "jarSha256": "936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88",
+    "mode": "exhaustive BFS, no state constraints, one worker",
+    "passed": true,
+    "models": [
+      {
+        "model": "Race",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 3705,
+        "distinct": 532
+      },
+      {
+        "model": "Input",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 5170,
+        "distinct": 261
+      },
+      {
+        "model": "Hazards",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 35030,
+        "distinct": 2675
+      },
+      {
+        "model": "Persistence",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 385,
+        "distinct": 48
+      },
+      {
+        "model": "Mountain",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 4058,
+        "distinct": 855
+      },
+      {
+        "model": "Input-regression-ActiveMatchesHeld",
+        "passed": true,
+        "expectedViolation": "ActiveMatchesHeld",
+        "exitCode": 12,
+        "generated": 64,
+        "distinct": 26
+      },
+      {
+        "model": "Hazards-regression-ExactRecoveryPenalty",
+        "passed": true,
+        "expectedViolation": "ExactRecoveryPenalty",
+        "exitCode": 12,
+        "generated": 954,
+        "distinct": 131
+      },
+      {
+        "model": "Race-regression-ReverseCannotAddLap",
+        "passed": true,
+        "expectedViolation": "ReverseCannotAddLap",
+        "exitCode": 13,
+        "generated": 11,
+        "distinct": 10
+      },
+      {
+        "model": "Hazards-regression-CooldownSuppressesFeedback",
+        "passed": true,
+        "expectedViolation": "CooldownSuppressesFeedback",
+        "exitCode": 13,
+        "generated": 1580,
+        "distinct": 227
+      },
+      {
+        "model": "Mountain-regression-SummitRequiresCheckpoints",
+        "passed": true,
+        "expectedViolation": "SummitRequiresCheckpoints",
+        "exitCode": 12,
+        "generated": 8,
+        "distinct": 6
+      }
+    ]
+  },
+  "normalAnimation": {
+    "passed": true,
+    "source": "local HTTP server",
+    "browser": "134.0.6998.35",
+    "animation": "normal requestAnimationFrame; no clock stubs",
+    "checks": [
+      "circuit 844x390: real animation accelerates; pause freezes full snapshot",
+      "circuit 844x390: three cameras and independent keyboard releases",
+      "circuit 844x390: camera persists after reload",
+      "circuit 390x844: real animation accelerates; pause freezes full snapshot",
+      "circuit 390x844: three cameras and independent keyboard releases",
+      "circuit 390x844: camera persists after reload",
+      "mountain 844x390: real animation accelerates; pause freezes full snapshot",
+      "mountain 844x390: three cameras and independent keyboard releases",
+      "mountain 844x390: camera persists after reload",
+      "mountain 390x844: real animation accelerates; pause freezes full snapshot",
+      "mountain 390x844: three cameras and independent keyboard releases",
+      "mountain 390x844: camera persists after reload"
+    ],
+    "consoleErrors": [],
+    "physicalPhone": false
+  },
+  "cloudBoundary": "The cloud JavaScript scene matrices passed. Normal-animation Python Chromium crashed on this cloud host; the complete suite passed on Mac mini with the same source hashes. Physical Android/iPhone testing remains outstanding."
+}

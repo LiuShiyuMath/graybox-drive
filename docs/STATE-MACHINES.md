@@ -73,3 +73,13 @@ with its revision in `verification/` or the CI artifact before reporting PASS.
 Official setup references: [TLA+ tools](https://github.com/tlaplus/tlaplus/blob/master/USE.md),
 [pinned TLA+ release](https://github.com/tlaplus/tlaplus/releases/tag/v1.7.4),
 [Python Playwright browser installation](https://playwright.dev/python/docs/browsers).
+
+## Map 02 Mountain Road
+
+`dist/maps.js` defines the same centreline, height and width thresholds used by the road mesh, terrain, nearest-road projection, driving slope, cliff checks, recovery and minimap. Map 01 remains a three-lap circuit. Map 02 is an open route with five earned checkpoints and a summit finish.
+
+`Mountain.tla` abstracts the mountain route to six sectors and five checkpoints. It checks that the summit cannot finish before all checkpoints, reverse preserves earned checkpoints, automatic/manual recoveries return to the earned checkpoint with +5/+3 penalties, and a paused route freezes. The finite model allows two recoveries between resets. `BuggyFinish=TRUE` must violate `SummitRequiresCheckpoints`. Map selection abstracts a new ready race; per-map best scores are checked by the actual runtime tests.
+
+Mountain geometry uses road/curb/edge/fall thresholds 57/65/77/96 world units (10 units = 1 metre). A continuous mountain-side wall constrains the negative side; the positive cliff side can fall. Physical grades, centreline distance, continuous driving and rendering remain runtime obligations, not TLA claims.
+
+`tests/mountain.cjs` covers these transitions, distinct best storage and a continuous physics-only summit drive. `tests/browser-mountain.cjs` captures 42 scenarios across three cameras and two orientations, checks all 240 chase positions and real keyboard/touch input, then checks Canvas fallback. `tests/browser_e2e.py` uses normal animation for both maps and retains 16 screenshots. The full verification command retains 269 images, both matrices, five models and five counterexamples.

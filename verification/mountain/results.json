@@ -1,0 +1,1557 @@
+{
+  "source": "http://127.0.0.1:8093/?map=mountain",
+  "createdAt": "2026-11-09T10:22:36.379Z",
+  "checks": [
+    {
+      "name": "landscape/first/start",
+      "passed": true
+    },
+    {
+      "name": "landscape/first/s-bend",
+      "passed": true
+    },
+    {
+      "name": "landscape/first/climb",
+      "passed": true
+    },
+    {
+      "name": "landscape/first/cliff-warning",
+      "passed": true
+    },
+    {
+      "name": "landscape/first/fall",
+      "passed": true
+    },
+    {
+      "name": "landscape/first/checkpoint-recovery",
+      "passed": true
+    },
+    {
+      "name": "landscape/first/summit",
+      "passed": true
+    },
+    {
+      "name": "landscape/chase/start",
+      "passed": true
+    },
+    {
+      "name": "landscape/chase/s-bend",
+      "passed": true
+    },
+    {
+      "name": "landscape/chase/climb",
+      "passed": true
+    },
+    {
+      "name": "landscape/chase/cliff-warning",
+      "passed": true
+    },
+    {
+      "name": "landscape/chase/fall",
+      "passed": true
+    },
+    {
+      "name": "landscape/chase/checkpoint-recovery",
+      "passed": true
+    },
+    {
+      "name": "landscape/chase/summit",
+      "passed": true
+    },
+    {
+      "name": "landscape/top/start",
+      "passed": true
+    },
+    {
+      "name": "landscape/top/s-bend",
+      "passed": true
+    },
+    {
+      "name": "landscape/top/climb",
+      "passed": true
+    },
+    {
+      "name": "landscape/top/cliff-warning",
+      "passed": true
+    },
+    {
+      "name": "landscape/top/fall",
+      "passed": true
+    },
+    {
+      "name": "landscape/top/checkpoint-recovery",
+      "passed": true
+    },
+    {
+      "name": "landscape/top/summit",
+      "passed": true
+    },
+    {
+      "name": "landscape/map picker and driving controls fit viewport",
+      "passed": true
+    },
+    {
+      "name": "portrait/first/start",
+      "passed": true
+    },
+    {
+      "name": "portrait/first/s-bend",
+      "passed": true
+    },
+    {
+      "name": "portrait/first/climb",
+      "passed": true
+    },
+    {
+      "name": "portrait/first/cliff-warning",
+      "passed": true
+    },
+    {
+      "name": "portrait/first/fall",
+      "passed": true
+    },
+    {
+      "name": "portrait/first/checkpoint-recovery",
+      "passed": true
+    },
+    {
+      "name": "portrait/first/summit",
+      "passed": true
+    },
+    {
+      "name": "portrait/chase/start",
+      "passed": true
+    },
+    {
+      "name": "portrait/chase/s-bend",
+      "passed": true
+    },
+    {
+      "name": "portrait/chase/climb",
+      "passed": true
+    },
+    {
+      "name": "portrait/chase/cliff-warning",
+      "passed": true
+    },
+    {
+      "name": "portrait/chase/fall",
+      "passed": true
+    },
+    {
+      "name": "portrait/chase/checkpoint-recovery",
+      "passed": true
+    },
+    {
+      "name": "portrait/chase/summit",
+      "passed": true
+    },
+    {
+      "name": "portrait/top/start",
+      "passed": true
+    },
+    {
+      "name": "portrait/top/s-bend",
+      "passed": true
+    },
+    {
+      "name": "portrait/top/climb",
+      "passed": true
+    },
+    {
+      "name": "portrait/top/cliff-warning",
+      "passed": true
+    },
+    {
+      "name": "portrait/top/fall",
+      "passed": true
+    },
+    {
+      "name": "portrait/top/checkpoint-recovery",
+      "passed": true
+    },
+    {
+      "name": "portrait/top/summit",
+      "passed": true
+    },
+    {
+      "name": "portrait/map picker and driving controls fit viewport",
+      "passed": true
+    },
+    {
+      "name": "all 240 mountain chase headings keep rear deck visible above road",
+      "passed": true
+    },
+    {
+      "name": "new UI starts and actual keyboard gas moves uphill",
+      "passed": true
+    },
+    {
+      "name": "actual two-finger steering and gas release independently on mountain",
+      "passed": true
+    },
+    {
+      "name": "map buttons reset the current run and separate best times",
+      "passed": true
+    },
+    {
+      "name": "mountain selection and camera persist on clean reload",
+      "passed": true
+    },
+    {
+      "name": "Canvas fallback stays usable when WebGL is unavailable",
+      "passed": true
+    },
+    {
+      "name": "no game browser errors",
+      "passed": true
+    }
+  ],
+  "pictures": [
+    {
+      "scenario": "start",
+      "view": "first",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 900,
+        "y": 3400,
+        "elevation": 0,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-first-start.jpg"
+    },
+    {
+      "scenario": "s-bend",
+      "view": "first",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 1083.322136014193,
+        "y": 2274.2122666264536,
+        "elevation": 194.17806629487973,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-first-s-bend.jpg"
+    },
+    {
+      "scenario": "climb",
+      "view": "first",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 367.0130299300377,
+        "y": 1364.5679329831576,
+        "elevation": 453.67644126041597,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-first-climb.jpg"
+    },
+    {
+      "scenario": "cliff-warning",
+      "view": "first",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 887.7669081842081,
+        "y": 1033.8867883423354,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-first-cliff-warning.jpg"
+    },
+    {
+      "scenario": "fall",
+      "view": "first",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.631,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.65,
+        "progress": 0,
+        "speed": 0,
+        "x": 890.2692597505909,
+        "y": 1055.7440122428727,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-first-fall.jpg"
+    },
+    {
+      "scenario": "checkpoint-recovery",
+      "view": "first",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 9.299999999999997,
+        "progress": 120,
+        "speed": 0,
+        "x": 583.5734853484491,
+        "y": 999.7304968342825,
+        "elevation": 535.7325954498364,
+        "map": "mountain",
+        "checkpoint": 120,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-first-checkpoint-recovery.jpg"
+    },
+    {
+      "scenario": "summit",
+      "view": "first",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "finished",
+        "lap": 1,
+        "elapsed": 4.739999999999987,
+        "progress": 237,
+        "speed": 0,
+        "x": 1500,
+        "y": -850,
+        "elevation": 1020,
+        "map": "mountain",
+        "checkpoint": 200,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-first-summit.jpg"
+    },
+    {
+      "scenario": "start",
+      "view": "chase",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 900,
+        "y": 3400,
+        "elevation": 0,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-chase-start.jpg"
+    },
+    {
+      "scenario": "s-bend",
+      "view": "chase",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 1083.322136014193,
+        "y": 2274.2122666264536,
+        "elevation": 194.17806629487973,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-chase-s-bend.jpg"
+    },
+    {
+      "scenario": "climb",
+      "view": "chase",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 367.0130299300377,
+        "y": 1364.5679329831576,
+        "elevation": 453.67644126041597,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-chase-climb.jpg"
+    },
+    {
+      "scenario": "cliff-warning",
+      "view": "chase",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 887.7669081842081,
+        "y": 1033.8867883423354,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-chase-cliff-warning.jpg"
+    },
+    {
+      "scenario": "fall",
+      "view": "chase",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.631,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.65,
+        "progress": 0,
+        "speed": 0,
+        "x": 890.2692597505909,
+        "y": 1055.7440122428727,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-chase-fall.jpg"
+    },
+    {
+      "scenario": "checkpoint-recovery",
+      "view": "chase",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 9.299999999999997,
+        "progress": 120,
+        "speed": 0,
+        "x": 583.5734853484491,
+        "y": 999.7304968342825,
+        "elevation": 535.7325954498364,
+        "map": "mountain",
+        "checkpoint": 120,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-chase-checkpoint-recovery.jpg"
+    },
+    {
+      "scenario": "summit",
+      "view": "chase",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "finished",
+        "lap": 1,
+        "elapsed": 4.739999999999987,
+        "progress": 237,
+        "speed": 0,
+        "x": 1500,
+        "y": -850,
+        "elevation": 1020,
+        "map": "mountain",
+        "checkpoint": 200,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-chase-summit.jpg"
+    },
+    {
+      "scenario": "start",
+      "view": "top",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 900,
+        "y": 3400,
+        "elevation": 0,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-top-start.jpg"
+    },
+    {
+      "scenario": "s-bend",
+      "view": "top",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 1083.322136014193,
+        "y": 2274.2122666264536,
+        "elevation": 194.17806629487973,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-top-s-bend.jpg"
+    },
+    {
+      "scenario": "climb",
+      "view": "top",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 367.0130299300377,
+        "y": 1364.5679329831576,
+        "elevation": 453.67644126041597,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-top-climb.jpg"
+    },
+    {
+      "scenario": "cliff-warning",
+      "view": "top",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 887.7669081842081,
+        "y": 1033.8867883423354,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-top-cliff-warning.jpg"
+    },
+    {
+      "scenario": "fall",
+      "view": "top",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.631,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.65,
+        "progress": 0,
+        "speed": 0,
+        "x": 890.2692597505909,
+        "y": 1055.7440122428727,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-top-fall.jpg"
+    },
+    {
+      "scenario": "checkpoint-recovery",
+      "view": "top",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 9.299999999999997,
+        "progress": 120,
+        "speed": 0,
+        "x": 583.5734853484491,
+        "y": 999.7304968342825,
+        "elevation": 535.7325954498364,
+        "map": "mountain",
+        "checkpoint": 120,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-top-checkpoint-recovery.jpg"
+    },
+    {
+      "scenario": "summit",
+      "view": "top",
+      "size": "landscape",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "finished",
+        "lap": 1,
+        "elapsed": 4.739999999999987,
+        "progress": 237,
+        "speed": 0,
+        "x": 1500,
+        "y": -850,
+        "elevation": 1020,
+        "map": "mountain",
+        "checkpoint": 200,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "landscape-top-summit.jpg"
+    },
+    {
+      "scenario": "start",
+      "view": "first",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 900,
+        "y": 3400,
+        "elevation": 0,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-first-start.jpg"
+    },
+    {
+      "scenario": "s-bend",
+      "view": "first",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 1083.322136014193,
+        "y": 2274.2122666264536,
+        "elevation": 194.17806629487973,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-first-s-bend.jpg"
+    },
+    {
+      "scenario": "climb",
+      "view": "first",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 367.0130299300377,
+        "y": 1364.5679329831576,
+        "elevation": 453.67644126041597,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-first-climb.jpg"
+    },
+    {
+      "scenario": "cliff-warning",
+      "view": "first",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 887.7669081842081,
+        "y": 1033.8867883423354,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-first-cliff-warning.jpg"
+    },
+    {
+      "scenario": "fall",
+      "view": "first",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.631,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.65,
+        "progress": 0,
+        "speed": 0,
+        "x": 890.2692597505909,
+        "y": 1055.7440122428727,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-first-fall.jpg"
+    },
+    {
+      "scenario": "checkpoint-recovery",
+      "view": "first",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 9.299999999999997,
+        "progress": 120,
+        "speed": 0,
+        "x": 583.5734853484491,
+        "y": 999.7304968342825,
+        "elevation": 535.7325954498364,
+        "map": "mountain",
+        "checkpoint": 120,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-first-checkpoint-recovery.jpg"
+    },
+    {
+      "scenario": "summit",
+      "view": "first",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "finished",
+        "lap": 1,
+        "elapsed": 4.739999999999987,
+        "progress": 237,
+        "speed": 0,
+        "x": 1500,
+        "y": -850,
+        "elevation": 1020,
+        "map": "mountain",
+        "checkpoint": 200,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-first-summit.jpg"
+    },
+    {
+      "scenario": "start",
+      "view": "chase",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 900,
+        "y": 3400,
+        "elevation": 0,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-chase-start.jpg"
+    },
+    {
+      "scenario": "s-bend",
+      "view": "chase",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 1083.322136014193,
+        "y": 2274.2122666264536,
+        "elevation": 194.17806629487973,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-chase-s-bend.jpg"
+    },
+    {
+      "scenario": "climb",
+      "view": "chase",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 367.0130299300377,
+        "y": 1364.5679329831576,
+        "elevation": 453.67644126041597,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-chase-climb.jpg"
+    },
+    {
+      "scenario": "cliff-warning",
+      "view": "chase",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 887.7669081842081,
+        "y": 1033.8867883423354,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-chase-cliff-warning.jpg"
+    },
+    {
+      "scenario": "fall",
+      "view": "chase",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.631,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.65,
+        "progress": 0,
+        "speed": 0,
+        "x": 890.2692597505909,
+        "y": 1055.7440122428727,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-chase-fall.jpg"
+    },
+    {
+      "scenario": "checkpoint-recovery",
+      "view": "chase",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 9.299999999999997,
+        "progress": 120,
+        "speed": 0,
+        "x": 583.5734853484491,
+        "y": 999.7304968342825,
+        "elevation": 535.7325954498364,
+        "map": "mountain",
+        "checkpoint": 120,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-chase-checkpoint-recovery.jpg"
+    },
+    {
+      "scenario": "summit",
+      "view": "chase",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "finished",
+        "lap": 1,
+        "elapsed": 4.739999999999987,
+        "progress": 237,
+        "speed": 0,
+        "x": 1500,
+        "y": -850,
+        "elevation": 1020,
+        "map": "mountain",
+        "checkpoint": 200,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-chase-summit.jpg"
+    },
+    {
+      "scenario": "start",
+      "view": "top",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 900,
+        "y": 3400,
+        "elevation": 0,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-top-start.jpg"
+    },
+    {
+      "scenario": "s-bend",
+      "view": "top",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 1083.322136014193,
+        "y": 2274.2122666264536,
+        "elevation": 194.17806629487973,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-top-s-bend.jpg"
+    },
+    {
+      "scenario": "climb",
+      "view": "top",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 367.0130299300377,
+        "y": 1364.5679329831576,
+        "elevation": 453.67644126041597,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-top-climb.jpg"
+    },
+    {
+      "scenario": "cliff-warning",
+      "view": "top",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 887.7669081842081,
+        "y": 1033.8867883423354,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-top-cliff-warning.jpg"
+    },
+    {
+      "scenario": "fall",
+      "view": "top",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.631,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.65,
+        "progress": 0,
+        "speed": 0,
+        "x": 890.2692597505909,
+        "y": 1055.7440122428727,
+        "elevation": 569.3234368045128,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-top-fall.jpg"
+    },
+    {
+      "scenario": "checkpoint-recovery",
+      "view": "top",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 9.299999999999997,
+        "progress": 120,
+        "speed": 0,
+        "x": 583.5734853484491,
+        "y": 999.7304968342825,
+        "elevation": 535.7325954498364,
+        "map": "mountain",
+        "checkpoint": 120,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-top-checkpoint-recovery.jpg"
+    },
+    {
+      "scenario": "summit",
+      "view": "top",
+      "size": "portrait",
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "finished",
+        "lap": 1,
+        "elapsed": 4.739999999999987,
+        "progress": 237,
+        "speed": 0,
+        "x": 1500,
+        "y": -850,
+        "elevation": 1020,
+        "map": "mountain",
+        "checkpoint": 200,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        }
+      },
+      "file": "portrait-top-summit.jpg"
+    }
+  ],
+  "limitations": "Scenario positions and race progress are fixtures. Real update() and Chromium rendering execute. Keyboard and CDP touch input are separate checks. This does not replace physical Android/iPhone testing."
+}

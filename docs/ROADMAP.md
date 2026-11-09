@@ -36,13 +36,13 @@
 ## P1 — Shared map data and driving test ground
 
 - [ ] Define a reusable `MapDefinition`: spline control points, sampled centerline, per-segment width/elevation/bank/material, collision zones, spawn/checkpoints and objects.
-- [ ] Drive visible road Mesh, shoulder geometry, nearest-road calculations, physical collision, edge conditions, respawn and minimap from the same map data.
+- [x] Drive visible road Mesh, shoulder geometry, nearest-road calculations, physical collision, edge conditions, respawn and minimap from the same map data. Map 02 uses the same sampled centreline and elevation for these systems; see [verification](../verification/mountain-road.md).
 - [ ] Create test ground with straights, S curves, slopes, guardrails and asphalt/grass/mud friction.
 
 ## P2 — Mountain and circuit
 
-- [ ] Add a second course with bends, obstacles and readable routes, migrating [Issue #3](https://github.com/LiuShiyuMath/graybox-drive/issues/3).
-- [ ] Add mountain hairpins, cliffs, falls, slopes, course checkpoints, timing, best result and reverse-lap prevention.
+- [x] Add Map 02 — Mountain Road with S bends, collision posts, mountain wall and readable route, migrating [Issue #3](https://github.com/LiuShiyuMath/graybox-drive/issues/3).
+- [x] Add mountain S bends, cliffs, falls, physical slopes, five course checkpoints, summit timing, separate best result and ordered-route finish checks. [42 scenes and runtime evidence](../verification/mountain-road.md).
 
 ## P3 — City and off-road
 
@@ -67,3 +67,13 @@ Closing a historical Issue means **migrated to docs**, not completed. Do not era
 ## Definition of done
 
 A code change passes only when the changed behavior was actually tested and the evidence was recorded. CI success, HTTP 200, or a screenshot of an untouched UI is insufficient. Phone emulation is not physical-device validation.
+
+## Map 02 — Mountain Road
+
+- [x] About 716 m point-to-point route with 102 m of actual elevation gain.
+- [x] Mountain-side collision, cliff warning, falling and checkpoint recovery penalties.
+- [x] Map selection, three cameras, separate local best times, keyboard and simultaneous touch controls.
+- [x] WebGL depth-tested terrain, adjacent road ribbons and slope-compensated cameras, with Canvas fallback.
+- [x] Local verification: 42 mountain scene captures, 51 checks, 240 chase poses, continuous physics summit drive without teleporting.
+After publishing main, the exact commit’s Actions run and the project Page retain the deployment and public-browser acceptance evidence.
+- [ ] Physical Android/iPhone testing remains outstanding.

@@ -45,10 +45,10 @@ From the project root:
 ```
 
 This runs syntax checks, existing race/physics tests, 4,096 implementation input
-transitions plus model contracts, four exhaustive TLC models, four expected
-counterexamples, the existing 210-screenshot state matrix, and Python
+transitions plus model contracts, five exhaustive TLC models, five expected
+counterexamples, the existing 210-screenshot state matrix, the 42-scene mountain matrix plus Canvas fallback, and Python
 Playwright E2E with normal animation, real keyboard input, both orientations,
-all cameras and screenshots. Do not report PASS from a subset. A failed TLC
+both maps, all cameras and 16 screenshots. Do not report PASS from a subset. A failed TLC
 process is a failure unless the mutation check detects its named invariant.
 Review the run-specific evidence linked by `verification/latest/results.json`;
 a prior results file is not proof
