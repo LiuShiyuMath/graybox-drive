@@ -18,3 +18,8 @@ Issues found and fixed during browser testing:
 Evidence: drive-offroad.png, drive-edge-or-fall.png, drive-recovery.png, drive-impact-final.png.
 
 Limits: cloud desktop browser, not a physical Android phone. Yellow edge-warning flash and the full transient shake/fade sequences were not individually captured frame by frame. Timing, penalty count, collision separation and projection also passed node tests/drive.cjs. Production authentication remains unverified.
+
+
+## Public GitHub Pages verification
+
+Opened https://liushiyumath.github.io/graybox-drive/ in the cloud browser without signing in. The game loaded directly. Clicking Start and holding the throttle advanced the timer and reached 99 km/h. Screenshot: github-pages.png. This verifies the public hosting entry and playable runtime; physical Android/iPhone testing remains open in issue #2.
