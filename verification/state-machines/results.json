@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-11-09T09:38:33.259Z",
+  "createdAt": "2026-11-09T09:55:05.791Z",
   "source": "dist/index.html",
   "fixtures": "Scenario entry positions, race progress and clock are set in the test. Transitions execute real update(), rendering uses real Chromium canvas. UI checks use Playwright keyboard, pointer and CDP touch input. No physical phone is used.",
   "viewports": [
@@ -46,6 +46,7 @@
         },
         "angle": 3.141592653589793,
         "steer": 0,
+        "feedback": "road",
         "feedbackHidden": true,
         "overlay": true
       },
@@ -1229,6 +1230,7 @@
         },
         "angle": 3.141592653589793,
         "steer": 0,
+        "feedback": "road",
         "feedbackHidden": true,
         "overlay": true
       },
@@ -2412,6 +2414,7 @@
         },
         "angle": 3.141592653589793,
         "steer": 0,
+        "feedback": "road",
         "feedbackHidden": true,
         "overlay": true
       },
@@ -3595,6 +3598,7 @@
         },
         "angle": 3.141592653589793,
         "steer": 0,
+        "feedback": "road",
         "feedbackHidden": true,
         "overlay": true
       },
@@ -4778,6 +4782,7 @@
         },
         "angle": 3.141592653589793,
         "steer": 0,
+        "feedback": "road",
         "feedbackHidden": true,
         "overlay": true
       },
@@ -5961,6 +5966,7 @@
         },
         "angle": 3.141592653589793,
         "steer": 0,
+        "feedback": "road",
         "feedbackHidden": true,
         "overlay": true
       },
@@ -7863,6 +7869,10 @@
     },
     {
       "id": "restart button clears all race and hazard state",
+      "passed": true
+    },
+    {
+      "id": "recovery and restart synchronize visible feedback in the same event",
       "passed": true
     },
     {
