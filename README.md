@@ -25,6 +25,10 @@
 - 外侧黄黑边缘是落差区，掉落后自动回赛道，加时 5 秒。
 - 手动回赛道加时 3 秒。
 
+## 项目进度
+
+[公开 GitHub Projects 看板](https://github.com/users/LiuShiyuMath/projects/1) · [问题与建议](https://github.com/LiuShiyuMath/graybox-drive/issues)
+
 ## 开发与验证
 
 用任意静态服务器运行 dist，例如 `python3 -m http.server 8080 --directory dist`，然后打开 http://localhost:8080。
