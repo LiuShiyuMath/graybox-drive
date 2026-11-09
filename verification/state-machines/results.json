@@ -1,0 +1,7901 @@
+{
+  "createdAt": "2026-11-09T09:38:33.259Z",
+  "source": "dist/index.html",
+  "fixtures": "Scenario entry positions, race progress and clock are set in the test. Transitions execute real update(), rendering uses real Chromium canvas. UI checks use Playwright keyboard, pointer and CDP touch input. No physical phone is used.",
+  "viewports": [
+    {
+      "id": "landscape",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "id": "portrait",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "cases": [
+    {
+      "id": "ready",
+      "title": "准备开始",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "ready",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-first-ready.jpg"
+    },
+    {
+      "id": "idle",
+      "title": "赛道静止",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-idle.jpg"
+    },
+    {
+      "id": "accelerating",
+      "title": "踩油门加速",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4999999999999998,
+        "progress": 13,
+        "speed": 232.5809984129726,
+        "x": 558.0476846414164,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-accelerating.jpg"
+    },
+    {
+      "id": "coasting",
+      "title": "松油门滑行",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7999999999999999,
+        "progress": 9,
+        "speed": 151.15674829114513,
+        "x": 610.935714940032,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-coasting.jpg"
+    },
+    {
+      "id": "braking",
+      "title": "前进刹车",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 80.73788426659978,
+        "x": 709.3935526706905,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-braking.jpg"
+    },
+    {
+      "id": "reverse",
+      "title": "倒车",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": -4,
+        "speed": -92.76186634943983,
+        "x": 810.468248300261,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-reverse.jpg"
+    },
+    {
+      "id": "reverse-to-forward",
+      "title": "倒车后踩油门前进",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6999999999999998,
+        "progress": 0,
+        "speed": 61.118388329825294,
+        "x": 753.1842243926274,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-reverse-to-forward.jpg"
+    },
+    {
+      "id": "reverse-left",
+      "title": "倒车时向左打方向",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 810.9296366399203,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.2341944832163736,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-reverse-left.jpg"
+    },
+    {
+      "id": "reverse-right",
+      "title": "倒车时向右打方向",
+      "group": "motion",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 809.0703633600797,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.0489908239632126,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-reverse-right.jpg"
+    },
+    {
+      "id": "left",
+      "title": "向左转向",
+      "group": "input",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 812.9890853807784,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 2.982378831526897,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-left.jpg"
+    },
+    {
+      "id": "right",
+      "title": "向右转向",
+      "group": "input",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 807.0109146192216,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.3008064756526894,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-right.jpg"
+    },
+    {
+      "id": "opposed",
+      "title": "左右同时按住",
+      "group": "input",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.4312770354345,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-opposed.jpg"
+    },
+    {
+      "id": "both-pedals",
+      "title": "油门和刹车同时按住",
+      "group": "input",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 0,
+        "speed": 5.978860216703183,
+        "x": 748.2315190560744,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-both-pedals.jpg"
+    },
+    {
+      "id": "curb",
+      "title": "压路肩",
+      "group": "surface",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "curb",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 95.69539574730467,
+        "x": 748.0860920850539,
+        "y": 907,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "curb",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-curb.jpg"
+    },
+    {
+      "id": "runoff",
+      "title": "驶入缓冲区",
+      "group": "surface",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.5656115457763679
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 104.31603787029489,
+        "x": 641.9032512379306,
+        "y": 934.9530619598465,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0615003152634306,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-runoff.jpg"
+    },
+    {
+      "id": "edge",
+      "title": "接近落差边缘",
+      "group": "surface",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1005,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "edge",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-edge.jpg"
+    },
+    {
+      "id": "impact",
+      "title": "正向撞击反弹",
+      "group": "collision",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.8611111111111112,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.0372
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -37.199999999999996,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-impact.jpg"
+    },
+    {
+      "id": "reverse-impact",
+      "title": "倒车撞击反弹",
+      "group": "collision",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.65,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.024
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 24,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-reverse-impact.jpg"
+    },
+    {
+      "id": "low-contact",
+      "title": "低速接触分离",
+      "group": "collision",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.002296689497935312
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -2.296689497935312,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-low-contact.jpg"
+    },
+    {
+      "id": "fall-early",
+      "title": "掉落开始",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.181,
+          "dust": 0.08
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 69.43498861196858,
+        "x": 733.2643006874512,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-fall-early.jpg"
+    },
+    {
+      "id": "fall-late",
+      "title": "掉落渐暗",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 1.1809999999999998,
+          "dust": 0.08
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": 0,
+        "speed": 9.03558062531898,
+        "x": 705.617005508329,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-fall-late.jpg"
+    },
+    {
+      "id": "fall-paused",
+      "title": "掉落时暂停",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.28099999999999997,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": true
+      },
+      "screenshot": "landscape-first-fall-paused.jpg"
+    },
+    {
+      "id": "auto-recovery",
+      "title": "自动回赛道加5秒",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.02489542644088752
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 6.7999999999999945,
+        "progress": 0,
+        "speed": 0,
+        "x": 706.0629063924068,
+        "y": 809.0443734572697,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0907703865682516,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-auto-recovery.jpg"
+    },
+    {
+      "id": "manual-recovery",
+      "title": "手动回赛道加3秒",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 13,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-manual-recovery.jpg"
+    },
+    {
+      "id": "fall-manual",
+      "title": "掉落中手动恢复",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 5.299999999999971,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-fall-manual.jpg"
+    },
+    {
+      "id": "paused",
+      "title": "暂停并冻结计时",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 3,
+        "speed": 83.94570207692074,
+        "x": 704.2909330418721,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-first-paused.jpg"
+    },
+    {
+      "id": "resumed",
+      "title": "暂停后继续",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7000000000000002,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-resumed.jpg"
+    },
+    {
+      "id": "lap-two",
+      "title": "进入第2圈",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 2,
+        "elapsed": 0.02,
+        "progress": 240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-lap-two.jpg"
+    },
+    {
+      "id": "lap-three",
+      "title": "进入第3圈",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 3,
+        "elapsed": 0.02,
+        "progress": 480,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-lap-three.jpg"
+    },
+    {
+      "id": "reverse-lap",
+      "title": "反向行驶不计圈",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 3.9999999999999907,
+        "progress": -240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-reverse-lap.jpg"
+    },
+    {
+      "id": "finished",
+      "title": "第3圈结束",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "finished",
+        "lap": 3,
+        "elapsed": 80.02,
+        "progress": 720,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-first-finished.jpg"
+    },
+    {
+      "id": "restart",
+      "title": "重开并清空本局",
+      "group": "race",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-first-restart.jpg"
+    },
+    {
+      "id": "ready",
+      "title": "准备开始",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "ready",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-chase-ready.jpg"
+    },
+    {
+      "id": "idle",
+      "title": "赛道静止",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-idle.jpg"
+    },
+    {
+      "id": "accelerating",
+      "title": "踩油门加速",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4999999999999998,
+        "progress": 13,
+        "speed": 232.5809984129726,
+        "x": 558.0476846414164,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-accelerating.jpg"
+    },
+    {
+      "id": "coasting",
+      "title": "松油门滑行",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7999999999999999,
+        "progress": 9,
+        "speed": 151.15674829114513,
+        "x": 610.935714940032,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-coasting.jpg"
+    },
+    {
+      "id": "braking",
+      "title": "前进刹车",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 80.73788426659978,
+        "x": 709.3935526706905,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-braking.jpg"
+    },
+    {
+      "id": "reverse",
+      "title": "倒车",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": -4,
+        "speed": -92.76186634943983,
+        "x": 810.468248300261,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-reverse.jpg"
+    },
+    {
+      "id": "reverse-to-forward",
+      "title": "倒车后踩油门前进",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6999999999999998,
+        "progress": 0,
+        "speed": 61.118388329825294,
+        "x": 753.1842243926274,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-reverse-to-forward.jpg"
+    },
+    {
+      "id": "reverse-left",
+      "title": "倒车时向左打方向",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 810.9296366399203,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.2341944832163736,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-reverse-left.jpg"
+    },
+    {
+      "id": "reverse-right",
+      "title": "倒车时向右打方向",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 809.0703633600797,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.0489908239632126,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-reverse-right.jpg"
+    },
+    {
+      "id": "left",
+      "title": "向左转向",
+      "group": "input",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 812.9890853807784,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 2.982378831526897,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-left.jpg"
+    },
+    {
+      "id": "right",
+      "title": "向右转向",
+      "group": "input",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 807.0109146192216,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.3008064756526894,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-right.jpg"
+    },
+    {
+      "id": "opposed",
+      "title": "左右同时按住",
+      "group": "input",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.4312770354345,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-opposed.jpg"
+    },
+    {
+      "id": "both-pedals",
+      "title": "油门和刹车同时按住",
+      "group": "input",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 0,
+        "speed": 5.978860216703183,
+        "x": 748.2315190560744,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-both-pedals.jpg"
+    },
+    {
+      "id": "curb",
+      "title": "压路肩",
+      "group": "surface",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "curb",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 95.69539574730467,
+        "x": 748.0860920850539,
+        "y": 907,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "curb",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-curb.jpg"
+    },
+    {
+      "id": "runoff",
+      "title": "驶入缓冲区",
+      "group": "surface",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.5656115457763679
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 104.31603787029489,
+        "x": 641.9032512379306,
+        "y": 934.9530619598465,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0615003152634306,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-runoff.jpg"
+    },
+    {
+      "id": "edge",
+      "title": "接近落差边缘",
+      "group": "surface",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1005,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "edge",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-edge.jpg"
+    },
+    {
+      "id": "impact",
+      "title": "正向撞击反弹",
+      "group": "collision",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.8611111111111112,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.0372
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -37.199999999999996,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-impact.jpg"
+    },
+    {
+      "id": "reverse-impact",
+      "title": "倒车撞击反弹",
+      "group": "collision",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.65,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.024
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 24,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-reverse-impact.jpg"
+    },
+    {
+      "id": "low-contact",
+      "title": "低速接触分离",
+      "group": "collision",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.002296689497935312
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -2.296689497935312,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-low-contact.jpg"
+    },
+    {
+      "id": "fall-early",
+      "title": "掉落开始",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.181,
+          "dust": 0.08
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 69.43498861196858,
+        "x": 733.2643006874512,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-fall-early.jpg"
+    },
+    {
+      "id": "fall-late",
+      "title": "掉落渐暗",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 1.1809999999999998,
+          "dust": 0.08
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": 0,
+        "speed": 9.03558062531898,
+        "x": 705.617005508329,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-fall-late.jpg"
+    },
+    {
+      "id": "fall-paused",
+      "title": "掉落时暂停",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.28099999999999997,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": true
+      },
+      "screenshot": "landscape-chase-fall-paused.jpg"
+    },
+    {
+      "id": "auto-recovery",
+      "title": "自动回赛道加5秒",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.02489542644088752
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 6.7999999999999945,
+        "progress": 0,
+        "speed": 0,
+        "x": 706.0629063924068,
+        "y": 809.0443734572697,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0907703865682516,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-auto-recovery.jpg"
+    },
+    {
+      "id": "manual-recovery",
+      "title": "手动回赛道加3秒",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 13,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-manual-recovery.jpg"
+    },
+    {
+      "id": "fall-manual",
+      "title": "掉落中手动恢复",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 5.299999999999971,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-fall-manual.jpg"
+    },
+    {
+      "id": "paused",
+      "title": "暂停并冻结计时",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 3,
+        "speed": 83.94570207692074,
+        "x": 704.2909330418721,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-chase-paused.jpg"
+    },
+    {
+      "id": "resumed",
+      "title": "暂停后继续",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7000000000000002,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-resumed.jpg"
+    },
+    {
+      "id": "lap-two",
+      "title": "进入第2圈",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 2,
+        "elapsed": 0.02,
+        "progress": 240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-lap-two.jpg"
+    },
+    {
+      "id": "lap-three",
+      "title": "进入第3圈",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 3,
+        "elapsed": 0.02,
+        "progress": 480,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-lap-three.jpg"
+    },
+    {
+      "id": "reverse-lap",
+      "title": "反向行驶不计圈",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 3.9999999999999907,
+        "progress": -240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-reverse-lap.jpg"
+    },
+    {
+      "id": "finished",
+      "title": "第3圈结束",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "finished",
+        "lap": 3,
+        "elapsed": 80.02,
+        "progress": 720,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-chase-finished.jpg"
+    },
+    {
+      "id": "restart",
+      "title": "重开并清空本局",
+      "group": "race",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-chase-restart.jpg"
+    },
+    {
+      "id": "ready",
+      "title": "准备开始",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "ready",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-top-ready.jpg"
+    },
+    {
+      "id": "idle",
+      "title": "赛道静止",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-idle.jpg"
+    },
+    {
+      "id": "accelerating",
+      "title": "踩油门加速",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4999999999999998,
+        "progress": 13,
+        "speed": 232.5809984129726,
+        "x": 558.0476846414164,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-accelerating.jpg"
+    },
+    {
+      "id": "coasting",
+      "title": "松油门滑行",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7999999999999999,
+        "progress": 9,
+        "speed": 151.15674829114513,
+        "x": 610.935714940032,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-coasting.jpg"
+    },
+    {
+      "id": "braking",
+      "title": "前进刹车",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 80.73788426659978,
+        "x": 709.3935526706905,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-braking.jpg"
+    },
+    {
+      "id": "reverse",
+      "title": "倒车",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": -4,
+        "speed": -92.76186634943983,
+        "x": 810.468248300261,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-reverse.jpg"
+    },
+    {
+      "id": "reverse-to-forward",
+      "title": "倒车后踩油门前进",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6999999999999998,
+        "progress": 0,
+        "speed": 61.118388329825294,
+        "x": 753.1842243926274,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-reverse-to-forward.jpg"
+    },
+    {
+      "id": "reverse-left",
+      "title": "倒车时向左打方向",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 810.9296366399203,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.2341944832163736,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-reverse-left.jpg"
+    },
+    {
+      "id": "reverse-right",
+      "title": "倒车时向右打方向",
+      "group": "motion",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 809.0703633600797,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.0489908239632126,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-reverse-right.jpg"
+    },
+    {
+      "id": "left",
+      "title": "向左转向",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 812.9890853807784,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 2.982378831526897,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-left.jpg"
+    },
+    {
+      "id": "right",
+      "title": "向右转向",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 807.0109146192216,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.3008064756526894,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-right.jpg"
+    },
+    {
+      "id": "opposed",
+      "title": "左右同时按住",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.4312770354345,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-opposed.jpg"
+    },
+    {
+      "id": "both-pedals",
+      "title": "油门和刹车同时按住",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 0,
+        "speed": 5.978860216703183,
+        "x": 748.2315190560744,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-both-pedals.jpg"
+    },
+    {
+      "id": "curb",
+      "title": "压路肩",
+      "group": "surface",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "curb",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 95.69539574730467,
+        "x": 748.0860920850539,
+        "y": 907,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "curb",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-curb.jpg"
+    },
+    {
+      "id": "runoff",
+      "title": "驶入缓冲区",
+      "group": "surface",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.5656115457763679
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 104.31603787029489,
+        "x": 641.9032512379306,
+        "y": 934.9530619598465,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0615003152634306,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-runoff.jpg"
+    },
+    {
+      "id": "edge",
+      "title": "接近落差边缘",
+      "group": "surface",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1005,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "edge",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-edge.jpg"
+    },
+    {
+      "id": "impact",
+      "title": "正向撞击反弹",
+      "group": "collision",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.8611111111111112,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.0372
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -37.199999999999996,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-impact.jpg"
+    },
+    {
+      "id": "reverse-impact",
+      "title": "倒车撞击反弹",
+      "group": "collision",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.65,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.024
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 24,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-reverse-impact.jpg"
+    },
+    {
+      "id": "low-contact",
+      "title": "低速接触分离",
+      "group": "collision",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.002296689497935312
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -2.296689497935312,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-low-contact.jpg"
+    },
+    {
+      "id": "fall-early",
+      "title": "掉落开始",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.181,
+          "dust": 0.08
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 69.43498861196858,
+        "x": 733.2643006874512,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-fall-early.jpg"
+    },
+    {
+      "id": "fall-late",
+      "title": "掉落渐暗",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 1.1809999999999998,
+          "dust": 0.08
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": 0,
+        "speed": 9.03558062531898,
+        "x": 705.617005508329,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-fall-late.jpg"
+    },
+    {
+      "id": "fall-paused",
+      "title": "掉落时暂停",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.28099999999999997,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": true
+      },
+      "screenshot": "landscape-top-fall-paused.jpg"
+    },
+    {
+      "id": "auto-recovery",
+      "title": "自动回赛道加5秒",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.02489542644088752
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 6.7999999999999945,
+        "progress": 0,
+        "speed": 0,
+        "x": 706.0629063924068,
+        "y": 809.0443734572697,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0907703865682516,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-auto-recovery.jpg"
+    },
+    {
+      "id": "manual-recovery",
+      "title": "手动回赛道加3秒",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 13,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-manual-recovery.jpg"
+    },
+    {
+      "id": "fall-manual",
+      "title": "掉落中手动恢复",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 5.299999999999971,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-fall-manual.jpg"
+    },
+    {
+      "id": "paused",
+      "title": "暂停并冻结计时",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 3,
+        "speed": 83.94570207692074,
+        "x": 704.2909330418721,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-top-paused.jpg"
+    },
+    {
+      "id": "resumed",
+      "title": "暂停后继续",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7000000000000002,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-resumed.jpg"
+    },
+    {
+      "id": "lap-two",
+      "title": "进入第2圈",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 2,
+        "elapsed": 0.02,
+        "progress": 240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-lap-two.jpg"
+    },
+    {
+      "id": "lap-three",
+      "title": "进入第3圈",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 3,
+        "elapsed": 0.02,
+        "progress": 480,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-lap-three.jpg"
+    },
+    {
+      "id": "reverse-lap",
+      "title": "反向行驶不计圈",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 3.9999999999999907,
+        "progress": -240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-reverse-lap.jpg"
+    },
+    {
+      "id": "finished",
+      "title": "第3圈结束",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "finished",
+        "lap": 3,
+        "elapsed": 80.02,
+        "progress": 720,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "landscape-top-finished.jpg"
+    },
+    {
+      "id": "restart",
+      "title": "重开并清空本局",
+      "group": "race",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "landscape-top-restart.jpg"
+    },
+    {
+      "id": "ready",
+      "title": "准备开始",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "ready",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-first-ready.jpg"
+    },
+    {
+      "id": "idle",
+      "title": "赛道静止",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-idle.jpg"
+    },
+    {
+      "id": "accelerating",
+      "title": "踩油门加速",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4999999999999998,
+        "progress": 13,
+        "speed": 232.5809984129726,
+        "x": 558.0476846414164,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-accelerating.jpg"
+    },
+    {
+      "id": "coasting",
+      "title": "松油门滑行",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7999999999999999,
+        "progress": 9,
+        "speed": 151.15674829114513,
+        "x": 610.935714940032,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-coasting.jpg"
+    },
+    {
+      "id": "braking",
+      "title": "前进刹车",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 80.73788426659978,
+        "x": 709.3935526706905,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-braking.jpg"
+    },
+    {
+      "id": "reverse",
+      "title": "倒车",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": -4,
+        "speed": -92.76186634943983,
+        "x": 810.468248300261,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-reverse.jpg"
+    },
+    {
+      "id": "reverse-to-forward",
+      "title": "倒车后踩油门前进",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6999999999999998,
+        "progress": 0,
+        "speed": 61.118388329825294,
+        "x": 753.1842243926274,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-reverse-to-forward.jpg"
+    },
+    {
+      "id": "reverse-left",
+      "title": "倒车时向左打方向",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 810.9296366399203,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.2341944832163736,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-reverse-left.jpg"
+    },
+    {
+      "id": "reverse-right",
+      "title": "倒车时向右打方向",
+      "group": "motion",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 809.0703633600797,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.0489908239632126,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-reverse-right.jpg"
+    },
+    {
+      "id": "left",
+      "title": "向左转向",
+      "group": "input",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 812.9890853807784,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 2.982378831526897,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-left.jpg"
+    },
+    {
+      "id": "right",
+      "title": "向右转向",
+      "group": "input",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 807.0109146192216,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.3008064756526894,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-right.jpg"
+    },
+    {
+      "id": "opposed",
+      "title": "左右同时按住",
+      "group": "input",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.4312770354345,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-opposed.jpg"
+    },
+    {
+      "id": "both-pedals",
+      "title": "油门和刹车同时按住",
+      "group": "input",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 0,
+        "speed": 5.978860216703183,
+        "x": 748.2315190560744,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-both-pedals.jpg"
+    },
+    {
+      "id": "curb",
+      "title": "压路肩",
+      "group": "surface",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "curb",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 95.69539574730467,
+        "x": 748.0860920850539,
+        "y": 907,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "curb",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-curb.jpg"
+    },
+    {
+      "id": "runoff",
+      "title": "驶入缓冲区",
+      "group": "surface",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.5656115457763679
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 104.31603787029489,
+        "x": 641.9032512379306,
+        "y": 934.9530619598465,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0615003152634306,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-runoff.jpg"
+    },
+    {
+      "id": "edge",
+      "title": "接近落差边缘",
+      "group": "surface",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1005,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "edge",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-edge.jpg"
+    },
+    {
+      "id": "impact",
+      "title": "正向撞击反弹",
+      "group": "collision",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.8611111111111112,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.0372
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -37.199999999999996,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-impact.jpg"
+    },
+    {
+      "id": "reverse-impact",
+      "title": "倒车撞击反弹",
+      "group": "collision",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.65,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.024
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 24,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-reverse-impact.jpg"
+    },
+    {
+      "id": "low-contact",
+      "title": "低速接触分离",
+      "group": "collision",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.002296689497935312
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -2.296689497935312,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-low-contact.jpg"
+    },
+    {
+      "id": "fall-early",
+      "title": "掉落开始",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.181,
+          "dust": 0.08
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 69.43498861196858,
+        "x": 733.2643006874512,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-fall-early.jpg"
+    },
+    {
+      "id": "fall-late",
+      "title": "掉落渐暗",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 1.1809999999999998,
+          "dust": 0.08
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": 0,
+        "speed": 9.03558062531898,
+        "x": 705.617005508329,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-fall-late.jpg"
+    },
+    {
+      "id": "fall-paused",
+      "title": "掉落时暂停",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.28099999999999997,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": true
+      },
+      "screenshot": "portrait-first-fall-paused.jpg"
+    },
+    {
+      "id": "auto-recovery",
+      "title": "自动回赛道加5秒",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.02489542644088752
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 6.7999999999999945,
+        "progress": 0,
+        "speed": 0,
+        "x": 706.0629063924068,
+        "y": 809.0443734572697,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0907703865682516,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-auto-recovery.jpg"
+    },
+    {
+      "id": "manual-recovery",
+      "title": "手动回赛道加3秒",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 13,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-manual-recovery.jpg"
+    },
+    {
+      "id": "fall-manual",
+      "title": "掉落中手动恢复",
+      "group": "recovery",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 5.299999999999971,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-fall-manual.jpg"
+    },
+    {
+      "id": "paused",
+      "title": "暂停并冻结计时",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 3,
+        "speed": 83.94570207692074,
+        "x": 704.2909330418721,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-first-paused.jpg"
+    },
+    {
+      "id": "resumed",
+      "title": "暂停后继续",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7000000000000002,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-resumed.jpg"
+    },
+    {
+      "id": "lap-two",
+      "title": "进入第2圈",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 2,
+        "elapsed": 0.02,
+        "progress": 240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-lap-two.jpg"
+    },
+    {
+      "id": "lap-three",
+      "title": "进入第3圈",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 3,
+        "elapsed": 0.02,
+        "progress": 480,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-lap-three.jpg"
+    },
+    {
+      "id": "reverse-lap",
+      "title": "反向行驶不计圈",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 3.9999999999999907,
+        "progress": -240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-reverse-lap.jpg"
+    },
+    {
+      "id": "finished",
+      "title": "第3圈结束",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "finished",
+        "lap": 3,
+        "elapsed": 80.02,
+        "progress": 720,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-first-finished.jpg"
+    },
+    {
+      "id": "restart",
+      "title": "重开并清空本局",
+      "group": "race",
+      "view": "first",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-first-restart.jpg"
+    },
+    {
+      "id": "ready",
+      "title": "准备开始",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "ready",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-chase-ready.jpg"
+    },
+    {
+      "id": "idle",
+      "title": "赛道静止",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-idle.jpg"
+    },
+    {
+      "id": "accelerating",
+      "title": "踩油门加速",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4999999999999998,
+        "progress": 13,
+        "speed": 232.5809984129726,
+        "x": 558.0476846414164,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-accelerating.jpg"
+    },
+    {
+      "id": "coasting",
+      "title": "松油门滑行",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7999999999999999,
+        "progress": 9,
+        "speed": 151.15674829114513,
+        "x": 610.935714940032,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-coasting.jpg"
+    },
+    {
+      "id": "braking",
+      "title": "前进刹车",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 80.73788426659978,
+        "x": 709.3935526706905,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-braking.jpg"
+    },
+    {
+      "id": "reverse",
+      "title": "倒车",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": -4,
+        "speed": -92.76186634943983,
+        "x": 810.468248300261,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-reverse.jpg"
+    },
+    {
+      "id": "reverse-to-forward",
+      "title": "倒车后踩油门前进",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6999999999999998,
+        "progress": 0,
+        "speed": 61.118388329825294,
+        "x": 753.1842243926274,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-reverse-to-forward.jpg"
+    },
+    {
+      "id": "reverse-left",
+      "title": "倒车时向左打方向",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 810.9296366399203,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.2341944832163736,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-reverse-left.jpg"
+    },
+    {
+      "id": "reverse-right",
+      "title": "倒车时向右打方向",
+      "group": "motion",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 809.0703633600797,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.0489908239632126,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-reverse-right.jpg"
+    },
+    {
+      "id": "left",
+      "title": "向左转向",
+      "group": "input",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 812.9890853807784,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 2.982378831526897,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-left.jpg"
+    },
+    {
+      "id": "right",
+      "title": "向右转向",
+      "group": "input",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 807.0109146192216,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.3008064756526894,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-right.jpg"
+    },
+    {
+      "id": "opposed",
+      "title": "左右同时按住",
+      "group": "input",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.4312770354345,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-opposed.jpg"
+    },
+    {
+      "id": "both-pedals",
+      "title": "油门和刹车同时按住",
+      "group": "input",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 0,
+        "speed": 5.978860216703183,
+        "x": 748.2315190560744,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-both-pedals.jpg"
+    },
+    {
+      "id": "curb",
+      "title": "压路肩",
+      "group": "surface",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "curb",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 95.69539574730467,
+        "x": 748.0860920850539,
+        "y": 907,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "curb",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-curb.jpg"
+    },
+    {
+      "id": "runoff",
+      "title": "驶入缓冲区",
+      "group": "surface",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.5656115457763679
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 104.31603787029489,
+        "x": 641.9032512379306,
+        "y": 934.9530619598465,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0615003152634306,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-runoff.jpg"
+    },
+    {
+      "id": "edge",
+      "title": "接近落差边缘",
+      "group": "surface",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1005,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "edge",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-edge.jpg"
+    },
+    {
+      "id": "impact",
+      "title": "正向撞击反弹",
+      "group": "collision",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.8611111111111112,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.0372
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -37.199999999999996,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-impact.jpg"
+    },
+    {
+      "id": "reverse-impact",
+      "title": "倒车撞击反弹",
+      "group": "collision",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.65,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.024
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 24,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-reverse-impact.jpg"
+    },
+    {
+      "id": "low-contact",
+      "title": "低速接触分离",
+      "group": "collision",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.002296689497935312
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -2.296689497935312,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-low-contact.jpg"
+    },
+    {
+      "id": "fall-early",
+      "title": "掉落开始",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.181,
+          "dust": 0.08
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 69.43498861196858,
+        "x": 733.2643006874512,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-fall-early.jpg"
+    },
+    {
+      "id": "fall-late",
+      "title": "掉落渐暗",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 1.1809999999999998,
+          "dust": 0.08
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": 0,
+        "speed": 9.03558062531898,
+        "x": 705.617005508329,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-fall-late.jpg"
+    },
+    {
+      "id": "fall-paused",
+      "title": "掉落时暂停",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.28099999999999997,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": true
+      },
+      "screenshot": "portrait-chase-fall-paused.jpg"
+    },
+    {
+      "id": "auto-recovery",
+      "title": "自动回赛道加5秒",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.02489542644088752
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 6.7999999999999945,
+        "progress": 0,
+        "speed": 0,
+        "x": 706.0629063924068,
+        "y": 809.0443734572697,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0907703865682516,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-auto-recovery.jpg"
+    },
+    {
+      "id": "manual-recovery",
+      "title": "手动回赛道加3秒",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 13,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-manual-recovery.jpg"
+    },
+    {
+      "id": "fall-manual",
+      "title": "掉落中手动恢复",
+      "group": "recovery",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 5.299999999999971,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-fall-manual.jpg"
+    },
+    {
+      "id": "paused",
+      "title": "暂停并冻结计时",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 3,
+        "speed": 83.94570207692074,
+        "x": 704.2909330418721,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-chase-paused.jpg"
+    },
+    {
+      "id": "resumed",
+      "title": "暂停后继续",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7000000000000002,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-resumed.jpg"
+    },
+    {
+      "id": "lap-two",
+      "title": "进入第2圈",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 2,
+        "elapsed": 0.02,
+        "progress": 240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-lap-two.jpg"
+    },
+    {
+      "id": "lap-three",
+      "title": "进入第3圈",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 3,
+        "elapsed": 0.02,
+        "progress": 480,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-lap-three.jpg"
+    },
+    {
+      "id": "reverse-lap",
+      "title": "反向行驶不计圈",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 3.9999999999999907,
+        "progress": -240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-reverse-lap.jpg"
+    },
+    {
+      "id": "finished",
+      "title": "第3圈结束",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "finished",
+        "lap": 3,
+        "elapsed": 80.02,
+        "progress": 720,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-chase-finished.jpg"
+    },
+    {
+      "id": "restart",
+      "title": "重开并清空本局",
+      "group": "race",
+      "view": "chase",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-chase-restart.jpg"
+    },
+    {
+      "id": "ready",
+      "title": "准备开始",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "ready",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-top-ready.jpg"
+    },
+    {
+      "id": "idle",
+      "title": "赛道静止",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-idle.jpg"
+    },
+    {
+      "id": "accelerating",
+      "title": "踩油门加速",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4999999999999998,
+        "progress": 13,
+        "speed": 232.5809984129726,
+        "x": 558.0476846414164,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-accelerating.jpg"
+    },
+    {
+      "id": "coasting",
+      "title": "松油门滑行",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7999999999999999,
+        "progress": 9,
+        "speed": 151.15674829114513,
+        "x": 610.935714940032,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-coasting.jpg"
+    },
+    {
+      "id": "braking",
+      "title": "前进刹车",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 80.73788426659978,
+        "x": 709.3935526706905,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-braking.jpg"
+    },
+    {
+      "id": "reverse",
+      "title": "倒车",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": -4,
+        "speed": -92.76186634943983,
+        "x": 810.468248300261,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-reverse.jpg"
+    },
+    {
+      "id": "reverse-to-forward",
+      "title": "倒车后踩油门前进",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6999999999999998,
+        "progress": 0,
+        "speed": 61.118388329825294,
+        "x": 753.1842243926274,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-reverse-to-forward.jpg"
+    },
+    {
+      "id": "reverse-left",
+      "title": "倒车时向左打方向",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 810.9296366399203,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.2341944832163736,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-reverse-left.jpg"
+    },
+    {
+      "id": "reverse-right",
+      "title": "倒车时向右打方向",
+      "group": "motion",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": -2,
+        "speed": -72.02596180690126,
+        "x": 772.6747219631324,
+        "y": 809.0703633600797,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.0489908239632126,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-reverse-right.jpg"
+    },
+    {
+      "id": "left",
+      "title": "向左转向",
+      "group": "input",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 812.9890853807784,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 2.982378831526897,
+        "steer": -0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-left.jpg"
+    },
+    {
+      "id": "right",
+      "title": "向右转向",
+      "group": "input",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.5893875444356,
+        "y": 807.0109146192216,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.3008064756526894,
+        "steer": 0.9490425384143573,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-right.jpg"
+    },
+    {
+      "id": "opposed",
+      "title": "左右同时按住",
+      "group": "input",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 3,
+        "speed": 135.0486783879398,
+        "x": 707.4312770354345,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-opposed.jpg"
+    },
+    {
+      "id": "both-pedals",
+      "title": "油门和刹车同时按住",
+      "group": "input",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 0,
+        "speed": 5.978860216703183,
+        "x": 748.2315190560744,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-both-pedals.jpg"
+    },
+    {
+      "id": "curb",
+      "title": "压路肩",
+      "group": "surface",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "curb",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 95.69539574730467,
+        "x": 748.0860920850539,
+        "y": 907,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "curb",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-curb.jpg"
+    },
+    {
+      "id": "runoff",
+      "title": "驶入缓冲区",
+      "group": "surface",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.5656115457763679
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 104.31603787029489,
+        "x": 641.9032512379306,
+        "y": 934.9530619598465,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0615003152634306,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-runoff.jpg"
+    },
+    {
+      "id": "edge",
+      "title": "接近落差边缘",
+      "group": "surface",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "edge",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1005,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "edge",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-edge.jpg"
+    },
+    {
+      "id": "impact",
+      "title": "正向撞击反弹",
+      "group": "collision",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.8611111111111112,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.0372
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -37.199999999999996,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-impact.jpg"
+    },
+    {
+      "id": "reverse-impact",
+      "title": "倒车撞击反弹",
+      "group": "collision",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0.65,
+          "cooldown": 0.8,
+          "fall": 0,
+          "dust": 0.024
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 24,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "impact",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-reverse-impact.jpg"
+    },
+    {
+      "id": "low-contact",
+      "title": "低速接触分离",
+      "group": "collision",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "runoff",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.002296689497935312
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -2.296689497935312,
+        "x": 504.5,
+        "y": 550,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 0,
+        "steer": 0,
+        "feedback": "runoff",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-low-contact.jpg"
+    },
+    {
+      "id": "fall-early",
+      "title": "掉落开始",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.181,
+          "dust": 0.08
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 69.43498861196858,
+        "x": 733.2643006874512,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-fall-early.jpg"
+    },
+    {
+      "id": "fall-late",
+      "title": "掉落渐暗",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 1.1809999999999998,
+          "dust": 0.08
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1999999999999997,
+        "progress": 0,
+        "speed": 9.03558062531898,
+        "x": 705.617005508329,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-fall-late.jpg"
+    },
+    {
+      "id": "fall-paused",
+      "title": "掉落时暂停",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "fall",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0.28099999999999997,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 1030,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "fall",
+        "feedbackHidden": false,
+        "overlay": true
+      },
+      "screenshot": "portrait-top-fall-paused.jpg"
+    },
+    {
+      "id": "auto-recovery",
+      "title": "自动回赛道加5秒",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0.02489542644088752
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 6.7999999999999945,
+        "progress": 0,
+        "speed": 0,
+        "x": 706.0629063924068,
+        "y": 809.0443734572697,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.0907703865682516,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-auto-recovery.jpg"
+    },
+    {
+      "id": "manual-recovery",
+      "title": "手动回赛道加3秒",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 13,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-manual-recovery.jpg"
+    },
+    {
+      "id": "fall-manual",
+      "title": "掉落中手动恢复",
+      "group": "recovery",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 5.299999999999971,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": -3.134346133477995,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-fall-manual.jpg"
+    },
+    {
+      "id": "paused",
+      "title": "暂停并冻结计时",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "paused",
+        "lap": 1,
+        "elapsed": 0.5,
+        "progress": 3,
+        "speed": 83.94570207692074,
+        "x": 704.2909330418721,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-top-paused.jpg"
+    },
+    {
+      "id": "resumed",
+      "title": "暂停后继续",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7000000000000002,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-resumed.jpg"
+    },
+    {
+      "id": "lap-two",
+      "title": "进入第2圈",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 2,
+        "elapsed": 0.02,
+        "progress": 240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-lap-two.jpg"
+    },
+    {
+      "id": "lap-three",
+      "title": "进入第3圈",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 3,
+        "elapsed": 0.02,
+        "progress": 480,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-lap-three.jpg"
+    },
+    {
+      "id": "reverse-lap",
+      "title": "反向行驶不计圈",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 3.9999999999999907,
+        "progress": -240,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-reverse-lap.jpg"
+    },
+    {
+      "id": "finished",
+      "title": "第3圈结束",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "finished",
+        "lap": 3,
+        "elapsed": 80.02,
+        "progress": 720,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": true
+      },
+      "screenshot": "portrait-top-finished.jpg"
+    },
+    {
+      "id": "restart",
+      "title": "重开并清空本局",
+      "group": "race",
+      "view": "top",
+      "viewport": "portrait",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "portrait-top-restart.jpg"
+    },
+    {
+      "id": "keyboard-alias",
+      "title": "松开W，方向键上仍提供油门",
+      "group": "input",
+      "view": "first",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 3.9720977717329404,
+        "x": 749.9205580445654,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-keyboard-alias.jpg"
+    },
+    {
+      "id": "multi-touch",
+      "title": "双指同时转向和加速",
+      "group": "input",
+      "view": "chase",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.4000000000000001,
+        "progress": 1,
+        "speed": 74.39145821630083,
+        "x": 734.0517032461443,
+        "y": 810.6823612410282,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.057051432169665,
+        "steer": -0.9811080386818687,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-multitouch.jpg"
+    },
+    {
+      "id": "input-mask-0",
+      "title": "无驾驶输入",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-0.jpg"
+    },
+    {
+      "id": "input-mask-1",
+      "title": "left",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": -0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-1.jpg"
+    },
+    {
+      "id": "input-mask-2",
+      "title": "right",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-2.jpg"
+    },
+    {
+      "id": "input-mask-3",
+      "title": "left + right",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 0,
+        "x": 750,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-3.jpg"
+    },
+    {
+      "id": "input-mask-4",
+      "title": "gas",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 3.9720977717329404,
+        "x": 749.9205580445654,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-4.jpg"
+    },
+    {
+      "id": "input-mask-5",
+      "title": "left + gas",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 3.9720977717329404,
+        "x": 749.9205580448993,
+        "y": 810.0000072844169,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.1415009587555045,
+        "steer": -0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-5.jpg"
+    },
+    {
+      "id": "input-mask-6",
+      "title": "right + gas",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 3.9720977717329404,
+        "x": 749.9205580448993,
+        "y": 809.9999927155831,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.1416843484240817,
+        "steer": 0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-6.jpg"
+    },
+    {
+      "id": "input-mask-7",
+      "title": "left + right + gas",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 3.9720977717329404,
+        "x": 749.9205580445654,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": true,
+          "brake": false
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-7.jpg"
+    },
+    {
+      "id": "input-mask-8",
+      "title": "brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -1.8867464415731467,
+        "x": 750.0377349288315,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-8.jpg"
+    },
+    {
+      "id": "input-mask-9",
+      "title": "left + brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -1.8867464415731467,
+        "x": 750.0377349287954,
+        "y": 810.0000016488042,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.1416363479663767,
+        "steer": -0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-9.jpg"
+    },
+    {
+      "id": "input-mask-10",
+      "title": "right + brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -1.8867464415731467,
+        "x": 750.0377349287954,
+        "y": 809.9999983511958,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.1415489592132095,
+        "steer": 0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-10.jpg"
+    },
+    {
+      "id": "input-mask-11",
+      "title": "left + right + brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": -1.8867464415731467,
+        "x": 750.0377349288315,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": false,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-11.jpg"
+    },
+    {
+      "id": "input-mask-12",
+      "title": "gas + brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 2.0853513301597935,
+        "x": 749.9582929733969,
+        "y": 810,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-12.jpg"
+    },
+    {
+      "id": "input-mask-13",
+      "title": "left + gas + brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 2.0853513301597935,
+        "x": 749.9582929734454,
+        "y": 810.0000020135767,
+        "input": {
+          "left": true,
+          "right": false,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.1415443745139306,
+        "steer": -0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-13.jpg"
+    },
+    {
+      "id": "input-mask-14",
+      "title": "right + gas + brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 2.0853513301597935,
+        "x": 749.9582929734454,
+        "y": 809.9999979864233,
+        "input": {
+          "left": false,
+          "right": true,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.1416409326656556,
+        "steer": 0.18,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-14.jpg"
+    },
+    {
+      "id": "input-mask-15",
+      "title": "left + right + gas + brake",
+      "group": "input",
+      "view": "top",
+      "viewport": "landscape",
+      "passed": true,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "top",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 2.0853513301597935,
+        "x": 749.9582929733969,
+        "y": 810,
+        "input": {
+          "left": true,
+          "right": true,
+          "gas": true,
+          "brake": true
+        },
+        "angle": 3.141592653589793,
+        "steer": 0,
+        "feedback": "road",
+        "feedbackHidden": true,
+        "overlay": false
+      },
+      "screenshot": "input-mask-15.jpg"
+    }
+  ],
+  "checks": [
+    {
+      "id": "landscape/first/no-browser-errors",
+      "passed": true
+    },
+    {
+      "id": "landscape/chase/no-browser-errors",
+      "passed": true
+    },
+    {
+      "id": "landscape/top/no-browser-errors",
+      "passed": true
+    },
+    {
+      "id": "portrait/first/no-browser-errors",
+      "passed": true
+    },
+    {
+      "id": "portrait/chase/no-browser-errors",
+      "passed": true
+    },
+    {
+      "id": "portrait/top/no-browser-errors",
+      "passed": true
+    },
+    {
+      "id": "UI start button enters running",
+      "passed": true
+    },
+    {
+      "id": "keyboard aliases retain gas until final release",
+      "passed": true
+    },
+    {
+      "id": "keyboard and pointer sources remain independent",
+      "passed": true
+    },
+    {
+      "id": "two touches on same pedal retain the remaining touch",
+      "passed": true
+    },
+    {
+      "id": "simultaneous steering and throttle, then touch cancellation",
+      "passed": true
+    },
+    {
+      "id": "all 16 keyboard action combinations release cleanly",
+      "passed": true
+    },
+    {
+      "id": "pause blocks fresh and repeated driving input",
+      "passed": true
+    },
+    {
+      "id": "opposing steering cancels, releasing one retains the other",
+      "passed": true
+    },
+    {
+      "id": "blur and hidden document pause and clear controls",
+      "passed": true
+    },
+    {
+      "id": "camera buttons preserve active race, pose and hazard",
+      "passed": true
+    },
+    {
+      "id": "V cycles cameras and repeated V does not double-toggle",
+      "passed": true
+    },
+    {
+      "id": "hazard priority and safe-road return clear feedback",
+      "passed": true
+    },
+    {
+      "id": "impact ends and cooldown prevents a duplicate impulse",
+      "passed": true
+    },
+    {
+      "id": "manual recovery button and R add only one penalty each",
+      "passed": true
+    },
+    {
+      "id": "restart button clears all race and hazard state",
+      "passed": true
+    },
+    {
+      "id": "paused and finished races restart; falling input stays neutral",
+      "passed": true
+    },
+    {
+      "id": "three forward laps finish and freeze further updates",
+      "passed": true
+    },
+    {
+      "id": "best score and camera survive reload; replay clears current race",
+      "passed": true
+    },
+    {
+      "id": "chase rear deck is visible over road paint at all 240 headings",
+      "passed": true
+    },
+    {
+      "id": "falling chase camera keeps the descending car in frame",
+      "passed": true
+    },
+    {
+      "id": "surface thresholds and returns use the intended boundaries",
+      "passed": true
+    },
+    {
+      "id": "buildings still occlude the chase car",
+      "passed": true
+    },
+    {
+      "id": "invalid saved camera falls back and slower finishes keep best time",
+      "passed": true
+    }
+  ]
+}

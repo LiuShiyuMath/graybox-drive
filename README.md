@@ -42,3 +42,17 @@ node tests/drive.cjs
 main 每次更新会先运行验证，通过后自动发布 GitHub Pages。部署内容只有 dist。
 
 [浏览器验收记录](verification/browser-check.md)包含真实鼠标和键盘驾驶截图。手机真机操作和不同浏览器的性能仍需持续验证。成绩和视角选择只存储在玩家自己的设备上，不会上传。
+
+## 状态机与截图验收
+
+[状态清单与转换规则](verification/state-machines.md)列出比赛、输入、运动、路面、碰撞、恢复、视角、反馈和本地保存九组状态。
+
+```sh
+npm install --no-save playwright@1.62.1
+npx playwright install chromium
+node tests/browser-states.cjs
+```
+
+浏览器测试生成210张横竖屏场景截图及29项转换和像素检查。测试设置场景起点，再运行真实游戏逻辑与 Canvas；键盘、指针和多点触控另有事件检查。它不等同于手机真机验收。CI 执行同一套检查，通过后才发布。
+
+截图与数值保存在 `verification/state-machines/`。安装 Pillow 后，运行 `python3 tests/build-state-report.py` 可生成自带全部图片、可筛选与放大的 HTML 报告。
