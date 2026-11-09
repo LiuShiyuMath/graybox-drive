@@ -27,7 +27,9 @@
 
 ## 项目进度
 
-[公开 GitHub Projects 看板](https://github.com/users/LiuShiyuMath/projects/1) · [问题与建议](https://github.com/LiuShiyuMath/graybox-drive/issues)
+[ChatGPT 项目 Page](https://chatgpt.com/space/page_b7e95e0e62948191a47974d9feeddc87) · [开发任务与验收清单](docs/ROADMAP.md)
+
+本项目只使用 `main` 分支直接提交。需求、任务和结论写在 ChatGPT Page 与项目文档；不再创建 GitHub PR 或 Issue。
 
 ## 开发与验证
 
