@@ -5,7 +5,7 @@ const nodes=new Map(),storage=new Map();
 function node(s){if(!nodes.has(s))nodes.set(s,{textContent:'',innerHTML:'',hidden:false,style:{},dataset:{},classList:{toggle(){},remove(){}},setAttribute(){},addEventListener(){},getBoundingClientRect:()=>({width:844,height:390}),getContext:()=>({setTransform(){}})});return nodes.get(s)}
 const env={document:{querySelector:node,querySelectorAll:()=>[],addEventListener(){},body:{classList:{toggle(){}}}},window:{addEventListener(){}},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v))},requestAnimationFrame(){},setTimeout(){},clearTimeout(){},devicePixelRatio:1};
 vm.createContext(env);
-for(const file of ['maps.js','game.js','perspective.js'])vm.runInContext(fs.readFileSync('dist/'+file,'utf8'),env);
+for(const file of ['maps.js','course-pack.js','course-world.js','game.js','perspective.js'])vm.runInContext(fs.readFileSync('dist/'+file,'utf8'),env);
 const run=s=>vm.runInContext(s,env);
 const sources=[['key:KeyW','gas'],['key:ArrowUp','gas'],['pointer:1','gas'],['pointer:2','gas'],['key:KeyA','left'],['key:ArrowLeft','left'],['key:KeyS','brake'],['key:KeyD','right']];
 let transitions=0;

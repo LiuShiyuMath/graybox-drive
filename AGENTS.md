@@ -29,3 +29,10 @@ Mobile browser driving game. Runtime is standalone HTML/CSS/JavaScript in dist. 
 - Use `.agents/skills/verify/SKILL.md` before every commit and after deployment. Run the existing checks plus state-machine runtime contracts, TLA+ TLC and real Chromium E2E with `.venv/bin/python tests/verify.py`; fix and rerun until PASS. Preserve exact failures rather than treating skipped checks as passed.
 - Update `docs/STATE-MACHINES.md` and `specs/` when state transitions change. TLA+ finite model checks supplement implementation and visual checks; they do not prove continuous physics or Canvas correctness.
 - In ChatGPT Work, install Python Playwright and Chromium when missing. Use the pinned versions and commands in `/verify`; actually launch the browser, exercise inputs and inspect screenshots. If the host prevents Chromium execution, retain the error and verify on an authorized executable environment/CI; report host-specific boundaries honestly.
+
+## Multiple-map verification
+
+- Keep Map 02's open-route checkpoints, physical elevation, mountain wall and cliff recovery intact. The original circuit keeps its established race behavior.
+- New courses use sampled road widths and material IDs for both road geometry and physics. Cross roads and shortcuts must share their physical and rendered heights.
+- Execute all course, mountain, state-contract, TLA+ and real-browser checks through `tests/verify.py`. For map changes inspect screenshots from every camera, narrow portrait and landscape, plus the WebGL-disabled Canvas fallback.
+- Mark physical Android/iPhone tests and photorealistic art separately from the executable graybox acceptance. Never infer either from headless Chromium or unit tests.

@@ -1,0 +1,160 @@
+{
+  "createdAt": "2026-11-09T11:08:23.368610+00:00",
+  "passed": true,
+  "revision": "b9c6a2f99812d31ba2889bf0d5ab3d31761d7545",
+  "worktreeDirty": true,
+  "sourceSha256": {
+    ".agents/skills/verify/SKILL.md": "e26a6ba8204f557cab96ab3d7215dda3bf99f5025d03dba18f35f5240f61a207",
+    ".github/workflows/pages.yml": "109103d9b4e9342603bec51464fd9a57a049fd8fe98b137f163f79fb53364893",
+    "dist/course-pack.js": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87",
+    "dist/course-world.js": "bf4075408a4025a4cb81a102ee0109c91a0c62a53b874ad62ec499ff807eca84",
+    "dist/game.js": "38d061dada9d5ad2af49dd210085da9624490ad5f2c393f7a776b70803d563f0",
+    "dist/index.html": "64f3bbcf38fb4bfcbe21f1824e0ec48264067a21a34e6257c8c72e17ff2a8d4e",
+    "dist/maps.js": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
+    "dist/perspective.js": "baf473e9a3490f260cac4307af63d850793b6f8ae08d66980b52c457a13e523b",
+    "dist/style.css": "b4a9a9caab448265e9d0e8613e8fe00ac6cb6c5cc9f9893dcbab95e3a0a3e257",
+    "package-lock.json": "d7fb1ffb112245f2b007ad0bccf71af1bd1eebe90e8aa1b6305d8af7a8da9536",
+    "package.json": "84ce6881d1e1b2cc6b1ed49f98557cd1a472d88835205d442c3a537a479d4600",
+    "specs/Courses.cfg": "c0dbeb5ceec01ba22994efdae749893b451171ea4bbf067b7f0337e145926a36",
+    "specs/Courses.tla": "69e08b63d038f70b54ae4ebbc20c681281308ef79252116a861b4c49b4585b34",
+    "specs/Hazards.cfg": "f05f54257ffef63c55e07aea93028ade3686c2519238039d61278b895e03d7e0",
+    "specs/Hazards.tla": "fe7a8448fe550a17fee4691f320f158c30d955bef068008372aac9046f951e35",
+    "specs/Input.cfg": "fa96765ce7e859bfd48861ab923c4697944b90bdf6d2c807d2dfaade79753071",
+    "specs/Input.tla": "6d145cbff97c3da7e32d1a01b96083f042c06850a32dc0eb58679b3e444c4446",
+    "specs/Mountain.cfg": "e53210cfcb4588cc2949f19d2dbcdb83c28dc4f03808961f7f0581ce6efed8e1",
+    "specs/Mountain.tla": "dfe67f114f8841eb35e758f7c68b8ca44d87891f73681013bf9269e6bcf6efe6",
+    "specs/Persistence.cfg": "90291c3002321e34d3e0936ce5ec36c9a683c74f90479c92a4436bc86e48f11a",
+    "specs/Persistence.tla": "7fd52d50041a2f8d7e4636e326d67e31eeddcfc9241264777aeb8679899fb2eb",
+    "specs/Race.cfg": "78acd830ab7245abd95ab35b7fb55f66af20d4fcc492dc38f0d1b057d6c97561",
+    "specs/Race.tla": "bb78c1d231bfdc4f114d5b90b5998c7335669d5f7d80cf8544749f7f69ace096",
+    "tests/browser-courses.cjs": "af8863d641d0ffbe9328b73e17fc2612004c65cf056a929933d06983d148952f",
+    "tests/browser-effects.cjs": "8d9dd9426644212805367c88c78cb4388f971777470cd3850c16b263419ef6c2",
+    "tests/browser-mountain.cjs": "06ff879c941a295e99ab61de650fc48905c965da28edeada5a3262cf9037ca26",
+    "tests/browser-states.cjs": "75148b8584cfcd31aee12334f50c3b8626e40f0b1bf7346ab85133d65e10c2c5",
+    "tests/browser_e2e.py": "16761e1549ca403b889cf37f25c6d64ef80b0081bd8e8647bdd0593d65938ba7",
+    "tests/build-state-report.py": "4725864bd47a37722df3b14e71ac1429442eb2dc54a6b17275a8279251c9874b",
+    "tests/course-pack.cjs": "b8ed0acb1d8d93913e2a70b769541d057669e752b5847eb23722da16a99b773a",
+    "tests/courses.cjs": "9bd82fb569c9ee7520ae20ce34a2c0b1b5b69679bb26afa0bbb13caf410b37f9",
+    "tests/drive.cjs": "2f350053741fbabb8c372b6e90f2c8face9b9ed616eb97e90cd5ff2628ebc796",
+    "tests/mountain.cjs": "4863fd9bf79341eee9040d627b7f298ca4af192d0be352a6831cc1f7b4554a72",
+    "tests/requirements-verify.txt": "3ac03b3e052baefd9bf6c5a9f06765194c63c546316e2b54bc30b38b3dedc2ad",
+    "tests/state-contract.cjs": "da42e30c29e65fa79ecd8b76e696b511b57ca01871ff06c9b151b25c33a58ba9",
+    "tests/verify.py": "396423630f1b756f84f9e51bfa3051505dcf334f8a19e90479f3c3d5dd2efde8",
+    "tests/verify_tla.py": "66a2d6d14de71707a46c3efefae6e1c5fb75eccc51ab85234004aeec3bbf05b5"
+  },
+  "screenshots": 381,
+  "matrixChecks": 30,
+  "mountainChecks": 51,
+  "courseChecks": 53,
+  "videos": 6,
+  "vehicleRegions": 486,
+  "scope": "Precommit candidate built on revision; source hashes identify the tested dirty worktree. Work host browser navigation is blocked. Complete Chromium verification passed on the authorized executable host.",
+  "models": [
+    {
+      "model": "Race",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 3705,
+      "distinct": 532
+    },
+    {
+      "model": "Input",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 5170,
+      "distinct": 261
+    },
+    {
+      "model": "Hazards",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 35030,
+      "distinct": 2675
+    },
+    {
+      "model": "Persistence",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 385,
+      "distinct": 48
+    },
+    {
+      "model": "Mountain",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 4058,
+      "distinct": 855
+    },
+    {
+      "model": "Courses",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 15633,
+      "distinct": 1705
+    },
+    {
+      "model": "Mountain-regression-SummitRequiresCheckpoints",
+      "passed": true,
+      "expectedViolation": "SummitRequiresCheckpoints",
+      "exitCode": 12,
+      "generated": 8,
+      "distinct": 6
+    },
+    {
+      "model": "Courses-regression-FinishedHasCheckpoints",
+      "passed": true,
+      "expectedViolation": "FinishedHasCheckpoints",
+      "exitCode": 12,
+      "generated": 6762,
+      "distinct": 930
+    },
+    {
+      "model": "Courses-regression-EveryLapRequiresCheckpoints",
+      "passed": true,
+      "expectedViolation": "EveryLapRequiresCheckpoints",
+      "exitCode": 13,
+      "generated": 11,
+      "distinct": 8
+    },
+    {
+      "model": "Input-regression-ActiveMatchesHeld",
+      "passed": true,
+      "expectedViolation": "ActiveMatchesHeld",
+      "exitCode": 12,
+      "generated": 64,
+      "distinct": 26
+    },
+    {
+      "model": "Hazards-regression-ExactRecoveryPenalty",
+      "passed": true,
+      "expectedViolation": "ExactRecoveryPenalty",
+      "exitCode": 12,
+      "generated": 954,
+      "distinct": 131
+    },
+    {
+      "model": "Race-regression-ReverseCannotAddLap",
+      "passed": true,
+      "expectedViolation": "ReverseCannotAddLap",
+      "exitCode": 13,
+      "generated": 11,
+      "distinct": 10
+    },
+    {
+      "model": "Hazards-regression-CooldownSuppressesFeedback",
+      "passed": true,
+      "expectedViolation": "CooldownSuppressesFeedback",
+      "exitCode": 13,
+      "generated": 1580,
+      "distinct": 227
+    }
+  ],
+  "tlcVersion": "1.7.4",
+  "jarSha256": "936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88"
+}

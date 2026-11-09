@@ -25,12 +25,14 @@ def main():
     if hashlib.sha256(JAR.read_bytes()).hexdigest() != SHA256:
         raise RuntimeError('TLC jar checksum mismatch; do not execute it')
     rows = []
-    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain']]
-    cases += [('Input', ('BuggyRelease = FALSE', 'BuggyRelease = TRUE'), 'ActiveMatchesHeld'),
+    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain', 'Courses']]
+    cases += [('Mountain', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'SummitRequiresCheckpoints'),
+              ('Courses', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'FinishedHasCheckpoints'),
+              ('Courses', ('BuggyCheckpoint = FALSE', 'BuggyCheckpoint = TRUE'), 'EveryLapRequiresCheckpoints'),
+              ('Input', ('BuggyRelease = FALSE', 'BuggyRelease = TRUE'), 'ActiveMatchesHeld'),
               ('Hazards', ('AutoPenalty = 5', 'AutoPenalty = 10'), 'ExactRecoveryPenalty'),
               ('Race', ('BuggyReverse = FALSE', 'BuggyReverse = TRUE'), 'ReverseCannotAddLap'),
-              ('Hazards', ('BuggyCooldown = FALSE', 'BuggyCooldown = TRUE'), 'CooldownSuppressesFeedback'),
-              ('Mountain', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'SummitRequiresCheckpoints')]
+              ('Hazards', ('BuggyCooldown = FALSE', 'BuggyCooldown = TRUE'), 'CooldownSuppressesFeedback')]
     for name, mutation, expected in cases:
         label = name if not mutation else name + '-regression-' + expected
         with tempfile.TemporaryDirectory(prefix='graybox-tlc-') as temp:

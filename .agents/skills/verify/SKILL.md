@@ -45,10 +45,15 @@ From the project root:
 ```
 
 This runs syntax checks, existing race/physics tests, 4,096 implementation input
-transitions plus model contracts, five exhaustive TLC models, five expected
+transitions plus model contracts, six exhaustive TLC models, seven expected
 counterexamples, the existing 210-screenshot state matrix, the 42-scene mountain matrix plus Canvas fallback, and Python
 Playwright E2E with normal animation, real keyboard input, both orientations,
-both maps, all cameras and 16 screenshots. Do not report PASS from a subset. A failed TLC
+all five maps, all cameras and 40 screenshots. Also run the cross-map browser
+matrix at 844×390, 390×844 and 320×740, including independent touch releases,
+signals, traffic, jumps, natural landing, collection and Canvas fallback. Compare
+every deployed dist asset with the local SHA-256. Require the 486 vehicle-region
+checks and six real-animation impact/fall/recovery recordings from
+`tests/browser-effects.cjs`; inspect the videos and affected screenshots. Do not report PASS from a subset. A failed TLC
 process is a failure unless the mutation check detects its named invariant.
 Review the run-specific evidence linked by `verification/latest/results.json`;
 a prior results file is not proof

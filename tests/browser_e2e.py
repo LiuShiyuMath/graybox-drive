@@ -20,7 +20,7 @@ def main():
             options['executable_path'] = os.environ['DRIVE_CHROMIUM_PATH']
         browser = p.chromium.launch(**options)
         try:
-            for map_id in ['circuit', 'mountain']:
+            for map_id in ['circuit', 'mountain', 'proving', 'city', 'offroad']:
                 for width, height in [(844, 390), (390, 844)]:
                     context = browser.new_context(viewport={'width': width, 'height': height}, has_touch=True)
                     page = context.new_page()
@@ -28,7 +28,7 @@ def main():
                     page.on('console', lambda message: errors.append(message.text) if message.type == 'error' else None)
                     page.goto(URL.split('?')[0] + '?map=' + map_id)
                     if URL.startswith(('http://', 'https://')):
-                        for asset in ['index.html', 'maps.js', 'game.js', 'perspective.js', 'style.css']:
+                        for asset in [p.name for p in (ROOT / 'dist').iterdir() if p.is_file()]:
                             local = ROOT / 'dist' / asset
                             if not local.exists():
                                 continue
@@ -76,7 +76,7 @@ def main():
                       'animation': 'normal requestAnimationFrame; no clock stubs',
                       'checks': checks, 'consoleErrors': errors, 'physicalPhone': False}
             (OUT / 'results.json').write_text(json.dumps(result, indent=2) + '\n')
-            print(f'PASS: Python Playwright real-animation E2E, {len(checks)} checks, 16 screenshots')
+            print(f'PASS: Python Playwright real-animation E2E, {len(checks)} checks, 40 screenshots')
         finally:
             browser.close()
 

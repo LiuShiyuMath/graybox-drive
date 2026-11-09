@@ -87,3 +87,24 @@ Mountain Road 另含 42 个横竖屏场景、全线 240 个车后视角像素检
 每次运行的源码版本、文件哈希、日志、TLC 状态数及截图都保存在 `verification/latest/` 的独立运行目录。GitHub Actions 先运行完整 `/verify`，通过后部署，再对正式站执行同一套验证并核对实际部署源码；两轮证据均作为 Actions artifact 保留。TLA+ 检查有限状态抽象，不代替碰撞几何、Canvas 画面和手机真机验收。
 
 完整验证现已覆盖两张地图，运行 4,096 次输入来源转换、5 个 TLA+ 模型与 5 个指定反例，保留 269 张真实浏览器截图。山路的检查点状态、坡道物理和三视角均属于发布前及发布后的检查范围。
+
+## Five driving environments
+
+| Map | Play | Challenge |
+| --- | --- | --- |
+| 01 Concrete Loop | [?map=circuit](https://liushiyumath.github.io/graybox-drive/?map=circuit) | Original three-lap circuit |
+| 02 Mountain Road | [?map=mountain](https://liushiyumath.github.io/graybox-drive/?map=mountain) | S bends, 102 m climb, five checkpoints and cliffs |
+| 03 Proving Ground | [?map=proving](https://liushiyumath.github.io/graybox-drive/?map=proving) | Slopes, S bends, guardrails, asphalt/grass/mud |
+| 04 City Blocks | [?map=city](https://liushiyumath.github.io/graybox-drive/?map=city) | Signal-controlled intersections and crossing vehicles |
+| 05 Wild Trail | [?map=offroad](https://liushiyumath.github.io/graybox-drive/?map=offroad) | Gravel/mud, rocks, ramps, six markers and a shortcut |
+
+Use the map menu to switch courses. Switching resets the current run; best results
+remain separate. Stop before the city's white line when the signal is red or amber;
+crossing adds three seconds. The new closed courses require five ordered checkpoints
+each lap and a forward finish-line crossing. Offroad markers are an optional
+exploration challenge, not a prerequisite to finish.
+
+Road geometry, friction, collisions, elevation and route HUD share course data.
+The mountain and new maps use depth-buffered rendering where WebGL is available,
+with a Canvas 2D fallback. Mobile viewport tests do not establish physical-phone
+performance. This is a playable graybox; photorealistic art remains a separate upgrade.

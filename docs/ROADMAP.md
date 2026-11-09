@@ -19,25 +19,25 @@
 ## State-machine verification
 
 - [x] Map all nine state groups to formal and runtime checks in `docs/STATE-MACHINES.md`.
-- [x] Add four finite TLA+ models and four named regression counterexamples; all checked with TLC.
+- [x] Add six finite TLA+ models and seven named regression counterexamples; all checked with TLC.
 - [x] Add the real runtime's 4,096 input-source transition checks and Python Playwright normal-animation E2E.
 - [x] Add project `.agents/skills/verify/SKILL.md`, Work dependency installation, isolated evidence with source hashes, and full local/deployed CI gates.
 - [x] Record full `/verify` evidence in `verification/formal-verification.md`; the project Page links the exact commit CI/deployment result.
 
 ## P0 — Stability (first)
 
-- [ ] Reproduce and fix chase-view car/road overlap and clipping in the live renderer, test obstacles and occlusion, near-plane projection, car height and terrain alignment.
-- [ ] Extend tests beyond one chase-deck pixel to a vehicle silhouette/region, across 240 headings, bends, start location, obstacles and falling.
-- [ ] Capture three cameras × landscape and portrait for each relevant state, plus impact and fall recordings; inspect screenshots in a real Chromium browser and document browser console errors.
-- [ ] Test state transitions: ready, running, paused, resumed, finished; driving, reverse, steering, acceleration and brake; curb, runoff, edge, fall and recovery; collision cooldown, multi-touch, background pause, view persistence and lap tracking.
-- [ ] Execute `node --check dist/game.js`, `node --check dist/perspective.js`, `node tests/drive.cjs`, `node tests/browser-states.cjs` and retain results. This migration alone is not a new PASS.
+- [x] Reproduce and fix chase-view car/road overlap and clipping in the live renderer, test obstacles and occlusion, near-plane projection, car height and terrain alignment.
+- [x] Extend tests beyond one chase-deck pixel to a vehicle silhouette/region, across 240 headings, bends, start location, obstacles and falling.
+- [x] Capture three cameras × landscape and portrait for each relevant state, plus impact and fall recordings; inspect screenshots in a real Chromium browser and document browser console errors.
+- [x] Test state transitions: ready, running, paused, resumed, finished; driving, reverse, steering, acceleration and brake; curb, runoff, edge, fall and recovery; collision cooldown, multi-touch, background pause, view persistence and lap tracking.
+- [x] Execute `node --check dist/game.js`, `node --check dist/perspective.js`, `node tests/drive.cjs`, `node tests/browser-states.cjs` and retain results. This migration alone is not a new PASS.
 - [ ] Test Android and iPhone **physical devices** in portrait and landscape: simultaneous steering+throttle, background pause, all cameras, collision/fall feedback; record OS, browser and performance. From [Issue #2](https://github.com/LiuShiyuMath/graybox-drive/issues/2).
 
 ## P1 — Shared map data and driving test ground
 
-- [ ] Define a reusable `MapDefinition`: spline control points, sampled centerline, per-segment width/elevation/bank/material, collision zones, spawn/checkpoints and objects.
+- [x] Define a reusable `MapDefinition`: spline control points, sampled centerline, per-segment width/elevation/bank/material, collision zones, spawn/checkpoints and objects.
 - [x] Drive visible road Mesh, shoulder geometry, nearest-road calculations, physical collision, edge conditions, respawn and minimap from the same map data. Map 02 uses the same sampled centreline and elevation for these systems; see [verification](../verification/mountain-road.md).
-- [ ] Create test ground with straights, S curves, slopes, guardrails and asphalt/grass/mud friction.
+- [x] Create Map 03 Proving Ground with straights, S curves, slopes, guardrails and asphalt/grass/mud friction; road bank changes mesh and physical ground height.
 
 ## P2 — Mountain and circuit
 
@@ -46,13 +46,14 @@
 
 ## P3 — City and off-road
 
-- [ ] City intersections, traffic lights, AI traffic and routing.
-- [ ] Off-road rocks/mud/jumps, wheel slip/drifting, collectibles, shortcuts and exploration goals.
+- [x] Map 04 City Blocks: connected cross streets, visible stop lines, timed traffic lights, crossing AI vehicles, physical collisions and once-per-crossing red/amber penalties.
+- [x] Map 05 Wild Trail: rocks, gravel/mud/grass friction and slip, ramp flight and natural landing, six optional markers and a marked 3D shortcut. Five ordered checkpoints plus a valid forward finish-line crossing complete each lap; legal terrain detours do not erase a lap.
 
 ## P4 — Visuals and performance
 
-- [ ] Realistic visual treatment of roads, materials, lighting and environment.
-- [ ] Preserve smooth mobile rendering, clear feedback and practical touchscreen controls.
+- [ ] Photorealistic visual treatment remains a separate art upgrade. The delivered playable graybox has depth-tested roads, terrain, building faces, fog and a Canvas fallback; these are not a photorealism claim.
+- [x] Verify clear feedback and reachable simultaneous controls in Chromium at 844×390, 390×844 and 320×740 across all five maps.
+- [ ] Measure rendering performance and touch behavior on physical Android/iPhone devices. Headless viewport results do not establish real-device smoothness.
 
 ## Historical reference / migration
 
@@ -77,3 +78,19 @@ A code change passes only when the changed behavior was actually tested and the 
 - [x] Local verification: 42 mountain scene captures, 51 checks, 240 chase poses, continuous physics summit drive without teleporting.
 After publishing main, the exact commit’s Actions run and the project Page retain the deployment and public-browser acceptance evidence.
 - [ ] Physical Android/iPhone testing remains outstanding.
+
+## Five-map cloud acceptance
+
+The integration retains the separate Map 02 and formal-verification commits.
+`tests/verify.py` runs the complete original checks, both map matrices, six TLA+
+models with seven named regression traces, continuous course drives, cross-map
+input/persistence checks, two orientations of Python normal-animation E2E,
+486 vehicle-region comparisons and six actual collision/fall/recovery recordings.
+It checks every deployed dist asset hash and repeats the same command after deployment.
+See [integration acceptance](../verification/integration-check.md),
+[three-camera views](../verification/five-map-views.jpg) and the exact commit's
+[Actions evidence](https://github.com/LiuShiyuMath/graybox-drive/actions).
+
+The cloud acceptance goal is a complete playable five-map graybox with all executable
+checks green. Physical-phone verification and photorealistic art remain explicitly
+open and must not be silently marked complete.

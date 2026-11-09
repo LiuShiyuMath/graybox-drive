@@ -82,4 +82,51 @@ Official setup references: [TLA+ tools](https://github.com/tlaplus/tlaplus/blob/
 
 Mountain geometry uses road/curb/edge/fall thresholds 57/65/77/96 world units (10 units = 1 metre). A continuous mountain-side wall constrains the negative side; the positive cliff side can fall. Physical grades, centreline distance, continuous driving and rendering remain runtime obligations, not TLA claims.
 
-`tests/mountain.cjs` covers these transitions, distinct best storage and a continuous physics-only summit drive. `tests/browser-mountain.cjs` captures 42 scenarios across three cameras and two orientations, checks all 240 chase positions and real keyboard/touch input, then checks Canvas fallback. `tests/browser_e2e.py` uses normal animation for both maps and retains 16 screenshots. The full verification command retains 269 images, both matrices, five models and five counterexamples.
+`tests/mountain.cjs` covers these transitions, distinct best storage and a continuous physics-only summit drive. `tests/browser-mountain.cjs` captures 42 scenarios across three cameras and two orientations, checks all 240 chase positions and real keyboard/touch input, then checks Canvas fallback. `tests/browser_e2e.py` uses normal animation for every map. The full command retains the original mountain and circuit matrices alongside the added course matrix, six models and seven named counterexamples.
+
+## Shared map and course states
+
+`dist/maps.js` owns the original circuit and Mountain Road. `dist/course-pack.js`
+defines Proving Ground, City Blocks and Wild Trail; its sampled centerline, widths,
+material IDs, checkpoints, routes and world objects drive both rendering and physics.
+`dist/course-world.js` owns ordered checkpoint state, traffic, tokens and jumping.
+
+| State group | Contract | Evidence |
+| --- | --- | --- |
+| Course lifecycle | Switching maps clears the run, input, jump and collected set; each map has its own best key | Courses.tla, courses.cjs, browser-courses.cjs |
+| Ordered checkpoints | Five checkpoints each lap, three forward laps; reverse/teleport cannot finish | Courses abstracts two checkpoints per lap; courses.cjs drives all actual checkpoints and continuous physics |
+| Traffic | Main-road green/amber/red; AI cross traffic waits; player red/amber crossing adds 3 seconds once; paused simulation freezes vehicles | Courses cross-line abstraction; runtime contracts and browser screenshots |
+| Offroad jump | grounded → rising → falling → landed; pause freezes, recovery and map switch clear flight | Courses air states; runtime and browser jump cases |
+| Exploration | Set membership makes collecting a marker idempotent; marked shortcut is drivable with grass friction | Courses token set, courses.cjs |
+
+`Courses` explores three maps, three laps, two abstract checkpoints per lap,
+three air stages, two tokens, two signal states and one crossing per model run.
+`BuggyCheckpoint=TRUE` must violate `EveryLapRequiresCheckpoints` on the first
+illegal lap; `BuggyFinish=TRUE` must violate `FinishedHasCheckpoints`. This finite model
+does not prove vehicle geometry, continuous gravity, AI avoidance or pixel correctness.
+All five map implementations retain the separate real-browser checks.
+
+The shared course finish is a forward start-line crossing within road width after
+all five ordered checkpoints. Temporary offroad detours do not invalidate an
+otherwise complete lap. Progress telemetry is not a second finish requirement.
+Visible cross streets and shortcuts provide their own material and physical height;
+route eligibility is separate from road-surface feedback. Proving Ground bank
+offsets affect road vertices and the sampled vehicle ground height.
+
+`tests/browser-effects.cjs` compares the actual rendered vehicle region against
+a second render with only the player mesh removed: 240 headings and three fall
+stages in each orientation. It also records six normal-animation collision/fall/
+recovery videos and twelve hazard screenshots. Single-pixel checks remain
+supplementary regressions. Canvas fallback checks include visible city stop-line
+regions and independent visual review of climbing-road screenshots.
+
+The non-WebGL perspective fallback uses a bounded-resolution software depth buffer
+(up to 420×320) over the same clipped faces. Reciprocal depth resolves terrain, road,
+markings, obstacles and the player independently of submission order. The explicit
+overlapping-triangle browser case supplements the climbing-road screenshots.
+
+City stop-line rendering in both projections and crossing penalties share one
+pose, width and thickness. A penalty requires the vehicle centre to move forward
+from the negative to positive side of that exact plane, within its lateral extent;
+staying past it does not charge every frame. Runtime checks place the car one
+world unit before the plane, cross it and test an out-of-width crossing.

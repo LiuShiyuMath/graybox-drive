@@ -60,3 +60,19 @@ The complete project verification passed for the Mountain Road candidate on Mac 
 [Machine-readable evidence and source hashes](mountain-full-verify.json) · [Map 02 scenes and screenshots](mountain-road.md).
 
 The cloud JavaScript scene matrices passed, but normal-animation Python Chromium exited/crashed on this Work host. The complete PASS above belongs to the Mac mini execution with matching source hashes. CI and deployed-source verification remain separate release gates. Physical Android/iPhone validation is still outstanding.
+
+## Five-map integration
+
+The integration adds `Courses` while retaining the original four models and
+`Mountain`. All six finite models and seven specified negative mutations pass
+through the same `tests/verify.py` gate. The course model checks every lap's
+checkpoint precondition as an action property, as well as terminal completion,
+map reset, paused world, jump stages, token idempotence and a bounded city crossing.
+
+See [integration acceptance](integration-check.md) and its exact-source
+[precommit manifest](integration-results.json). Complete browser verification
+includes 381 screenshots, 486 vehicle-region comparisons and six normal-animation
+collision/fall/recovery recordings. This is the tested graybox scope; physical-phone
+performance and photorealistic art are not established. The exact main commit's
+[Actions](https://github.com/LiuShiyuMath/graybox-drive/actions) repeats the full gate
+before deployment and against the public site's exact asset hashes.
