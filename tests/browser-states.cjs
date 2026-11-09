@@ -144,6 +144,10 @@ try{
  await check('restart button clears all race and hazard state',async()=>{
   await fixture(page,'chase','car.y=1030;update(.02)');await page.locator('#reset').click();const s=await snapshot(page);assert.equal(s.state,'running');assert.equal(s.elapsed,0);assert.equal(s.hazard.fall,0);assert.equal(s.speed,0);assert.equal(s.lap,1);
  });
+ await check('recovery and restart synchronize visible feedback in the same event',async()=>{
+  await fixture(page,'first','car.speed=150;elapsed=9;hazard.kind="runoff";hazard.impact=.8');await page.locator('#recover').click();assert.equal(await page.locator('#time').textContent(),'00:12.00');assert.equal(await page.locator('#speed').textContent(),'0');assert.equal((await snapshot(page)).feedbackHidden,true);
+  await fixture(page,'chase','car.y=1030;update(.02)');await page.locator('#reset').click();assert.equal((await snapshot(page)).feedbackHidden,true);assert.equal(await page.locator('#speed').textContent(),'0');assert.equal(await page.locator('#time').textContent(),'00:00.00');
+ });
  await check('paused and finished races restart; falling input stays neutral',async()=>{
   for(const target of ['paused','finished']){await fixture(page,'top',target==='paused'?'pause()':'finish()');await page.locator('#reset').click();const s=await snapshot(page);assert.equal(s.state,'running');assert.equal(s.elapsed,0);assert.equal(s.lap,1);assert.equal(s.overlay,false)}
   await fixture(page,'chase','car.y=1030;update(.02)');await page.keyboard.down('w');assert.equal((await snapshot(page)).input.gas,false);await page.keyboard.up('w');await page.locator('[data-key=gas]').click();assert.equal((await snapshot(page)).input.gas,false);
