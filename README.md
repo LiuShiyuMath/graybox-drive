@@ -50,11 +50,21 @@ main 每次更新会先运行验证，通过后自动发布 GitHub Pages。部�
 [状态清单与转换规则](verification/state-machines.md)列出比赛、输入、运动、路面、碰撞、恢复、视角、反馈和本地保存九组状态。
 
 ```sh
-npm install --no-save playwright@1.62.1
-npx playwright install chromium
-node tests/browser-states.cjs
+python3 -m venv .venv
+.venv/bin/python -m pip install -r tests/requirements-verify.txt
+npm ci
+.venv/bin/python -m playwright install --only-shell chromium
+.venv/bin/python tests/verify.py
 ```
 
 浏览器测试生成210张横竖屏场景截图及30项转换和像素检查。测试设置场景起点，再运行真实游戏逻辑与 Canvas；键盘、指针和多点触控另有事件检查。它不等同于手机真机验收。CI 执行同一套检查，通过后才发布。
 
 截图与数值保存在 `verification/state-machines/`。安装 Pillow 后，运行 `python3 tests/build-state-report.py` 可生成自带全部图片、可筛选与放大的 HTML 报告。
+
+## TLA+ 与项目 /verify
+
+[项目 /verify](.agents/skills/verify/SKILL.md)是提交前及部署后的完整验证入口。Java 17+ 用于运行固定版本 TLC；模型工具首次运行时自动下载并核对 SHA-256。
+
+[状态机和形式化边界](docs/STATE-MACHINES.md)将九组状态映射到四个 TLA+ 模型、真实 JavaScript 的 4,096 次输入转换检查、浏览器场景矩阵和 Python Playwright 正常动画验收。四种故障注入必须产生指定的反例，防止验证器只会报成功。
+
+每次运行的源码版本、文件哈希、日志、TLC 状态数及截图都保存在 `verification/latest/` 的独立运行目录。GitHub Actions 先运行完整 `/verify`，通过后部署，再对正式站执行同一套验证并核对实际部署源码；两轮证据均作为 Actions artifact 保留。TLA+ 检查有限状态抽象，不代替碰撞几何、Canvas 画面和手机真机验收。

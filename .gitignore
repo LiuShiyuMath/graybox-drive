@@ -1,5 +1,11 @@
 .DS_Store
 node_modules/
+.cache/
+.venv/
+__pycache__/
+states/
+verification/latest/
+verification/latest-live/
 .env*
 .openai/
 verification/driving-state-machine-report.html

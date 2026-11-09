@@ -21,3 +21,9 @@ Mobile browser driving game. Runtime is standalone HTML/CSS/JavaScript in dist. 
 - **Agent coordination:** serialize `main` changes. Re-read the latest head before a write; update stale local state without force pushing. Prefer a narrow, reversible change and recheck the live artifact.
 - **Hard settings:** keep repository settings `has_pull_requests=false` and `has_issues=false`. If either becomes true, restore the restriction using authorized repository administration credentials. `AGENTS.md` is agent guidance; GitHub repository feature flags provide the server-side block.
 - Keep the game public, free, playable without a backend, and deploy only `dist` after checks.
+
+## Project /verify
+
+- Use `.agents/skills/verify/SKILL.md` before every commit and after deployment. Run the existing checks plus state-machine runtime contracts, TLA+ TLC and real Chromium E2E with `.venv/bin/python tests/verify.py`; fix and rerun until PASS. Preserve exact failures rather than treating skipped checks as passed.
+- Update `docs/STATE-MACHINES.md` and `specs/` when state transitions change. TLA+ finite model checks supplement implementation and visual checks; they do not prove continuous physics or Canvas correctness.
+- In ChatGPT Work, install Python Playwright and Chromium when missing. Use the pinned versions and commands in `/verify`; actually launch the browser, exercise inputs and inspect screenshots. If the host prevents Chromium execution, retain the error and verify on an authorized executable environment/CI; report host-specific boundaries honestly.

@@ -1,0 +1,9 @@
+{
+  "name": "graybox-drive",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Verification dependencies for the standalone browser game",
+  "devDependencies": {
+    "playwright": "1.51.0"
+  }
+}

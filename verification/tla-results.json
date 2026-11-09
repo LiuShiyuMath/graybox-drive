@@ -1,0 +1,73 @@
+{
+  "createdAt": "2026-11-09T10:17:09.306757+00:00",
+  "tlcVersion": "1.7.4",
+  "jarSha256": "936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88",
+  "mode": "exhaustive BFS, no state constraints, one worker",
+  "passed": true,
+  "models": [
+    {
+      "model": "Race",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 3705,
+      "distinct": 532
+    },
+    {
+      "model": "Input",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 5170,
+      "distinct": 261
+    },
+    {
+      "model": "Hazards",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 35030,
+      "distinct": 2675
+    },
+    {
+      "model": "Persistence",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 385,
+      "distinct": 48
+    },
+    {
+      "model": "Input-regression-ActiveMatchesHeld",
+      "passed": true,
+      "expectedViolation": "ActiveMatchesHeld",
+      "exitCode": 12,
+      "generated": 64,
+      "distinct": 26
+    },
+    {
+      "model": "Hazards-regression-ExactRecoveryPenalty",
+      "passed": true,
+      "expectedViolation": "ExactRecoveryPenalty",
+      "exitCode": 12,
+      "generated": 954,
+      "distinct": 131
+    },
+    {
+      "model": "Race-regression-ReverseCannotAddLap",
+      "passed": true,
+      "expectedViolation": "ReverseCannotAddLap",
+      "exitCode": 13,
+      "generated": 11,
+      "distinct": 10
+    },
+    {
+      "model": "Hazards-regression-CooldownSuppressesFeedback",
+      "passed": true,
+      "expectedViolation": "CooldownSuppressesFeedback",
+      "exitCode": 13,
+      "generated": 1580,
+      "distinct": 227
+    }
+  ]
+}

@@ -16,6 +16,14 @@
 - [x] Free public browser driving game, touch controls, three camera modes, three laps, off-road/collision/fall feedback; original [Issue #1](https://github.com/LiuShiyuMath/graybox-drive/issues/1).
 - [x] The code from [PR #4](https://github.com/LiuShiyuMath/graybox-drive/pull/4) is already in `main`; that PR was closed. Prior test evidence does not replace a fresh visual regression test.
 
+## State-machine verification
+
+- [x] Map all nine state groups to formal and runtime checks in `docs/STATE-MACHINES.md`.
+- [x] Add four finite TLA+ models and four named regression counterexamples; all checked with TLC.
+- [x] Add the real runtime's 4,096 input-source transition checks and Python Playwright normal-animation E2E.
+- [x] Add project `.agents/skills/verify/SKILL.md`, Work dependency installation, isolated evidence with source hashes, and full local/deployed CI gates.
+- [x] Record full `/verify` evidence in `verification/formal-verification.md`; the project Page links the exact commit CI/deployment result.
+
 ## P0 — Stability (first)
 
 - [ ] Reproduce and fix chase-view car/road overlap and clipping in the live renderer, test obstacles and occlusion, near-plane projection, car height and terrain alignment.
