@@ -1,0 +1,42 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46605] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/Mountain.tla
+Parsing file [temporary-directory]/Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module Mountain
+Starting... (2026-11-10 02:13:49)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-10 02:13:49.
+Error: Invariant SummitRequiresCheckpoints is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ penalty = 0
+/\ falling = FALSE
+/\ event = "init"
+/\ phase = "ready"
+/\ checkpoint = 0
+/\ sector = 0
+/\ recoveries = 0
+
+State 2: <Reset line 8, col 10 to line 9, col 83 of module Mountain>
+/\ penalty = 0
+/\ falling = FALSE
+/\ event = "reset"
+/\ phase = "running"
+/\ checkpoint = 0
+/\ sector = 0
+/\ recoveries = 0
+
+State 3: <TryFinish line 24, col 14 to line 27, col 78 of module Mountain>
+/\ penalty = 0
+/\ falling = FALSE
+/\ event = "finish"
+/\ phase = "finished"
+/\ checkpoint = 0
+/\ sector = 0
+/\ recoveries = 0
+
+8 states generated, 6 distinct states found, 3 states left on queue.
+The depth of the complete state graph search is 3.
+The average outdegree of the complete state graph is 2 (minimum is 2, the maximum 2 and the 95th percentile is 2).
+Finished in 00s at (2026-11-10 02:13:49)

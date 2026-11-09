@@ -1,0 +1,140 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46754] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/VehicleWorld.tla
+Parsing file [temporary-directory]/Integers.tla
+Parsing file [temporary-directory]/FiniteSets.tla
+Parsing file [temporary-directory]/Naturals.tla
+Parsing file [temporary-directory]/Sequences.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module VehicleWorld
+Starting... (2026-11-10 02:14:28)
+Implied-temporal checking--satisfiability problem has 1 branches.
+Computing initial states...
+Computed 2 initial states...
+Computed 4 initial states...
+Finished computing initial states: 5 distinct states generated at 2026-11-10 02:14:28.
+Error: Invariant NewToastOwnsTimeout is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ phase = "ready"
+/\ event = "init"
+/\ world = [ clock |-> 0,
+  kind |-> "road",
+  fall |-> 0,
+  impact |-> 0,
+  speed |-> "stopped",
+  steer |-> 0,
+  material |-> "asphalt",
+  slip |-> 0,
+  air |-> 0,
+  ramp |-> "none",
+  side |-> "before",
+  crossings |-> 0,
+  violations |-> 0,
+  penalty |-> 0,
+  approach |-> FALSE,
+  stopped |-> FALSE,
+  direction |-> "out",
+  collected |-> {},
+  dust |-> 0,
+  shown |-> "road",
+  generation |-> 0,
+  timers |-> {},
+  toast |-> FALSE ]
+/\ group = "feedback"
+/\ held = FALSE
+
+State 2: <Start line 30, col 10 to line 30, col 73 of module VehicleWorld>
+/\ phase = "running"
+/\ event = "start"
+/\ world = [ clock |-> 0,
+  kind |-> "road",
+  fall |-> 0,
+  impact |-> 0,
+  speed |-> "stopped",
+  steer |-> 0,
+  material |-> "asphalt",
+  slip |-> 0,
+  air |-> 0,
+  ramp |-> "none",
+  side |-> "before",
+  crossings |-> 0,
+  violations |-> 0,
+  penalty |-> 0,
+  approach |-> FALSE,
+  stopped |-> FALSE,
+  direction |-> "out",
+  collected |-> {},
+  dust |-> 0,
+  shown |-> "road",
+  generation |-> 0,
+  timers |-> {},
+  toast |-> FALSE ]
+/\ group = "feedback"
+/\ held = FALSE
+
+State 3: <ShowToast line 109, col 14 to line 113, col 68 of module VehicleWorld>
+/\ phase = "running"
+/\ event = "toast"
+/\ world = [ clock |-> 0,
+  kind |-> "road",
+  fall |-> 0,
+  impact |-> 0,
+  speed |-> "stopped",
+  steer |-> 0,
+  material |-> "asphalt",
+  slip |-> 0,
+  air |-> 0,
+  ramp |-> "none",
+  side |-> "before",
+  crossings |-> 0,
+  violations |-> 0,
+  penalty |-> 0,
+  approach |-> FALSE,
+  stopped |-> FALSE,
+  direction |-> "out",
+  collected |-> {},
+  dust |-> 0,
+  shown |-> "road",
+  generation |-> 1,
+  timers |-> {1},
+  toast |-> TRUE ]
+/\ group = "feedback"
+/\ held = FALSE
+
+State 4: <ShowToast line 109, col 14 to line 113, col 68 of module VehicleWorld>
+/\ phase = "running"
+/\ event = "toast"
+/\ world = [ clock |-> 0,
+  kind |-> "road",
+  fall |-> 0,
+  impact |-> 0,
+  speed |-> "stopped",
+  steer |-> 0,
+  material |-> "asphalt",
+  slip |-> 0,
+  air |-> 0,
+  ramp |-> "none",
+  side |-> "before",
+  crossings |-> 0,
+  violations |-> 0,
+  penalty |-> 0,
+  approach |-> FALSE,
+  stopped |-> FALSE,
+  direction |-> "out",
+  collected |-> {},
+  dust |-> 0,
+  shown |-> "road",
+  generation |-> 2,
+  timers |-> {1, 2},
+  toast |-> TRUE ]
+/\ group = "feedback"
+/\ held = FALSE
+
+2476 states generated, 549 distinct states found, 434 states left on queue.
+The depth of the complete state graph search is 4.
+The average outdegree of the complete state graph is 5 (minimum is 0, the maximum 31 and the 95th percentile is 12).
+Finished in 00s at (2026-11-10 02:14:28)

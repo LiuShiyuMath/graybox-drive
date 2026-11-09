@@ -45,7 +45,7 @@ From the project root:
 ```
 
 This runs syntax checks, existing race/physics tests, 4,096 implementation input
-transitions plus model contracts, six exhaustive TLC models, seven expected
+transitions plus 26 hidden-state contracts, eight exhaustive TLC models, 17 expected
 counterexamples, the existing 210-screenshot state matrix, the 42-scene mountain matrix plus Canvas fallback, and Python
 Playwright E2E with normal animation, real keyboard input, both orientations,
 all five maps, all cameras and 40 screenshots. Also run the cross-map browser
@@ -84,3 +84,21 @@ Preserve source revision/hashes, commands, real logs, TLC state counts and
 counterexample traces, screenshots, browser version and unresolved boundaries.
 Update `verification/formal-verification.md`, roadmap and project Page. Report
 PASS only for the executed scope; report BLOCKED for unexecuted required checks.
+
+For flicker or renderer changes, require `tests/browser-flicker.cjs` and
+`tests/browser-camera.cjs` through the full command. The former checks 540 native
+animation frames on five maps and three sizes, pre-event WebGL loss, two
+restorations per case, camera/map/viewport changes during loss, and restored
+pixels against a fresh renderer (RGB mean error <1 and at most 0.2% of pixels differing by >12; a wrong-map negative control must fail). The latter checks 450 deterministic actual
+physics frames around the mountain start beam in both WebGL and software.
+Keep beam geometry and depth; a car painted over blockers does not pass.
+The complete suite currently retains 471 screenshots plus six recordings.
+
+Review `Rendering.tla` for resource loss/restoration, current mesh/viewport,
+startup dependencies, one-pose frames and eligible camera-boom obstruction.
+Its current-frame flag abstracts freshness, not the number of car-colored pixels.
+A zero car-only image difference can mean stale rendering. Distinguish that from
+legal occlusion, deliberate hazard vibration and actual missing geometry.
+Retain the original failing beam pose and the loss-before-event failure with the
+baseline revision. Do not generalize finite models to continuous geometry or
+unmeasured physical-device performance.

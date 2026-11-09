@@ -1,0 +1,122 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46713] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/Rendering.tla
+Parsing file [temporary-directory]/Naturals.tla
+Parsing file [temporary-directory]/Integers.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Rendering
+Starting... (2026-11-10 02:14:17)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-10 02:14:17.
+Error: Invariant NearCameraKeepsCar is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ frameBackend = "none"
+/\ gpuViewport = -1
+/\ view = "chase"
+/\ loop = FALSE
+/\ context = "valid"
+/\ presentation = "none"
+/\ boom = "full"
+/\ mesh = 0
+/\ boot = "loading"
+/\ event = "init"
+/\ fresh = FALSE
+/\ backend = "cold"
+/\ frameMesh = 0
+/\ pose = 0
+/\ resources = FALSE
+/\ uploaded = -1
+/\ framePose = 0
+/\ obstruction = "clear"
+/\ viewport = 0
+
+State 2: <Ready line 14, col 10 to line 16, col 125 of module Rendering>
+/\ frameBackend = "none"
+/\ gpuViewport = -1
+/\ view = "chase"
+/\ loop = TRUE
+/\ context = "valid"
+/\ presentation = "none"
+/\ boom = "full"
+/\ mesh = 0
+/\ boot = "ready"
+/\ event = "ready"
+/\ fresh = FALSE
+/\ backend = "cold"
+/\ frameMesh = 0
+/\ pose = 0
+/\ resources = FALSE
+/\ uploaded = -1
+/\ framePose = 0
+/\ obstruction = "clear"
+/\ viewport = 0
+
+State 3: <Initialize line 21, col 20 to line 25, col 135 of module Rendering>
+/\ frameBackend = "none"
+/\ gpuViewport = -1
+/\ view = "chase"
+/\ loop = TRUE
+/\ context = "valid"
+/\ presentation = "none"
+/\ boom = "full"
+/\ mesh = 0
+/\ boot = "ready"
+/\ event = "initialize"
+/\ fresh = FALSE
+/\ backend = "software"
+/\ frameMesh = 0
+/\ pose = 0
+/\ resources = FALSE
+/\ uploaded = -1
+/\ framePose = 0
+/\ obstruction = "clear"
+/\ viewport = 0
+
+State 4: <Obstruction line 46, col 16 to line 48, col 118 of module Rendering>
+/\ frameBackend = "none"
+/\ gpuViewport = -1
+/\ view = "chase"
+/\ loop = TRUE
+/\ context = "valid"
+/\ presentation = "none"
+/\ boom = "full"
+/\ mesh = 0
+/\ boot = "ready"
+/\ event = "obstruction"
+/\ fresh = FALSE
+/\ backend = "software"
+/\ frameMesh = 0
+/\ pose = 0
+/\ resources = FALSE
+/\ uploaded = -1
+/\ framePose = 0
+/\ obstruction = "near"
+/\ viewport = 0
+
+State 5: <Draw line 49, col 9 to line 64, col 94 of module Rendering>
+/\ frameBackend = "software"
+/\ gpuViewport = -1
+/\ view = "chase"
+/\ loop = TRUE
+/\ context = "valid"
+/\ presentation = "occluded"
+/\ boom = "full"
+/\ mesh = 0
+/\ boot = "ready"
+/\ event = "draw"
+/\ fresh = TRUE
+/\ backend = "software"
+/\ frameMesh = 0
+/\ pose = 0
+/\ resources = FALSE
+/\ uploaded = -1
+/\ framePose = 0
+/\ obstruction = "near"
+/\ viewport = 0
+
+889 states generated, 338 distinct states found, 250 states left on queue.
+The depth of the complete state graph search is 5.
+The average outdegree of the complete state graph is 4 (minimum is 0, the maximum 11 and the 95th percentile is 10).
+Finished in 00s at (2026-11-10 02:14:18)

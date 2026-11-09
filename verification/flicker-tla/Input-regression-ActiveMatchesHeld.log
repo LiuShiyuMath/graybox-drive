@@ -1,0 +1,43 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46650] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/Input.tla
+Parsing file [temporary-directory]/Naturals.tla
+Parsing file [temporary-directory]/FiniteSets.tla
+Parsing file [temporary-directory]/Sequences.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module Input
+Starting... (2026-11-10 02:13:57)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-10 02:13:57.
+Error: Invariant ActiveMatchesHeld is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ falling = FALSE
+/\ active = {}
+/\ held = {}
+/\ phase = "ready"
+
+State 2: <Start line 24, col 10 to line 24, col 80 of module Input>
+/\ falling = FALSE
+/\ active = {}
+/\ held = {}
+/\ phase = "running"
+
+State 3: <Press line 14, col 13 to line 16, col 43 of module Input>
+/\ falling = FALSE
+/\ active = {"left"}
+/\ held = {"a"}
+/\ phase = "running"
+
+State 4: <Release line 17, col 15 to line 19, col 45 of module Input>
+/\ falling = FALSE
+/\ active = {}
+/\ held = {"a"}
+/\ phase = "running"
+
+64 states generated, 26 distinct states found, 21 states left on queue.
+The depth of the complete state graph search is 4.
+The average outdegree of the complete state graph is 6 (minimum is 1, the maximum 11 and the 95th percentile is 11).
+Finished in 00s at (2026-11-10 02:13:57)

@@ -18,8 +18,8 @@
 
 ## State-machine verification
 
-- [x] Map all nine state groups to formal and runtime checks in `docs/STATE-MACHINES.md`.
-- [x] Add six finite TLA+ models and seven named regression counterexamples; all checked with TLC.
+- [x] Audit 27 explicit, derived and temporal state groups in `docs/STATE-MACHINES.md`.
+- [x] Add eight finite TLA+ models and 17 named regression counterexamples, including renderer freshness, camera obstruction and hidden gameplay partitions.
 - [x] Add the real runtime's 4,096 input-source transition checks and Python Playwright normal-animation E2E.
 - [x] Add project `.agents/skills/verify/SKILL.md`, Work dependency installation, isolated evidence with source hashes, and full local/deployed CI gates.
 - [x] Record full `/verify` evidence in `verification/formal-verification.md`; the project Page links the exact commit CI/deployment result.
@@ -82,8 +82,8 @@ After publishing main, the exact commit’s Actions run and the project Page ret
 ## Five-map cloud acceptance
 
 The integration retains the separate Map 02 and formal-verification commits.
-`tests/verify.py` runs the complete original checks, both map matrices, six TLA+
-models with seven named regression traces, continuous course drives, cross-map
+`tests/verify.py` runs the complete original checks, both map matrices, eight TLA+
+models with 17 named regression traces, continuous course drives, cross-map
 input/persistence checks, two orientations of Python normal-animation E2E,
 486 vehicle-region comparisons and six actual collision/fall/recovery recordings.
 It checks every deployed dist asset hash and repeats the same command after deployment.
@@ -94,3 +94,15 @@ See [integration acceptance](../verification/integration-check.md),
 The cloud acceptance goal is a complete playable five-map graybox with all executable
 checks green. Physical-phone verification and photorealistic art remain explicitly
 open and must not be silently marked complete.
+
+## Flicker and hidden-state audit, 2026-11-10
+
+- [x] Reproduce the mountain start crossbar hiding almost the entire chase car at tick 60; retain old-source failure, exact pose and original Canvas images.
+- [x] Keep the crossbar and depth ordering; derive one camera pose for WebGL/software and retract before eligible nearby geometry with geometric easing.
+- [x] Reproduce lost WebGL still reporting successful drawing while output is stale; use software during loss and recreate GPU resources on restoration on the same context.
+- [x] Add 26 actual-runtime hidden-state contracts, 540 native animation frames, 450 deterministic beam frames, and repeated loss/restore/map/resize/fresh-renderer comparisons to the required verification command.
+- [ ] Final candidate full verification, direct main publication and live verification. See `verification/flicker-verification.md` for the run-specific result before changing this checkbox.
+
+Finite model checking is not a JavaScript refinement proof. Continuous geometry,
+cross-partition combinations and physical-phone/GPU-driver behavior keep the
+explicit boundaries in `docs/STATE-MACHINES.md`.

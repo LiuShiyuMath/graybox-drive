@@ -1,0 +1,2331 @@
+{
+  "frames": [
+    {
+      "step": 0,
+      "pixels": 2975,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.02,
+        "progress": 0,
+        "speed": 3.2730428283059325,
+        "x": 900.0056824863581,
+        "y": 3399.9347862507507,
+        "elevation": 0.00822896148031258,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 1,
+      "pixels": 2923,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.04,
+        "progress": 0,
+        "speed": 6.523254359581052,
+        "x": 900.0170078205663,
+        "y": 3399.804813654481,
+        "elevation": 0.02462948285056009,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 2,
+      "pixels": 2925,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.06,
+        "progress": 0,
+        "speed": 9.750793854840705,
+        "x": 900.0339366406175,
+        "y": 3399.6105339402247,
+        "elevation": 0.04914456292838989,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 3,
+      "pixels": 2926,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.08,
+        "progress": 0,
+        "speed": 12.955819464165936,
+        "x": 900.0564298590765,
+        "y": 3399.3523956859526,
+        "elevation": 0.081717598146457,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 4,
+      "pixels": 2929,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.1,
+        "progress": 0,
+        "speed": 16.138488234452876,
+        "x": 900.0844486611646,
+        "y": 3399.030844340555,
+        "elevation": 0.12229237977880822,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 5,
+      "pixels": 2931,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.12000000000000001,
+        "progress": 0,
+        "speed": 19.29895611710807,
+        "x": 900.1179545028579,
+        "y": 3398.6463222456678,
+        "elevation": 0.17081309118676954,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 6,
+      "pixels": 2932,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.14,
+        "progress": 0,
+        "speed": 22.437377975690122,
+        "x": 900.1569091089983,
+        "y": 3398.1992686573476,
+        "elevation": 0.2272243050836641,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 7,
+      "pixels": 2939,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.16,
+        "progress": 0,
+        "speed": 25.553907593498053,
+        "x": 900.2012744714187,
+        "y": 3397.690119767595,
+        "elevation": 0.2914709808191462,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 8,
+      "pixels": 2939,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.18,
+        "progress": 0,
+        "speed": 28.648697681106704,
+        "x": 900.2510128470799,
+        "y": 3397.1193087257293,
+        "elevation": 0.36349846168201533,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 9,
+      "pixels": 2941,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.19999999999999998,
+        "progress": 0,
+        "speed": 31.72189988384958,
+        "x": 900.3060867562212,
+        "y": 3396.487265659611,
+        "elevation": 0.4432524722220819,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 10,
+      "pixels": 2902,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.21999999999999997,
+        "progress": 0,
+        "speed": 34.77366478924952,
+        "x": 900.3664589805246,
+        "y": 3395.7944176967194,
+        "elevation": 0.5306791155906256,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 11,
+      "pixels": 2894,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.23999999999999996,
+        "progress": 0,
+        "speed": 37.8041419343975,
+        "x": 900.4320925612901,
+        "y": 3395.0411889850825,
+        "elevation": 0.6257248708994981,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 12,
+      "pixels": 2866,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.25999999999999995,
+        "progress": 0,
+        "speed": 40.81347981327997,
+        "x": 900.5029507976255,
+        "y": 3394.2280007140585,
+        "elevation": 0.7283365905985945,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 13,
+      "pixels": 2830,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.27999999999999997,
+        "progress": 0,
+        "speed": 43.80182588405511,
+        "x": 900.5789972446479,
+        "y": 3393.3552711349757,
+        "elevation": 0.8384614978715114,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 14,
+      "pixels": 2805,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.3,
+        "progress": 0,
+        "speed": 46.769326576278324,
+        "x": 900.6601957116974,
+        "y": 3392.423415581626,
+        "elevation": 0.956047184049622,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 15,
+      "pixels": 2779,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.32,
+        "progress": 0,
+        "speed": 49.71612729807727,
+        "x": 900.7465102605643,
+        "y": 3391.4328464906175,
+        "elevation": 1.081041606043888,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 16,
+      "pixels": 2753,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.34,
+        "progress": 0,
+        "speed": 52.64237244327692,
+        "x": 900.8379052037279,
+        "y": 3390.3839734215826,
+        "elevation": 1.2133930837948022,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 17,
+      "pixels": 2725,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.36000000000000004,
+        "progress": 0,
+        "speed": 55.548205398474884,
+        "x": 900.934345102608,
+        "y": 3389.277203077247,
+        "elevation": 1.3530502977401146,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 18,
+      "pixels": 2690,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.38000000000000006,
+        "progress": 0,
+        "speed": 58.433768550067384,
+        "x": 901.035794765828,
+        "y": 3388.112939323359,
+        "elevation": 1.4999622863000708,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 19,
+      "pixels": 2655,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.4000000000000001,
+        "progress": 0,
+        "speed": 61.29920329122619,
+        "x": 901.1422192474909,
+        "y": 3386.8915832084776,
+        "elevation": 1.6540784433803661,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 20,
+      "pixels": 2607,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.4200000000000001,
+        "progress": 0,
+        "speed": 64.14465002882696,
+        "x": 901.2535838454667,
+        "y": 3385.613532983625,
+        "elevation": 1.8153485158923317,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 21,
+      "pixels": 2573,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.4400000000000001,
+        "progress": 1,
+        "speed": 66.97024819032914,
+        "x": 901.3698540996921,
+        "y": 3384.279184121801,
+        "elevation": 1.9837226012906644,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 22,
+      "pixels": 2538,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.46000000000000013,
+        "progress": 1,
+        "speed": 69.77613623060803,
+        "x": 901.4909957904821,
+        "y": 3382.8889293373595,
+        "elevation": 2.159151145128094,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 23,
+      "pixels": 2482,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.48000000000000015,
+        "progress": 1,
+        "speed": 72.562451638739,
+        "x": 901.6169749368529,
+        "y": 3381.443158605255,
+        "elevation": 2.341584938627148,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 24,
+      "pixels": 2446,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5000000000000001,
+        "progress": 1,
+        "speed": 75.32933094473455,
+        "x": 901.7477577948571,
+        "y": 3379.9422591801485,
+        "elevation": 2.5309751162690715,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 25,
+      "pixels": 2431,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5200000000000001,
+        "progress": 1,
+        "speed": 78.07690972623428,
+        "x": 901.88331085593,
+        "y": 3378.386615615384,
+        "elevation": 2.727273153399272,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 26,
+      "pixels": 2499,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5400000000000001,
+        "progress": 1,
+        "speed": 80.80532261514821,
+        "x": 902.0236008452478,
+        "y": 3376.7766097818317,
+        "elevation": 2.9304308638496956,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 27,
+      "pixels": 2589,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5600000000000002,
+        "progress": 1,
+        "speed": 83.51470330425384,
+        "x": 902.1685947200973,
+        "y": 3375.1126208866,
+        "elevation": 3.1404003975776194,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 28,
+      "pixels": 2667,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.5800000000000002,
+        "progress": 1,
+        "speed": 86.20518455374702,
+        "x": 902.3182596682566,
+        "y": 3373.395025491616,
+        "elevation": 3.357134238321068,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 29,
+      "pixels": 2757,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6000000000000002,
+        "progress": 1,
+        "speed": 88.8768981977473,
+        "x": 902.4725631063872,
+        "y": 3371.6241975320777,
+        "elevation": 3.580585201270429,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 30,
+      "pixels": 2659,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6200000000000002,
+        "progress": 1,
+        "speed": 91.52997515075779,
+        "x": 902.6314726784375,
+        "y": 3369.800508334777,
+        "elevation": 3.798993006772853,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 31,
+      "pixels": 2657,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6400000000000002,
+        "progress": 1,
+        "speed": 94.3375610511721,
+        "x": 902.7952566347886,
+        "y": 3367.920879385842,
+        "elevation": 3.977471080679285,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 32,
+      "pixels": 2657,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6600000000000003,
+        "progress": 1,
+        "speed": 97.12556247591823,
+        "x": 902.9638809738948,
+        "y": 3365.9857008962017,
+        "elevation": 4.161223799369769,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 33,
+      "pixels": 2651,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.6800000000000003,
+        "progress": 1,
+        "speed": 99.89411603762382,
+        "x": 903.1373119313897,
+        "y": 3363.9953603548474,
+        "elevation": 4.350214369258605,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 34,
+      "pixels": 2642,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7000000000000003,
+        "progress": 1,
+        "speed": 102.64335739596733,
+        "x": 903.3155159784326,
+        "y": 3361.950242547819,
+        "elevation": 4.5444062534158345,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 35,
+      "pixels": 2635,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7200000000000003,
+        "progress": 1,
+        "speed": 105.3734212643254,
+        "x": 903.4984598200649,
+        "y": 3359.850729577059,
+        "elevation": 4.743763169776954,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 36,
+      "pixels": 2626,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7400000000000003,
+        "progress": 1,
+        "speed": 108.08444141637383,
+        "x": 903.686110393579,
+        "y": 3357.6972008791367,
+        "elevation": 4.948249089365062,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 37,
+      "pixels": 2616,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7600000000000003,
+        "progress": 1,
+        "speed": 110.7765506926425,
+        "x": 903.8784348668981,
+        "y": 3355.4900332438388,
+        "elevation": 5.1578282345254856,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 38,
+      "pixels": 2608,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.7800000000000004,
+        "progress": 2,
+        "speed": 113.44988100702459,
+        "x": 904.0754006369674,
+        "y": 3353.2296008326343,
+        "elevation": 5.372465077172545,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 39,
+      "pixels": 2598,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.8000000000000004,
+        "progress": 2,
+        "speed": 116.1045633532404,
+        "x": 904.2769753281564,
+        "y": 3350.916275197007,
+        "elevation": 5.592124337048835,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 40,
+      "pixels": 2583,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.8200000000000004,
+        "progress": 2,
+        "speed": 118.74072781125604,
+        "x": 904.4831267906729,
+        "y": 3348.5504252966625,
+        "elevation": 5.816770979996341,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 41,
+      "pixels": 2577,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.8400000000000004,
+        "progress": 2,
+        "speed": 121.35850355365741,
+        "x": 904.6938230989874,
+        "y": 3346.1324175176064,
+        "elevation": 6.046370216239859,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 42,
+      "pixels": 2577,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.8600000000000004,
+        "progress": 2,
+        "speed": 123.95801885197967,
+        "x": 904.9090325502685,
+        "y": 3343.6626156900984,
+        "elevation": 6.280887498682206,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 43,
+      "pixels": 2576,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.8800000000000004,
+        "progress": 2,
+        "speed": 126.53940108299255,
+        "x": 905.1287236628301,
+        "y": 3341.141381106479,
+        "elevation": 6.520288521211475,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 44,
+      "pixels": 2605,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.9000000000000005,
+        "progress": 2,
+        "speed": 129.1027767349419,
+        "x": 905.352865174588,
+        "y": 3338.5690725388736,
+        "elevation": 6.743010837878002,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 45,
+      "pixels": 2605,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.9200000000000005,
+        "progress": 2,
+        "speed": 131.71809417721948,
+        "x": 905.5815472641714,
+        "y": 3335.944655072963,
+        "elevation": 6.959132598833608,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 46,
+      "pixels": 2602,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.9400000000000005,
+        "progress": 2,
+        "speed": 134.31516832343075,
+        "x": 905.8147382585204,
+        "y": 3333.2684921973414,
+        "elevation": 7.179515613653516,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 47,
+      "pixels": 2602,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.9600000000000005,
+        "progress": 2,
+        "speed": 136.8941264307285,
+        "x": 906.0524067055125,
+        "y": 3330.540944865067,
+        "elevation": 7.404130157718203,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 48,
+      "pixels": 2601,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0.9800000000000005,
+        "progress": 2,
+        "speed": 139.455094868576,
+        "x": 906.2945213724213,
+        "y": 3327.7623715113496,
+        "elevation": 7.632946713753972,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 49,
+      "pixels": 2600,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.0000000000000004,
+        "progress": 3,
+        "speed": 141.9981991249391,
+        "x": 906.5410512443862,
+        "y": 3324.9331280711135,
+        "elevation": 7.865935970386502,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 50,
+      "pixels": 2600,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.0200000000000005,
+        "progress": 3,
+        "speed": 144.5235638124352,
+        "x": 906.7919655228922,
+        "y": 3322.0535679964387,
+        "elevation": 8.103068820704687,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 51,
+      "pixels": 2600,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.0400000000000005,
+        "progress": 3,
+        "speed": 147.0313126744393,
+        "x": 907.0472336242613,
+        "y": 3319.12404227388,
+        "elevation": 8.344316360834299,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 52,
+      "pixels": 2610,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.0600000000000005,
+        "progress": 3,
+        "speed": 149.52156859114737,
+        "x": 907.3068251781535,
+        "y": 3316.1448994416664,
+        "elevation": 8.589649888521718,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 53,
+      "pixels": 2492,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.0800000000000005,
+        "progress": 3,
+        "speed": 151.9944535855976,
+        "x": 907.5707100260793,
+        "y": 3313.116485606777,
+        "elevation": 8.839040901727586,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 54,
+      "pixels": 1969,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1000000000000005,
+        "progress": 3,
+        "speed": 154.45008882964947,
+        "x": 907.838858219921,
+        "y": 3310.039144461903,
+        "elevation": 9.095434263739518,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 55,
+      "pixels": 1817,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1200000000000006,
+        "progress": 3,
+        "speed": 156.92537305353562,
+        "x": 908.1113038732133,
+        "y": 3306.9124845109013,
+        "elevation": 9.33215871463613,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 56,
+      "pixels": 1768,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1400000000000006,
+        "progress": 3,
+        "speed": 159.38339079106157,
+        "x": 908.3880170087824,
+        "y": 3303.7368497799184,
+        "elevation": 9.57259112485051,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 57,
+      "pixels": 1350,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1600000000000006,
+        "progress": 3,
+        "speed": 161.8242624855883,
+        "x": 908.6689678585624,
+        "y": 3300.5125818953265,
+        "elevation": 9.81670562930087,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 58,
+      "pixels": 726,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.1800000000000006,
+        "progress": 3,
+        "speed": 164.2481077403172,
+        "x": 908.9541268621358,
+        "y": 3297.2400201004643,
+        "elevation": 10.06447654332872,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 59,
+      "pixels": 88,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.2000000000000006,
+        "progress": 4,
+        "speed": 166.65504532415073,
+        "x": 909.2434646652857,
+        "y": 3293.919501272259,
+        "elevation": 10.315878361440388,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 60,
+      "pixels": 461,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.2200000000000006,
+        "progress": 4,
+        "speed": 169.0451931775121,
+        "x": 909.5369521185572,
+        "y": 3290.551359937733,
+        "elevation": 10.570885756057226,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 61,
+      "pixels": 706,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.2400000000000007,
+        "progress": 4,
+        "speed": 171.41866841812433,
+        "x": 909.8345602758291,
+        "y": 3287.1359282903973,
+        "elevation": 10.829473576274598,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 62,
+      "pixels": 1011,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.2600000000000007,
+        "progress": 4,
+        "speed": 173.77558734674912,
+        "x": 910.1362603928955,
+        "y": 3283.6735362065274,
+        "elevation": 11.09161684662936,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 63,
+      "pixels": 1998,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.2800000000000007,
+        "progress": 4,
+        "speed": 176.11606545288555,
+        "x": 910.4420239260572,
+        "y": 3280.1645112613282,
+        "elevation": 11.366179162267288,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 64,
+      "pixels": 2512,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.3000000000000007,
+        "progress": 4,
+        "speed": 178.46119520194128,
+        "x": 910.7518589512543,
+        "y": 3276.6087607731297,
+        "elevation": 11.62192639771085,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 65,
+      "pixels": 2512,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.3200000000000007,
+        "progress": 4,
+        "speed": 180.7899663646035,
+        "x": 911.0657370675618,
+        "y": 3273.006610678624,
+        "elevation": 11.881010923292774,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 66,
+      "pixels": 2516,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.3400000000000007,
+        "progress": 4,
+        "speed": 183.10249305112512,
+        "x": 911.3836300721669,
+        "y": 3269.358384640912,
+        "elevation": 12.143409459555299,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 67,
+      "pixels": 2517,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.3600000000000008,
+        "progress": 5,
+        "speed": 185.3988885757765,
+        "x": 911.705509958987,
+        "y": 3265.6644040653655,
+        "elevation": 12.409098889427767,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 68,
+      "pixels": 2516,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.3800000000000008,
+        "progress": 5,
+        "speed": 187.6792654623978,
+        "x": 912.0313489172979,
+        "y": 3261.924988115374,
+        "elevation": 12.67805625709401,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 69,
+      "pixels": 2516,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4000000000000008,
+        "progress": 5,
+        "speed": 189.94373544991277,
+        "x": 912.3611193303705,
+        "y": 3258.1404537279855,
+        "elevation": 12.950258766867442,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 70,
+      "pixels": 2516,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4200000000000008,
+        "progress": 5,
+        "speed": 192.19240949780382,
+        "x": 912.6947937741176,
+        "y": 3254.311115629434,
+        "elevation": 13.225683782074125,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 71,
+      "pixels": 2511,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4400000000000008,
+        "progress": 5,
+        "speed": 194.42539779154927,
+        "x": 913.0323450157505,
+        "y": 3250.4372863505637,
+        "elevation": 13.517048528910978,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 72,
+      "pixels": 2512,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4600000000000009,
+        "progress": 5,
+        "speed": 196.65539376946958,
+        "x": 913.3737678601664,
+        "y": 3246.519025511778,
+        "elevation": 13.789968953979571,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 73,
+      "pixels": 2527,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.4800000000000009,
+        "progress": 5,
+        "speed": 198.86983428318726,
+        "x": 913.7190353007792,
+        "y": 3242.556643047959,
+        "elevation": 14.065962602897821,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    },
+    {
+      "step": 74,
+      "pixels": 2543,
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "chase",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 1.5000000000000009,
+        "progress": 5,
+        "speed": 201.06882784073053,
+        "x": 914.0681205193887,
+        "y": 3238.5504467320197,
+        "elevation": 14.34500803821735,
+        "map": "mountain",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": null
+      }
+    }
+  ],
+  "sceneFaces": 1727,
+  "actualBackend": "webgl"
+}

@@ -1,0 +1,58 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46711] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/Rendering.tla
+Parsing file [temporary-directory]/Naturals.tla
+Parsing file [temporary-directory]/Integers.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Rendering
+Starting... (2026-11-10 02:14:15)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-10 02:14:15.
+Error: Invariant DependenciesBeforeDrawing is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ frameBackend = "none"
+/\ gpuViewport = -1
+/\ view = "chase"
+/\ loop = FALSE
+/\ context = "valid"
+/\ presentation = "none"
+/\ boom = "full"
+/\ mesh = 0
+/\ boot = "loading"
+/\ event = "init"
+/\ fresh = FALSE
+/\ backend = "cold"
+/\ frameMesh = 0
+/\ pose = 0
+/\ resources = FALSE
+/\ uploaded = -1
+/\ framePose = 0
+/\ obstruction = "clear"
+/\ viewport = 0
+
+State 2: <EarlyFrame line 17, col 15 to line 20, col 119 of module Rendering>
+/\ frameBackend = "none"
+/\ gpuViewport = -1
+/\ view = "chase"
+/\ loop = FALSE
+/\ context = "valid"
+/\ presentation = "none"
+/\ boom = "full"
+/\ mesh = 0
+/\ boot = "loading"
+/\ event = "draw"
+/\ fresh = FALSE
+/\ backend = "cold"
+/\ frameMesh = 0
+/\ pose = 0
+/\ resources = FALSE
+/\ uploaded = -1
+/\ framePose = 0
+/\ obstruction = "clear"
+/\ viewport = 0
+
+3 states generated, 3 distinct states found, 1 states left on queue.
+The depth of the complete state graph search is 2.
+Finished in 00s at (2026-11-10 02:14:15)

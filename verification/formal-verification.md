@@ -85,3 +85,16 @@ The browser regression holds the script for two native frames after the game has
 initialized, then requires real keyboard acceleration on all three new courses.
 Startup now waits for `DOMContentLoaded`. This regression supplements the models;
 the existing acceleration thresholds and complete release gates remain unchanged.
+
+
+## Hidden-state and flicker candidate, 2026-11-10
+
+The 27-group audit extends the required gate to eight finite models and 17 named
+negative controls, 26 additional implementation contracts, 540 native animation
+frames, and 450 deterministic camera/beam frames. The exact candidate full command
+passed on Mac mini with 471 screenshots and six recordings; all 44 tested source
+hashes match. Separate model graphs contain 84,174 distinct states in aggregate.
+See [reproduction, before/after, scope and candidate manifest](flicker-verification.md),
+[full state inventory](../docs/STATE-MACHINES.md) and [TLC traces](flicker-tla/).
+The release workflow independently gates Linux verification, deployment and the
+complete live-site rerun. The project Page records that release outcome.

@@ -1,0 +1,39 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46657] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/Race.tla
+Parsing file [temporary-directory]/Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module Race
+Starting... (2026-11-10 02:14:02)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-10 02:14:02.
+Error: Action property ReverseCannotAddLap is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ view = "first"
+/\ event = "init"
+/\ phase = "ready"
+/\ lap = 1
+/\ segment = 0
+/\ clock = 0
+
+State 2: <Start line 9, col 10 to line 11, col 26 of module Race>
+/\ view = "first"
+/\ event = "start"
+/\ phase = "running"
+/\ lap = 1
+/\ segment = 0
+/\ clock = 0
+
+State 3: <Reverse line 27, col 12 to line 29, col 46 of module Race>
+/\ view = "first"
+/\ event = "reverse"
+/\ phase = "running"
+/\ lap = 2
+/\ segment = 0
+/\ clock = 0
+
+11 states generated, 10 distinct states found, 7 states left on queue.
+The depth of the complete state graph search is 3.
+The average outdegree of the complete state graph is 5 (minimum is 5, the maximum 5 and the 95th percentile is 5).
+Finished in 00s at (2026-11-10 02:14:02)

@@ -57,8 +57,9 @@ async function fixture(page,view,setup){return page.evaluate(({view,setup})=>{
    const failures=await page.evaluate(()=>{
     const failures=[];for(let i=0;i<N;i++){
      const p=track[i],a=track[Math.max(0,i-1)],b=track[Math.min(N-1,i+1)];car.x=p.x;car.y=p.y;car.z=p.z;car.angle=Math.atan2(b.y-a.y,b.x-a.x);
-     const fx=Math.cos(car.angle),fz=Math.sin(car.angle),n=nearest(car.x,car.y),grade=n.grade*(fx*n.tx+fz*n.ty),pitch=.36-Math.atan(grade),focal=Math.min(w*.82,h*1.35),forward=133,dy=13.5+grade*133-92;
-     drawPerspective();const x=Math.round(w/2),y=Math.round(h*.42-(dy*Math.cos(pitch)+forward*Math.sin(pitch))*focal/(forward*Math.cos(pitch)-dy*Math.sin(pitch)));
+     const pose=perspectivePose(),[fx,fz]=pose.forward,{grade,pitch,focal,horizon}=pose;
+     const forward=pose.distance-17,dy=car.z+13.5-17*grade-pose.camera[1];
+     drawPerspective();const x=Math.round(w/2),y=Math.round(horizon-(dy*Math.cos(pitch)+forward*Math.sin(pitch))*focal/(forward*Math.cos(pitch)-dy*Math.sin(pitch)));
      const rgb=Array.from(ctx.getImageData(x,y,1,1).data).slice(0,3);
      if(rgb.some((v,k)=>Math.abs(v-[210,250,96][k])>3))failures.push({index:i,rgb,x,y});
     }return failures;

@@ -1,0 +1,22 @@
+{
+  "before": {
+    "pixels": 5658,
+    "width": 74,
+    "height": 97,
+    "hash": 4003911792
+  },
+  "immediate": {
+    "lost": true,
+    "claimsSuccess": true,
+    "pixels": 0,
+    "width": -843,
+    "height": -331,
+    "hash": 565263071
+  },
+  "lost": {
+    "pixels": 0,
+    "width": -843,
+    "height": -331,
+    "hash": 565263071
+  }
+}

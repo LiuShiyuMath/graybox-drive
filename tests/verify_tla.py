@@ -25,16 +25,28 @@ def main():
     if hashlib.sha256(JAR.read_bytes()).hexdigest() != SHA256:
         raise RuntimeError('TLC jar checksum mismatch; do not execute it')
     rows = []
-    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain', 'Courses']]
+    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain', 'Courses', 'Rendering', 'VehicleWorld']]
     cases += [('Mountain', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'SummitRequiresCheckpoints'),
               ('Courses', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'FinishedHasCheckpoints'),
               ('Courses', ('BuggyCheckpoint = FALSE', 'BuggyCheckpoint = TRUE'), 'EveryLapRequiresCheckpoints'),
               ('Input', ('BuggyRelease = FALSE', 'BuggyRelease = TRUE'), 'ActiveMatchesHeld'),
               ('Hazards', ('AutoPenalty = 5', 'AutoPenalty = 10'), 'ExactRecoveryPenalty'),
               ('Race', ('BuggyReverse = FALSE', 'BuggyReverse = TRUE'), 'ReverseCannotAddLap'),
-              ('Hazards', ('BuggyCooldown = FALSE', 'BuggyCooldown = TRUE'), 'CooldownSuppressesFeedback')]
+              ('Hazards', ('BuggyCooldown = FALSE', 'BuggyCooldown = TRUE'), 'CooldownSuppressesFeedback'),
+              ('Rendering', ('BuggyLoss = FALSE', 'BuggyLoss = TRUE'), 'NoStaleFrame'),
+              ('Rendering', ('BuggyRestore = FALSE', 'BuggyRestore = TRUE'), 'NoStaleFrame'),
+              ('Rendering', ('BuggyMesh = FALSE', 'BuggyMesh = TRUE'), 'CurrentMeshPresented'),
+              ('Rendering', ('BuggyBoot = FALSE', 'BuggyBoot = TRUE'), 'DependenciesBeforeDrawing'),
+              ('Rendering', ('BuggyCamera = FALSE', 'BuggyCamera = TRUE'), 'NearCameraKeepsCar'),
+              ('VehicleWorld', ('BuggyRecovery = FALSE', 'BuggyRecovery = TRUE'), 'RecoveryClearsFlightAndSlip'),
+              ('VehicleWorld', ('BuggyCrossing = FALSE', 'BuggyCrossing = TRUE'), 'CrossingRequiresNegativeSide'),
+              ('VehicleWorld', ('BuggyFeedback = FALSE', 'BuggyFeedback = TRUE'), 'FallDominatesImpact'),
+              ('VehicleWorld', ('BuggyToast = FALSE', 'BuggyToast = TRUE'), 'NewToastOwnsTimeout'),
+              ('VehicleWorld', ('BuggyCollection = FALSE', 'BuggyCollection = TRUE'), 'CollectionNeverShrinks')]
     for name, mutation, expected in cases:
         label = name if not mutation else name + '-regression-' + expected
+        if mutation and name == 'Rendering':
+            label += '-' + mutation[0].split()[0]
         with tempfile.TemporaryDirectory(prefix='graybox-tlc-') as temp:
             config = Path(temp) / (name + '.cfg')
             text = (ROOT / 'specs' / (name + '.cfg')).read_text()

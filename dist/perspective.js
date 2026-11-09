@@ -95,11 +95,41 @@ function drawSoftwareDepth(faces,focal,horizon){
  }
  context.putImageData(image,0,0);ctx.save();ctx.imageSmoothingEnabled=false;ctx.drawImage(surface,0,0,w,h);ctx.restore();return true;
 }
+function chaseCameraFraction(focus,target,faces){
+ const direction=target.map((v,i)=>v-focus[i]),length=Math.hypot(...direction),clearance=8,softness=16;
+ const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0),subtract=(a,b)=>a.map((v,i)=>v-b[i]);
+ let fraction=1;
+ for(const face of faces){
+  if(face.ground)continue;
+  for(let i=1;i<face.vertices.length-1;i++){
+   const triangle=[face.vertices[0],face.vertices[i],face.vertices[i+1]],normal=cross(subtract(triangle[1],triangle[0]),subtract(triangle[2],triangle[0])),normalLength=Math.hypot(...normal),denominator=dot(direction,normal);
+   if(Math.abs(denominator)<.00001||normalLength<.00001)continue;
+   const t=dot(subtract(triangle[0],focus),normal)/denominator;
+   if(t<=0||t>=1)continue;
+   const point=focus.map((v,j)=>v+direction[j]*t);
+   let outside=0;
+   for(let j=0;j<3;j++){
+    const edge=subtract(triangle[(j+1)%3],triangle[j]);
+    outside=Math.max(outside,-dot(cross(edge,subtract(point,triangle[j])),normal)/(Math.hypot(...edge)*normalLength));
+   }
+   if(outside>=softness)continue;
+   const u=Math.max(0,outside/softness),influence=1-u*u*(3-2*u),safe=Math.max((21+clearance)/150,t-clearance/length);
+   fraction=Math.min(fraction,1-(1-safe)*influence);
+  }
+ }
+ return fraction;
+}
+function perspectivePose(){
+ const chase=viewMode==='chase',fx=Math.cos(car.angle),fz=Math.sin(car.angle),sample=activeMap.mountain||activeMap.generic?nearest(car.x,car.y):null;
+ const grade=sample?sample.grade*(fx*sample.tx+fz*sample.ty):0,drop=-hazard.fall*hazard.fall*80;
+ const target=[car.x-fx*(chase?150:6),(car.z||0)+(chase?92:19)+drop-grade*(chase?150:6),car.y-fz*(chase?150:6)];
+ const focus=[car.x,(car.z||0)+12+drop,car.y];
+ const fraction=chase&&(activeMap.mountain||activeMap.generic)?chaseCameraFraction(focus,target,roadMesh):1;
+ return {camera:focus.map((v,i)=>v+(target[i]-v)*fraction),forward:[fx,fz],right:[-fz,fx],chase,grade,drop,pitch:(chase?.36:.055+Math.min(.65,hazard.fall*.5))-Math.atan(grade),focal:Math.min(w*.82,h*1.35),horizon:h*.42,distance:(chase?150:6)*fraction,obstructed:fraction<1};
+}
 function drawPerspective(){
 if((activeMap.mountain||activeMap.generic)&&drawMountainPerspective())return;
-const chase=viewMode==='chase',fx=Math.cos(car.angle),fz=Math.sin(car.angle),rx=-fz,rz=fx;
-const mountainSample=activeMap.mountain||activeMap.generic?nearest(car.x,car.y):null,mountainGrade=mountainSample?mountainSample.grade*(fx*mountainSample.tx+fz*mountainSample.ty):0;
-const drop=-hazard.fall*hazard.fall*80,cx=car.x-fx*(chase?150:6),cz=car.y-fz*(chase?150:6),cy=(car.z||0)+(chase?92:19)+drop-mountainGrade*(chase?150:6),pitch=(chase?.36:.055+Math.min(.65,hazard.fall*.5))-Math.atan(mountainGrade),cp=Math.cos(pitch),sp=Math.sin(pitch),focal=Math.min(w*.82,h*1.35),horizon=h*.42;
+const pose=perspectivePose(),{chase,drop,grade:mountainGrade,pitch,focal,horizon}=pose,[fx,fz]=pose.forward,[rx,rz]=pose.right,[cx,cy,cz]=pose.camera,cp=Math.cos(pitch),sp=Math.sin(pitch);
 const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#8baba6');sky.addColorStop(.48,'#c1cbb8');sky.addColorStop(.49,'#9baa94');sky.addColorStop(1,'#74856e');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);if(activeMap.mountain||activeMap.generic)drawMountainBackdrop(horizon,focal,pitch);
 const transform=v=>{const dx=v[0]-cx,dy=v[1]-cy,dz=v[2]-cz,forward=dx*fx+dz*fz;return[dx*rx+dz*rz,dy*cp+forward*sp,forward*cp-dy*sp]};
 const faces=[];const add=face=>{let pts=clipNear(face.vertices.map(transform));if(pts.length<3)return;const depth=pts.reduce((s,p)=>s+p[2],0)/pts.length;if(depth>2200)return;faces.push({pts,depth,color:face.color,ground:!!face.ground,layer:face.layer||0})};
@@ -154,6 +184,9 @@ function createMountainRenderer(){
  const surface=document.createElement('canvas');
  const gl=surface.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:false});
  if(!gl)return null;
+ let resources;
+ surface.addEventListener('webglcontextlost',event=>{event.preventDefault();resources=undefined});
+ surface.addEventListener('webglcontextrestored',()=>{resources=undefined});
  const vertex=`attribute vec3 aPosition;attribute vec3 aColor;
  uniform vec3 uCamera;uniform vec2 uForward;uniform vec2 uRight;uniform vec2 uPitch;uniform vec3 uProjection;
  varying vec3 vColor;varying float vDepth;
@@ -163,37 +196,43 @@ function createMountainRenderer(){
  vColor=aColor;vDepth=depth;}`;
  const fragment=`precision mediump float;varying vec3 vColor;varying float vDepth;
  void main(){float fog=smoothstep(450.0,2900.0,vDepth)*0.68;gl_FragColor=vec4(mix(vColor,vec3(0.68,0.77,0.68),fog),1.0);}`;
- const compile=(type,source)=>{const shader=gl.createShader(type);gl.shaderSource(shader,source);gl.compileShader(shader);if(!gl.getShaderParameter(shader,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(shader));return shader};
- const program=gl.createProgram();gl.attachShader(program,compile(gl.VERTEX_SHADER,vertex));gl.attachShader(program,compile(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);
- if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(program));
- const position=gl.getAttribLocation(program,'aPosition'),color=gl.getAttribLocation(program,'aColor');
- const uniforms=Object.fromEntries(['uCamera','uForward','uRight','uPitch','uProjection'].map(name=>[name,gl.getUniformLocation(program,name)]));
+ const createResources=()=>{
+  const compile=(type,source)=>{const shader=gl.createShader(type);gl.shaderSource(shader,source);gl.compileShader(shader);if(!gl.getShaderParameter(shader,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(shader));return shader};
+  const program=gl.createProgram();gl.attachShader(program,compile(gl.VERTEX_SHADER,vertex));gl.attachShader(program,compile(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);
+  if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(program));
+  const position=gl.getAttribLocation(program,'aPosition'),color=gl.getAttribLocation(program,'aColor');
+  const uniforms=Object.fromEntries(['uCamera','uForward','uRight','uPitch','uProjection'].map(name=>[name,gl.getUniformLocation(program,name)]));
+  return {program,position,color,uniforms,staticBuffer:gl.createBuffer(),carBuffer:gl.createBuffer(),version:-1,count:0};
+ };
  const toVertices=faces=>{
   const data=[];
   for(const face of faces){const hex=face.color.replace('#',''),rgb=[0,2,4].map(i=>parseInt(hex.slice(i,i+2),16)/255),v=face.vertices;for(let k=1;k<v.length-1;k++)for(const point of[v[0],v[k],v[k+1]])data.push(...point,...rgb)}
   return new Float32Array(data);
  };
- const staticBuffer=gl.createBuffer(),carBuffer=gl.createBuffer();
- let version=-1,count=0;
  return {surface,draw(camera,forward,right,pitch,focal,horizon,carFaces){
+  if(gl.isContextLost()){resources=undefined;return false}
+  if(resources===undefined){try{resources=createResources()}catch{resources=null}}
+  if(!resources)return false;
+  const {program,position,color,uniforms,staticBuffer,carBuffer}=resources;
   const width=Math.round(w*Math.min(devicePixelRatio||1,2)),height=Math.round(h*Math.min(devicePixelRatio||1,2));
   if(surface.width!==width||surface.height!==height){surface.width=width;surface.height=height}
   gl.viewport(0,0,width,height);gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);
   gl.uniform3fv(uniforms.uCamera,camera);gl.uniform2fv(uniforms.uForward,forward);gl.uniform2fv(uniforms.uRight,right);gl.uniform2fv(uniforms.uPitch,[Math.cos(pitch),Math.sin(pitch)]);gl.uniform3fv(uniforms.uProjection,[focal*2/w,focal*2/h,1-2*horizon/h]);
   const bind=buffer=>{gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.enableVertexAttribArray(position);gl.enableVertexAttribArray(color);gl.vertexAttribPointer(position,3,gl.FLOAT,false,24,0);gl.vertexAttribPointer(color,3,gl.FLOAT,false,24,12)};
   bind(staticBuffer);
-  if(version!==roadMeshVersion){const data=toVertices(roadMesh);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);count=data.length/6;version=roadMeshVersion}
-  gl.drawArrays(gl.TRIANGLES,0,count);
+  if(resources.version!==roadMeshVersion){const data=toVertices(roadMesh);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);resources.count=data.length/6;resources.version=roadMeshVersion}
+  gl.drawArrays(gl.TRIANGLES,0,resources.count);
   if(carFaces.length){bind(carBuffer);const data=toVertices(carFaces);gl.bufferData(gl.ARRAY_BUFFER,data,gl.DYNAMIC_DRAW);gl.drawArrays(gl.TRIANGLES,0,data.length/6)}
+  if(gl.isContextLost()){resources=undefined;return false}
   ctx.drawImage(surface,0,0,w,h);
+  if(gl.isContextLost()){resources=undefined;return false}
+  return true;
  }};
 }
 function drawMountainPerspective(){
  if(mountainRenderer===undefined){try{mountainRenderer=createMountainRenderer()}catch{mountainRenderer=null}}
  if(!mountainRenderer)return false;
- const chase=viewMode==='chase',fx=Math.cos(car.angle),fz=Math.sin(car.angle),n=nearest(car.x,car.y);
- const drop=-hazard.fall*hazard.fall*80,grade=n.grade*(fx*n.tx+fz*n.ty),pitch=(chase?.36:.055+Math.min(.65,hazard.fall*.5))-Math.atan(grade);
- const focal=Math.min(w*.82,h*1.35),horizon=h*.42;
+ const pose=perspectivePose(),{chase,drop,grade,pitch,focal,horizon}=pose,[fx,fz]=pose.forward;
  drawMountainBackdrop(horizon,focal,pitch);
  const faces=[];
  if(chase){
@@ -202,7 +241,7 @@ function drawMountainPerspective(){
  }
  for(const face of faces)face.vertices=face.vertices.map(([x,y,z])=>[x,y+((x-car.x)*fx+(z-car.y)*fz)*grade,z]);
  if(activeMap.generic)faces.push(...courseDynamicMesh());
- mountainRenderer.draw([car.x-fx*(chase?150:6),(car.z||0)+(chase?92:19)+drop-grade*(chase?150:6),car.y-fz*(chase?150:6)],[fx,fz],[-fz,fx],pitch,focal,horizon,faces);
+ if(!mountainRenderer.draw(pose.camera,pose.forward,pose.right,pitch,focal,horizon,faces))return false;
  if(!chase)drawCockpit();
  return true;
 }

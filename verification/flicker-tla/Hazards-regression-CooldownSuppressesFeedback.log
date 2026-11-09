@@ -1,0 +1,76 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46678] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/Hazards.tla
+Parsing file [temporary-directory]/Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module Hazards
+Starting... (2026-11-10 02:14:05)
+Implied-temporal checking--satisfiability problem has 1 branches.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-10 02:14:05.
+Error: Action property CooldownSuppressesFeedback is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ penalty = 0
+/\ cooldown = 0
+/\ manual = 0
+/\ fall = 0
+/\ automatic = 0
+/\ event = "init"
+/\ phase = "running"
+/\ motion = "stopped"
+/\ surface = "road"
+/\ impact = 0
+
+State 2: <Move line 18, col 9 to line 20, col 82 of module Hazards>
+/\ penalty = 0
+/\ cooldown = 0
+/\ manual = 0
+/\ fall = 0
+/\ automatic = 0
+/\ event = "move"
+/\ phase = "running"
+/\ motion = "forward"
+/\ surface = "road"
+/\ impact = 0
+
+State 3: <Contact line 36, col 18 to line 42, col 82 of module Hazards>
+/\ penalty = 0
+/\ cooldown = 2
+/\ manual = 0
+/\ fall = 0
+/\ automatic = 0
+/\ event = "contact"
+/\ phase = "running"
+/\ motion = "reverse"
+/\ surface = "road"
+/\ impact = 2
+
+State 4: <Tick line 24, col 9 to line 27, col 75 of module Hazards>
+/\ penalty = 0
+/\ cooldown = 1
+/\ manual = 0
+/\ fall = 0
+/\ automatic = 0
+/\ event = "tick"
+/\ phase = "running"
+/\ motion = "reverse"
+/\ surface = "road"
+/\ impact = 1
+
+State 5: <Contact line 36, col 18 to line 42, col 82 of module Hazards>
+/\ penalty = 0
+/\ cooldown = 2
+/\ manual = 0
+/\ fall = 0
+/\ automatic = 0
+/\ event = "contact"
+/\ phase = "running"
+/\ motion = "forward"
+/\ surface = "road"
+/\ impact = 2
+
+1580 states generated, 227 distinct states found, 124 states left on queue.
+The depth of the complete state graph search is 5.
+The average outdegree of the complete state graph is 2 (minimum is 0, the maximum 18 and the 95th percentile is 5).
+Finished in 00s at (2026-11-10 02:14:05)

@@ -1,20 +1,44 @@
 # Vehicle state machines and verification
 
-`dist/game.js` and `dist/perspective.js` are the runtime source of truth. This
-document maps the nine overlapping state groups to executable checks. Race and
-camera modes are explicit enums; motion, surfaces and feedback are derived.
+The runtime source is `dist/game.js`, `dist/course-world.js`, `dist/course-pack.js`,
+`dist/maps.js` and `dist/perspective.js`. This audit identifies 27 overlapping
+groups of stored, derived and temporal state. It is a code inventory, not a claim
+that every possible emergent behavior has a finite proof.
 
-| Group | States and transitions | Formal model | Runtime evidence |
+| # | State group and actual transitions | Source location | Finite model and runtime evidence |
 | --- | --- | --- | --- |
-| Race | ready → running ⇄ paused → finished; restart resets a race; three forward laps finish; reverse does not add laps | Race | drive.cjs, state-contract.cjs, browser-states.cjs, browser_e2e.py |
-| Input | 4 actions, 16 action combinations; independent keyboard/pointer sources; pause/fall/finish clear input | Input | All 256 subsets of 8 representative sources, each press/release (4,096 transitions); browser keyboard and CDP touches |
-| Motion | stopped, accelerating, coasting, braking, reversing, forward/reverse steering | Hazards abstracts speed sign only | Physics tests and all-camera screenshots; acceleration with real animation |
-| Surface | road, curb, runoff, outer edge, fall; return to safety | Hazards abstracts zone crossings | Exact 87/106/160/210 distance boundaries and screenshots |
-| Collision | separation, bounce, impact feedback, cooldown, feedback clears | Hazards abstracts sign reversal and cooldown | Forward/reverse/low-speed obstacle contacts and screenshots |
-| Recovery | fall begins → advances → automatic recovery +5; manual recovery +3; pause freezes fall | Hazards safety and weak-fair progress | Penalty once, manual recovery cancels pending automatic recovery, paused fall |
-| Camera | first / chase / top; change does not mutate race, pose or hazard | Race and Persistence | Three cameras × both orientations; 240 headings, building occlusion and falling camera |
-| Feedback | fall takes priority over impact, then surface; road hides warning; pause/finish overlays | Hazard state only; priority/rendering verified in browser | Feedback DOM assertions, screenshots; pixel checks supplement visual review |
-| Persistence | best is minimum finish time; slower scores preserve it; valid camera restores; invalid camera falls back | Persistence | Reload, better/slower results and localStorage checks |
+| 1 | Race: ready → running ⇄ paused → finished; restart/replay resets run | `game.js:start/pause/reset/finish` | Race/Input; state-contract.cjs, browser-states.cjs, browser_e2e.py |
+| 2 | Circuit progress: forward/reverse signed progress; three earned laps finish | `game.js:update` | Race abstracts sectors; drive.cjs checks actual progress |
+| 3 | Mountain: five earned checkpoints → summit; reverse retains checkpoints | `game.js:update/recover` | Mountain; mountain.cjs, browser-mountain.cjs |
+| 4 | Course checkpoints: five ordered CP each lap; legal forward start crossing completes lap | `course-world.js:updateCourseRace` | Courses abstracts two CP; courses.cjs drives actual checkpoints |
+| 5 | Map lifecycle: five maps; switch → ready, clean run, per-map best, rebuilt geometry | `game.js:selectMap/reset`; `perspective.js:rebuildRoadMesh` | Courses/VehicleWorld; hidden-state-contract.cjs checks every map |
+| 6 | Input sources: held keyboard/pointer set → union of four actions; pause/fall/finish clears | `game.js:setInputSource/clearInput` | Input; 4,096 implementation transitions and CDP multitouch |
+| 7 | Pointer capture: down → captured → up/cancel/lost capture → released | `game.js` control event listeners | Input abstracts release; browser tests exercise source independence and cancellation |
+| 8 | Focus: blur or hidden → paused and neutral; resume requires new input | `game.js` blur/visibility listeners | Input/VehicleWorld; browser-states.cjs, hidden-state-contract.cjs |
+| 9 | Motion: stopped/accelerating/coasting/braking/reverse/forward again | `game.js:update` | Hazards/VehicleWorld abstract speed sign; actual physics and keyboard tests |
+| 10 | Steering/slip: opposing steering cancels; steer/slip approach targets; recovery clears slip | `game.js:update`; `course-world.js:updateCoursePhysics` | VehicleWorld quantizes levels; actual grip, decay, cancellation and recovery contracts |
+| 11 | Surface: road/curb/runoff/edge/fall; asphalt/grass/gravel/mud; main road/shortcut/cross street | `game.js:nearest/update`; `course-world.js:courseSurface/courseTerrain` | Hazards/VehicleWorld categories; actual thresholds, friction and geometry tests |
+| 12 | Ground support/pose: nearest segment/interpolation → elevation/bank/grade; flight adds height; fall adds render drop | `game.js:nearest/edgeAt/update`; perspective draw functions | Rendering abstracts pose revision; continuous heights, chassis/camera continuity and occlusion remain browser obligations |
+| 13 | Collision: separated/contact/penetrating → separation → rebound; props/wall/AI | `game.js:resolveCollisions/update`; `course-world.js:collideCourseObject` | Hazards abstracts sign reversal; drive.cjs, mountain.cjs, courses.cjs check geometry |
+| 14 | Impact cooldown: eligible contact → impact/cooldown → decay → eligible; low-speed contact has no flash | `game.js:update/resolveCollisions`; `course-world.js:collideCourseObject` | Hazards; named cooldown mutation and browser effects tests |
+| 15 | Fall: safe → begins → advances → automatic recovery; pause freezes fall | `game.js:update` | Hazards safety/progress; normal-animation fall/recovery recordings |
+| 16 | Recovery: manual +3 / auto +5; return to road/earned CP; clear input/hazard/jump/slip | `game.js:recover` | Hazards/Mountain/Courses/VehicleWorld; penalty-once, raw state and synchronous HUD tests |
+| 17 | Flight: grounded → rising → falling → landed; pause freezes; recovery clears height/velocity | `course-world.js:updateCoursePhysics` | Courses/VehicleWorld; actual launch eligibility and natural landing |
+| 18 | Ramp latch: null → ramp ID → outside all ramp zones while grounded → null; prevents same-ramp relaunch | `course-world.js:updateCoursePhysics/resetCourseWorld`; `game.js:recover` | VehicleWorld; actual recovery retains latch, next outside-zone tick releases it |
+| 19 | Collection: uncollected → Set member; repeated collection is idempotent; recovery preserves; new run clears | `course-world.js:updateCoursePhysics/courseDynamicMesh` | Courses/VehicleWorld abstract two tokens; runtime checks all six |
+| 20 | Signals: green → amber → red → green; elapsed/period/offset; +3 penalty also shifts signal clock | `course-world.js:courseSignal/updateCourseRace` | VehicleWorld includes amber and clock shift; actual boundaries/offsets/period tests |
+| 21 | AI traffic: outbound/inbound ping-pong; approach → wait on green/amber, go on red; pause freezes | `course-world.js:sampleTraffic/updateCourseTraffic` | VehicleWorld approach/direction/stop; actual endpoint continuity and signal tests |
+| 22 | Stop line: in-width negative → positive charges once; staying after does not; reverse crossing rearms | `course-world.js:updateCourseRace` | VehicleWorld includes two crossings/re-arm; runtime checks plane, width, direction and repeated crossings |
+| 23 | Camera: first/chase/top; overview/follow; clear/blocked/retracted boom; top-view convergence; slope pitch/fall drop | `perspective.js:selectView/perspectivePose/chaseCameraFraction`; top-view functions | Race/Persistence/Rendering cover mode independence; geometry and legal occlusion require continuous browser evidence |
+| 24 | Feedback/effects: fall > impact > surface; dust rise/decay; deliberate hazard vibration; toast replace → wall-clock expiry; capped skids | `game.js:updateFeedback/drawHazardEffects/draw/toast/update` | VehicleWorld priority/coarse dust/timer ownership; DOM/timer contracts plus browser screenshots/recordings |
+| 25 | Persistence: per-map minimum best; remembered map/view; invalid view fallback; storage failure | `game.js:finish/selectMap`, initial reads; `perspective.js` saved-view read | Persistence finite valid scores/invalid view; reload/per-map runtime tests; arbitrary corrupt numbers remain outside model |
+| 26 | Bootstrap/frame: scripts initialize → DOMContentLoaded → one rAF chain; delta clamp → substeps → draw | `index.html` script order; `game.js:frame`, DOMContentLoaded listener | Rendering boot gate; delayed-script startup and normal-animation regression |
+| 27 | Renderer: cold → WebGL/software; context valid/lost/restored; mesh upload; viewport/backbuffer; software depth allocation; draw/composite | `perspective.js:createMountainRenderer/drawMountainPerspective/drawSoftwareDepth/rebuildRoadMesh`; `game.js:resize` | Rendering lifecycle/frame consistency; actual loss/restore, resize, map switch and vehicle-region browser checks |
+
+`particles` is declared/reset but never advanced or drawn, so it is not an active
+machine. Canvas transforms, CSS `perspective`/`pressed`, ARIA selection and overlays
+present the groups above. Legal object occlusion, intended hazard vibration and
+an absent/stale rendered vehicle must be distinguished in pixel verification.
 
 ```mermaid
 stateDiagram-v2
@@ -58,9 +82,53 @@ An independent contact event marker checks cooldown behavior;
 camera, repeated finishes and reloads. Best must equal the minimum submitted score.
 
 These models are specifications, not a machine-checked refinement proof of the
-JavaScript implementation. `tests/state-contract.cjs` executes the real runtime's
-matching operations; existing physics and browser tests cover continuous values,
-geometry and pixels. Keep model assumptions and code mappings current.
+JavaScript implementation. `tests/state-contract.cjs` and
+`tests/hidden-state-contract.cjs` execute matching operations in the real runtime;
+physics and browser tests cover continuous values, geometry and pixels. Keep
+model assumptions and code mappings current.
+
+## Hidden gameplay model and implementation contracts
+
+`VehicleWorld.tla` checks five independent partitions in one finite graph:
+motion, jump/ramp latch, traffic/crossing, collection and feedback/timers. Each
+initial state chooses one partition and keeps that choice. This checks each
+partition with lifecycle, input gating, focus loss, recovery and pause. It does
+not explore their full cross-product. Race/checkpoint/recovery penalties retain
+their dedicated models. Browser and actual-runtime tests exercise combined
+states across these partitions.
+
+| Partition | Finite representation | Actual-runtime obligation |
+| --- | --- | --- |
+| Motion | Three speed signs, three steering directions, four materials, three slip levels | Acceleration, slope, grip, limits, smoothing and slip direction; a falling coarse slip level represents decay, not an exact float reaching zero |
+| Jump/ramp | Ground/rise/fall, two ramp IDs, outside-zone re-arm event | Launch radius, forward speed/alignment, gravity, landing and collision height; recover retains latch, next grounded outside-zone tick clears it |
+| Traffic/crossing | One 12-second signal: 6 green/1 amber/5 red; AI approach/direction/stop; at most two forward crossings and reverse re-arm | Per-junction offsets, movement/route geometry, line width/direction and approach bounds; charging shifts the model signal clock by 3 seconds |
+| Collection | Two Set members | Six actual markers, distance/radius and geometry; recovery retains membership, map/restart clears it |
+| Feedback/timers | Coarse impact/fall/dust, priority, at most two toast generations and pending timer IDs | Real thresholds, rendering, raw dust frozen during fall, vibration and timeout timing; cleared timers cannot hide a replacement toast |
+
+The pause property freezes simulation fields, not wall-clock timers. A toast can
+expire while paused. Top-view camera smoothing can continue during drawing.
+Neither behavior is simulated physics progress. `gameSnapshot()` excludes
+camera, renderer, frame and timer state, so an equal snapshot alone cannot
+establish identical pixels or absence of flicker.
+
+| Mutation constant changed to TRUE | Required counterexample |
+| --- | --- |
+| `BuggyRecovery` | `RecoveryClearsFlightAndSlip` |
+| `BuggyCrossing` | `CrossingRequiresNegativeSide` |
+| `BuggyFeedback` | `FallDominatesImpact` |
+| `BuggyToast` | `NewToastOwnsTimeout` |
+| `BuggyCollection` | `CollectionNeverShrinks` |
+
+`tests/hidden-state-contract.cjs` checks 26 actual-runtime contracts, including
+every map's pause/reset, ramp launch/re-arm, all material grips, amber boundaries,
+AI endpoint continuity, forward/reverse/repeated stop-line crossings, six tokens,
+priority, dust and replacement-toast ownership. Its DOM and wall clock are
+deterministic stubs. It asserts no rendered pixels; browser tests remain necessary.
+
+Remaining numeric-storage boundary: `Number(savedBest) || null` accepts negative
+and infinite corrupt best scores. The valid-score Persistence model does not
+prove arbitrary localStorage values are sanitized. This inventory records that
+boundary rather than claiming an input-validation rule the implementation lacks.
 
 ## Reproduce
 
@@ -82,7 +150,7 @@ Official setup references: [TLA+ tools](https://github.com/tlaplus/tlaplus/blob/
 
 Mountain geometry uses road/curb/edge/fall thresholds 57/65/77/96 world units (10 units = 1 metre). A continuous mountain-side wall constrains the negative side; the positive cliff side can fall. Physical grades, centreline distance, continuous driving and rendering remain runtime obligations, not TLA claims.
 
-`tests/mountain.cjs` covers these transitions, distinct best storage and a continuous physics-only summit drive. `tests/browser-mountain.cjs` captures 42 scenarios across three cameras and two orientations, checks all 240 chase positions and real keyboard/touch input, then checks Canvas fallback. `tests/browser_e2e.py` uses normal animation for every map. The full command retains the original mountain and circuit matrices alongside the added course matrix, six models and seven named counterexamples.
+`tests/mountain.cjs` covers these transitions, distinct best storage and a continuous physics-only summit drive. `tests/browser-mountain.cjs` captures 42 scenarios across three cameras and two orientations, checks all 240 chase positions and real keyboard/touch input, then checks Canvas fallback. `tests/browser_e2e.py` uses normal animation for every map. The full command retains the original mountain and circuit matrices alongside the course matrix, original six models and seven named counterexamples, and added hidden-state models with their named mutations.
 
 ## Shared map and course states
 
@@ -136,3 +204,51 @@ dependencies have initialized. A delayed perspective script must not cause a fir
 `drawMinimap` error and permanently stop the loop. The real-browser startup regression
 holds that script until two native animation frames have elapsed, then releases it and
 requires normal keyboard acceleration on Proving Ground, City Blocks and Wild Trail.
+
+## Rendering freshness and chase-camera obstruction
+
+`Rendering.tla` adds a finite resource/presentation model. It explores loading
+versus ready, one scheduled loop, cold/WebGL/software backend, valid/lost context,
+invalid/rebuilt GPU resources, two map mesh revisions, two viewport revisions,
+three cameras, two abstract poses and clear/eligible-boom/legal obstruction.
+A presented frame must use initialized dependencies, current mesh/viewport and
+one pose. Lost WebGL must yield to software; restoration must recreate GPU
+resources. An eligible near-boom obstruction must retract the chase camera.
+Legal occlusion is retained. This abstraction does not run shader code or prove
+ray/triangle geometry, numerical continuity, rasterization, or all combined
+VehicleWorld interactions.
+
+`perspectivePose()` derives camera position from the current car, grade and static
+mesh. On mountain/general chase views, `chaseCameraFraction()` pulls the camera
+before nonground mesh intersections. Eight world units give clearance beyond the
+four-unit near clip. A 16-unit geometric envelope eases triangle-edge approach;
+there is no timer or mutable camera state. Minimum horizontal separation is 29
+units (rear chassis extent 21 plus clearance 8). Obstructions closer than that,
+terrain, moving traffic and original-circuit occlusion retain runtime boundaries.
+First-person and original-circuit projection remain unchanged.
+
+The actual defect reproduces 60 physics ticks after mountain start, holding gas,
+with a 390×844 viewport: x=909.2434647, y=3293.9195013, z=10.3158784. The old fixed
+150-unit boom lets the starting crossbar cover almost the entire car (88 car-only
+pixels); removing only that beam diagnostically restores 2,515. Production keeps
+the beam and retracts the camera. `browser-camera.cjs` preserves the exact sequence
+and checks 75 ticks across three sizes and both actual renderers. It also checks
+adjacent boom-distance changes on this measured route.
+
+A separate official `WEBGL_lose_context` reproduction makes the old renderer
+claim success while car-only scene changes produce zero difference. Readback
+shows this can be a stale previous frame rather than a vanished car. The fix
+checks context loss before/during GPU drawing and after compositing, presents software frames during
+loss, and recreates programs/buffers/version cache after restoration on the same
+canvas/context. `browser-flicker.cjs` checks event-race handling, mid-composite loss, repeated loss,
+paused pixel stability, map/camera/resize during loss, and restored pixels within measured bounds
+against a fresh renderer. It separately uses normal animation and real keyboard
+input for 540 frames. Physical phone/GPU-driver coverage remains separate.
+
+| Rendering mutation | Expected counterexample |
+| --- | --- |
+| `BuggyLoss` | `NoStaleFrame` |
+| `BuggyRestore` | `NoStaleFrame` |
+| `BuggyMesh` | `CurrentMeshPresented` |
+| `BuggyBoot` | `DependenciesBeforeDrawing` |
+| `BuggyCamera` | `NearCameraKeepsCar` |

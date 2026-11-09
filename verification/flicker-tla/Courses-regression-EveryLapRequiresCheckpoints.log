@@ -1,0 +1,55 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 1 with 1 worker on 10 cores with 910MB heap and 64MB offheap memory [pid: 46647] (Mac OS X 15.3.1 aarch64, Homebrew 21.0.12.1 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file [checkout]/specs/Courses.tla
+Parsing file [temporary-directory]/Naturals.tla
+Parsing file [temporary-directory]/FiniteSets.tla
+Parsing file [temporary-directory]/Sequences.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module Courses
+Starting... (2026-11-10 02:13:54)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-10 02:13:54.
+Error: Action property EveryLapRequiresCheckpoints is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ collected = {}
+/\ crossed = FALSE
+/\ penalties = 0
+/\ event = "init"
+/\ phase = "ready"
+/\ cp = 0
+/\ air = 0
+/\ lap = 1
+/\ map = "proving"
+/\ signal = "green"
+
+State 2: <Start line 10, col 10 to line 13, col 37 of module Courses>
+/\ collected = {}
+/\ crossed = FALSE
+/\ penalties = 0
+/\ event = "start"
+/\ phase = "running"
+/\ cp = 0
+/\ air = 0
+/\ lap = 1
+/\ map = "proving"
+/\ signal = "green"
+
+State 3: <CompleteLap line 23, col 16 to line 28, col 79 of module Courses>
+/\ collected = {}
+/\ crossed = FALSE
+/\ penalties = 0
+/\ event = "lap"
+/\ phase = "running"
+/\ cp = 0
+/\ air = 0
+/\ lap = 2
+/\ map = "proving"
+/\ signal = "green"
+
+11 states generated, 8 distinct states found, 5 states left on queue.
+The depth of the complete state graph search is 3.
+The average outdegree of the complete state graph is 4 (minimum is 4, the maximum 4 and the 95th percentile is 4).
+Finished in 00s at (2026-11-10 02:13:54)

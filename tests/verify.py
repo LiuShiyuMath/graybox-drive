@@ -33,8 +33,10 @@ def main():
     commands = [['node', '--check', 'dist/' + p] for p in ['maps.js', 'course-pack.js', 'course-world.js', 'game.js', 'perspective.js']] + [
                 ['node', 'tests/drive.cjs'], ['node', 'tests/mountain.cjs'],
                 ['node', 'tests/course-pack.cjs'], ['node', 'tests/courses.cjs'], ['node', 'tests/state-contract.cjs'],
+                ['node', 'tests/hidden-state-contract.cjs'],
                 [sys.executable, 'tests/verify_tla.py'], ['node', 'tests/browser-states.cjs'],
                 ['node', 'tests/browser-mountain.cjs'], ['node', 'tests/browser-courses.cjs'], ['node', 'tests/browser-effects.cjs'],
+                ['node', 'tests/browser-flicker.cjs'], ['node', 'tests/browser-camera.cjs'],
                 [sys.executable, 'tests/browser_e2e.py']]
     try:
         for index, command in enumerate(commands):
@@ -66,6 +68,18 @@ def main():
         summary['videos'] = len(effects['videos'])
         summary['screenshots'] += len(effects['pictures'])
         summary['vehicleRegions'] = sum(row.get('vehicleRegions', 0) for row in effects['checks'])
+        flicker = json.loads((OUT / 'flicker/results.json').read_text())
+        assert flicker['passed'] and flicker['temporalFrames'] == 540
+        assert len(flicker['checks']) == 27
+        assert all((OUT / 'flicker' / name).is_file() for name in flicker['pictures'])
+        summary['temporalFrames'] = flicker['temporalFrames']
+        summary['flickerChecks'] = len(flicker['checks'])
+        summary['screenshots'] += len(flicker['pictures'])
+        camera = json.loads((OUT / 'camera/results.json').read_text())
+        assert camera['passed'] and camera['fixtureFrames'] == 450 and len(camera['checks']) == 6
+        assert all((OUT / 'camera' / name).is_file() for name in camera['pictures'])
+        summary['cameraFrames'] = camera['fixtureFrames']
+        summary['screenshots'] += len(camera['pictures'])
         summary['courseChecks'] = len(courses['checks'])
         summary['matrixChecks'] = len(matrix['checks'])
         summary['passed'] = True

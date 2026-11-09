@@ -1,0 +1,1843 @@
+{
+  "summary": {
+    "createdAt": "2026-11-09T18:13:15.936560+00:00",
+    "passed": true,
+    "steps": [
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/maps.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/course-pack.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/course-world.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/game.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/perspective.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/drive.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/mountain.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/course-pack.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/courses.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/state-contract.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/hidden-state-contract.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python3",
+          "tests/verify_tla.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-states.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-mountain.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-courses.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-effects.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-flicker.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-camera.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python3",
+          "tests/browser_e2e.py"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "revision": "b5900c057928f1a41bd9106495e4631b7f5978bb",
+    "worktreeDirty": true,
+    "sourceSha256": {
+      ".agents/skills/verify/SKILL.md": "d01865cb39f52ef9fad807e25e2e21dd461273ed1290f175fb37f75f9d121f46",
+      ".github/workflows/pages.yml": "109103d9b4e9342603bec51464fd9a57a049fd8fe98b137f163f79fb53364893",
+      "dist/course-pack.js": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87",
+      "dist/course-world.js": "bf4075408a4025a4cb81a102ee0109c91a0c62a53b874ad62ec499ff807eca84",
+      "dist/game.js": "3cecd315f69eb1c26835dfb8fd69016e9652cf94e6a7f984a0ca8a94e73dab97",
+      "dist/index.html": "64f3bbcf38fb4bfcbe21f1824e0ec48264067a21a34e6257c8c72e17ff2a8d4e",
+      "dist/maps.js": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
+      "dist/perspective.js": "23af3bc70cd5b368065fd093a9dc210d6fb903e9e09c7172c85ef2d2f0654e5b",
+      "dist/style.css": "b4a9a9caab448265e9d0e8613e8fe00ac6cb6c5cc9f9893dcbab95e3a0a3e257",
+      "package-lock.json": "d7fb1ffb112245f2b007ad0bccf71af1bd1eebe90e8aa1b6305d8af7a8da9536",
+      "package.json": "84ce6881d1e1b2cc6b1ed49f98557cd1a472d88835205d442c3a537a479d4600",
+      "specs/Courses.cfg": "c0dbeb5ceec01ba22994efdae749893b451171ea4bbf067b7f0337e145926a36",
+      "specs/Courses.tla": "69e08b63d038f70b54ae4ebbc20c681281308ef79252116a861b4c49b4585b34",
+      "specs/Hazards.cfg": "f05f54257ffef63c55e07aea93028ade3686c2519238039d61278b895e03d7e0",
+      "specs/Hazards.tla": "fe7a8448fe550a17fee4691f320f158c30d955bef068008372aac9046f951e35",
+      "specs/Input.cfg": "fa96765ce7e859bfd48861ab923c4697944b90bdf6d2c807d2dfaade79753071",
+      "specs/Input.tla": "6d145cbff97c3da7e32d1a01b96083f042c06850a32dc0eb58679b3e444c4446",
+      "specs/Mountain.cfg": "e53210cfcb4588cc2949f19d2dbcdb83c28dc4f03808961f7f0581ce6efed8e1",
+      "specs/Mountain.tla": "dfe67f114f8841eb35e758f7c68b8ca44d87891f73681013bf9269e6bcf6efe6",
+      "specs/Persistence.cfg": "90291c3002321e34d3e0936ce5ec36c9a683c74f90479c92a4436bc86e48f11a",
+      "specs/Persistence.tla": "7fd52d50041a2f8d7e4636e326d67e31eeddcfc9241264777aeb8679899fb2eb",
+      "specs/Race.cfg": "78acd830ab7245abd95ab35b7fb55f66af20d4fcc492dc38f0d1b057d6c97561",
+      "specs/Race.tla": "bb78c1d231bfdc4f114d5b90b5998c7335669d5f7d80cf8544749f7f69ace096",
+      "specs/Rendering.cfg": "9604a481653876240297ce37ba0c81179bba8ceef068c0f298c186e5b15593a3",
+      "specs/Rendering.tla": "8ea4b60f5bd9bab6ed365ccbed06387d6e27ceabe3a86e1d9cbac4a26edec988",
+      "specs/VehicleWorld.cfg": "b4935a69e5ad1170c1bb450d3c33e9efaae29988980273ad4839d55f1979bf51",
+      "specs/VehicleWorld.tla": "ffe2b22e0638564b3a8d4e50d8ef65b15c4e23ab45c4e8fd52b508c4d0019087",
+      "tests/browser-camera.cjs": "3762eb628ab8ea3f56ba3db6e8cc204b520e1c4571e56896eeaba1089e615bb3",
+      "tests/browser-courses.cjs": "b87dd0118dd3027dcd7588d88ce3227ac788bd704614ae1663b41f8ca7b2f840",
+      "tests/browser-effects.cjs": "8d9dd9426644212805367c88c78cb4388f971777470cd3850c16b263419ef6c2",
+      "tests/browser-flicker.cjs": "b927f69ad329eade4d2d9edc46de4413ef4d94853772eea562b20d5e41a70776",
+      "tests/browser-mountain.cjs": "5d881de50412617a5981b289045f870b6a04fdfb484a9fdeab7054a1ced6ee47",
+      "tests/browser-states.cjs": "75148b8584cfcd31aee12334f50c3b8626e40f0b1bf7346ab85133d65e10c2c5",
+      "tests/browser_e2e.py": "a3215f847e94a323c292c1bcf881f35407161401087ed236d07376c44f97e5a2",
+      "tests/build-state-report.py": "4725864bd47a37722df3b14e71ac1429442eb2dc54a6b17275a8279251c9874b",
+      "tests/course-pack.cjs": "b8ed0acb1d8d93913e2a70b769541d057669e752b5847eb23722da16a99b773a",
+      "tests/courses.cjs": "9bd82fb569c9ee7520ae20ce34a2c0b1b5b69679bb26afa0bbb13caf410b37f9",
+      "tests/drive.cjs": "2f350053741fbabb8c372b6e90f2c8face9b9ed616eb97e90cd5ff2628ebc796",
+      "tests/hidden-state-contract.cjs": "09e0e6ef3d882f5d2c30d9e102d368f244c2549b2bc9860a2c8737bb62f71123",
+      "tests/mountain.cjs": "4863fd9bf79341eee9040d627b7f298ca4af192d0be352a6831cc1f7b4554a72",
+      "tests/requirements-verify.txt": "3ac03b3e052baefd9bf6c5a9f06765194c63c546316e2b54bc30b38b3dedc2ad",
+      "tests/state-contract.cjs": "da42e30c29e65fa79ecd8b76e696b511b57ca01871ff06c9b151b25c33a58ba9",
+      "tests/verify.py": "d08ab1b1e99c1a92d04daef980843f4537293578a3680d51e0a2a4d173e40329",
+      "tests/verify_tla.py": "2342a808ea7e55ffa77816ce903d593901544ca9dff48f1062fd60436cc6d16d"
+    },
+    "target": "dist/index.html",
+    "evidence": "[checkout]/verification/final-precommit/run-20261109T181315935680Z",
+    "mountainChecks": 51,
+    "screenshots": 471,
+    "videos": 6,
+    "vehicleRegions": 486,
+    "temporalFrames": 540,
+    "flickerChecks": 27,
+    "cameraFrames": 450,
+    "courseChecks": 56,
+    "matrixChecks": 30,
+    "executionHost": "Mac mini; Chromium 134.0.6998.35"
+  },
+  "tla": {
+    "createdAt": "2026-11-09T18:14:33.563041+00:00",
+    "tlcVersion": "1.7.4",
+    "jarSha256": "936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88",
+    "mode": "exhaustive BFS, no state constraints, one worker",
+    "passed": true,
+    "models": [
+      {
+        "model": "Race",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 3705,
+        "distinct": 532
+      },
+      {
+        "model": "Input",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 5170,
+        "distinct": 261
+      },
+      {
+        "model": "Hazards",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 35030,
+        "distinct": 2675
+      },
+      {
+        "model": "Persistence",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 385,
+        "distinct": 48
+      },
+      {
+        "model": "Mountain",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 4058,
+        "distinct": 855
+      },
+      {
+        "model": "Courses",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 15633,
+        "distinct": 1705
+      },
+      {
+        "model": "Rendering",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 592019,
+        "distinct": 54481
+      },
+      {
+        "model": "VehicleWorld",
+        "passed": true,
+        "expectedViolation": null,
+        "exitCode": 0,
+        "generated": 264568,
+        "distinct": 23617
+      },
+      {
+        "model": "Mountain-regression-SummitRequiresCheckpoints",
+        "passed": true,
+        "expectedViolation": "SummitRequiresCheckpoints",
+        "exitCode": 12,
+        "generated": 8,
+        "distinct": 6
+      },
+      {
+        "model": "Courses-regression-FinishedHasCheckpoints",
+        "passed": true,
+        "expectedViolation": "FinishedHasCheckpoints",
+        "exitCode": 12,
+        "generated": 6762,
+        "distinct": 930
+      },
+      {
+        "model": "Courses-regression-EveryLapRequiresCheckpoints",
+        "passed": true,
+        "expectedViolation": "EveryLapRequiresCheckpoints",
+        "exitCode": 13,
+        "generated": 11,
+        "distinct": 8
+      },
+      {
+        "model": "Input-regression-ActiveMatchesHeld",
+        "passed": true,
+        "expectedViolation": "ActiveMatchesHeld",
+        "exitCode": 12,
+        "generated": 64,
+        "distinct": 26
+      },
+      {
+        "model": "Hazards-regression-ExactRecoveryPenalty",
+        "passed": true,
+        "expectedViolation": "ExactRecoveryPenalty",
+        "exitCode": 12,
+        "generated": 954,
+        "distinct": 131
+      },
+      {
+        "model": "Race-regression-ReverseCannotAddLap",
+        "passed": true,
+        "expectedViolation": "ReverseCannotAddLap",
+        "exitCode": 13,
+        "generated": 11,
+        "distinct": 10
+      },
+      {
+        "model": "Hazards-regression-CooldownSuppressesFeedback",
+        "passed": true,
+        "expectedViolation": "CooldownSuppressesFeedback",
+        "exitCode": 13,
+        "generated": 1580,
+        "distinct": 227
+      },
+      {
+        "model": "Rendering-regression-NoStaleFrame-BuggyLoss",
+        "passed": true,
+        "expectedViolation": "NoStaleFrame",
+        "exitCode": 12,
+        "generated": 920,
+        "distinct": 365
+      },
+      {
+        "model": "Rendering-regression-NoStaleFrame-BuggyRestore",
+        "passed": true,
+        "expectedViolation": "NoStaleFrame",
+        "exitCode": 12,
+        "generated": 3657,
+        "distinct": 949
+      },
+      {
+        "model": "Rendering-regression-CurrentMeshPresented-BuggyMesh",
+        "passed": true,
+        "expectedViolation": "CurrentMeshPresented",
+        "exitCode": 12,
+        "generated": 133,
+        "distinct": 100
+      },
+      {
+        "model": "Rendering-regression-DependenciesBeforeDrawing-BuggyBoot",
+        "passed": true,
+        "expectedViolation": "DependenciesBeforeDrawing",
+        "exitCode": 12,
+        "generated": 3,
+        "distinct": 3
+      },
+      {
+        "model": "Rendering-regression-NearCameraKeepsCar-BuggyCamera",
+        "passed": true,
+        "expectedViolation": "NearCameraKeepsCar",
+        "exitCode": 12,
+        "generated": 889,
+        "distinct": 338
+      },
+      {
+        "model": "VehicleWorld-regression-RecoveryClearsFlightAndSlip",
+        "passed": true,
+        "expectedViolation": "RecoveryClearsFlightAndSlip",
+        "exitCode": 12,
+        "generated": 888,
+        "distinct": 214
+      },
+      {
+        "model": "VehicleWorld-regression-CrossingRequiresNegativeSide",
+        "passed": true,
+        "expectedViolation": "CrossingRequiresNegativeSide",
+        "exitCode": 13,
+        "generated": 2174,
+        "distinct": 438
+      },
+      {
+        "model": "VehicleWorld-regression-FallDominatesImpact",
+        "passed": true,
+        "expectedViolation": "FallDominatesImpact",
+        "exitCode": 12,
+        "generated": 2434,
+        "distinct": 528
+      },
+      {
+        "model": "VehicleWorld-regression-NewToastOwnsTimeout",
+        "passed": true,
+        "expectedViolation": "NewToastOwnsTimeout",
+        "exitCode": 12,
+        "generated": 2476,
+        "distinct": 549
+      },
+      {
+        "model": "VehicleWorld-regression-CollectionNeverShrinks",
+        "passed": true,
+        "expectedViolation": "CollectionNeverShrinks",
+        "exitCode": 13,
+        "generated": 2282,
+        "distinct": 477
+      }
+    ]
+  },
+  "flicker": {
+    "passed": true,
+    "browser": "134.0.6998.35",
+    "target": "file://[checkout]/dist/index.html",
+    "pictures": [
+      "mountain-844-before.png",
+      "mountain-844-before-canvas.png",
+      "mountain-844-immediate-loss-canvas.png",
+      "mountain-844-lost.png",
+      "mountain-844-lost-canvas.png",
+      "mountain-844-restored.png",
+      "mountain-844-restored-canvas.png",
+      "proving-844-before.png",
+      "proving-844-before-canvas.png",
+      "proving-844-immediate-loss-canvas.png",
+      "proving-844-lost.png",
+      "proving-844-lost-canvas.png",
+      "proving-844-restored.png",
+      "proving-844-restored-canvas.png",
+      "city-844-before.png",
+      "city-844-before-canvas.png",
+      "city-844-immediate-loss-canvas.png",
+      "city-844-lost.png",
+      "city-844-lost-canvas.png",
+      "city-844-restored.png",
+      "city-844-restored-canvas.png",
+      "offroad-844-before.png",
+      "offroad-844-before-canvas.png",
+      "offroad-844-immediate-loss-canvas.png",
+      "offroad-844-lost.png",
+      "offroad-844-lost-canvas.png",
+      "offroad-844-restored.png",
+      "offroad-844-restored-canvas.png",
+      "mountain-390-before.png",
+      "mountain-390-before-canvas.png",
+      "mountain-390-immediate-loss-canvas.png",
+      "mountain-390-lost.png",
+      "mountain-390-lost-canvas.png",
+      "mountain-390-restored.png",
+      "mountain-390-restored-canvas.png",
+      "proving-390-before.png",
+      "proving-390-before-canvas.png",
+      "proving-390-immediate-loss-canvas.png",
+      "proving-390-lost.png",
+      "proving-390-lost-canvas.png",
+      "proving-390-restored.png",
+      "proving-390-restored-canvas.png",
+      "city-390-before.png",
+      "city-390-before-canvas.png",
+      "city-390-immediate-loss-canvas.png",
+      "city-390-lost.png",
+      "city-390-lost-canvas.png",
+      "city-390-restored.png",
+      "city-390-restored-canvas.png",
+      "offroad-390-before.png",
+      "offroad-390-before-canvas.png",
+      "offroad-390-immediate-loss-canvas.png",
+      "offroad-390-lost.png",
+      "offroad-390-lost-canvas.png",
+      "offroad-390-restored.png",
+      "offroad-390-restored-canvas.png",
+      "mountain-320-before.png",
+      "mountain-320-before-canvas.png",
+      "mountain-320-immediate-loss-canvas.png",
+      "mountain-320-lost.png",
+      "mountain-320-lost-canvas.png",
+      "mountain-320-restored.png",
+      "mountain-320-restored-canvas.png",
+      "proving-320-before.png",
+      "proving-320-before-canvas.png",
+      "proving-320-immediate-loss-canvas.png",
+      "proving-320-lost.png",
+      "proving-320-lost-canvas.png",
+      "proving-320-restored.png",
+      "proving-320-restored-canvas.png",
+      "city-320-before.png",
+      "city-320-before-canvas.png",
+      "city-320-immediate-loss-canvas.png",
+      "city-320-lost.png",
+      "city-320-lost-canvas.png",
+      "city-320-restored.png",
+      "city-320-restored-canvas.png",
+      "offroad-320-before.png",
+      "offroad-320-before-canvas.png",
+      "offroad-320-immediate-loss-canvas.png",
+      "offroad-320-lost.png",
+      "offroad-320-lost-canvas.png",
+      "offroad-320-restored.png",
+      "offroad-320-restored-canvas.png"
+    ],
+    "videos": [],
+    "temporalFrames": 540,
+    "consoleErrors": [],
+    "scope": "Native animation and real keyboard drive all five maps. Context loss uses the official WebGL extension. Paused render fixtures permit per-frame car-only differential pixels without covering the image with the pause overlay. Geometry/physics are never replaced. Physical phones are not tested."
+  },
+  "flickerChecks": [
+    {
+      "id": "circuit/844/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "mountain/844/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "proving/844/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "city/844/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "offroad/844/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "mountain-844/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 5658,
+        "width": 74,
+        "height": 97,
+        "hash": 4003911792
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 5592,
+        "width": 72,
+        "height": 97,
+        "hash": 2852451344
+      },
+      "lost": {
+        "pixels": 5673,
+        "width": 458,
+        "height": 113,
+        "hash": 2357924583
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 2441,
+        "width": 191,
+        "height": 193,
+        "hash": 3030911296,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 0,
+          "y": 1000,
+          "elevation": 0,
+          "map": "proving",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": {
+            "checkpoint": 0,
+            "collected": 0,
+            "jump": {
+              "height": 0,
+              "velocity": 0
+            },
+            "slip": 0,
+            "violations": 0,
+            "traffic": []
+          }
+        },
+        "pose": {
+          "camera": [
+            149.9902964475016,
+            92.24881455745425,
+            998.2938430345988
+          ],
+          "forward": [
+            -0.9999353096500108,
+            0.01137437976934106
+          ],
+          "right": [
+            -0.01137437976934106,
+            -0.9999353096500108
+          ],
+          "chase": true,
+          "grade": -0.0016587637163616397,
+          "drop": 0,
+          "pitch": 0.361658762195003,
+          "focal": 319.79999999999995,
+          "horizon": 326.76,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "wrongMapControl": {
+        "sameSize": true,
+        "mean": 24.4394898160965,
+        "fractionOver12": 0.5086184167161031
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "proving-844/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 4584,
+        "width": 70,
+        "height": 87,
+        "hash": 4227414292
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 4576,
+        "width": 68,
+        "height": 89,
+        "hash": 3918336493
+      },
+      "lost": {
+        "pixels": 4576,
+        "width": 68,
+        "height": 89,
+        "hash": 2088769543
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 3018,
+        "width": 338,
+        "height": 240,
+        "hash": 720242523,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 319.79999999999995,
+          "horizon": 326.76,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "city-844/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 4578,
+        "width": 70,
+        "height": 87,
+        "hash": 4053273401
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 4380,
+        "width": 68,
+        "height": 87,
+        "hash": 2164671526
+      },
+      "lost": {
+        "pixels": 4380,
+        "width": 68,
+        "height": 87,
+        "hash": 113193145
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 3018,
+        "width": 338,
+        "height": 240,
+        "hash": 720242523,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 319.79999999999995,
+          "horizon": 326.76,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "offroad-844/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 5068,
+        "width": 72,
+        "height": 90,
+        "hash": 479016298
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 4852,
+        "width": 72,
+        "height": 89,
+        "hash": 3362425540
+      },
+      "lost": {
+        "pixels": 4852,
+        "width": 72,
+        "height": 89,
+        "hash": 2739780762
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 3018,
+        "width": 338,
+        "height": 240,
+        "hash": 720242523,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 319.79999999999995,
+          "horizon": 326.76,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "circuit/390/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "mountain/390/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "proving/390/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "city/390/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "offroad/390/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "mountain-390/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 2975,
+        "width": 54,
+        "height": 70,
+        "hash": 1199262660
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 2810,
+        "width": 54,
+        "height": 68,
+        "hash": 239154449
+      },
+      "lost": {
+        "pixels": 3081,
+        "width": 356,
+        "height": 448,
+        "hash": 2872431413
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 4584,
+        "width": 70,
+        "height": 87,
+        "hash": 4227414292,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 0,
+          "y": 1000,
+          "elevation": 0,
+          "map": "proving",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": {
+            "checkpoint": 0,
+            "collected": 0,
+            "jump": {
+              "height": 0,
+              "velocity": 0
+            },
+            "slip": 0,
+            "violations": 0,
+            "traffic": []
+          }
+        },
+        "pose": {
+          "camera": [
+            149.9902964475016,
+            92.24881455745425,
+            998.2938430345988
+          ],
+          "forward": [
+            -0.9999353096500108,
+            0.01137437976934106
+          ],
+          "right": [
+            -0.01137437976934106,
+            -0.9999353096500108
+          ],
+          "chase": true,
+          "grade": -0.0016587637163616397,
+          "drop": 0,
+          "pitch": 0.361658762195003,
+          "focal": 448.20000000000005,
+          "horizon": 139.44,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "wrongMapControl": {
+        "sameSize": true,
+        "mean": 40.34758346180932,
+        "fractionOver12": 0.7679045566150859
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "proving-390/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 2420,
+        "width": 50,
+        "height": 62,
+        "hash": 1005286122
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 2023,
+        "width": 48,
+        "height": 60,
+        "hash": 3620044355
+      },
+      "lost": {
+        "pixels": 2171,
+        "width": 342,
+        "height": 440,
+        "hash": 86766085
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 5738,
+        "width": 459,
+        "height": 113,
+        "hash": 4003911792,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 448.20000000000005,
+          "horizon": 139.44,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "city-390/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 2357,
+        "width": 50,
+        "height": 62,
+        "hash": 3889327286
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 2022,
+        "width": 48,
+        "height": 60,
+        "hash": 821764989
+      },
+      "lost": {
+        "pixels": 2022,
+        "width": 48,
+        "height": 60,
+        "hash": 270833318
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 5738,
+        "width": 459,
+        "height": 113,
+        "hash": 4003911792,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 448.20000000000005,
+          "horizon": 139.44,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "offroad-390/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 2646,
+        "width": 52,
+        "height": 65,
+        "hash": 4239807384
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 2464,
+        "width": 51,
+        "height": 65,
+        "hash": 1169829844
+      },
+      "lost": {
+        "pixels": 2591,
+        "width": 332,
+        "height": 211,
+        "hash": 1317326279
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 5738,
+        "width": 459,
+        "height": 113,
+        "hash": 4003911792,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 448.20000000000005,
+          "horizon": 139.44,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "circuit/320/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "mountain/320/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "proving/320/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "city/320/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "offroad/320/continuous-driving",
+      "passed": true
+    },
+    {
+      "id": "mountain-320/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 1989,
+        "width": 44,
+        "height": 57,
+        "hash": 2420071097
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 1942,
+        "width": 42,
+        "height": 57,
+        "hash": 442263948
+      },
+      "lost": {
+        "pixels": 1983,
+        "width": 277,
+        "height": 205,
+        "hash": 1154821104
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 2925,
+        "width": 56,
+        "height": 69,
+        "hash": 3834549615,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 0,
+          "y": 1000,
+          "elevation": 0,
+          "map": "proving",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": {
+            "checkpoint": 0,
+            "collected": 0,
+            "jump": {
+              "height": 0,
+              "velocity": 0
+            },
+            "slip": 0,
+            "violations": 0,
+            "traffic": []
+          }
+        },
+        "pose": {
+          "camera": [
+            149.9902964475016,
+            92.24881455745425,
+            998.2938430345988
+          ],
+          "forward": [
+            -0.9999353096500108,
+            0.01137437976934106
+          ],
+          "right": [
+            -0.01137437976934106,
+            -0.9999353096500108
+          ],
+          "chase": true,
+          "grade": -0.0016587637163616397,
+          "drop": 0,
+          "pitch": 0.361658762195003,
+          "focal": 353.70000000000005,
+          "horizon": 110.03999999999999,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "wrongMapControl": {
+        "sameSize": true,
+        "mean": 40.5425692868441,
+        "fractionOver12": 0.7928615638539303
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "proving-320/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 1616,
+        "width": 42,
+        "height": 51,
+        "hash": 385963925
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 1552,
+        "width": 42,
+        "height": 51,
+        "hash": 3129037752
+      },
+      "lost": {
+        "pixels": 1581,
+        "width": 222,
+        "height": 169,
+        "hash": 752793070
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 3647,
+        "width": 398,
+        "height": 99,
+        "hash": 3437625969,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 353.70000000000005,
+          "horizon": 110.03999999999999,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "city-320/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 1566,
+        "width": 42,
+        "height": 51,
+        "hash": 1003279136
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 1508,
+        "width": 42,
+        "height": 51,
+        "hash": 294169539
+      },
+      "lost": {
+        "pixels": 1508,
+        "width": 42,
+        "height": 51,
+        "hash": 2328026268
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 3647,
+        "width": 398,
+        "height": 99,
+        "hash": 3437625969,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 353.70000000000005,
+          "horizon": 110.03999999999999,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    },
+    {
+      "id": "offroad-320/loss-restore-map-resize",
+      "passed": true,
+      "before": {
+        "pixels": 1811,
+        "width": 42,
+        "height": 53,
+        "hash": 2850183022
+      },
+      "immediate": {
+        "lost": true,
+        "claimsSuccess": false,
+        "pixels": 1678,
+        "width": 42,
+        "height": 53,
+        "hash": 3768339186
+      },
+      "lost": {
+        "pixels": 1720,
+        "width": 226,
+        "height": 183,
+        "hash": 1459174640
+      },
+      "restored": {
+        "success": true,
+        "sameCanvas": true,
+        "glError": 0,
+        "pixels": 3647,
+        "width": 398,
+        "height": 99,
+        "hash": 3437625969,
+        "snapshot": {
+          "hazard": {
+            "kind": "road",
+            "impact": 0,
+            "cooldown": 0,
+            "fall": 0,
+            "dust": 0
+          },
+          "view": "chase",
+          "state": "paused",
+          "lap": 1,
+          "elapsed": 0,
+          "progress": 0,
+          "speed": 0,
+          "x": 900,
+          "y": 3400,
+          "elevation": 0,
+          "map": "mountain",
+          "checkpoint": 0,
+          "input": {
+            "left": false,
+            "right": false,
+            "gas": false,
+            "brake": false
+          },
+          "course": null
+        },
+        "pose": {
+          "camera": [
+            886.9788909216427,
+            73.14378138634507,
+            3549.433766995179
+          ],
+          "forward": [
+            0.08680739385571574,
+            -0.9962251133011949
+          ],
+          "right": [
+            0.9962251133011949,
+            0.08680739385571574
+          ],
+          "chase": true,
+          "grade": 0.12570812409103288,
+          "drop": 0,
+          "pitch": 0.2349478364528342,
+          "focal": 353.70000000000005,
+          "horizon": 110.03999999999999,
+          "distance": 150,
+          "obstructed": false
+        }
+      },
+      "comparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "secondComparison": {
+        "sameSize": true,
+        "mean": 0,
+        "fractionOver12": 0
+      },
+      "midComposite": {
+        "claimsSuccess": false,
+        "lost": true
+      },
+      "pausedPixelStable": true,
+      "repeatedLosses": 2
+    }
+  ],
+  "cameraChecks": [
+    {
+      "id": "webgl-390",
+      "passed": true,
+      "minPixels": 2431,
+      "maxCameraStep": 9.56765590261412
+    },
+    {
+      "id": "webgl-844",
+      "passed": true,
+      "minPixels": 4596,
+      "maxCameraStep": 9.56765590261412
+    },
+    {
+      "id": "webgl-320",
+      "passed": true,
+      "minPixels": 1612,
+      "maxCameraStep": 9.56765590261412
+    },
+    {
+      "id": "software-390",
+      "passed": true,
+      "minPixels": 2243,
+      "maxCameraStep": 9.56765590261412
+    },
+    {
+      "id": "software-844",
+      "passed": true,
+      "minPixels": 4544,
+      "maxCameraStep": 9.56765590261412
+    },
+    {
+      "id": "software-320",
+      "passed": true,
+      "minPixels": 1472,
+      "maxCameraStep": 9.56765590261412
+    }
+  ]
+}
