@@ -2,6 +2,7 @@ name: Verify and publish game
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,7 +19,17 @@ jobs:
           node --check dist/game.js
           node --check dist/perspective.js
           node tests/drive.cjs
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser test tools
+        run: |
+          npm install --no-save playwright@1.62.1
+          npx playwright install --with-deps chromium
+      - name: Verify state transitions and real canvas pixels
+        run: DRIVE_CAPTURE=0 node tests/browser-states.cjs
   deploy:
+    if: github.event_name != 'pull_request'
     needs: verify
     runs-on: ubuntu-latest
     permissions:

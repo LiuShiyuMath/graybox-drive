@@ -6,7 +6,7 @@ try{const saved=localStorage.getItem('graybox-drive-view');if(['first','chase','
 for(const b of viewButtons)b.onclick=()=>selectView(b.dataset.view);
 window.addEventListener('keydown',e=>{if(e.code==='KeyV'&&!e.repeat){selectView(['first','chase','top'][(['first','chase','top'].indexOf(viewMode)+1)%3])}});selectView(viewMode);
 const roadMesh=[];
-function quad(vertices,color){roadMesh.push({vertices,color})}
+function quad(vertices,color){roadMesh.push({vertices,color,ground:true})}
 function edgePoint(i,offset,height=0){let a=Math.PI/2+(i%N)/N*TAU,p=track[i%N],nx=310*Math.cos(a),nz=560*Math.sin(a),len=Math.hypot(nx,nz);return[p.x+nx/len*offset,height,p.y+nz/len*offset]}
 for(let i=0;i<N;i+=3){
 quad([edgePoint(i,211,-2),edgePoint(i+3,211,-2),edgePoint(i+3,600,-2),edgePoint(i,600,-2)],'#293b38');
@@ -24,13 +24,14 @@ for(const o of obstacles)roadMesh.push(...cuboidMesh(o.x,o.y,o.w,o.d,o.h,o.w===7
 function clipNear(points){const out=[],near=4;for(let i=0;i<points.length;i++){const a=points[i],b=points[(i+1)%points.length],inside=a[2]>=near,next=b[2]>=near;if(inside)out.push(a);if(inside!==next){const t=(near-a[2])/(b[2]-a[2]);out.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,near])}}return out}
 function drawPerspective(){
 const chase=viewMode==='chase',fx=Math.cos(car.angle),fz=Math.sin(car.angle),rx=-fz,rz=fx;
-const cx=car.x-fx*(chase?150:6),cz=car.y-fz*(chase?150:6),cy=(chase?92:19)-hazard.fall*hazard.fall*80,pitch=(chase?.36:.055)+Math.min(.65,hazard.fall*.5),cp=Math.cos(pitch),sp=Math.sin(pitch),focal=Math.min(w*.82,h*1.35),horizon=h*.42;
+const drop=-hazard.fall*hazard.fall*80,cx=car.x-fx*(chase?150:6),cz=car.y-fz*(chase?150:6),cy=(chase?92:19)+drop,pitch=chase?.36:.055+Math.min(.65,hazard.fall*.5),cp=Math.cos(pitch),sp=Math.sin(pitch),focal=Math.min(w*.82,h*1.35),horizon=h*.42;
 const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#8baba6');sky.addColorStop(.48,'#c1cbb8');sky.addColorStop(.49,'#9baa94');sky.addColorStop(1,'#74856e');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
 const transform=v=>{const dx=v[0]-cx,dy=v[1]-cy,dz=v[2]-cz,forward=dx*fx+dz*fz;return[dx*rx+dz*rz,dy*cp+forward*sp,forward*cp-dy*sp]};
-const faces=[];const add=face=>{let pts=clipNear(face.vertices.map(transform));if(pts.length<3)return;const depth=pts.reduce((s,p)=>s+p[2],0)/pts.length;if(depth>2200)return;faces.push({pts,depth,color:face.color})};
+const faces=[];const add=face=>{let pts=clipNear(face.vertices.map(transform));if(pts.length<3)return;const depth=pts.reduce((s,p)=>s+p[2],0)/pts.length;if(depth>2200)return;faces.push({pts,depth,color:face.color,ground:!!face.ground})};
 for(const face of roadMesh)add(face);
-if(chase){for(const face of cuboidMesh(car.x,car.y,42,23,12,['#d2fa60','#869e3d','#aec64e'],car.angle))add(face);for(const face of cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,20,['#526c60','#314e44','#486359'],car.angle))add(face)}
-faces.sort((a,b)=>b.depth-a.depth);
+if(chase){for(const face of cuboidMesh(car.x,car.y,42,23,12,['#d2fa60','#869e3d','#aec64e'],car.angle))add({...face,vertices:face.vertices.map(([x,y,z])=>[x,y+drop,z])});for(const face of cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle))add({...face,vertices:face.vertices.map(([x,y,z])=>[x,y+12+drop,z])})}
+// Ground spans under raised objects; its centroid cannot decide their occlusion.
+faces.sort((a,b)=>Number(b.ground)-Number(a.ground)||b.depth-a.depth);
 for(const face of faces){ctx.beginPath();face.pts.forEach((p,i)=>{const x=w/2+p[0]*focal/p[2],y=horizon-p[1]*focal/p[2];if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y)});ctx.closePath();ctx.fillStyle=face.color;ctx.fill();ctx.strokeStyle=face.color;ctx.lineWidth=.6;ctx.stroke()}
 if(!chase)drawCockpit();
 }
