@@ -1,0 +1,62 @@
+{
+  "failedCommit": "898a879e824180cc95db971fa752870e9006a5ca",
+  "capturedFailure": {
+    "diagnostic": {
+      "snapshot": {
+        "hazard": {
+          "kind": "road",
+          "impact": 0,
+          "cooldown": 0,
+          "fall": 0,
+          "dust": 0
+        },
+        "view": "first",
+        "state": "running",
+        "lap": 1,
+        "elapsed": 0,
+        "progress": 0,
+        "speed": 0,
+        "x": 0,
+        "y": 1000,
+        "elevation": 0,
+        "map": "proving",
+        "checkpoint": 0,
+        "input": {
+          "left": false,
+          "right": false,
+          "gas": true,
+          "brake": false
+        },
+        "course": {
+          "checkpoint": 0,
+          "collected": 0,
+          "jump": {
+            "height": 0,
+            "velocity": 0
+          },
+          "slip": 0,
+          "violations": 0,
+          "traffic": []
+        }
+      },
+      "focused": true,
+      "visibility": "visible",
+      "overlay": false,
+      "ready": "complete"
+    },
+    "errors": [
+      "drawMinimap is not defined"
+    ]
+  },
+  "deterministicRegression": {
+    "delayedScript": "perspective.js",
+    "nativeFramesBeforeRelease": 2,
+    "beforeFixError": "drawMinimap is not defined",
+    "maps": [
+      "proving",
+      "city",
+      "offroad"
+    ]
+  },
+  "fix": "Start the single animation loop at DOMContentLoaded after ordinary script dependencies initialize."
+}

@@ -59,7 +59,7 @@
 
 - [Issue #1](https://github.com/LiuShiyuMath/graybox-drive/issues/1) — public launch, completed.
 - [Issue #2](https://github.com/LiuShiyuMath/graybox-drive/issues/2) — real-phone acceptance, still outstanding above.
-- [Issue #3](https://github.com/LiuShiyuMath/graybox-drive/issues/3) — second track, still outstanding above.
+- [Issue #3](https://github.com/LiuShiyuMath/graybox-drive/issues/3) — second track, completed as Map 02 above.
 - [PR #4](https://github.com/LiuShiyuMath/graybox-drive/pull/4) — closed and already contained in `main`.
 - [Issue #5](https://github.com/LiuShiyuMath/graybox-drive/issues/5) — complete P0–P4 expansion plan, migrated above.
 

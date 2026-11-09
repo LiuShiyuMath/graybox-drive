@@ -38,7 +38,14 @@ def main():
                     assert page.evaluate('gameSnapshot().state') == 'ready'
                     page.locator('#start').click()
                     page.keyboard.down('w')
-                    page.wait_for_function('gameSnapshot().speed > 100')
+                    try:
+                        page.wait_for_function('gameSnapshot().speed > 100')
+                    except Exception:
+                        diagnostic = page.evaluate('({snapshot:gameSnapshot(),focused:document.hasFocus(),visibility:document.visibilityState,overlay:!document.querySelector("#overlay").hidden,ready:document.readyState})')
+                        (OUT / f'{map_id}-{width}-acceleration-failure.json').write_text(json.dumps({'diagnostic':diagnostic,'errors':errors}, indent=2))
+                        page.screenshot(path=str(OUT / f'{map_id}-{width}-acceleration-failure.png'))
+                        print('ACCELERATION FAILURE', map_id, width, json.dumps(diagnostic), 'ERRORS', json.dumps(errors), flush=True)
+                        raise
                     page.keyboard.up('w')
                     if map_id == 'mountain':
                         assert page.evaluate('gameSnapshot().elevation') > 0

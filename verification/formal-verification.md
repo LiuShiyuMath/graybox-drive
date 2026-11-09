@@ -76,3 +76,12 @@ collision/fall/recovery recordings. This is the tested graybox scope; physical-p
 performance and photorealistic art are not established. The exact main commit's
 [Actions](https://github.com/LiuShiyuMath/graybox-drive/actions) repeats the full gate
 before deployment and against the public site's exact asset hashes.
+
+The first five-map CI run exposed a startup race outside the finite physics models:
+an animation frame could call `drawMinimap` before `perspective.js` initialized and
+stop scheduling subsequent frames. A captured failure and deterministic delayed-script
+negative check are recorded in [startup-race-regression.json](startup-race-regression.json).
+The browser regression holds the script for two native frames after the game has
+initialized, then requires real keyboard acceleration on all three new courses.
+Startup now waits for `DOMContentLoaded`. This regression supplements the models;
+the existing acceleration thresholds and complete release gates remain unchanged.

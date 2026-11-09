@@ -31,7 +31,7 @@ before publishing.
 | --- | --- |
 | Original circuit | 210 screenshot scenarios and 30 transitions, PASS |
 | Mountain Road | 42 scenes, Canvas fallback and 51 checks, PASS |
-| Five maps and three viewport sizes | 53 cross-map checks, 76 screenshots, PASS |
+| Five maps, delayed-script startup and three viewport sizes | 56 cross-map checks, 76 screenshots, PASS |
 | Python normal animation, five maps/two orientations | 30 checks, 40 screenshots, PASS |
 | Full vehicle region comparison | 486 regions, PASS |
 | Collision/fall/recovery recordings | Six videos, 12 screenshots, PASS |
@@ -54,3 +54,16 @@ The repository's verify → deploy → verify-live workflow must pass for the ex
 published commit. CI retains the complete screenshots, original recordings, logs
 and source manifests as artifacts. Physical phones and photorealistic art remain
 outside this graybox acceptance.
+
+## Startup race found by release verification
+
+The first integration release, `898a879`, was blocked by [Linux CI](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42608354430)
+at normal offroad acceleration. A repeated Python run also captured a running, focused,
+visible page with throttle held, zero elapsed time, zero speed, and
+`drawMinimap is not defined`. The next external script had not initialized before the
+first drawing frame; that exception prevented the next frame from being scheduled.
+
+The deterministic browser regression delays `perspective.js` for two native frames.
+It fails on the old source with that exact error and checks normal acceleration on all
+three new courses after the fix. `DOMContentLoaded` now starts the single animation loop
+after the ordinary scripts initialize. Speed thresholds and release gates are unchanged.

@@ -23,8 +23,11 @@
 | --- | --- | --- |
 | Map 01 — Concrete Loop | 原有环形赛道，三圈计时 | 路肩、缓冲区、建筑碰撞和外侧掉落 |
 | Map 02 — Mountain Road | 约 716 m 山脚至山顶，实际爬升 102 m | 连续 S 弯、坡道、左侧山壁、右侧悬崖及 5 个检查点 |
+| [Map 03 — Proving Ground](https://liushiyumath.github.io/graybox-drive/?map=proving) | 驾驶测试场，三圈计时 | S 弯、坡道、护栏、不同路宽与柏油/草地/泥地 |
+| [Map 04 — City Blocks](https://liushiyumath.github.io/graybox-drive/?map=city) | 城市道路，三圈计时 | 路口、红绿灯、横向车流、碰撞与越线判罚 |
+| [Map 05 — Wild Trail](https://liushiyumath.github.io/graybox-drive/?map=offroad) | 越野路线，三圈计时 | 碎石、泥地、岩石、跳台、6 个可选收集物和草地捷径 |
 
-开始界面可选地图。驾驶中点左上角地图名称可暂停并换图。换图会开始新一局，两张地图分别保存最佳成绩。
+开始界面可选地图。驾驶中点左上角地图名称可暂停并换图。换图会开始新一局，五张地图分别保存最佳成绩。
 
 Mountain Road 的坡度影响加速，镜头跟随实际高度。临崖有黄黑边缘和警告，掉落后回到最近已通过的检查点；左侧山壁会阻挡并反弹车辆。山路使用 WebGL 深度检测处理坡道、地形与车辆遮挡，不能使用 WebGL 时自动回退到 Canvas。
 
@@ -32,7 +35,8 @@ Mountain Road 的坡度影响加速，镜头跟随实际高度。临崖有黄黑
 
 ## 规则
 
-- Map 01 完成三圈；Map 02 通过 5 个检查点后到达山顶。最佳成绩保存在当前浏览器。
+- Map 01 完成三圈；Map 02 通过 5 个检查点后到达山顶；Map 03–05 每圈顺序通过 5 个检查点并正向越过终点，共三圈。最佳成绩保存在当前浏览器。
+- 城市红灯和黄灯越过停车白线加时 3 秒；越野收集物为可选探索目标。
 - 压路肩会颠簸；驶入缓冲区会起尘并减速。
 - 撞到建筑或路边桩会反弹，并出现撞击反馈。
 - 外侧黄黑边缘是落差区，掉落后自动回赛道，加时 5 秒。
@@ -72,7 +76,7 @@ npm ci
 .venv/bin/python tests/verify.py
 ```
 
-浏览器测试生成210张横竖屏场景截图及30项转换和像素检查。测试设置场景起点，再运行真实游戏逻辑与 Canvas；键盘、指针和多点触控另有事件检查。它不等同于手机真机验收。CI 执行同一套检查，通过后才发布。
+原赛道浏览器矩阵生成210张横竖屏场景截图及30项转换和像素检查。测试设置场景起点，再运行真实游戏逻辑与 Canvas；键盘、指针和多点触控另有事件检查。它不等同于手机真机验收。CI 执行完整检查，通过后才发布。
 
 截图与数值保存在 `verification/state-machines/`。安装 Pillow 后，运行 `python3 tests/build-state-report.py` 可生成自带全部图片、可筛选与放大的 HTML 报告。
 
@@ -82,29 +86,10 @@ Mountain Road 另含 42 个横竖屏场景、全线 240 个车后视角像素检
 
 [项目 /verify](.agents/skills/verify/SKILL.md)是提交前及部署后的完整验证入口。Java 17+ 用于运行固定版本 TLC；模型工具首次运行时自动下载并核对 SHA-256。
 
-[状态机和形式化边界](docs/STATE-MACHINES.md)将九组状态映射到五个 TLA+ 模型、真实 JavaScript 的 4,096 次输入转换检查、浏览器场景矩阵和 Python Playwright 正常动画验收。五种故障注入必须产生指定的反例，防止验证器只会报成功。
+[状态机和形式化边界](docs/STATE-MACHINES.md)将状态映射到六个 TLA+ 模型、真实 JavaScript 的 4,096 次输入转换检查、浏览器场景矩阵和 Python Playwright 正常动画验收。七种故障注入必须产生指定的反例，防止验证器只会报成功。
 
 每次运行的源码版本、文件哈希、日志、TLC 状态数及截图都保存在 `verification/latest/` 的独立运行目录。GitHub Actions 先运行完整 `/verify`，通过后部署，再对正式站执行同一套验证并核对实际部署源码；两轮证据均作为 Actions artifact 保留。TLA+ 检查有限状态抽象，不代替碰撞几何、Canvas 画面和手机真机验收。
 
-完整验证现已覆盖两张地图，运行 4,096 次输入来源转换、5 个 TLA+ 模型与 5 个指定反例，保留 269 张真实浏览器截图。山路的检查点状态、坡道物理和三视角均属于发布前及发布后的检查范围。
+完整验证覆盖五张地图、六个 TLA+ 模型与七个指定反例，每轮保留381张真实浏览器截图、486项车身区域检查及6段撞击/掉落/恢复录像。跨地图检查包含三种屏幕尺寸、全部视角和延迟视角脚本加载的启动回归。部署后再次执行全套验证，并核对全部7个线上资源的 SHA-256。
 
-## Five driving environments
-
-| Map | Play | Challenge |
-| --- | --- | --- |
-| 01 Concrete Loop | [?map=circuit](https://liushiyumath.github.io/graybox-drive/?map=circuit) | Original three-lap circuit |
-| 02 Mountain Road | [?map=mountain](https://liushiyumath.github.io/graybox-drive/?map=mountain) | S bends, 102 m climb, five checkpoints and cliffs |
-| 03 Proving Ground | [?map=proving](https://liushiyumath.github.io/graybox-drive/?map=proving) | Slopes, S bends, guardrails, asphalt/grass/mud |
-| 04 City Blocks | [?map=city](https://liushiyumath.github.io/graybox-drive/?map=city) | Signal-controlled intersections and crossing vehicles |
-| 05 Wild Trail | [?map=offroad](https://liushiyumath.github.io/graybox-drive/?map=offroad) | Gravel/mud, rocks, ramps, six markers and a shortcut |
-
-Use the map menu to switch courses. Switching resets the current run; best results
-remain separate. Stop before the city's white line when the signal is red or amber;
-crossing adds three seconds. The new closed courses require five ordered checkpoints
-each lap and a forward finish-line crossing. Offroad markers are an optional
-exploration challenge, not a prerequisite to finish.
-
-Road geometry, friction, collisions, elevation and route HUD share course data.
-The mountain and new maps use depth-buffered rendering where WebGL is available,
-with a Canvas 2D fallback. Mobile viewport tests do not establish physical-phone
-performance. This is a playable graybox; photorealistic art remains a separate upgrade.
+道路、材质、碰撞、坡度与路线提示共用地图数据。山路和新地图优先使用 WebGL 深度检测，Canvas 降级模式也使用软件深度缓冲处理坡面遮挡。[五地图验收与截图](verification/integration-check.md)。当前交付为可玩灰盒；Android/iPhone 真机性能与写实美术升级仍需独立验收。

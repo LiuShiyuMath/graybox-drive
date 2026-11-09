@@ -130,3 +130,9 @@ pose, width and thickness. A penalty requires the vehicle centre to move forward
 from the negative to positive side of that exact plane, within its lateral extent;
 staying past it does not charge every frame. Runtime checks place the car one
 world unit before the plane, cross it and test an out-of-width crossing.
+
+The animation loop starts once at `DOMContentLoaded`, after the ordinary script
+dependencies have initialized. A delayed perspective script must not cause a first-frame
+`drawMinimap` error and permanently stop the loop. The real-browser startup regression
+holds that script until two native animation frames have elapsed, then releases it and
+requires normal keyboard acceleration on Proving Ground, City Blocks and Wild Trail.

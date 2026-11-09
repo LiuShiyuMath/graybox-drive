@@ -50,7 +50,10 @@ counterexamples, the existing 210-screenshot state matrix, the 42-scene mountain
 Playwright E2E with normal animation, real keyboard input, both orientations,
 all five maps, all cameras and 40 screenshots. Also run the cross-map browser
 matrix at 844×390, 390×844 and 320×740, including independent touch releases,
-signals, traffic, jumps, natural landing, collection and Canvas fallback. Compare
+signals, traffic, jumps, natural landing, collection and Canvas fallback. Run the
+delayed `perspective.js` startup regression on all three new courses; animation
+must start only after drawing dependencies initialize. Retain state, input,
+focus, errors and a screenshot when normal acceleration times out. Compare
 every deployed dist asset with the local SHA-256. Require the 486 vehicle-region
 checks and six real-animation impact/fall/recovery recordings from
 `tests/browser-effects.cjs`; inspect the videos and affected screenshots. Do not report PASS from a subset. A failed TLC

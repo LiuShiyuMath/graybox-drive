@@ -1,6 +1,7 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const {pathToFileURL}=require('node:url');
+const http=require('node:http');
 const root=path.resolve(__dirname,'..'),base=process.env.DRIVE_URL||pathToFileURL(path.join(root,'dist/index.html')).href;
 const out=path.resolve(process.env.DRIVE_VERIFY_DIR||'verification/latest','courses');
 fs.mkdirSync(out,{recursive:true});
@@ -17,6 +18,33 @@ function trackErrors(page){page.on('pageerror',e=>errors.push(e.message));page.o
 (async()=>{
  const browser=await chromium.launch(options);
  try{
+  for(const id of['proving','city','offroad']){
+   await check(`${id}: delayed perspective script cannot freeze startup`,async()=>{
+    let releaseScript;
+    const gate=new Promise(resolve=>{releaseScript=resolve;});
+    const server=http.createServer(async(request,response)=>{
+     const name=new URL(request.url,'http://localhost').pathname.slice(1)||'index.html';
+     if(!fs.readdirSync(path.join(root,'dist')).includes(name)){response.writeHead(404);response.end();return;}
+     if(name==='perspective.js')await gate;
+     response.setHeader('Content-Type',name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':'text/html');
+     response.end(fs.readFileSync(path.join(root,'dist',name)));
+    });
+    await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+    const context=await browser.newContext({viewport:{width:844,height:390}}),page=await context.newPage(),startupErrors=[];
+    page.on('pageerror',error=>startupErrors.push(error.message));
+    try{
+     await page.goto(`http://127.0.0.1:${server.address().port}/?map=${id}`,{waitUntil:'commit'});
+     await page.waitForFunction(id=>typeof gameSnapshot==='function'&&gameSnapshot().map===id,id,{timeout:10000});
+     await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+     assert.equal(await page.evaluate(()=>typeof selectView),'undefined');
+     releaseScript();await page.waitForLoadState('load');
+     assert.deepEqual(startupErrors,[]);
+     await page.locator('#start').click();await page.keyboard.down('w');
+     await page.waitForFunction(()=>gameSnapshot().speed>70,null,{timeout:10000});
+     await page.keyboard.up('w');assert((await snap(page)).elapsed>0);
+    }finally{releaseScript();await context.close();await new Promise(resolve=>server.close(resolve));}
+   });
+  }
   for(const size of[{width:844,height:390},{width:390,height:844},{width:320,height:740}]){
    const context=await browser.newContext({viewport:size,hasTouch:true,isMobile:true,deviceScaleFactor:1}),page=await context.newPage();trackErrors(page);
    for(const id of ids){
@@ -24,7 +52,13 @@ function trackErrors(page){page.on('pageerror',e=>errors.push(e.message));page.o
     await check(`${size.width}/${id}: picker starts selected map and real throttle accelerates`,async()=>{
      assert.equal((await snap(page)).map,id);
      await page.locator('#start').click();
-     await page.keyboard.down('w');await page.waitForFunction(()=>gameSnapshot().speed>70,null,{timeout:10000});await page.keyboard.up('w');
+     await page.keyboard.down('w');
+     try{await page.waitForFunction(()=>gameSnapshot().speed>70,null,{timeout:10000});}
+     catch(error){
+      const diagnostic=await page.evaluate(()=>({snapshot:gameSnapshot(),focused:document.hasFocus(),visibility:document.visibilityState,overlay:!document.querySelector('#overlay').hidden,ready:document.readyState,userAgent:navigator.userAgent}));
+      fs.writeFileSync(path.join(out,`${size.width}-${id}-acceleration-failure.json`),JSON.stringify({diagnostic,errors},null,2));
+      await capture(page,`${size.width}-${id}-acceleration-failure`);console.error('ACCELERATION FAILURE',JSON.stringify(diagnostic));throw error;
+     }finally{await page.keyboard.up('w');}
      assert((await snap(page)).elapsed>0);
     });
     await page.locator('#reset').click();
