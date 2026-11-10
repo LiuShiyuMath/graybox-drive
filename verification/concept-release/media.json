@@ -1,0 +1,58 @@
+{
+  "runtimeCommit": "de688eb31f48ef5e32ffbdbfa31b472d4dbcb5ca",
+  "conceptPage": "https://chatgpt.com/space/page_250e5db70e1c8191906045b0cd11e64d",
+  "recoveredOriginalImages": 4,
+  "newImageGeneration": false,
+  "screenshots": [
+    {
+      "name": "before.jpg",
+      "sha256": "8d8b03a5d97fb71c3d361980be32f024efbf267649dadb4065185faa7c2b3435",
+      "kind": "historical real Chromium baseline"
+    },
+    {
+      "name": "overview.jpg",
+      "sha256": "e195f2c1539551100e5cd9bafca1c71f419534b5d40cfd6676670a1439a61a90",
+      "kind": "current Chromium scene fixture"
+    },
+    {
+      "name": "portrait.jpg",
+      "sha256": "8e98a4b22f9e6d0cbcdf7967ceda82af1236a0a0d0a5e4af5a8a5b15c951016b",
+      "kind": "current Chromium viewport fixture"
+    },
+    {
+      "name": "drift.jpg",
+      "sha256": "c33ec59717def78c3ee241e4b0fcedc8bcec105dca78d206d62f6bd1a134b819",
+      "kind": "actual skid after deterministic setup"
+    },
+    {
+      "name": "air.jpg",
+      "sha256": "18f9d3998ab1711efdb850b11533d786a5403d18cab6755bf47eda16364854e5",
+      "kind": "actual existing ramp physics after deterministic setup"
+    },
+    {
+      "name": "finish.jpg",
+      "sha256": "d8f0e9bcd259dd6b734c40481726d9c0503a994993b4b5c5342ca084dcde09c8",
+      "kind": "native animation and keyboard, three earned laps"
+    },
+    {
+      "name": "live-start.jpg",
+      "sha256": "4af4d3e84e90a9d66580be237d8ace4302dbec175072fcebbb4864132fc70bdf",
+      "kind": "public deployed real Chromium; start fixture / natural keyboard finish"
+    },
+    {
+      "name": "live-finish.jpg",
+      "sha256": "ec4e1f532e9afd7af4a40f66db747f21535f1bd42a756ee97cdcbc9697c3cd0e",
+      "kind": "public deployed real Chromium; start fixture / natural keyboard finish"
+    }
+  ],
+  "fullVideo": {
+    "durationSeconds": 75.72,
+    "raceSeconds": 75.60030000000187,
+    "contacts": 13,
+    "sha256": "5f04cdf06a4431d02ccdc33b298dc88922b17a06fe26a444ba4194fd7aa9ccfb",
+    "storedInConceptPage": true,
+    "edited": false,
+    "audioTrack": false,
+    "inlinePlaybackVerified": false
+  }
+}

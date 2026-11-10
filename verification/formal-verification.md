@@ -142,7 +142,7 @@ The frozen candidate passes the full verifier with 64 matching source hashes,
 A 75.60-second natural keyboard race earns three laps and records 13 AI contacts.
 Trail capacity, pause/reset, physical ramp air time and four HUD viewports are
 covered by the new concept suite. See [the actual evidence](concept-release/verification.md).
-Production publication is recorded separately in the release receipt.
+Runtime `de688eb` passes Linux verify, deployment and the full public-site verify-live in [workflow 42851855197](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42851855197). All three runs retain 562 screenshots and eight recordings, all 64 source hashes match and all 12 deployed assets agree. Public natural race: 68.03 seconds, 20 AI contacts. See the [release receipt](concept-release/release.json).
 
 Normal-animation frame timing on this shared Work host was p50 66.6 ms and p95
 133.3 ms. Functional acceptance is not a 60 FPS or phone-performance claim.

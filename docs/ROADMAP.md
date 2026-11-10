@@ -141,7 +141,7 @@ validation and photorealistic final assets remain independent open items.
 - [x] Add a low rear-quarter Map 01 camera and real depth rendering, preserving independent vehicle feedback.
 - [x] Add bounded real-state tire marks, drift duration and jump air time; verify pause/reset and 96-face capacity.
 - [x] Complete frozen-source precommit verification: 562 screenshots, eight recordings, 64 matching source hashes, 75.60-second natural three-lap race and 13 AI contacts.
-- [ ] Complete direct main publication, Linux verification and full deployed verification.
-- [ ] Record runtime screenshots and the exact concept-fidelity boundaries in the project Pages.
+- [x] Publish runtime `de688eb` directly to main; [verify / deploy / full verify-live](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42851855197) all PASS. Three runs each retain 562 screenshots and eight recordings; 64 source hashes agree and all 12 deployed assets match. Public natural race: 68.03 s, 20 AI contacts.
+- [x] Save/read back the concept child Page, game Page and personal overview. Retain four old original images, eight runtime images, a full 75.72 s video and explicit open concept differences. Inline video playback is not claimed.
 
 See [concept fidelity](CONCEPT-FIDELITY.md) for precise implementation coverage.

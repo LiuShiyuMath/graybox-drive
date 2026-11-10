@@ -1,0 +1,62 @@
+[
+  {
+    "asset": "art.js",
+    "match": true,
+    "sha256": "83c3509d609cbeb94e78039d3081e59c54e190d9c68500416c30f1473f2464ac"
+  },
+  {
+    "asset": "concept.css",
+    "match": true,
+    "sha256": "fa873ead0c4562dd02f8b534d23043c898d8c3ca51bcb0847044b678a1aed550"
+  },
+  {
+    "asset": "course-pack.js",
+    "match": true,
+    "sha256": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87"
+  },
+  {
+    "asset": "course-world.js",
+    "match": true,
+    "sha256": "e815d06683e1e0b3b79ec7c6a579b7e8e73c07ddb401bf8816c12c761dbf2238"
+  },
+  {
+    "asset": "dusk-sky.webp",
+    "match": true,
+    "sha256": "4c2ca601f04b9d7a6bafec2a0870051ccaf1192745b45ecac39e64eaa89eaefe"
+  },
+  {
+    "asset": "game.js",
+    "match": true,
+    "sha256": "8ae403e8c1eb458bd5f373223c0d81474fa1f73017d1dbba7cc2f595b1ab72e8"
+  },
+  {
+    "asset": "index.html",
+    "match": true,
+    "sha256": "55e8c9f174f95cb23ec3ca02f80ff50c9a10519a19c83145a1d162a7805287ea"
+  },
+  {
+    "asset": "maps.js",
+    "match": true,
+    "sha256": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299"
+  },
+  {
+    "asset": "perspective.js",
+    "match": true,
+    "sha256": "11041c9003aab924c94b138631b486f2d2bfcfc75345e9868b71245275aa9084"
+  },
+  {
+    "asset": "presentation.js",
+    "match": true,
+    "sha256": "66d37396a0dccbb41f8e6b962894fe1633e72372dbe11688dd89d4ca6224e72b"
+  },
+  {
+    "asset": "racers.js",
+    "match": true,
+    "sha256": "3543ff246b66b908bc77c0e3b0399b623002a573dba1ea77246d0bb0e0f1794f"
+  },
+  {
+    "asset": "style.css",
+    "match": true,
+    "sha256": "c0f8b164506d413d13b77532bc8739b151cef63e560d1c1f98af4e15484f7989"
+  }
+]

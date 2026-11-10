@@ -1,0 +1,81 @@
+{
+  "runtimeCommit": "de688eb31f48ef5e32ffbdbfa31b472d4dbcb5ca",
+  "workflow": "https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42851855197",
+  "gates": {
+    "frozenPrecommit": "PASS",
+    "linuxVerify": "PASS",
+    "pagesDeploy": "PASS",
+    "fullVerifyLive": "PASS"
+  },
+  "identicalTestedSources": 64,
+  "deployedAssets": 12,
+  "runs": [
+    {
+      "environment": "Work frozen precommit",
+      "steps": 28,
+      "screenshots": 562,
+      "videos": 8,
+      "raceSeconds": 75.60030000000187,
+      "contacts": 13,
+      "frameMs": {
+        "p50": 66.59999999999127,
+        "p95": 133.29999999999927,
+        "max": 266.6999999999971
+      }
+    },
+    {
+      "environment": "Linux verify",
+      "steps": 28,
+      "screenshots": 562,
+      "videos": 8,
+      "raceSeconds": 67.02060000000247,
+      "contacts": 13,
+      "frameMs": {
+        "p50": 33.30000000000109,
+        "p95": 33.400000000001455,
+        "max": 66.70000000000437
+      }
+    },
+    {
+      "environment": "Public full verify-live",
+      "steps": 28,
+      "screenshots": 562,
+      "videos": 8,
+      "raceSeconds": 68.03060000000285,
+      "contacts": 20,
+      "frameMs": {
+        "p50": 50,
+        "p95": 50.099999999998545,
+        "max": 50.10000000000582
+      }
+    }
+  ],
+  "finiteModels": 12,
+  "namedCounterexamples": 31,
+  "recoveredOriginalImages": 4,
+  "newImageGeneration": false,
+  "artifactDigests": {
+    "linux": "709ec11ce3bbf83e7db59d77a9da4843841feb43629352db295ba1cfe76a8723",
+    "public": "edd1829e6e536f91d69ac0999884b140658d30c90e4c43e474d4000ec222c5c7"
+  },
+  "conceptPage": "https://chatgpt.com/space/page_250e5db70e1c8191906045b0cd11e64d",
+  "boundaries": [
+    "Stylized procedural geometry; photorealistic fidelity remains open",
+    "Eight cars, 300+ km/h, boost rewards and suspended jump course are not implemented",
+    "Physical Android/iPhone and Safari/Firefox not tested",
+    "No stable 60 FPS claim; measured desktop headless intervals are retained",
+    "Finite models do not prove continuous geometry or JavaScript refinement",
+    "Page video saved; inline end-to-end playback not confirmed",
+    "Work host public-browser attempt was blocked by its proxy CA trust; full public browser verification passed on Linux CI without weakening TLS"
+  ],
+  "pageVerification": {
+    "conceptPageSequence": 20,
+    "gamePageSequence": 45,
+    "overviewPageSequence": 29,
+    "originalImagesRecovered": 4,
+    "nativeImageReferencesSaved": 12,
+    "fullVideoSaved": true,
+    "inlineVideoPlaybackVerified": false,
+    "finalStatusReadback": true
+  }
+}

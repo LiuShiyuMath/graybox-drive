@@ -25,7 +25,9 @@ Map 01 已加入暮色城市、环形地标、红色跑车、圆形轮胎、蓝�
 
 ![概念改造后的真实 Chromium 画面](verification/concept-release/overview.jpg)
 
-[提交前验收与真实画面](verification/concept-release/verification.md) · [四张原始概念图与实机对照 Page](https://chatgpt.com/space/page_250e5db70e1c8191906045b0cd11e64d) · [制作范围与差异](docs/CONCEPT-FIDELITY.md)
+[完整三阶段验收与真实画面](verification/concept-release/verification.md) · [四张原始概念图与实机对照 Page](https://chatgpt.com/space/page_250e5db70e1c8191906045b0cd11e64d) · [制作范围与差异](docs/CONCEPT-FIDELITY.md)
+
+运行版 `de688eb` 的提交前、Linux 与正式站完整验收均 PASS：三轮各 28 项命令、562 张截图、8 段录像，64 项源码一致，12 个线上资源匹配。正式站自然三圈比赛 68.03 秒、20 次 AI 接触。[发布流水线](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42851855197) · [机器可读证据](verification/concept-release/release.json)。
 
 当前程序化画面仍采用风格化着色。原图中的写实反射、8 车、300+ km/h 和 Boost 奖励不作为已实现功能。
 

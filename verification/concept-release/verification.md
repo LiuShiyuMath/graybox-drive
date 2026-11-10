@@ -58,9 +58,13 @@ from the separate normal-animation keyboard race.
 
 ## Publication
 
-The code release, Linux verification and deployed-source verification are recorded
-in `release.json` after they complete. This precommit report alone is not a
-production deployment claim.
+Runtime `de688eb` passes [all three release jobs](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42851855197). Each full run executes 28 commands and retains 562 screenshots and eight recordings. All 64 tested sources agree across precommit, Linux and the public site. All 12 deployed assets match. The public normal-keyboard three-lap race finishes in 68.03 seconds with 20 physical AI contacts. See [release receipt](release.json), [Linux evidence](ci.json), [public evidence](live.json) and [deployed hashes](deployed-assets.json).
+
+![Public deployed start, real Chromium](live-start.jpg)
+
+![Public natural finish, real Chromium](live-finish.jpg)
+
+Work-host public-browser attempts retained ERR_EMPTY_RESPONSE and, through its inherited proxy, ERR_CERT_AUTHORITY_INVALID. TLS verification was preserved. The full public suite ran successfully on Linux CI; neither local failure is claimed as PASS.
 
 ## Remaining concept differences
 
