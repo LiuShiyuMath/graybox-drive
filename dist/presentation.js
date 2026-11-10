@@ -3,13 +3,13 @@ const DrivePresentation=(()=>{
  let quality='full',sound=false;
  try{quality=localStorage.getItem('graybox-drive-effects')==='low'?'low':'full';sound=localStorage.getItem('graybox-drive-sound')==='on'}catch{}
  const reducedMotion=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- let last=null,particles=[],celebration=0,serial=0,audio=null;
+ let last=null,particles=[],trails=[],trailCursor=null,driftSeconds=0,airSeconds=0,longestAir=0,celebration=0,serial=0,audio=null;
  const events={impact:0,checkpoint:0,landing:0,finish:0,skid:0};
  const settings=document.querySelector('#presentation-settings'),qualityButton=document.querySelector('#effects-toggle'),soundButton=document.querySelector('#sound-toggle');
  const read=()=>({time:elapsed,state,map:activeMap.id,progress,lap,checkpoint:checkpointIndex,impact:hazard.impact,fall:hazard.fall,
   speed:car.speed,steer:car.steer,x:car.x,y:car.y,z:car.z||0,angle:car.angle,brake:input.brake,
   jump:activeMap.generic?courseState.jump.height:0,slip:activeMap.generic?courseState.slip:0});
- function reset(){last=null;particles=[];celebration=0;for(const name of Object.keys(events))events[name]=0;mute()}
+ function reset(){last=null;particles=[];trails=[];trailCursor=null;driftSeconds=0;airSeconds=0;longestAir=0;celebration=0;for(const name of Object.keys(events))events[name]=0;mute()}
  function mute(){if(audio)audio.master.gain.setTargetAtTime(0,audio.context.currentTime,.015)}
  function unlock(){
   if(!sound)return;
@@ -48,18 +48,29 @@ const DrivePresentation=(()=>{
    if(last&&s.impact>last.impact+.1){events.impact++;emit('spark',s,18);tone(95)}
    if(last&&(s.checkpoint>last.checkpoint||s.lap>last.lap)){events.checkpoint++;tone(660)}
    if(last&&last.jump>.1&&s.jump===0&&!s.fall){events.landing++;emit('dust',s,12);tone(125)}
-   const skid=!s.fall&&s.jump===0&&(Math.abs(s.slip)>8||s.brake&&s.speed>140);
+   const skid=!s.fall&&s.jump===0&&(Math.abs(s.slip)>8||s.speed>140&&(s.brake||!activeMap.generic&&Math.abs(s.steer)>.5));
+   driftSeconds=skid?driftSeconds+dt:0;
+   airSeconds=s.jump>0&&!s.fall?airSeconds+dt:0;longestAir=Math.max(longestAir,airSeconds);
+   if(skid&&dt>0&&quality==='full'&&!reducedMotion){
+    const ground=nearest(s.x,s.y).elevation||0,c=Math.cos(s.angle),sn=Math.sin(s.angle),points=[-10,10].map(side=>[s.x-c*13-sn*side,ground+1.2,s.y-sn*13+c*side]);
+    if(trailCursor&&Math.hypot(s.x-trailCursor.x,s.y-trailCursor.y)<45)for(let side=0;side<2;side++){const a=trailCursor.points[side],b=points[side];trails.push({vertices:[[a[0]-sn,a[1],a[2]+c],[b[0]-sn,b[1],b[2]+c],[b[0]+sn,b[1],b[2]-c],[a[0]+sn,a[1],a[2]-c]],color:'#141923',ground:true,layer:5})}
+    if(trails.length>96)trails.splice(0,trails.length-96);trailCursor={x:s.x,y:s.y,points};
+   }else trailCursor=null;
    if(skid&&dt>0){events.skid++;emit('smoke',s,2)}
    if(audio&&sound){audio.engine.frequency.setTargetAtTime(45+Math.abs(s.speed)*.48,audio.context.currentTime,.08);audio.filter.frequency.setTargetAtTime(skid?1100:420+Math.abs(s.speed),audio.context.currentTime,.08);audio.master.gain.setTargetAtTime(.018+Math.min(.02,Math.abs(s.speed)*.00005),audio.context.currentTime,.03)}
   }else mute();
   if(last&&last.state==='running'&&s.state==='finished'){events.finish++;celebration=performance.now();tone(880);setTimeout(()=>{if(state==='finished')tone(1174,.2)},120)}
+  const moment=document.querySelector('#drive-moment');
+  if(moment){moment.hidden=!(s.state==='running'&&(airSeconds>.05||driftSeconds>.15));moment.textContent=airSeconds>.05?'腾空 AIR · '+airSeconds.toFixed(2)+' s':'漂移 DRIFT · '+driftSeconds.toFixed(2)+' s'}
+  document.body.dataset.race=s.state;
+  const speedometer=document.querySelector('.speed');if(speedometer)speedometer.style.setProperty('--speed-ratio',String(Math.min(1,Math.abs(s.speed)*.36/160)));
   last=s;
   const ratio=Math.max(0,Math.min(1,activeMap.closed?progress/(N*(activeMap.laps||3)):progress/(N-3)));
   const bar=document.querySelector('#race-progress');if(bar){bar.style.setProperty('--progress',`${ratio*100}%`);bar.setAttribute('aria-valuenow',String(Math.round(ratio*100)));}
  }
  function worldMesh(){
   if(quality==='low'||!last||last.state!=='running')return [];
-  const faces=[];
+  const faces=trails.slice();
   for(const p of particles){const size=(p.kind==='spark'?1.5:3+(1-p.life/p.max)*5)*p.life/p.max,color=p.kind==='spark'?'#ffe2a0':p.kind==='smoke'?'#acbdb4':'#c3b99b';faces.push(...cuboidMesh(p.x,p.y,size,size,size,[color,color,color],0,p.z));}
   return faces;
  }
@@ -80,12 +91,12 @@ const DrivePresentation=(()=>{
   if(soundButton){soundButton.textContent=sound?'声音 开':'声音 关';soundButton.setAttribute('aria-pressed',String(sound))}
   if(settings)settings.dataset.quality=quality;
  }
- if(qualityButton)qualityButton.onclick=()=>{quality=quality==='full'?'low':'full';if(quality==='low')particles=[];try{localStorage.setItem('graybox-drive-effects',quality)}catch{}syncSettings()};
+ if(qualityButton)qualityButton.onclick=()=>{quality=quality==='full'?'low':'full';if(quality==='low'){particles=[];trails=[];trailCursor=null;}try{localStorage.setItem('graybox-drive-effects',quality)}catch{}syncSettings()};
  if(soundButton)soundButton.onclick=()=>{sound=!sound;if(sound)unlock();else mute();try{localStorage.setItem('graybox-drive-sound',sound?'on':'off')}catch{}syncSettings()};
  document.querySelector('#start').addEventListener('click',unlock);
  window.addEventListener('blur',mute);document.addEventListener('visibilitychange',()=>{if(document.hidden)mute()});
  syncSettings();rebuildRoadMesh();
  function audioState(){if(!audio)return null;const samples=new Float32Array(audio.analyser.fftSize);audio.analyser.getFloatTimeDomainData(samples);return {state:audio.context.state,gain:audio.master.gain.value,frequency:audio.engine.frequency.value,rms:Math.sqrt(samples.reduce((sum,value)=>sum+value*value,0)/samples.length)}}
- return {reset,draw,worldMesh,snapshot:()=>({quality,sound,reducedMotion,particles:particles.length,events:{...events},audio:audioState()})};
+ return {reset,draw,worldMesh,snapshot:()=>({quality,sound,reducedMotion,particles:particles.length,trails:trails.length,driftSeconds,airSeconds,longestAir,events:{...events},audio:audioState()})};
 })();
 window.presentationSnapshot=()=>DrivePresentation.snapshot();

@@ -49,8 +49,8 @@ if(process.env.DRIVE_CHROMIUM_PATH)options.executablePath=process.env.DRIVE_CHRO
    page.on('pageerror',e=>errors.push(e.message));
    await page.goto(base.href);await page.locator('#start').click();await page.locator(`[data-view=${view}]`).click();
    await page.evaluate(()=>{car.x=510;car.y=550;car.angle=0;car.speed=190;});
-   await page.keyboard.down('w');await page.waitForFunction(()=>gameSnapshot().hazard.impact>.5);await page.keyboard.up('w');
-   assert((await page.evaluate(()=>gameSnapshot())).speed<0);
+   await page.keyboard.down('w');const rebound=await (await page.waitForFunction(()=>{const s=gameSnapshot();return s.hazard.impact>.5&&s.speed<0?{speed:s.speed,impact:s.hazard.impact,elapsed:s.elapsed}:false})).jsonValue();await page.keyboard.up('w');
+   assert(rebound.speed<0&&rebound.impact>.5);
    await page.screenshot({path:path.join(out,name+'-impact.png')});pictures.push(name+'-impact.png');
    await page.waitForTimeout(350);
    const before=await page.evaluate(()=>{const p=edgePoint(5,208),q=edgePoint(5,230);hazard.impact=0;hazard.cooldown=0;car.x=p[0];car.y=p[2];car.angle=Math.atan2(q[2]-p[2],q[0]-p[0]);car.speed=120;return elapsed;});
@@ -61,7 +61,7 @@ if(process.env.DRIVE_CHROMIUM_PATH)options.executablePath=process.env.DRIVE_CHRO
    const recovered=await page.evaluate(()=>gameSnapshot());assert(recovered.elapsed-before>=6.4);assert.equal(recovered.speed,0);
    await page.waitForTimeout(150);
    const video=page.video();await context.close();const source=await video.path(),destination=path.join(out,name+'-impact-fall-recovery.webm');fs.renameSync(source,destination);videos.push(path.basename(destination));
-   checks.push({viewport,view,realAnimation:true,impact:true,fall:true,recovered:true,passed:true});
+   checks.push({viewport,view,realAnimation:true,impact:true,rebound,fall:true,recovered:true,passed:true});
    console.log('PASS',name,'recorded actual collision, falling, and automatic recovery');
   }
   assert.deepEqual(errors,[]);

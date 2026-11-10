@@ -127,3 +127,14 @@ For desktop timing observations, run `tests/profile-slice.cjs` with an explicit
 `DRIVE_BASELINE_URL` for frozen baseline assets. It alternates five trials per
 side and reports raw frame intervals and draw duration. Retain shared-host load
 and timing-method limitations. This profile does not establish phone performance.
+
+## Original-concept art acceptance
+
+The full entry now runs `tests/browser-concept.cjs`. Require all four viewport
+control hit tests, actual drift/trail bounds, a physics-generated ramp jump and
+landing, paused timer equality and reset cleanup. Inspect the scene captures and
+compare them with the archived originals, using `docs/CONCEPT-FIDELITY.md` to keep
+implemented behavior distinct from unrecreated imagery. The original red car
+replaces the old lime pixel, so vehicle tests must compare the full mesh region
+and retain building-occlusion and missing-mesh negative controls. Never update a
+hardcoded RGB value solely to make an occlusion test pass.

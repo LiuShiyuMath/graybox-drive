@@ -133,3 +133,15 @@ explicit boundaries in `docs/STATE-MACHINES.md`.
 
 The slice preserves current race rules and camera/body decoupling. Physical-phone
 validation and photorealistic final assets remain independent open items.
+
+## Original racing concept adaptation
+
+- [x] Recover and inspect the four original generated images; archive them under the game Page.
+- [x] Implement the concept red coupe, circular wheels, dusk city, ring landmark, cyan gates, directional chevrons and race HUD.
+- [x] Add a low rear-quarter Map 01 camera and real depth rendering, preserving independent vehicle feedback.
+- [x] Add bounded real-state tire marks, drift duration and jump air time; verify pause/reset and 96-face capacity.
+- [x] Complete frozen-source precommit verification: 562 screenshots, eight recordings, 64 matching source hashes, 75.60-second natural three-lap race and 13 AI contacts.
+- [ ] Complete direct main publication, Linux verification and full deployed verification.
+- [ ] Record runtime screenshots and the exact concept-fidelity boundaries in the project Pages.
+
+See [concept fidelity](CONCEPT-FIDELITY.md) for precise implementation coverage.

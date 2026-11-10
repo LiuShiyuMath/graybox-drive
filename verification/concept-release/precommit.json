@@ -1,0 +1,295 @@
+{
+  "createdAt": "2026-11-10T15:53:53.957195+00:00",
+  "passed": true,
+  "steps": [
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/maps.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/course-pack.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/course-world.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/racers.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/game.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/art.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/perspective.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "--check",
+        "dist/presentation.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/drive.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/mountain.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/course-pack.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/courses.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/state-contract.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/hidden-state-contract.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/racers.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "tests/verify_tla.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-states.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-mountain.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-courses.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-effects.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-flicker.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-camera.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-body-camera.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "tests/browser_e2e.py"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-racers.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-presentation.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-concept.cjs"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-slice.cjs"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "revision": "7993c7bc62912db1ee30c41a9c84a7bf334967d3",
+  "worktreeDirty": true,
+  "sourceSha256": {
+    ".agents/skills/verify/SKILL.md": "2b10b1609772b37012976423cb3998ddd1b10290bf2b41ec486fba1a2646d2ba",
+    ".github/workflows/pages.yml": "109103d9b4e9342603bec51464fd9a57a049fd8fe98b137f163f79fb53364893",
+    "dist/art.js": "83c3509d609cbeb94e78039d3081e59c54e190d9c68500416c30f1473f2464ac",
+    "dist/concept.css": "fa873ead0c4562dd02f8b534d23043c898d8c3ca51bcb0847044b678a1aed550",
+    "dist/course-pack.js": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87",
+    "dist/course-world.js": "e815d06683e1e0b3b79ec7c6a579b7e8e73c07ddb401bf8816c12c761dbf2238",
+    "dist/dusk-sky.webp": "4c2ca601f04b9d7a6bafec2a0870051ccaf1192745b45ecac39e64eaa89eaefe",
+    "dist/game.js": "8ae403e8c1eb458bd5f373223c0d81474fa1f73017d1dbba7cc2f595b1ab72e8",
+    "dist/index.html": "55e8c9f174f95cb23ec3ca02f80ff50c9a10519a19c83145a1d162a7805287ea",
+    "dist/maps.js": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
+    "dist/perspective.js": "11041c9003aab924c94b138631b486f2d2bfcfc75345e9868b71245275aa9084",
+    "dist/presentation.js": "66d37396a0dccbb41f8e6b962894fe1633e72372dbe11688dd89d4ca6224e72b",
+    "dist/racers.js": "3543ff246b66b908bc77c0e3b0399b623002a573dba1ea77246d0bb0e0f1794f",
+    "dist/style.css": "c0f8b164506d413d13b77532bc8739b151cef63e560d1c1f98af4e15484f7989",
+    "package-lock.json": "d7fb1ffb112245f2b007ad0bccf71af1bd1eebe90e8aa1b6305d8af7a8da9536",
+    "package.json": "84ce6881d1e1b2cc6b1ed49f98557cd1a472d88835205d442c3a537a479d4600",
+    "specs/CameraFeedback.cfg": "b7cded30516516c40b3bdafed476fde54d7b7d79746014fbfb24d8eb0665634f",
+    "specs/CameraFeedback.tla": "0d9cf9cabe4aa69fa8b8d82da4c8f2e27a6919b5781e544c44ca786f49134c4e",
+    "specs/Competitors.cfg": "d51ad16c3e5e65a234d208db02d3b03a43ad058983c209b8831eb78d4079be9e",
+    "specs/Competitors.tla": "fc9daa7a1ed12b910bda1e10706ad490189d29b79ed2b8adfdf020569676166d",
+    "specs/CompetitorsRace.cfg": "f4dc3b372ced6ce1e556eb860305cf97233cd2c565176b808fdae87b2d4134f6",
+    "specs/CompetitorsRace.tla": "a348a745959e42f7062f7076dc6cc7312e601532f45a7d517e96d64d9e89b824",
+    "specs/Courses.cfg": "c0dbeb5ceec01ba22994efdae749893b451171ea4bbf067b7f0337e145926a36",
+    "specs/Courses.tla": "69e08b63d038f70b54ae4ebbc20c681281308ef79252116a861b4c49b4585b34",
+    "specs/Hazards.cfg": "f05f54257ffef63c55e07aea93028ade3686c2519238039d61278b895e03d7e0",
+    "specs/Hazards.tla": "fe7a8448fe550a17fee4691f320f158c30d955bef068008372aac9046f951e35",
+    "specs/Input.cfg": "fa96765ce7e859bfd48861ab923c4697944b90bdf6d2c807d2dfaade79753071",
+    "specs/Input.tla": "6d145cbff97c3da7e32d1a01b96083f042c06850a32dc0eb58679b3e444c4446",
+    "specs/Mountain.cfg": "e53210cfcb4588cc2949f19d2dbcdb83c28dc4f03808961f7f0581ce6efed8e1",
+    "specs/Mountain.tla": "dfe67f114f8841eb35e758f7c68b8ca44d87891f73681013bf9269e6bcf6efe6",
+    "specs/Persistence.cfg": "90291c3002321e34d3e0936ce5ec36c9a683c74f90479c92a4436bc86e48f11a",
+    "specs/Persistence.tla": "7fd52d50041a2f8d7e4636e326d67e31eeddcfc9241264777aeb8679899fb2eb",
+    "specs/Presentation.cfg": "e69ea6df973cc8a0b1719f0416b555d8c9c804aec3f25589f0e42499e71c40c3",
+    "specs/Presentation.tla": "433f29215862fdafbc3fa33749e01cc550121d33d8e69d2758727fe20f4a7500",
+    "specs/Race.cfg": "78acd830ab7245abd95ab35b7fb55f66af20d4fcc492dc38f0d1b057d6c97561",
+    "specs/Race.tla": "bb78c1d231bfdc4f114d5b90b5998c7335669d5f7d80cf8544749f7f69ace096",
+    "specs/Rendering.cfg": "9604a481653876240297ce37ba0c81179bba8ceef068c0f298c186e5b15593a3",
+    "specs/Rendering.tla": "8ea4b60f5bd9bab6ed365ccbed06387d6e27ceabe3a86e1d9cbac4a26edec988",
+    "specs/VehicleWorld.cfg": "b4935a69e5ad1170c1bb450d3c33e9efaae29988980273ad4839d55f1979bf51",
+    "specs/VehicleWorld.tla": "ffe2b22e0638564b3a8d4e50d8ef65b15c4e23ab45c4e8fd52b508c4d0019087",
+    "tests/browser-body-camera.cjs": "055ff3aefff3084e6f80e3ff53c260f61d3530f21f9bff83a8b7c16a955747ff",
+    "tests/browser-camera.cjs": "5568d1ab80824ca7b47bc55a4d2aa48c1e0e49d830a47ccf6d92c159c7dc885f",
+    "tests/browser-concept.cjs": "1847b01c1adaa184d7ea1d11f834db3cdf2edeeb40f50e71c58dc0dc106fed4d",
+    "tests/browser-courses.cjs": "b87dd0118dd3027dcd7588d88ce3227ac788bd704614ae1663b41f8ca7b2f840",
+    "tests/browser-effects.cjs": "47487431f664ba9a04fc4a3a07f3b93f31b08cbc8a0d664da188b4ded8aa54a5",
+    "tests/browser-flicker.cjs": "fa099307b4c08eed96214753ef9c4a3d2c6096811fd96098cb84e230b55b0dec",
+    "tests/browser-mountain.cjs": "827ab35c02e3623718db1feedc8abd9c10d7a69b15fc7926e5a829746319667f",
+    "tests/browser-presentation.cjs": "27a1e2f8376cf09e49d87f52a511230fb2e49480005467f10caab3ec9391c9e3",
+    "tests/browser-racers.cjs": "3900d7466f305d87b39b50c83d16c51ffb07198751a0604d44de664ffacd69f6",
+    "tests/browser-slice.cjs": "7d7d3026fe89f5efd252c62c1aa586f72fcb832d96f0c54178c216d71162f350",
+    "tests/browser-states.cjs": "19428bb03bef7a35dedf23638d3ed943e06c2d1161f7919e545e5d52d67c7fb3",
+    "tests/browser_e2e.py": "a3215f847e94a323c292c1bcf881f35407161401087ed236d07376c44f97e5a2",
+    "tests/build-state-report.py": "4725864bd47a37722df3b14e71ac1429442eb2dc54a6b17275a8279251c9874b",
+    "tests/course-pack.cjs": "b8ed0acb1d8d93913e2a70b769541d057669e752b5847eb23722da16a99b773a",
+    "tests/courses.cjs": "3d83e85eba0dff66da48bf14c09054f21e4ed370b643ab0be83190325e61c834",
+    "tests/drive.cjs": "ac075d2c5d32c7dfa8ca7b7e171cd55a910d37e8a241fd7886d08f3bd8e1e2b2",
+    "tests/hidden-state-contract.cjs": "acad4f2acb765de9e2ebf1bdf6e68e4a7c6a5216d9e3caa0e7d846a8bac52cb0",
+    "tests/mountain.cjs": "c794e1075705ba386804e4656ab21d2cba98d652b6b6171d631c173ba1fe8933",
+    "tests/profile-slice.cjs": "47f0f7a8d2fe4dd2b09801a14cc64b0d0c54af70c2174cb7b43f2a97bb49e5cc",
+    "tests/racers.cjs": "9cc82fafaf6c40d4e38b846ab7cf8554e5a0734db216b0a7f44da4ea89251e06",
+    "tests/requirements-verify.txt": "3ac03b3e052baefd9bf6c5a9f06765194c63c546316e2b54bc30b38b3dedc2ad",
+    "tests/state-contract.cjs": "781364cc05b4963fc748a9f4db2cf6d1cc2261055227ff8d4b4848f6f4fee5f5",
+    "tests/verify.py": "dcf78c060f5c7c9f6792e66d5e3c37ea646ef002c46b1267e0cdbdf565f4085b",
+    "tests/verify_tla.py": "309e5c4e86815f14cb4a99618ed5860648b6802c67c0d4e8aa6556e0d403a869"
+  },
+  "target": "local dist/index.html",
+  "evidence": "local frozen-source verification",
+  "mountainChecks": 51,
+  "screenshots": 562,
+  "videos": 8,
+  "vehicleRegions": 486,
+  "temporalFrames": 540,
+  "flickerChecks": 27,
+  "terrainOcclusionFixtures": 2,
+  "cameraFrames": 450,
+  "bodyCameraChecks": 232,
+  "courseChecks": 56,
+  "matrixChecks": 30,
+  "racerChecks": 93,
+  "presentationChecks": 11,
+  "sliceRaceSeconds": 75.60030000000187,
+  "conceptChecks": 5
+}

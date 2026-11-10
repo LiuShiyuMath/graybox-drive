@@ -134,3 +134,15 @@ See [the acceptance report](camera-verification.md) and
 [machine-readable manifests](camera-evidence.json) for the initial failure,
 root cause, final source hashes and actual screenshots. Physical phones,
 Safari/Firefox and this Work host's failing browser path remain outside PASS.
+
+## Original concept implementation, 2026-11-10
+
+The frozen candidate passes the full verifier with 64 matching source hashes,
+562 screenshots, eight recordings, 12 finite models and 31 deliberate failures.
+A 75.60-second natural keyboard race earns three laps and records 13 AI contacts.
+Trail capacity, pause/reset, physical ramp air time and four HUD viewports are
+covered by the new concept suite. See [the actual evidence](concept-release/verification.md).
+Production publication is recorded separately in the release receipt.
+
+Normal-animation frame timing on this shared Work host was p50 66.6 ms and p95
+133.3 ms. Functional acceptance is not a 60 FPS or phone-performance claim.

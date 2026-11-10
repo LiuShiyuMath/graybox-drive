@@ -158,17 +158,33 @@ try{
  await check('best score and camera survive reload; replay clears current race',async()=>{
   await page.locator('#start').click();assert.equal((await snapshot(page)).elapsed,0);await page.locator('[data-view=chase]').click();const best=await page.locator('#best').textContent();assert.notEqual(best,'—');await page.reload();assert.equal((await snapshot(page)).view,'chase');assert.equal(await page.locator('#best').textContent(),best);assert.equal((await snapshot(page)).state,'ready');
  });
- await check('chase rear deck is visible over road paint at all 240 headings',async()=>{
-  const result=await page.evaluate(()=>{reset();state='running';selectView('chase');const failures=[];for(let i=0;i<N;i++){const p=track[i],q=track[(i+1)%N];car.x=p.x;car.y=p.y;car.angle=Math.atan2(q.y-p.y,q.x-p.x);draw();const pitch=.36,dy=12-92,forward=133,focal=Math.min(w*.82,h*1.35),x=Math.round(w/2),y=Math.round(h*.42-(dy*Math.cos(pitch)+forward*Math.sin(pitch))*focal/(forward*Math.cos(pitch)-dy*Math.sin(pitch)));const rgba=Array.from(ctx.getImageData(x,y,1,1).data);if(rgba.slice(0,3).some((v,k)=>v!==[210,250,96][k]))failures.push({i,rgba})}return failures});assert.deepEqual(result,[]);
+ await check('chase car stays visible above road paint at all 240 headings',async()=>{
+  const result=await page.evaluate(()=>{
+   window.vehicleVisibility=()=>{
+    const mesh=playerCarMesh;drawPerspective();const actual=ctx.getImageData(0,0,w,h).data;
+    try{playerCarMesh=()=>[];drawPerspective();const blank=ctx.getImageData(0,0,w,h).data;let pixels=0,minX=w,minY=h,maxX=0,maxY=0;
+     for(let i=0;i<actual.length;i+=4)if(Math.abs(actual[i]-blank[i])+Math.abs(actual[i+1]-blank[i+1])+Math.abs(actual[i+2]-blank[i+2])>20){const x=(i/4)%w,y=Math.floor(i/4/w);pixels++;minX=Math.min(minX,x);minY=Math.min(minY,y);maxX=Math.max(maxX,x);maxY=Math.max(maxY,y)}
+     return {pixels,width:maxX-minX+1,height:maxY-minY+1,minY,maxY};
+    }finally{playerCarMesh=mesh;drawPerspective()}
+   };
+   reset();state='running';selectView('chase');const failures=[];
+   for(let i=0;i<N;i++){const p=track[i],q=track[(i+1)%N];car.x=p.x;car.y=p.y;car.angle=Math.atan2(q.y-p.y,q.x-p.x);const region=vehicleVisibility();if(region.pixels<=100||region.width<=15||region.height<=10)failures.push({i,region})}return failures;
+  });assert.deepEqual(result,[]);
  });
- await check('falling chase camera keeps the descending car in frame',async()=>{
-  const result=await page.evaluate(()=>{reset();state='running';selectView('chase');car.y=1030;return[.2,.7,1.2].map(t=>{hazard.fall=t;drawPerspective();const p=.36,dy=12-92,forward=133,focal=Math.min(w*.82,h*1.35),x=Math.round(w/2),y=Math.round(h*.42-(dy*Math.cos(p)+forward*Math.sin(p))*focal/(forward*Math.cos(p)-dy*Math.sin(p)));return Array.from(ctx.getImageData(x,y,1,1).data).slice(0,3)})});assert.deepEqual(result,[[210,250,96],[210,250,96],[210,250,96]]);
+ await check('falling chase camera keeps the complete car region in frame',async()=>{
+  const regions=await page.evaluate(()=>{reset();state='running';selectView('chase');car.y=1030;return[.2,.7,1.2].map(t=>{hazard.fall=t;return vehicleVisibility()})});
+  for(const region of regions){assert(region.pixels>100&&region.width>15&&region.height>10);assert(region.minY>0&&region.maxY<await page.locator('#game').evaluate(e=>e.height)-1)}
  });
  await check('surface thresholds and returns use the intended boundaries',async()=>{
   const result=await page.evaluate(()=>{reset();state='running';return[86,88,105,107,159,161,209,211].map(distance=>{const p=edgePoint(5,distance);car.x=p[0];car.y=p[2];car.speed=0;hazard.fall=0;update(.001);return hazard.fall?'fall':hazard.kind})});assert.deepEqual(result,['road','curb','curb','runoff','runoff','edge','edge','fall']);
  });
- await check('buildings still occlude the chase car',async()=>{
-  const rgb=await page.evaluate(()=>{reset();state='running';selectView('chase');car.x=650;car.y=550;car.angle=0;draw();const pitch=.36,dy=12-92,forward=133,focal=Math.min(w*.82,h*1.35),x=Math.round(w/2),y=Math.round(h*.42-(dy*Math.cos(pitch)+forward*Math.sin(pitch))*focal/(forward*Math.cos(pitch)-dy*Math.sin(pitch)));return Array.from(ctx.getImageData(x,y,1,1).data).slice(0,3)});assert.deepEqual(rgb,[147,161,154]);
+ await check('solid buildings occlude the car and a no-building control reveals it',async()=>{
+  const result=await page.evaluate(()=>{
+   reset();state='running';selectView('chase');car.x=650;car.y=550;car.angle=0;
+   const hidden=vehicleVisibility(),saved=roadMesh.slice();
+   try{roadMesh.splice(0,roadMesh.length,...saved.filter(face=>face.ground));roadMeshVersion++;return {hidden,exposed:vehicleVisibility()}}
+   finally{roadMesh.splice(0,roadMesh.length,...saved);roadMeshVersion++;drawPerspective()}
+  });assert(result.hidden.pixels<=100,JSON.stringify(result));assert(result.exposed.pixels>100,JSON.stringify(result));
  });
  await check('invalid saved camera falls back and slower finishes keep best time',async()=>{
   await page.evaluate(()=>{localStorage.setItem('graybox-drive-view','invalid');localStorage.setItem('graybox-drive-best','30')});await page.reload();assert.equal((await snapshot(page)).view,'first');await fixture(page,'first','elapsed=50;finish()');assert.equal(await page.locator('#best').textContent(),'00:30.00');await fixture(page,'first','elapsed=20;finish()');assert.equal(await page.locator('#best').textContent(),'00:20.00');

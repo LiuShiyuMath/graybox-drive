@@ -61,7 +61,8 @@ async function fixture(page,view,setup){return page.evaluate(({view,setup})=>{
      const forward=pose.distance-17,dy=car.z+13.5-17*grade-pose.camera[1];
      drawPerspective();const x=Math.round(w/2),y=Math.round(horizon-(dy*Math.cos(pitch)+forward*Math.sin(pitch))*focal/(forward*Math.cos(pitch)-dy*Math.sin(pitch)));
      const rgb=Array.from(ctx.getImageData(x,y,1,1).data).slice(0,3);
-     if(rgb.some((v,k)=>Math.abs(v-[210,250,96][k])>3))failures.push({index:i,rgb,x,y});
+     const expected=DriveArt.playerColors[0].slice(1).match(/../g).map(pair=>parseInt(pair,16));
+     if(rgb.some((v,k)=>Math.abs(v-expected[k])>3))failures.push({index:i,rgb,x,y});
     }return failures;
    });assert.deepEqual(failures,[]);
   });

@@ -55,7 +55,8 @@ def main():
               ('CameraFeedback', ('BuggyBody = FALSE', 'BuggyBody = TRUE'), 'BodyPresentsFeedback'),
               ('Presentation', ('BuggyToggle = FALSE', 'BuggyToggle = TRUE'), 'TogglePreservesScore'),
               ('Presentation', ('BuggyAudio = FALSE', 'BuggyAudio = TRUE'), 'QuietOutsideRace'),
-              ('Presentation', ('BuggyBound = FALSE', 'BuggyBound = TRUE'), 'BoundedParticles')]
+              ('Presentation', ('BuggyBound = FALSE', 'BuggyBound = TRUE'), 'BoundedParticles'),
+              ('Presentation', ('BuggyTrail = FALSE', 'BuggyTrail = TRUE'), 'BoundedTrails')]
     for name, mutation, expected in cases:
         label = name if not mutation else name + '-regression-' + expected
         if mutation and name == 'Rendering':

@@ -417,3 +417,35 @@ prove JavaScript refinement, audio quality, geometry or physical-device timing.
 `browser-slice.cjs` drives normal keyboard events through native animation and
 requires a natural 60–90 second three-lap race, real AI contact, a saved score and
 frozen finish ranking. It never teleports the player or calls finish directly.
+
+## Original concept art implementation
+
+The original four generated concepts are archived in the project's [concept and
+runtime Page](https://chatgpt.com/space/page_250e5db70e1c8191906045b0cd11e64d).
+They are visual targets for fidelity review, not evidence of implemented gameplay.
+Map 01 uses an actual red coupe mesh, circular wheel geometry, a dusk skyline,
+a ring landmark, cyan gates and orange route guidance. Other maps keep their own
+terrain. Player collision size, race clocks and four-car teams remain the same.
+The cyan road chevrons indicate direction, not a boost pickup.
+
+`perspectivePose()` uses a 105-unit, 48-unit-high chase rig on Map 01, with a
+32-unit lateral offset and 0.15 radian look-ahead yaw. The offset and yaw ease
+spatially to zero between the runoff and cliff boundary, keeping a falling
+vehicle and its camera outside the platform wall. Other maps retain their
+150-unit, 92-unit-high rig and obstruction solver. Both use road support instead
+of jumping or collision feedback to place the camera. Map 01 now shares the real
+WebGL depth renderer and the bounded software depth fallback with the other maps.
+World labels avoid reserved HUD regions. Cyan gate pillars share their physical
+obstacle footprint with the art mesh. The outside circuit floor now joins the
+cliff at -300 units; the old -2-unit floor contradicted the fall region and
+hid the car halfway down once depth testing was enabled.
+
+Presentation owns a pool of at most 96 tire-mark faces. Skid state comes from
+actual slip, braking or the circuit's existing steering skid condition. Trails
+stay on sampled ground; recovery and new runs break continuity. Air time reads
+the existing jump simulation. Pause freezes both timers. Quality changes clear
+optional meshes and do not change physics, input, results or team points.
+The finite `Presentation` model now abstracts trail capacity as three slots,
+drifting and airborne flags. It adds a required trail-overflow counterexample.
+Runtime tests enforce the actual 96-face capacity and check jump/landing, pause,
+restart, four viewport layouts, all controls and both rendering paths.

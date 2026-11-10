@@ -38,7 +38,7 @@ def main():
                 ['node', 'tests/browser-mountain.cjs'], ['node', 'tests/browser-courses.cjs'], ['node', 'tests/browser-effects.cjs'],
                 ['node', 'tests/browser-flicker.cjs'], ['node', 'tests/browser-camera.cjs'], ['node', 'tests/browser-body-camera.cjs'],
                 [sys.executable, 'tests/browser_e2e.py'], ['node', 'tests/browser-racers.cjs'],
-                ['node', 'tests/browser-presentation.cjs'], ['node', 'tests/browser-slice.cjs']]
+                ['node', 'tests/browser-presentation.cjs'], ['node', 'tests/browser-concept.cjs'], ['node', 'tests/browser-slice.cjs']]
     try:
         for index, command in enumerate(commands):
             print('RUN', ' '.join(command), flush=True)
@@ -113,6 +113,11 @@ def main():
         summary['sliceRaceSeconds'] = slice_run['raceSeconds']
         summary['screenshots'] += len(presentation['pictures']) + len(slice_run['pictures'])
         summary['videos'] += 1
+        concept = json.loads((OUT / 'concept/results.json').read_text())
+        assert concept['passed'] and len(concept['checks']) == 5
+        assert all((OUT / 'concept' / name).is_file() for name in concept['pictures'])
+        summary['conceptChecks'] = len(concept['checks'])
+        summary['screenshots'] += len(concept['pictures'])
         summary['passed'] = True
     except Exception as error:
         summary['error'] = str(error)

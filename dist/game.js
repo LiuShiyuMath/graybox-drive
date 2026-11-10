@@ -12,6 +12,7 @@ function edgeAt(index,offset,height=0){
 function makeObstacles(){
  if(activeMap.generic){obstacles=[];return}
  obstacles=activeMap.mountain?[]:[{x:575,y:550,w:110,d:70,h:60},{x:735,y:530,w:140,d:90,h:110},{x:900,y:550,w:130,d:70,h:45}];
+ if(activeMap.id==='circuit')for(const i of[0,60,120,180])for(const side of[-1,1]){const p=edgeAt(i,side*116);obstacles.push({x:p[0],y:p[2],z:0,w:6,d:6,h:86,artGate:true})}
  for(let i=activeMap.mountain?8:0;i<N;i+=activeMap.mountain?9:10){const p=edgeAt(i,activeMap.mountain?83:145);obstacles.push({x:p[0],y:p[2],z:p[1],w:7,d:7,h:activeMap.mountain?17:25})}
 }
 makeObstacles();
@@ -92,14 +93,14 @@ $('#time').textContent=format(elapsed);$('#speed').textContent=Math.round(Math.a
 function path(){ctx.beginPath();track.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));if(activeMap.closed)ctx.closePath()}
 function line(color,width,dash=[]){path();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.stroke();ctx.setLineDash([])}
 function box(x,y,bw,bh,height){ctx.fillStyle='#626e70';ctx.fillRect(x+6,y+10,bw,bh);ctx.fillStyle='#8c9798';ctx.fillRect(x,y-height,bw,bh);ctx.fillStyle='#6d787a';ctx.fillRect(x,y-height+bh,bw,height);ctx.strokeStyle='#c0c7c5';ctx.lineWidth=1;ctx.strokeRect(x,y-height,bw,bh)}
-function drawCar(x,y,a,scale=1,color='#d2fa60'){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.scale(scale,scale);ctx.fillStyle='#25342b55';ctx.fillRect(-19,-9,44,23);ctx.fillStyle='#25312d';for(const xx of[-12,11])for(const yy of[-12,8])ctx.fillRect(xx,yy,9,5);ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(-22,-11,44,22,5);ctx.fill();ctx.fillStyle='#586d53';ctx.fillRect(-6,-8,13,16);ctx.fillStyle='#314a42';ctx.fillRect(6,-8,5,16);ctx.fillStyle='#f4ffd4';ctx.fillRect(17,-10,3,5);ctx.fillRect(17,5,3,5);ctx.fillStyle='#e66c56';ctx.fillRect(-22,-9,2,5);ctx.fillRect(-22,4,2,5);ctx.restore()}
-function drawTop(){if(activeMap.generic){drawCourseTop();return}if(activeMap.mountain){drawMountainTop();return}ctx.clearRect(0,0,w,h);ctx.fillStyle='#a4adaa';ctx.fillRect(0,0,w,h);let target=state==='ready'?{x:750,y:500}:car;camera.x+=(target.x-camera.x)*.08;camera.y+=(target.y-camera.y)*.08;let z=state==='ready'?Math.min(w/1550,h/1000):zoom;ctx.save();ctx.translate(w/2,h*.49);ctx.scale(z,z);ctx.translate(-camera.x,-camera.y);
+function drawCar(x,y,a,scale=1,color='#e2333f'){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.scale(scale,scale);ctx.fillStyle='#25342b55';ctx.fillRect(-19,-9,44,23);ctx.fillStyle='#25312d';for(const xx of[-12,11])for(const yy of[-12,8])ctx.fillRect(xx,yy,9,5);ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(-22,-11,44,22,5);ctx.fill();ctx.fillStyle='#586d53';ctx.fillRect(-6,-8,13,16);ctx.fillStyle='#314a42';ctx.fillRect(6,-8,5,16);ctx.fillStyle='#f4ffd4';ctx.fillRect(17,-10,3,5);ctx.fillRect(17,5,3,5);ctx.fillStyle='#e66c56';ctx.fillRect(-22,-9,2,5);ctx.fillRect(-22,4,2,5);ctx.restore()}
+function drawTop(){if(activeMap.generic){drawCourseTop();return}if(activeMap.mountain){drawMountainTop();return}ctx.clearRect(0,0,w,h);ctx.fillStyle='#51485c';ctx.fillRect(0,0,w,h);let target=state==='ready'?{x:750,y:500}:car;camera.x+=(target.x-camera.x)*.08;camera.y+=(target.y-camera.y)*.08;let z=state==='ready'?Math.min(w/1550,h/1000):zoom;ctx.save();ctx.translate(w/2,h*.49);ctx.scale(z,z);ctx.translate(-camera.x,-camera.y);
 ctx.strokeStyle='#929f9955';ctx.lineWidth=1;for(let x=-200;x<1800;x+=60){ctx.beginPath();ctx.moveTo(x,-300);ctx.lineTo(x,1300);ctx.stroke()}for(let y=-300;y<1300;y+=60){ctx.beginPath();ctx.moveTo(-200,y);ctx.lineTo(1800,y);ctx.stroke()}
-line('#293b38',620);line('#a4adaa',420);line('#cfad59',424,[8,12]);line('#a4adaa',416);line('#64716b',216);line('#c5cbc6',204);line('#596360',184);line('#d9dfd4',3,[20,22]);
-for(let i=0;i<N;i+=3){const p=track[i],a=Math.PI/2+i/N*TAU;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(Math.atan2(310*Math.cos(a),-560*Math.sin(a)));ctx.fillStyle=(i/3)%2?'#dbdfd8':'#738078';ctx.fillRect(-9,-103,18,10);ctx.fillRect(-9,93,18,10);ctx.restore()}
+line('#293b38',620);line('#51485c',420);line('#cfad59',424,[8,12]);line('#51485c',416);line('#454658',216);line('#52cde7',204);line('#292b39',184);line('#d9dfd4',3,[20,22]);
+for(let i=0;i<N;i+=3){const p=track[i],a=Math.PI/2+i/N*TAU;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(Math.atan2(310*Math.cos(a),-560*Math.sin(a)));ctx.fillStyle=(i/3)%2?'#d3f6ff':'#21bfe2';ctx.fillRect(-9,-103,18,10);ctx.fillRect(-9,93,18,10);ctx.restore()}
 ctx.fillStyle='#809088';ctx.fillRect(470,390,560,200);ctx.strokeStyle='#bdc8bd';ctx.strokeRect(480,400,540,180);ctx.fillStyle='#a4b0a7';ctx.font='bold 58px monospace';ctx.fillText('GRAYBOX',500,470);ctx.font='16px monospace';ctx.fillText('PROVING GROUND / 001',503,505);for(const o of obstacles)box(o.x-o.w/2,o.y-o.d/2,o.w,o.d,o.h*.35);
 for(let i=0;i<12;i++){ctx.fillStyle=i%2?'#e5e9df':'#303c35';ctx.fillRect(740+(i%2)*10,710+Math.floor(i/2)*33,10,33)}ctx.fillStyle='#d2fa60';ctx.font='bold 15px monospace';ctx.fillText('← START / FINISH',780,905);
-ctx.fillStyle='#d4dbcd';for(const [x,y,a] of [[450,792,Math.PI],[190,430,-Math.PI/2],[1000,220,0],[1305,550,Math.PI/2]]){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.beginPath();ctx.moveTo(15,0);ctx.lineTo(-10,-10);ctx.lineTo(-6,0);ctx.lineTo(-10,10);ctx.closePath();ctx.fill();ctx.restore()}
+ctx.fillStyle='#54dafa';for(const [x,y,a] of [[450,792,Math.PI],[190,430,-Math.PI/2],[1000,220,0],[1305,550,Math.PI/2]]){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.beginPath();ctx.moveTo(15,0);ctx.lineTo(-10,-10);ctx.lineTo(-6,0);ctx.lineTo(-10,10);ctx.closePath();ctx.fill();ctx.restore()}
 ctx.fillStyle='#24332b33';for(const s of skids){ctx.save();ctx.translate(s.x,s.y);ctx.rotate(s.a);ctx.fillRect(-3,-10,6,2);ctx.fillRect(-3,8,6,2);ctx.restore()}drawRacersTop();drawCar(car.x,car.y,car.angle);ctx.restore();
 if(state!=='ready'){const mw=Math.min(150,w*.22),mh=mw*2/3,mx=18,my=48;ctx.save();ctx.translate(mx,my);ctx.fillStyle='#1c2b25c9';ctx.beginPath();ctx.roundRect(0,0,mw,mh,7);ctx.fill();ctx.scale(mw/1500,mh/1000);line('#abb8a2',45);drawRacerMarkers(26);ctx.fillStyle='#d2fa60';ctx.beginPath();ctx.arc(car.x,car.y,30,0,TAU);ctx.fill();ctx.restore()}}
 function vehicleBodyPose(){
@@ -112,7 +113,7 @@ function vehicleBodyPose(){
   pitch:airborne?Math.max(-.12,Math.min(.12,jump.velocity*.001)):((input.gas?.025:0)-(input.brake&&car.speed>8?.055:0))*speed+impact*.06,
   roll:car.steer*speed*.065+impact*.035};
 }
-function draw(){ctx.save();if(typeof viewMode==='undefined'||viewMode==='top'||(state==='ready'&&activeMap.id==='circuit'))drawTop();else{drawPerspective();drawMinimap()}ctx.restore();drawHazardEffects()}
+function draw(){ctx.save();if(typeof viewMode==='undefined'||viewMode==='top'||(state==='ready'&&activeMap.id==='circuit'))drawTop();else{drawPerspective();if(typeof DriveArt!=='undefined')DriveArt.labels(perspectivePose());drawMinimap()}ctx.restore();drawHazardEffects()}
 function frame(t){let remaining=previous?Math.min((t-previous)/1000,1):0;previous=t;while(remaining>0){const step=Math.min(remaining,.02);update(step);remaining-=step}draw();requestAnimationFrame(frame)}reset();resize();
 // Drawing depends on perspective.js, the next ordinary script in index.html.
 // A frame may run while that script is still downloading. Start once all scripts are ready.
@@ -208,9 +209,7 @@ function racerMesh(){
  for(const actor of racers.actors){
   const palette=DriveRacers.palettes[actor.team],fx=Math.cos(actor.angle),fy=Math.sin(actor.angle);
   const n=DriveRacers.nearest(racers,actor.x,actor.y),grade=n.grade*Math.cos(actor.angle-n.angle);
-  const mesh=[...cuboidMesh(actor.x,actor.y,40,22,12,palette,actor.angle,actor.z+1.5),
-   ...cuboidMesh(actor.x-fx*3,actor.y-fy*3,18,18,8,['#526c74','#314e58','#48636c'],actor.angle,actor.z+13.5),
-   ...(typeof DriveArt!=='undefined'?DriveArt.carDetails(actor.x,actor.y,actor.angle,palette[0],actor.z+1.5):[])];
+  const mesh=typeof DriveArt!=='undefined'?DriveArt.carMesh(actor.x,actor.y,actor.angle,palette,actor.z+1.5):[...cuboidMesh(actor.x,actor.y,40,22,12,palette,actor.angle,actor.z+1.5),...cuboidMesh(actor.x-fx*3,actor.y-fy*3,18,18,8,['#526c74','#314e58','#48636c'],actor.angle,actor.z+13.5)];
   for(const face of mesh)face.vertices=face.vertices.map(([x,y,z])=>[x,y+((x-actor.x)*fx+(z-actor.y)*fy)*grade,z]);
   faces.push(...mesh);
  }
