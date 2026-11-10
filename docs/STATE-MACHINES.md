@@ -72,6 +72,14 @@ Separate complete draws must show visible vehicle feedback. The suite also
 checks jump isolation, feedback direction and recovery. Existing normal-animation
 driving, occlusion, flight/landing, fall/recovery and AI tests remain required.
 
+The native flicker probe retains its 540 animation frames and all grounded
+vehicle-region thresholds. An invisible falling car is accepted only when its
+full body projection remains in view and every one of 50 vertex/face-centre
+rays meets opaque terrain first. The probe then requires actual automatic
+recovery and visible body pixels. Both renderers replay the captured deep-fall
+pose. An open-road missing-mesh negative control must still fail. This
+distinguishes legitimate terrain depth from absent or stale car rendering.
+
 ```mermaid
 stateDiagram-v2
     [*] --> ready

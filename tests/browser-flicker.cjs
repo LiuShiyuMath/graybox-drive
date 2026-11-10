@@ -6,11 +6,42 @@ const out=path.resolve(process.env.DRIVE_VERIFY_DIR||'verification/latest','flic
 const sizes=[{width:844,height:390},{width:390,height:844},{width:320,height:740}];
 const options={headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--enable-unsafe-swiftshader']};
 if(process.env.DRIVE_CHROMIUM_PATH)options.executablePath=process.env.DRIVE_CHROMIUM_PATH;
-const checks=[],pictures=[],videos=[],errors=[];
+const checks=[],pictures=[],videos=[],errors=[],occlusionFixture=[];
 fs.mkdirSync(out,{recursive:true});
 
 async function installProbe(page){
  await page.evaluate(()=>{
+  window.vehicleTerrainOcclusion=()=>{
+   const pose=perspectivePose(),cp=Math.cos(pose.pitch),sp=Math.sin(pose.pitch);
+   const points=playerCarMesh().flatMap(face=>[...face.vertices,face.vertices.reduce((sum,v)=>sum.map((n,i)=>n+v[i]/face.vertices.length),[0,0,0])]);
+   const subtract=(a,b)=>a.map((v,i)=>v-b[i]),dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
+   const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+   const projection=points.map(point=>{
+    const [dx,dy,dz]=subtract(point,pose.camera),forward=dx*pose.forward[0]+dz*pose.forward[1];
+    const depth=forward*cp-dy*sp,right=dx*pose.right[0]+dz*pose.right[1],up=dy*cp+forward*sp;
+    return{x:w/2+right*pose.focal/depth,y:pose.horizon-up*pose.focal/depth,depth};
+   });
+   const minX=Math.min(...projection.map(p=>p.x)),maxX=Math.max(...projection.map(p=>p.x));
+   const minY=Math.min(...projection.map(p=>p.y)),maxY=Math.max(...projection.map(p=>p.y));
+   const projectedBounds={minX,maxX,minY,maxY,width:maxX-minX,height:maxY-minY,
+    inFront:projection.every(p=>p.depth>4),insideViewport:minX>=0&&minY>=0&&maxX<=w&&maxY<=h};
+   let blocked=0;const blockers=new Set();
+   for(const point of points){
+    const direction=subtract(point,pose.camera);let nearestHit=1,blocker=-1;
+    for(let index=0;index<roadMesh.length;index++){
+     const face=roadMesh[index];if(!face.ground)continue;
+     for(let k=1;k<face.vertices.length-1;k++){
+      const [a,b,c]=[face.vertices[0],face.vertices[k],face.vertices[k+1]],edge1=subtract(b,a),edge2=subtract(c,a);
+      const normal=cross(direction,edge2),determinant=dot(edge1,normal);if(Math.abs(determinant)<1e-8)continue;
+      const inverse=1/determinant,offset=subtract(pose.camera,a),u=inverse*dot(offset,normal);if(u<0||u>1)continue;
+      const q=cross(offset,edge1),v=inverse*dot(direction,q);if(v<0||u+v>1)continue;
+      const distance=inverse*dot(edge2,q);if(distance>1e-6&&distance<nearestHit-1e-6){nearestHit=distance;blocker=index;}
+     }
+    }
+    if(blocker>=0){blocked++;blockers.add(blocker);}
+   }
+   return{rays:points.length,blocked,blockerFaces:[...blockers],projectedBounds,camera:pose.camera};
+  };
   window.vehicleRegion=()=>{
    const original=cuboidMesh;
    drawPerspective();const actual=ctx.getImageData(0,0,w,h).data;
@@ -26,7 +57,9 @@ async function installProbe(page){
     hash=Math.imul(hash^actual[i],16777619);hash=Math.imul(hash^actual[i+1],16777619);hash=Math.imul(hash^actual[i+2],16777619);
    }
    drawPerspective();
-   return {pixels,width:maxX-minX+1,height:maxY-minY+1,hash:hash>>>0};
+   const terrainOcclusion=pixels<=100&&hazard.fall>0?vehicleTerrainOcclusion():null;
+   return {pixels,width:maxX-minX+1,height:maxY-minY+1,hash:hash>>>0,terrainOcclusion,
+    occludedCanvas:terrainOcclusion?canvas.toDataURL().split(',')[1]:undefined};
   };
  });
 }
@@ -35,7 +68,18 @@ async function picture(page,name){
  const png=await page.evaluate(()=>canvas.toDataURL().split(',')[1]);
  fs.writeFileSync(path.join(out,name+'-canvas.png'),Buffer.from(png,'base64'));pictures.push(name+'-canvas.png');
 }
-function visible(row,label){assert(row.pixels>100&&row.width>15&&row.height>10,label+': '+JSON.stringify(row));}
+function visible(row,label,allowTerrainOcclusion=false){
+ if(row.pixels>100&&row.width>15&&row.height>10)return 'visible';
+ const proof=row.terrainOcclusion,bounds=proof?.projectedBounds;
+ assert(allowTerrainOcclusion&&row.snapshot?.hazard.fall>0&&proof?.rays>=50&&proof.blocked===proof.rays&&
+  bounds.inFront&&bounds.insideViewport&&bounds.width>15&&bounds.height>10,label+': '+JSON.stringify({...row,occludedCanvas:undefined}));
+ return 'terrain-occluded';
+}
+function saveOccludedCanvas(row,name){
+ if(!row.occludedCanvas)return;
+ fs.writeFileSync(path.join(out,name+'.png'),Buffer.from(row.occludedCanvas,'base64'));pictures.push(name+'.png');
+ delete row.occludedCanvas;
+}
 async function imageDifference(page,actual,expected){
  return page.evaluate(async([a,b])=>{
   const read=async source=>{const image=new Image();image.src=source;await image.decode();const surface=document.createElement('canvas');surface.width=image.width;surface.height=image.height;const context=surface.getContext('2d');context.drawImage(image,0,0);return{width:image.width,height:image.height,pixels:context.getImageData(0,0,image.width,image.height).data};};
@@ -68,11 +112,20 @@ function matchesFresh(difference){return difference.sameSize&&difference.mean<1&
      return rows;
     });
     await page.keyboard.up('w');
-    for(const row of frames)visible(row,`${map}/${viewport.width}/frame-${row.frame}`);
+    const occluded=frames.filter(row=>visible(row,`${map}/${viewport.width}/frame-${row.frame}`,true)==='terrain-occluded');
+    if(occluded.length)saveOccludedCanvas(occluded[0],`${map}-${viewport.width}-terrain-occluded`);
+    for(const row of frames)delete row.occludedCanvas;
+    let terrainRecovery;
+    if(occluded.length){
+     await page.waitForFunction(()=>gameSnapshot().hazard.fall===0);
+     terrainRecovery=await page.evaluate(()=>({...vehicleRegion(),snapshot:gameSnapshot()}));
+     visible(terrainRecovery,`${map}/${viewport.width}/after-terrain-occlusion-recovery`);
+     await picture(page,`${map}-${viewport.width}-terrain-recovered`);
+    }
     assert(frames.at(-1).snapshot.elapsed>frames[0].snapshot.elapsed);
     assert(frames.some(row=>row.snapshot.speed>5),'normal animation must actually drive');
-    checks.push({id:`${map}/${viewport.width}/continuous-driving`,passed:true,frames});
-    console.log('PASS',map,viewport.width,'36 native animation frames; zero missing car frames');
+    checks.push({id:`${map}/${viewport.width}/continuous-driving`,passed:true,frames,terrainOccludedFrames:occluded.length,terrainRecovery});
+    console.log('PASS',map,viewport.width,'36 native animation frames;',occluded.length,'proved terrain-occluded frames; all other car frames visible');
    }
    for(const map of ['mountain','proving','city','offroad']){
     const url=new URL(base);url.searchParams.set('map',map);await page.goto(url.href);await installProbe(page);
@@ -157,10 +210,57 @@ function matchesFresh(difference){return difference.sameSize&&difference.mean<1&
    }
    await context.close();
   }
+  for(const backend of['webgl','software']){
+   const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:1});
+   await context.addInitScript(backend=>{
+    window.requestAnimationFrame=()=>0;
+    if(backend==='software'){
+     const original=HTMLCanvasElement.prototype.getContext;
+     HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/i.test(type)?null:original.call(this,type,...args);};
+    }
+   },backend);
+   const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
+   const url=new URL(base);url.searchParams.set('map','mountain');await page.goto(url.href);await installProbe(page);
+   const hidden=await page.evaluate(()=>{
+    start();selectView('chase');
+    Object.assign(car,{x:931.0648623686869,y:2922.500716333764,z:36.73100737853362,speed:23.111605559709428});
+    hazard={kind:'fall',impact:0,cooldown:0,fall:.7742000000000001,dust:.8001976027720703};elapsed=4.2330999999999985;
+    for(let i=0;i<4;i++)vehicleRegion();
+    return{...vehicleRegion(),snapshot:gameSnapshot(),backend:mountainRenderer?'webgl':'software'};
+   });
+   assert.equal(hidden.backend,backend);assert(hidden.pixels<=100,backend+': original deep-fall pose must remain below the existing visibility threshold');
+   assert.equal(visible(hidden,backend+'/deep-fall-fixture',true),'terrain-occluded');
+   saveOccludedCanvas(hidden,backend+'-deep-fall-fixture');
+   const recovered=await page.evaluate(()=>{
+    const before=elapsed;let steps=0;while(hazard.fall>0&&steps<100){update(.02);steps++;}
+    return{...vehicleRegion(),snapshot:gameSnapshot(),steps,penalty:elapsed-before-steps*.02};
+   });
+   assert.equal(recovered.snapshot.hazard.fall,0);assert(Math.abs(recovered.penalty-5)<1e-6,'actual automatic recovery charges exactly once');
+   visible(recovered,backend+'/deep-fall-fixture-recovered');await picture(page,backend+'-deep-fall-recovered');
+   const negative=await page.evaluate(()=>{
+    selectMap('circuit');start();selectView('chase');hazard.fall=.001;
+    const draw=drawPerspective,mesh=cuboidMesh;
+    try{
+     drawPerspective=()=>{
+      try{cuboidMesh=(...args)=>args[2]===42&&args[3]===23||args[2]===19&&args[3]===20?[]:mesh(...args);return draw();}
+      finally{cuboidMesh=mesh;}
+     };
+     for(let i=0;i<4;i++)vehicleRegion();
+     return{...vehicleRegion(),snapshot:gameSnapshot()};
+    }finally{drawPerspective=draw;cuboidMesh=mesh;}
+   });
+   delete negative.occludedCanvas;
+   assert.equal(negative.pixels,0,backend+': missing-car negative control must contain no player pixels');assert(negative.terrainOcclusion.rays>=50);
+   assert(negative.terrainOcclusion.blocked<negative.terrainOcclusion.rays,'open road must not prove full terrain occlusion');
+   assert.throws(()=>visible(negative,backend+'/missing-car-negative-control',true),assert.AssertionError);
+   occlusionFixture.push({backend,passed:true,hidden,recovered,negativeControl:{...negative,rejected:true}});
+   console.log('PASS',backend,'exact deep-fall terrain occlusion, actual automatic recovery, open-road missing-car negative control');
+   await context.close();
+  }
   assert.deepEqual(errors,[]);
  }catch(error){failure=error;console.error(error);}
  finally{
-  const summary={passed:!failure,browser:browser.version(),target:base.href,checks,pictures,videos,
+  const summary={passed:!failure,browser:browser.version(),target:base.href,checks,pictures,videos,occlusionFixture,
    temporalFrames:checks.reduce((n,row)=>n+(row.frames?.length||0),0),consoleErrors:errors,error:failure?.message,
    scope:'Native animation and real keyboard drive all five maps. Context loss uses the official WebGL extension. Paused render fixtures permit per-frame car-only differential pixels without covering the image with the pause overlay. Geometry/physics are never replaced. Physical phones are not tested.'};
   fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(summary,null,2)+'\n');

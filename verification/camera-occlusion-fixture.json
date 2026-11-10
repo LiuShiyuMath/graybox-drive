@@ -1,0 +1,30 @@
+{
+  "source": "first verify-live attempt of workflow 42785696828",
+  "map": "mountain",
+  "viewport": {"width": 390, "height": 844},
+  "view": "chase",
+  "renderer": "webgl",
+  "car": {
+    "x": 931.0648623686869,
+    "y": 2922.500716333764,
+    "z": 36.73100737853362,
+    "angle": -1.4838795383817156,
+    "speed": 23.111605559709428
+  },
+  "elapsed": 4.2330999999999985,
+  "hazard": {
+    "kind": "fall",
+    "impact": 0,
+    "cooldown": 0,
+    "fall": 0.7742000000000001,
+    "dust": 0.8001976027720703
+  },
+  "baselinePlayerPixels": 0,
+  "repairedPlayerPixels": 0,
+  "oldHeightAnchorPlayerPixels": 0,
+  "bodyRays": 50,
+  "blockedBodyRays": 50,
+  "blockingRoadFaces": [76, 88, 89],
+  "classification": "legitimate opaque shoulder occlusion of a falling car",
+  "limits": "Finite vertex and face-centre rays plus real render comparisons. This is not a proof of arbitrary geometry or a changed runtime behavior."
+}

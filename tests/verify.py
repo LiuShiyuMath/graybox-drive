@@ -71,9 +71,15 @@ def main():
         flicker = json.loads((OUT / 'flicker/results.json').read_text())
         assert flicker['passed'] and flicker['temporalFrames'] == 540
         assert len(flicker['checks']) == 27
+        assert {row['backend'] for row in flicker['occlusionFixture']} == {'webgl', 'software'}
+        for row in flicker['occlusionFixture']:
+            assert row['passed'] and row['hidden']['pixels'] <= 100
+            assert row['recovered']['snapshot']['hazard']['fall'] == 0
+            assert row['negativeControl']['rejected']
         assert all((OUT / 'flicker' / name).is_file() for name in flicker['pictures'])
         summary['temporalFrames'] = flicker['temporalFrames']
         summary['flickerChecks'] = len(flicker['checks'])
+        summary['terrainOcclusionFixtures'] = len(flicker['occlusionFixture'])
         summary['screenshots'] += len(flicker['pictures'])
         camera = json.loads((OUT / 'camera/results.json').read_text())
         assert camera['passed'] and camera['fixtureFrames'] == 450 and len(camera['checks']) == 6

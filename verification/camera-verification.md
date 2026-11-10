@@ -50,7 +50,7 @@ and after the repair. They are JPEG copies of actual browser captures.
 ## Full release verification
 
 The complete pre-commit `.venv/bin/python tests/verify.py` passed in the Mac
-execution environment. It retained 536 screenshots and seven native-animation
+execution environment after the occlusion-probe correction. It retained 542 screenshots and seven native-animation
 recordings. All 54 runtime, model and verification source hashes match the
 checkout being committed. The selected summaries and full hash list are in
 [camera-evidence.json](camera-evidence.json).
@@ -63,6 +63,7 @@ checkout being committed. The selected summaries and full hash list are in
 | Reachable states across the independent finite model graphs | 1,089,131, including 5,077 in CameraFeedback |
 | Original camera/occlusion, cross-map and rendering regressions | PASS |
 | Full-draw body/camera isolation | PASS, 232 records |
+| Deterministic deep-fall occlusion, automatic recovery and missing-mesh rejection | PASS, both real rendering backends |
 | Native Python Playwright animation and keyboard input | PASS, 30 checks |
 | Linux CI, publication and complete public-site rerun | Pending |
 
@@ -86,3 +87,51 @@ Operation not permitted`. Full browser execution uses the authorized Mac
 environment and Linux CI. The Mac system Java launcher initially could not find
 a runtime; the installed OpenJDK 21 binary is used for the complete rerun.
 Android/iPhone physical devices and Safari/Firefox remain untested.
+
+## First public-suite failure and replay
+
+The first public run failed the existing native-animation flicker check at
+`mountain/390/frame-31`. The fixed 36-frame probe had reached 4.2331 seconds;
+the car was already 0.7742 seconds into a cliff fall. The test required a visible
+car even when real road geometry blocked it. No runtime patch was made from
+this failed hypothesis.
+
+The exact pose was replayed in real Chromium against both the baseline and
+repaired assets. Both produced zero player-body pixels. The car was 126.280
+units from the road centre, beyond the 96-unit fall boundary. Its bottom was
+at -11.220, below the real shoulder at 33.170–41.087. Independent geometry
+inspection found that all 50 body vertices/face-centre rays met opaque roadMesh
+terrain before reaching the car, with nearest blocking faces 76/88/89. Moving the new camera height back to the old
+anchor also left zero pixels. This is legitimate depth occlusion in both
+versions, rather than evidence for a new disappearing mesh.
+
+The failed attempt is retained in
+[workflow 42785696828](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42785696828).
+Its failed public verification job is rerun with unchanged runtime source. The
+native-animation probe now distinguishes geometrically verified fall occlusion
+and requires visible recovery, while retaining every grounded-car assertion.
+It does not skip falling frames based only on state. The exact
+replay data is in [camera-occlusion-fixture.json](camera-occlusion-fixture.json).
+
+Mac public-site Python Playwright checks passed separately with real keyboard
+input, all five maps, all views, pause/reload, 40 screenshots and all eight
+deployed asset SHA-256 values. The built-in cloud browser opened the game but
+lost its tab during browser recovery; its extra click check is not counted as
+a pass.
+
+The deterministic replay passed both real rendering backends. All 50 rays are
+blocked and the entire projected body remains inside the viewport. The original
+full-vehicle threshold remains greater than 100 difference pixels. A missing
+player mesh on open road is rejected even with a falling state.
+
+| Renderer | Occluded difference pixels | Recovered difference pixels | Recovery penalty | Missing-mesh control |
+| --- | ---: | ---: | ---: | --- |
+| WebGL | 0 | 2,922 | 5 seconds once | Rejected |
+| Software depth | 31 | 3,177 | 5 seconds once | Rejected |
+
+The real canvas captures show the shoulder hiding the fallen car, followed by
+the complete car after automatic checkpoint recovery.
+
+![Genuine shoulder occlusion](occlusion-hidden.jpg)
+
+![Visible car after actual automatic recovery](occlusion-recovered.jpg)
