@@ -1,0 +1,199 @@
+{
+  "baseline": {
+    "revision": "fd0fc12",
+    "worldChangedPixels": 29253,
+    "jumpCameraDelta": 30
+  },
+  "precommit": {
+    "createdAt": "2026-11-10T08:35:27.167143+00:00",
+    "passed": true,
+    "revision": "fd0fc12b2d2ac3b31195cccc80385fe88696813b",
+    "worktreeDirty": true,
+    "sourceSha256": {
+      ".agents/skills/verify/SKILL.md": "d01865cb39f52ef9fad807e25e2e21dd461273ed1290f175fb37f75f9d121f46",
+      ".github/workflows/pages.yml": "109103d9b4e9342603bec51464fd9a57a049fd8fe98b137f163f79fb53364893",
+      "dist/course-pack.js": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87",
+      "dist/course-world.js": "e815d06683e1e0b3b79ec7c6a579b7e8e73c07ddb401bf8816c12c761dbf2238",
+      "dist/game.js": "a8a5c4dcce955d990ba911be5b852b2bd86248deb74e15c4dbfa9a1670c6a6ff",
+      "dist/index.html": "28f2f11898a224d4d9486750b9479465500b5c8a722689d867ddb36218e3563a",
+      "dist/maps.js": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
+      "dist/perspective.js": "f598e5f2ac78b2f30f1593002543219d8892f829a65309d3d26739c47364f70f",
+      "dist/racers.js": "3543ff246b66b908bc77c0e3b0399b623002a573dba1ea77246d0bb0e0f1794f",
+      "dist/style.css": "30542df733f01c3c1d4181a113cc875fcb4ff50c181cf83284622dd5b69e1eac",
+      "package-lock.json": "d7fb1ffb112245f2b007ad0bccf71af1bd1eebe90e8aa1b6305d8af7a8da9536",
+      "package.json": "84ce6881d1e1b2cc6b1ed49f98557cd1a472d88835205d442c3a537a479d4600",
+      "specs/CameraFeedback.cfg": "b7cded30516516c40b3bdafed476fde54d7b7d79746014fbfb24d8eb0665634f",
+      "specs/CameraFeedback.tla": "0d9cf9cabe4aa69fa8b8d82da4c8f2e27a6919b5781e544c44ca786f49134c4e",
+      "specs/Competitors.cfg": "d51ad16c3e5e65a234d208db02d3b03a43ad058983c209b8831eb78d4079be9e",
+      "specs/Competitors.tla": "fc9daa7a1ed12b910bda1e10706ad490189d29b79ed2b8adfdf020569676166d",
+      "specs/CompetitorsRace.cfg": "f4dc3b372ced6ce1e556eb860305cf97233cd2c565176b808fdae87b2d4134f6",
+      "specs/CompetitorsRace.tla": "a348a745959e42f7062f7076dc6cc7312e601532f45a7d517e96d64d9e89b824",
+      "specs/Courses.cfg": "c0dbeb5ceec01ba22994efdae749893b451171ea4bbf067b7f0337e145926a36",
+      "specs/Courses.tla": "69e08b63d038f70b54ae4ebbc20c681281308ef79252116a861b4c49b4585b34",
+      "specs/Hazards.cfg": "f05f54257ffef63c55e07aea93028ade3686c2519238039d61278b895e03d7e0",
+      "specs/Hazards.tla": "fe7a8448fe550a17fee4691f320f158c30d955bef068008372aac9046f951e35",
+      "specs/Input.cfg": "fa96765ce7e859bfd48861ab923c4697944b90bdf6d2c807d2dfaade79753071",
+      "specs/Input.tla": "6d145cbff97c3da7e32d1a01b96083f042c06850a32dc0eb58679b3e444c4446",
+      "specs/Mountain.cfg": "e53210cfcb4588cc2949f19d2dbcdb83c28dc4f03808961f7f0581ce6efed8e1",
+      "specs/Mountain.tla": "dfe67f114f8841eb35e758f7c68b8ca44d87891f73681013bf9269e6bcf6efe6",
+      "specs/Persistence.cfg": "90291c3002321e34d3e0936ce5ec36c9a683c74f90479c92a4436bc86e48f11a",
+      "specs/Persistence.tla": "7fd52d50041a2f8d7e4636e326d67e31eeddcfc9241264777aeb8679899fb2eb",
+      "specs/Race.cfg": "78acd830ab7245abd95ab35b7fb55f66af20d4fcc492dc38f0d1b057d6c97561",
+      "specs/Race.tla": "bb78c1d231bfdc4f114d5b90b5998c7335669d5f7d80cf8544749f7f69ace096",
+      "specs/Rendering.cfg": "9604a481653876240297ce37ba0c81179bba8ceef068c0f298c186e5b15593a3",
+      "specs/Rendering.tla": "8ea4b60f5bd9bab6ed365ccbed06387d6e27ceabe3a86e1d9cbac4a26edec988",
+      "specs/VehicleWorld.cfg": "b4935a69e5ad1170c1bb450d3c33e9efaae29988980273ad4839d55f1979bf51",
+      "specs/VehicleWorld.tla": "ffe2b22e0638564b3a8d4e50d8ef65b15c4e23ab45c4e8fd52b508c4d0019087",
+      "tests/browser-body-camera.cjs": "ed361443766864f4cea13b477c5bf5ae65a7f37221563e981b6018899c7d581d",
+      "tests/browser-camera.cjs": "3762eb628ab8ea3f56ba3db6e8cc204b520e1c4571e56896eeaba1089e615bb3",
+      "tests/browser-courses.cjs": "b87dd0118dd3027dcd7588d88ce3227ac788bd704614ae1663b41f8ca7b2f840",
+      "tests/browser-effects.cjs": "8d9dd9426644212805367c88c78cb4388f971777470cd3850c16b263419ef6c2",
+      "tests/browser-flicker.cjs": "b927f69ad329eade4d2d9edc46de4413ef4d94853772eea562b20d5e41a70776",
+      "tests/browser-mountain.cjs": "5d881de50412617a5981b289045f870b6a04fdfb484a9fdeab7054a1ced6ee47",
+      "tests/browser-racers.cjs": "3900d7466f305d87b39b50c83d16c51ffb07198751a0604d44de664ffacd69f6",
+      "tests/browser-states.cjs": "75148b8584cfcd31aee12334f50c3b8626e40f0b1bf7346ab85133d65e10c2c5",
+      "tests/browser_e2e.py": "a3215f847e94a323c292c1bcf881f35407161401087ed236d07376c44f97e5a2",
+      "tests/build-state-report.py": "4725864bd47a37722df3b14e71ac1429442eb2dc54a6b17275a8279251c9874b",
+      "tests/course-pack.cjs": "b8ed0acb1d8d93913e2a70b769541d057669e752b5847eb23722da16a99b773a",
+      "tests/courses.cjs": "3d83e85eba0dff66da48bf14c09054f21e4ed370b643ab0be83190325e61c834",
+      "tests/drive.cjs": "ac075d2c5d32c7dfa8ca7b7e171cd55a910d37e8a241fd7886d08f3bd8e1e2b2",
+      "tests/hidden-state-contract.cjs": "acad4f2acb765de9e2ebf1bdf6e68e4a7c6a5216d9e3caa0e7d846a8bac52cb0",
+      "tests/mountain.cjs": "c794e1075705ba386804e4656ab21d2cba98d652b6b6171d631c173ba1fe8933",
+      "tests/racers.cjs": "9cc82fafaf6c40d4e38b846ab7cf8554e5a0734db216b0a7f44da4ea89251e06",
+      "tests/requirements-verify.txt": "3ac03b3e052baefd9bf6c5a9f06765194c63c546316e2b54bc30b38b3dedc2ad",
+      "tests/state-contract.cjs": "781364cc05b4963fc748a9f4db2cf6d1cc2261055227ff8d4b4848f6f4fee5f5",
+      "tests/verify.py": "abe1660d0f56ad7c8a6c51ad81190e06fff1c17f6c976dc63b163e54f27a151b",
+      "tests/verify_tla.py": "b723523590f5d4686329ab9eb9bf1afc528c4f559178c0f197bbf869cb607c69"
+    },
+    "mountainChecks": 51,
+    "screenshots": 536,
+    "videos": 7,
+    "vehicleRegions": 486,
+    "temporalFrames": 540,
+    "flickerChecks": 27,
+    "cameraFrames": 450,
+    "bodyCameraChecks": 232,
+    "courseChecks": 56,
+    "matrixChecks": 30,
+    "racerChecks": 93,
+    "target": "dist/index.html",
+    "commands": [
+      [
+        "node",
+        "--check",
+        "dist/maps.js"
+      ],
+      [
+        "node",
+        "--check",
+        "dist/course-pack.js"
+      ],
+      [
+        "node",
+        "--check",
+        "dist/course-world.js"
+      ],
+      [
+        "node",
+        "--check",
+        "dist/racers.js"
+      ],
+      [
+        "node",
+        "--check",
+        "dist/game.js"
+      ],
+      [
+        "node",
+        "--check",
+        "dist/perspective.js"
+      ],
+      [
+        "node",
+        "tests/drive.cjs"
+      ],
+      [
+        "node",
+        "tests/mountain.cjs"
+      ],
+      [
+        "node",
+        "tests/course-pack.cjs"
+      ],
+      [
+        "node",
+        "tests/courses.cjs"
+      ],
+      [
+        "node",
+        "tests/state-contract.cjs"
+      ],
+      [
+        "node",
+        "tests/hidden-state-contract.cjs"
+      ],
+      [
+        "node",
+        "tests/racers.cjs"
+      ],
+      [
+        "python",
+        "tests/verify_tla.py"
+      ],
+      [
+        "node",
+        "tests/browser-states.cjs"
+      ],
+      [
+        "node",
+        "tests/browser-mountain.cjs"
+      ],
+      [
+        "node",
+        "tests/browser-courses.cjs"
+      ],
+      [
+        "node",
+        "tests/browser-effects.cjs"
+      ],
+      [
+        "node",
+        "tests/browser-flicker.cjs"
+      ],
+      [
+        "node",
+        "tests/browser-camera.cjs"
+      ],
+      [
+        "node",
+        "tests/browser-body-camera.cjs"
+      ],
+      [
+        "python",
+        "tests/browser_e2e.py"
+      ],
+      [
+        "node",
+        "tests/browser-racers.cjs"
+      ]
+    ],
+    "tla": {
+      "models": 11,
+      "counterexamples": 27,
+      "reachableStatesAcrossIndependentModels": 1089131
+    },
+    "bodyCamera": {
+      "records": 232,
+      "worldMaxChanged": 0,
+      "bodyMinChanged": 138,
+      "jumpCameraDeltas": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "consoleErrors": []
+    }
+  }
+}
+

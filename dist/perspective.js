@@ -122,21 +122,37 @@ function chaseCameraFraction(focus,target,faces){
 function perspectivePose(){
  const chase=viewMode==='chase',fx=Math.cos(car.angle),fz=Math.sin(car.angle),sample=activeMap.mountain||activeMap.generic?nearest(car.x,car.y):null;
  const grade=sample?sample.grade*(fx*sample.tx+fz*sample.ty):0,drop=-hazard.fall*hazard.fall*80;
- const target=[car.x-fx*(chase?150:6),(car.z||0)+(chase?92:19)+drop-grade*(chase?150:6),car.y-fz*(chase?150:6)];
- const focus=[car.x,(car.z||0)+12+drop,car.y];
+ const elevation=sample?sample.elevation:0;
+ const cameraGrade=sample?(nearest(car.x+fx*24,car.y+fz*24).elevation-nearest(car.x-fx*24,car.y-fz*24).elevation)/48:0;
+ const target=[car.x-fx*(chase?150:6),elevation+(chase?92:19)+drop-cameraGrade*(chase?150:6),car.y-fz*(chase?150:6)];
+ const focus=[car.x,elevation+12+drop,car.y];
  const fraction=chase&&(activeMap.mountain||activeMap.generic)?chaseCameraFraction(focus,target,roadMesh):1;
- return {camera:focus.map((v,i)=>v+(target[i]-v)*fraction),forward:[fx,fz],right:[-fz,fx],chase,grade,drop,pitch:(chase?.36:.055+Math.min(.65,hazard.fall*.5))-Math.atan(grade),focal:Math.min(w*.82,h*1.35),horizon:h*.42,distance:(chase?150:6)*fraction,obstructed:fraction<1};
+ return {camera:focus.map((v,i)=>v+(target[i]-v)*fraction),forward:[fx,fz],right:[-fz,fx],chase,grade,cameraGrade,drop,pitch:(chase?.36:.055+Math.min(.65,hazard.fall*.5))-Math.atan(cameraGrade),focal:Math.min(w*.82,h*1.35),horizon:h*.42,distance:(chase?150:6)*fraction,obstructed:fraction<1};
+}
+function playerCarMesh(){
+ const fx=Math.cos(car.angle),fz=Math.sin(car.angle),sample=nearest(car.x,car.y),body=vehicleBodyPose();
+ const tx=sample.tx||0,ty=sample.ty||0,bank=activeMap.generic&&!sample.terrain?track[sample.index].bank||0:0;
+ const gx=sample.grade*tx-bank*ty,gz=sample.grade*ty+bank*tx;
+ const grade=gx*fx+gz*fz,crossGrade=-gx*fz+gz*fx;
+ const base=(car.z||0)-hazard.fall*hazard.fall*80+(activeMap.mountain||activeMap.generic?1.5:0);
+ const faces=[...cuboidMesh(car.x,car.y,42,23,12,['#d2fa60','#869e3d','#aec64e'],car.angle),
+  ...cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle,12)];
+ for(const face of faces)face.vertices=face.vertices.map(([x,y,z])=>{
+  const forward=(x-car.x)*fx+(z-car.y)*fz,right=-(x-car.x)*fz+(z-car.y)*fx;
+  return[x,y+base+body.heave+forward*(grade+body.pitch)+right*(crossGrade+body.roll),z];
+ });
+ return faces;
 }
 function drawPerspective(){
 if((activeMap.mountain||activeMap.generic)&&drawMountainPerspective())return;
-const pose=perspectivePose(),{chase,drop,grade:mountainGrade,pitch,focal,horizon}=pose,[fx,fz]=pose.forward,[rx,rz]=pose.right,[cx,cy,cz]=pose.camera,cp=Math.cos(pitch),sp=Math.sin(pitch);
+const pose=perspectivePose(),{chase,pitch,focal,horizon}=pose,[fx,fz]=pose.forward,[rx,rz]=pose.right,[cx,cy,cz]=pose.camera,cp=Math.cos(pitch),sp=Math.sin(pitch);
 const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#8baba6');sky.addColorStop(.48,'#c1cbb8');sky.addColorStop(.49,'#9baa94');sky.addColorStop(1,'#74856e');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);if(activeMap.mountain||activeMap.generic)drawMountainBackdrop(horizon,focal,pitch);
 const transform=v=>{const dx=v[0]-cx,dy=v[1]-cy,dz=v[2]-cz,forward=dx*fx+dz*fz;return[dx*rx+dz*rz,dy*cp+forward*sp,forward*cp-dy*sp]};
 const faces=[];const add=face=>{let pts=clipNear(face.vertices.map(transform));if(pts.length<3)return;const depth=pts.reduce((s,p)=>s+p[2],0)/pts.length;if(depth>2200)return;faces.push({pts,depth,color:face.color,ground:!!face.ground,layer:face.layer||0})};
 for(const face of roadMesh)add(face);
 for(const face of racerMesh())add(face);
 if(activeMap.generic)for(const face of courseDynamicMesh())add(face);
-if(chase){const lift=activeMap.mountain||activeMap.generic?1.5:0;for(const face of cuboidMesh(car.x,car.y,42,23,12,['#d2fa60','#869e3d','#aec64e'],car.angle))add({...face,vertices:face.vertices.map(([x,y,z])=>[x,y+(car.z||0)+drop+lift+((x-car.x)*fx+(z-car.y)*fz)*mountainGrade,z])});for(const face of cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle))add({...face,vertices:face.vertices.map(([x,y,z])=>[x,y+12+(car.z||0)+drop+lift+((x-car.x)*fx+(z-car.y)*fz)*mountainGrade,z])})}
+if(chase)for(const face of playerCarMesh())add(face);
 if((activeMap.mountain||activeMap.generic)&&drawSoftwareDepth(faces,focal,horizon)){if(!chase)drawCockpit();return;}
 // Ground spans under raised objects; its centroid cannot decide their occlusion.
 faces.sort((a,b)=>Number(b.ground)-Number(a.ground)||((activeMap.mountain||activeMap.generic)&&a.ground&&b.ground?a.layer-b.layer:0)||b.depth-a.depth);
@@ -144,11 +160,13 @@ for(const face of faces){ctx.beginPath();face.pts.forEach((p,i)=>{const x=w/2+p[
 if(!chase)drawCockpit();
 }
 function drawCockpit(){
-// Fixed cockpit geometry gives the moving world a stable reference.
+const body=vehicleBodyPose();
+ctx.save();ctx.translate(w*.5,h*.9);ctx.rotate(-body.roll*.35);ctx.translate(-w*.5,-h*.9-body.heave*h*.004-body.pitch*h*.12);
 ctx.fillStyle='#bed75e';ctx.beginPath();ctx.moveTo(w*.2,h*.9);ctx.lineTo(w*.35,h*.75);ctx.lineTo(w*.65,h*.75);ctx.lineTo(w*.8,h*.9);ctx.closePath();ctx.fill();ctx.strokeStyle='#829d44';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(w*.42,h*.77);ctx.lineTo(w*.38,h*.9);ctx.moveTo(w*.58,h*.77);ctx.lineTo(w*.62,h*.9);ctx.stroke();
 ctx.fillStyle='#24332d';ctx.beginPath();ctx.moveTo(0,h);ctx.lineTo(0,h*.88);ctx.quadraticCurveTo(w*.5,h*.78,w,h*.88);ctx.lineTo(w,h);ctx.fill();
 ctx.save();ctx.translate(w*.5,h*1.03);ctx.rotate(car.steer*.55);ctx.strokeStyle='#102019';ctx.lineWidth=Math.max(10,h*.035);ctx.beginPath();ctx.arc(0,0,h*.17,0,TAU);ctx.stroke();ctx.lineWidth=8;ctx.beginPath();ctx.moveTo(-h*.15,-h*.06);ctx.lineTo(0,0);ctx.lineTo(h*.15,-h*.06);ctx.stroke();ctx.restore();
 ctx.strokeStyle='#273c32';ctx.lineWidth=Math.max(5,w*.008);ctx.beginPath();ctx.moveTo(0,h*.88);ctx.lineTo(w*.08,0);ctx.moveTo(w,h*.88);ctx.lineTo(w*.92,0);ctx.stroke();
+ctx.restore();
 }
 function drawMinimap(){
  const mw=Math.min(150,w*.2),mh=activeMap.mountain?mw*1.2:mw*2/3,top=w<600?120:82;
@@ -233,14 +251,9 @@ function createMountainRenderer(){
 function drawMountainPerspective(){
  if(mountainRenderer===undefined){try{mountainRenderer=createMountainRenderer()}catch{mountainRenderer=null}}
  if(!mountainRenderer)return false;
- const pose=perspectivePose(),{chase,drop,grade,pitch,focal,horizon}=pose,[fx,fz]=pose.forward;
+ const pose=perspectivePose(),{chase,pitch,focal,horizon}=pose;
  drawMountainBackdrop(horizon,focal,pitch);
- const faces=[];
- if(chase){
-  faces.push(...cuboidMesh(car.x,car.y,42,23,12,['#d2fa60','#869e3d','#aec64e'],car.angle,(car.z||0)+drop+1.5));
-  faces.push(...cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle,(car.z||0)+drop+13.5));
- }
- for(const face of faces)face.vertices=face.vertices.map(([x,y,z])=>[x,y+((x-car.x)*fx+(z-car.y)*fz)*grade,z]);
+ const faces=chase?playerCarMesh():[];
  faces.push(...racerMesh());
  if(activeMap.generic)faces.push(...courseDynamicMesh());
  if(!mountainRenderer.draw(pose.camera,pose.forward,pose.right,pitch,focal,horizon,faces))return false;

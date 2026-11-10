@@ -102,7 +102,17 @@ for(let i=0;i<12;i++){ctx.fillStyle=i%2?'#e5e9df':'#303c35';ctx.fillRect(740+(i%
 ctx.fillStyle='#d4dbcd';for(const [x,y,a] of [[450,792,Math.PI],[190,430,-Math.PI/2],[1000,220,0],[1305,550,Math.PI/2]]){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.beginPath();ctx.moveTo(15,0);ctx.lineTo(-10,-10);ctx.lineTo(-6,0);ctx.lineTo(-10,10);ctx.closePath();ctx.fill();ctx.restore()}
 ctx.fillStyle='#24332b33';for(const s of skids){ctx.save();ctx.translate(s.x,s.y);ctx.rotate(s.a);ctx.fillRect(-3,-10,6,2);ctx.fillRect(-3,8,6,2);ctx.restore()}drawRacersTop();drawCar(car.x,car.y,car.angle);ctx.restore();
 if(state!=='ready'){const mw=Math.min(150,w*.22),mh=mw*2/3,mx=18,my=48;ctx.save();ctx.translate(mx,my);ctx.fillStyle='#1c2b25c9';ctx.beginPath();ctx.roundRect(0,0,mw,mh,7);ctx.fill();ctx.scale(mw/1500,mh/1000);line('#abb8a2',45);drawRacerMarkers(26);ctx.fillStyle='#d2fa60';ctx.beginPath();ctx.arc(car.x,car.y,30,0,TAU);ctx.fill();ctx.restore()}}
-function draw(){ctx.save();const bump=hazard.impact*9+(hazard.kind==='curb'?Math.min(Math.abs(car.speed)/90,2):0)+(hazard.kind==='runoff'?Math.min(Math.abs(car.speed)/150,1.5):0);ctx.translate(Math.sin(elapsed*62)*bump,Math.cos(elapsed*83)*bump*.6);if(typeof viewMode==='undefined'||viewMode==='top'||(state==='ready'&&activeMap.id==='circuit'))drawTop();else{drawPerspective();drawMinimap()}ctx.restore();drawHazardEffects()}
+function vehicleBodyPose(){
+ const speed=Math.min(1,Math.abs(car.speed)/220),jump=activeMap.generic?courseState.jump:null;
+ const airborne=jump&&jump.height>0;
+ const surface=activeMap.generic?courseSurface(nearest(car.x,car.y)).name:'asphalt';
+ const roughness=airborne||hazard.fall?0:(hazard.kind==='curb'?1.4:hazard.kind==='runoff'?.9:surface==='mud'?.7:surface==='gravel'?.4:0)*speed;
+ const impact=hazard.impact*Math.sin(elapsed*28);
+ return {heave:roughness*(.6+.4*Math.sin(elapsed*38))+Math.abs(impact)*2,
+  pitch:airborne?Math.max(-.12,Math.min(.12,jump.velocity*.001)):((input.gas?.025:0)-(input.brake&&car.speed>8?.055:0))*speed+impact*.06,
+  roll:car.steer*speed*.065+impact*.035};
+}
+function draw(){ctx.save();if(typeof viewMode==='undefined'||viewMode==='top'||(state==='ready'&&activeMap.id==='circuit'))drawTop();else{drawPerspective();drawMinimap()}ctx.restore();drawHazardEffects()}
 function frame(t){let remaining=previous?Math.min((t-previous)/1000,1):0;previous=t;while(remaining>0){const step=Math.min(remaining,.02);update(step);remaining-=step}draw();requestAnimationFrame(frame)}reset();resize();
 // Drawing depends on perspective.js, the next ordinary script in index.html.
 // A frame may run while that script is still downloading. Start once all scripts are ready.

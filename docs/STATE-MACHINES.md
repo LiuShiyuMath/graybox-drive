@@ -31,16 +31,46 @@ behavior has a finite proof.
 | 20 | Signals: green → amber → red → green; elapsed/period/offset; +3 penalty also shifts signal clock | `course-world.js:courseSignal/updateCourseRace` | VehicleWorld includes amber and clock shift; actual boundaries/offsets/period tests |
 | 21 | AI traffic: outbound/inbound ping-pong; approach → wait on green/amber, go on red; pause freezes | `course-world.js:sampleTraffic/updateCourseTraffic` | VehicleWorld approach/direction/stop; actual endpoint continuity and signal tests |
 | 22 | Stop line: in-width negative → positive charges once; staying after does not; reverse crossing rearms | `course-world.js:updateCourseRace` | VehicleWorld includes two crossings/re-arm; runtime checks plane, width, direction and repeated crossings |
-| 23 | Camera: first/chase/top; overview/follow; clear/blocked/retracted boom; top-view convergence; slope pitch/fall drop | `perspective.js:selectView/perspectivePose/chaseCameraFraction`; top-view functions | Race/Persistence/Rendering cover mode independence; geometry and legal occlusion require continuous browser evidence |
-| 24 | Feedback/effects: fall > impact > surface; dust rise/decay; deliberate hazard vibration; toast replace → wall-clock expiry; capped skids | `game.js:updateFeedback/drawHazardEffects/draw/toast/update` | VehicleWorld priority/coarse dust/timer ownership; DOM/timer contracts plus browser screenshots/recordings |
+| 23 | Camera: first/chase/top; overview/follow; clear/blocked/retracted boom; terrain support anchor excludes flight height; spatially averaged slope pitch/fall drop | `perspective.js:selectView/perspectivePose/chaseCameraFraction`; top-view functions | Race/Persistence/Rendering cover mode independence; CameraFeedback covers abstract output isolation; geometry and legal occlusion require continuous browser evidence |
+| 24 | Feedback/effects: fall > impact > surface; dust rise/decay; body-only impact and roughness; toast replace → wall-clock expiry; capped skids | `game.js:updateFeedback/drawHazardEffects/draw/toast/update/vehicleBodyPose` | VehicleWorld priority/coarse dust/timer ownership; DOM/timer contracts plus full-draw world/body comparisons |
 | 25 | Persistence: per-map minimum best; remembered map/view; invalid view fallback; storage failure | `game.js:finish/selectMap`, initial reads; `perspective.js` saved-view read | Persistence finite valid scores/invalid view; reload/per-map runtime tests; arbitrary corrupt numbers remain outside model |
 | 26 | Bootstrap/frame: scripts initialize → DOMContentLoaded → one rAF chain; delta clamp → substeps → draw | `index.html` script order; `game.js:frame`, DOMContentLoaded listener | Rendering boot gate; delayed-script startup and normal-animation regression |
 | 27 | Renderer: cold → WebGL/software; context valid/lost/restored; mesh upload; viewport/backbuffer; software depth allocation; draw/composite | `perspective.js:createMountainRenderer/drawMountainPerspective/drawSoftwareDepth/rebuildRoadMesh`; `game.js:resize` | Rendering lifecycle/frame consistency; actual loss/restore, resize, map switch and vehicle-region browser checks |
+| 28 | Derived body pose: impact/road roughness, throttle/brake, steer and flight velocity → heave/pitch/roll; both 3D backends share one player mesh; first-view cockpit transforms locally | `game.js:vehicleBodyPose`; `perspective.js:playerCarMesh/drawCockpit` | No new clock or stored state. CameraFeedback output contracts, signed body checks and real visible-pixel changes in browser-body-camera.cjs |
 
 `particles` is declared/reset but never advanced or drawn, so it is not an active
 machine. Canvas transforms, CSS `perspective`/`pressed`, ARIA selection and overlays
-present the groups above. Legal object occlusion, intended hazard vibration and
+present the groups above. Legal object occlusion, intended body motion and
 an absent/stale rendered vehicle must be distinguished in pixel verification.
+
+## Camera and body isolation
+
+`vehicleBodyPose()` derives presentation from the existing simulation state. Its
+impact envelope uses the existing impact decay; road pulses use simulation
+elapsed time. Drawing does not advance either. Reset/recovery clear those
+existing inputs, and pause freezes the simulation clock. This is a lightweight
+visual response, not a wheel-by-wheel suspension or rigid-body physics solver.
+
+The perspective camera follows road support elevation and the height difference
+between samples 24 world units ahead and behind. This spatial averaging keeps
+piecewise road grades from directly controlling pitch. It adds no temporal lag
+state. Ramp flight height remains on the car. The fall offset and blocker-aware
+camera boom remain. The body mesh projects the full ground gradient onto its
+forward and lateral axes, including road banking when driving across a slope.
+
+`CameraFeedback.tla` explores support levels -1..1, flight/feedback levels 0..2,
+three views, redraw and recovery. Its three mutations must detect flight coupled
+to the camera, feedback coupled to the world, and missing body feedback. This
+checks a discrete output contract, not a JavaScript refinement or a proof of
+continuous geometry, suspension, damping or landing physics.
+
+`browser-body-camera.cjs` calls the actual `draw()` entry point. It compares the
+world and minimap under three hazards on five maps and three views, with two
+viewport orientations and both real rendering backends. Player geometry and
+intentional color overlays are excluded only for this isolation measurement.
+Separate complete draws must show visible vehicle feedback. The suite also
+checks jump isolation, feedback direction and recovery. Existing normal-animation
+driving, occlusion, flight/landing, fall/recovery and AI tests remain required.
 
 ```mermaid
 stateDiagram-v2

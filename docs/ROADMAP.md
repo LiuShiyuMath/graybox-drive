@@ -26,6 +26,9 @@
 
 ## P0 — Stability (first)
 
+- [x] Reproduce whole-frame hazard shake and jump-coupled camera lift in real Chromium; move feedback onto the visible car/cockpit and anchor the camera to road support. Add full-draw world/minimap isolation, visible-body and recovery checks, with a finite camera-feedback model and three required counterexamples.
+- [x] Pass the fresh full pre-commit `/verify`: 536 screenshots, seven recordings, 54 matching source hashes, 11 finite models and 27 named counterexamples. See `verification/camera-verification.md`.
+- [ ] Complete Linux CI, deployment and the same full public-site `/verify` for camera/body isolation.
 - [x] Reproduce and fix chase-view car/road overlap and clipping in the live renderer, test obstacles and occlusion, near-plane projection, car height and terrain alignment.
 - [x] Extend tests beyond one chase-deck pixel to a vehicle silhouette/region, across 240 headings, bends, start location, obstacles and falling.
 - [x] Capture three cameras × landscape and portrait for each relevant state, plus impact and fall recordings; inspect screenshots in a real Chromium browser and document browser console errors.

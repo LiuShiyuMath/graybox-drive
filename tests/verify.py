@@ -36,7 +36,7 @@ def main():
                 ['node', 'tests/hidden-state-contract.cjs'], ['node', 'tests/racers.cjs'],
                 [sys.executable, 'tests/verify_tla.py'], ['node', 'tests/browser-states.cjs'],
                 ['node', 'tests/browser-mountain.cjs'], ['node', 'tests/browser-courses.cjs'], ['node', 'tests/browser-effects.cjs'],
-                ['node', 'tests/browser-flicker.cjs'], ['node', 'tests/browser-camera.cjs'],
+                ['node', 'tests/browser-flicker.cjs'], ['node', 'tests/browser-camera.cjs'], ['node', 'tests/browser-body-camera.cjs'],
                 [sys.executable, 'tests/browser_e2e.py'], ['node', 'tests/browser-racers.cjs']]
     try:
         for index, command in enumerate(commands):
@@ -80,6 +80,12 @@ def main():
         assert all((OUT / 'camera' / name).is_file() for name in camera['pictures'])
         summary['cameraFrames'] = camera['fixtureFrames']
         summary['screenshots'] += len(camera['pictures'])
+        body_camera = json.loads((OUT / 'body-camera/results.json').read_text())
+        assert body_camera['passed'] and len(body_camera['checks']) == 4
+        assert all(row['passed'] for row in body_camera['checks'])
+        assert all((OUT / 'body-camera' / name).is_file() for name in body_camera['pictures'])
+        summary['bodyCameraChecks'] = sum(len(row['rows']) for row in body_camera['checks'])
+        summary['screenshots'] += len(body_camera['pictures'])
         summary['courseChecks'] = len(courses['checks'])
         summary['matrixChecks'] = len(matrix['checks'])
         racers = json.loads((OUT / 'racers-browser/results.json').read_text())
