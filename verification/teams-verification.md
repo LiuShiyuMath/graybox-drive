@@ -1,6 +1,6 @@
 # Computer teammates and rivals
 
-Date: 2026-11-10, Asia/Shanghai. The final candidate passed the full pre-commit command in real Chromium 134.0.6998.35. Publication, Linux CI and public-site verification are the next gates.
+Date: 2026-11-10, Asia/Shanghai. Runtime `5996d4c` is published. The full pre-commit command, Linux CI verification, deployment and complete public-site verification all passed.
 
 ## Delivered behavior
 
@@ -56,4 +56,12 @@ The full pre-commit run passed all 22 commands, with 532 screenshots, seven raw 
 
 ![Real Chromium default 2v2 race](teams-city.jpg)
 
-The release workflow must still pass verification, deployment and full live-site verification for the exact runtime commit. Android and iPhone physical-device controls, Safari, Firefox and real-device frame rates remain unverified.
+The public site was also exercised in the shared cloud Chrome. Its visible HUD showed the new 2v2 roster and team points. Actual throttle reached 61 km/h in the captured driving frame and produced physical obstacle feedback. Pause held the displayed time across observations; resume, reset and camera switching responded. No game console errors were observed. The deployed capture is separate from the pre-commit images.
+
+![Public game after deployment](teams-live.png)
+
+[Workflow 42768111878](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42768111878) completed with `verify`, `deploy` and `verify-live` all successful for [runtime commit 5996d4c](https://github.com/LiuShiyuMath/graybox-drive/commit/5996d4c6abddc92ce2adb5c2da27df967626884b). Linux verification and the full public-site rerun each retained 532 screenshots and seven recordings. The released game has eight dist assets. The live browser gate downloads and hashes every asset against the checked-out source.
+
+[Release result and source-hash comparison](teams-release.json) records the exact artifacts and all 51 matching runtime, model and verification hashes across pre-commit, CI and live-site execution. Later documentation and screenshot updates preserve these tested sources.
+
+Android and iPhone physical-device controls, Safari, Firefox and real-device frame rates remain unverified. The delivered feature is a playable graybox, with the finite model boundaries stated above.

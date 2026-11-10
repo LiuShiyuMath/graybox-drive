@@ -61,7 +61,7 @@
 - [x] Display stable four-car standings and current team points. Freeze the result when the player finishes and label it as that snapshot.
 - [x] Verify pause, resume, restart, map reset, earned-checkpoint recovery and finished-car behavior with 25 actual-runtime contracts, including idle players and live city traffic.
 - [x] Add finite TLA+ models with named mutation counterexamples, preserving the existing models and negative controls. Ten models and 24 specified counterexamples pass.
-- [ ] Run the full pre-commit command and inspect real Chromium screenshots and recordings. After publication, repeat the full command against the public site and compare every dist asset.
+- [x] Run the full pre-commit command and inspect real Chromium screenshots and recordings. Runtime `5996d4c` passed Linux `verify`, Pages `deploy` and full public-site `verify-live` in [workflow 42768111878](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42768111878). Every deployed dist asset is compared with the checkout. [Acceptance evidence](../verification/teams-verification.md).
 
 The computer drivers use their own vehicle state. They do not replace the global player car or use penalty-adjusted elapsed time as their position clock. Physical-phone acceptance stays separate.
 
