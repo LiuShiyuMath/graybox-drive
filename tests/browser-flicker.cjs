@@ -43,10 +43,10 @@ async function installProbe(page){
    return{rays:points.length,blocked,blockerFaces:[...blockers],projectedBounds,camera:pose.camera};
   };
   window.vehicleRegion=()=>{
-   const original=cuboidMesh;
+   const original=playerCarMesh;
    drawPerspective();const actual=ctx.getImageData(0,0,w,h).data;
-   try{cuboidMesh=(...args)=>args[2]===42&&args[3]===23||args[2]===19&&args[3]===20?[]:original(...args);drawPerspective();}
-   finally{cuboidMesh=original;}
+   try{playerCarMesh=()=>[];drawPerspective();}
+   finally{playerCarMesh=original;}
    const blank=ctx.getImageData(0,0,w,h).data;
    let pixels=0,minX=w,minY=h,maxX=0,maxY=0,hash=2166136261;
    for(let i=0;i<actual.length;i+=4){
@@ -239,15 +239,15 @@ function matchesFresh(difference){return difference.sameSize&&difference.mean<1&
    visible(recovered,backend+'/deep-fall-fixture-recovered');await picture(page,backend+'-deep-fall-recovered');
    const negative=await page.evaluate(()=>{
     selectMap('circuit');start();selectView('chase');hazard.fall=.001;
-    const draw=drawPerspective,mesh=cuboidMesh;
+    const draw=drawPerspective,mesh=playerCarMesh;
     try{
      drawPerspective=()=>{
-      try{cuboidMesh=(...args)=>args[2]===42&&args[3]===23||args[2]===19&&args[3]===20?[]:mesh(...args);return draw();}
-      finally{cuboidMesh=mesh;}
+      try{playerCarMesh=()=>[];return draw();}
+      finally{playerCarMesh=mesh;}
      };
      for(let i=0;i<4;i++)vehicleRegion();
      return{...vehicleRegion(),snapshot:gameSnapshot()};
-    }finally{drawPerspective=draw;cuboidMesh=mesh;}
+    }finally{drawPerspective=draw;playerCarMesh=mesh;}
    });
    delete negative.occludedCanvas;
    assert.equal(negative.pixels,0,backend+': missing-car negative control must contain no player pixels');assert(negative.terrainOcclusion.rays>=50);

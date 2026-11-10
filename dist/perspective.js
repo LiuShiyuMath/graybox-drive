@@ -64,6 +64,7 @@ function buildMountainMesh(){
 function rebuildRoadMesh(){
  roadMesh.length=0;roadMeshVersion++;
  if(activeMap.generic)buildCourseMesh();else if(activeMap.mountain)buildMountainMesh();else buildCircuitMesh();
+ if(typeof DriveArt!=='undefined'&&activeMap.id==='circuit'){for(const face of roadMesh)face.color=DriveArt.palette[face.color]||face.color;roadMesh.push(...DriveArt.circuit())}
  for(const o of obstacles)roadMesh.push(...cuboidMesh(o.x,o.y,o.w,o.d,o.h,o.w===7?['#d4dfbc','#7c8d74','#9bab8e']:undefined,0,o.z||0));
 }
 function cuboidMesh(x,z,ww,dd,hh,colors=['#93a19a','#65746e','#7b8c80'],angle=0,base=0){const c=Math.cos(angle),s=Math.sin(angle);const v=(dx,y,dz)=>[x+dx*c-dz*s,y+base,z+dx*s+dz*c];const a=v(-ww/2,0,-dd/2),b=v(ww/2,0,-dd/2),c1=v(ww/2,0,dd/2),d=v(-ww/2,0,dd/2),A=v(-ww/2,hh,-dd/2),B=v(ww/2,hh,-dd/2),C=v(ww/2,hh,dd/2),D=v(-ww/2,hh,dd/2);return[{vertices:[A,B,C,D],color:colors[0]},{vertices:[a,b,B,A],color:colors[1]},{vertices:[b,c1,C,B],color:colors[2]},{vertices:[c1,d,D,C],color:colors[1]},{vertices:[d,a,A,D],color:colors[2]}]}
@@ -136,7 +137,8 @@ function playerCarMesh(){
  const grade=gx*fx+gz*fz,crossGrade=-gx*fz+gz*fx;
  const base=(car.z||0)-hazard.fall*hazard.fall*80+(activeMap.mountain||activeMap.generic?1.5:0);
  const faces=[...cuboidMesh(car.x,car.y,42,23,12,['#d2fa60','#869e3d','#aec64e'],car.angle),
-  ...cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle,12)];
+  ...cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle,12),
+  ...(typeof DriveArt!=='undefined'?DriveArt.carDetails(car.x,car.y,car.angle):[])];
  for(const face of faces)face.vertices=face.vertices.map(([x,y,z])=>{
   const forward=(x-car.x)*fx+(z-car.y)*fz,right=-(x-car.x)*fz+(z-car.y)*fx;
   return[x,y+base+body.heave+forward*(grade+body.pitch)+right*(crossGrade+body.roll),z];
@@ -146,11 +148,12 @@ function playerCarMesh(){
 function drawPerspective(){
 if((activeMap.mountain||activeMap.generic)&&drawMountainPerspective())return;
 const pose=perspectivePose(),{chase,pitch,focal,horizon}=pose,[fx,fz]=pose.forward,[rx,rz]=pose.right,[cx,cy,cz]=pose.camera,cp=Math.cos(pitch),sp=Math.sin(pitch);
-const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#8baba6');sky.addColorStop(.48,'#c1cbb8');sky.addColorStop(.49,'#9baa94');sky.addColorStop(1,'#74856e');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);if(activeMap.mountain||activeMap.generic)drawMountainBackdrop(horizon,focal,pitch);
+const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#8baba6');sky.addColorStop(.48,'#c1cbb8');sky.addColorStop(.49,'#9baa94');sky.addColorStop(1,'#74856e');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);if(activeMap.mountain||activeMap.generic)drawMountainBackdrop(horizon,focal,pitch);else if(typeof DriveArt!=='undefined')DriveArt.backdrop(pose);
 const transform=v=>{const dx=v[0]-cx,dy=v[1]-cy,dz=v[2]-cz,forward=dx*fx+dz*fz;return[dx*rx+dz*rz,dy*cp+forward*sp,forward*cp-dy*sp]};
 const faces=[];const add=face=>{let pts=clipNear(face.vertices.map(transform));if(pts.length<3)return;const depth=pts.reduce((s,p)=>s+p[2],0)/pts.length;if(depth>2200)return;faces.push({pts,depth,color:face.color,ground:!!face.ground,layer:face.layer||0})};
 for(const face of roadMesh)add(face);
 for(const face of racerMesh())add(face);
+if(typeof DrivePresentation!=='undefined')for(const face of DrivePresentation.worldMesh())add(face);
 if(activeMap.generic)for(const face of courseDynamicMesh())add(face);
 if(chase)for(const face of playerCarMesh())add(face);
 if((activeMap.mountain||activeMap.generic)&&drawSoftwareDepth(faces,focal,horizon)){if(!chase)drawCockpit();return;}
@@ -255,6 +258,7 @@ function drawMountainPerspective(){
  drawMountainBackdrop(horizon,focal,pitch);
  const faces=chase?playerCarMesh():[];
  faces.push(...racerMesh());
+ if(typeof DrivePresentation!=='undefined')faces.push(...DrivePresentation.worldMesh());
  if(activeMap.generic)faces.push(...courseDynamicMesh());
  if(!mountainRenderer.draw(pose.camera,pose.forward,pose.right,pitch,focal,horizon,faces))return false;
  if(!chase)drawCockpit();

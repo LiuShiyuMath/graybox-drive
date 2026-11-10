@@ -30,14 +30,15 @@ def main():
     env = dict(os.environ, DRIVE_MOUNTAIN_URL=mountain_url, DRIVE_MOUNTAIN_EVIDENCE=str(OUT / 'mountain'),
                DRIVE_CAPTURE='1', DRIVE_VERIFY_DIR=str(OUT),
                DRIVE_EVIDENCE_DIR=str(OUT / 'browser-states'))
-    commands = [['node', '--check', 'dist/' + p] for p in ['maps.js', 'course-pack.js', 'course-world.js', 'racers.js', 'game.js', 'perspective.js']] + [
+    commands = [['node', '--check', 'dist/' + p] for p in ['maps.js', 'course-pack.js', 'course-world.js', 'racers.js', 'game.js', 'art.js', 'perspective.js', 'presentation.js']] + [
                 ['node', 'tests/drive.cjs'], ['node', 'tests/mountain.cjs'],
                 ['node', 'tests/course-pack.cjs'], ['node', 'tests/courses.cjs'], ['node', 'tests/state-contract.cjs'],
                 ['node', 'tests/hidden-state-contract.cjs'], ['node', 'tests/racers.cjs'],
                 [sys.executable, 'tests/verify_tla.py'], ['node', 'tests/browser-states.cjs'],
                 ['node', 'tests/browser-mountain.cjs'], ['node', 'tests/browser-courses.cjs'], ['node', 'tests/browser-effects.cjs'],
                 ['node', 'tests/browser-flicker.cjs'], ['node', 'tests/browser-camera.cjs'], ['node', 'tests/browser-body-camera.cjs'],
-                [sys.executable, 'tests/browser_e2e.py'], ['node', 'tests/browser-racers.cjs']]
+                [sys.executable, 'tests/browser_e2e.py'], ['node', 'tests/browser-racers.cjs'],
+                ['node', 'tests/browser-presentation.cjs'], ['node', 'tests/browser-slice.cjs']]
     try:
         for index, command in enumerate(commands):
             print('RUN', ' '.join(command), flush=True)
@@ -103,6 +104,15 @@ def main():
         summary['racerChecks'] = len(racers['checks'])
         summary['screenshots'] += len(racers['screenshots'])
         summary['videos'] += len(racers['videos'])
+        presentation = json.loads((OUT / 'presentation/results.json').read_text())
+        slice_run = json.loads((OUT / 'slice/results.json').read_text())
+        assert presentation['passed'] and all(row['passed'] for row in presentation['checks'])
+        assert slice_run['passed'] and 60 <= slice_run['raceSeconds'] <= 90 and slice_run['contacts'] > 0
+        assert (OUT / 'slice' / slice_run['video']).is_file()
+        summary['presentationChecks'] = len(presentation['checks'])
+        summary['sliceRaceSeconds'] = slice_run['raceSeconds']
+        summary['screenshots'] += len(presentation['pictures']) + len(slice_run['pictures'])
+        summary['videos'] += 1
         summary['passed'] = True
     except Exception as error:
         summary['error'] = str(error)

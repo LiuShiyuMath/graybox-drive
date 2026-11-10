@@ -120,3 +120,16 @@ open and must not be silently marked complete.
 Finite model checking is not a JavaScript refinement proof. Continuous geometry,
 cross-partition combinations and physical-phone/GPU-driver behavior keep the
 explicit boundaries in `docs/STATE-MACHINES.md`.
+
+## Concept-to-gameplay vertical slice
+
+- [x] Freeze cdf296f gameplay baseline and capture real Chromium before screenshot.
+- [x] Produce a separately labelled screenshot paintover and concept fidelity table.
+- [x] Implement one sports coupe, matching team cars and Map 01 procedural art.
+- [x] Add a separate bounded presentation observer, Web Audio and low-effects preference.
+- [x] Complete the exact-source precommit verify: 61 source hashes, 554 screenshots, 8 recordings, 66.75 s natural three-lap race with four AI contacts. Retain inconclusive shared-host 60 FPS observations.
+- [ ] Publish main only, require verify/deploy/verify-live, compare every deployed asset hash.
+- [ ] Reconcile real screenshots, recording and final evidence into the project Page.
+
+The slice preserves current race rules and camera/body decoupling. Physical-phone
+validation and photorealistic final assets remain independent open items.

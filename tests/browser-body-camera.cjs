@@ -20,14 +20,14 @@ const checks=[],pictures=[],errors=[];fs.mkdirSync(out,{recursive:true});
    },backend);
    const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));await page.goto(base.href);
    const rows=await page.evaluate(()=>{
-    const rows=[],mesh=cuboidMesh,topCar=drawCar,cockpit=drawCockpit,effects=drawHazardEffects;
+    const rows=[],mesh=playerCarMesh,topCar=drawCar,cockpit=drawCockpit,effects=drawHazardEffects;
     const pixels=()=>ctx.getImageData(0,0,canvas.width,canvas.height).data;
     const difference=(a,b)=>{let count=0;for(let i=0;i<a.length;i+=4)if(Math.abs(a[i]-b[i])+Math.abs(a[i+1]-b[i+1])+Math.abs(a[i+2]-b[i+2])>12)count++;return count};
     try{
      drawHazardEffects=()=>{};
      for(const map of['circuit','mountain','proving','city','offroad'])for(const view of['first','chase','top']){
       selectMap(map);start();selectView(view);car.speed=140;elapsed=.031;hazard.dust=0;camera.x=car.x;camera.y=car.y;
-      cuboidMesh=(...a)=>(a[2]===42&&a[3]===23)||(a[2]===19&&a[3]===20)?[]:mesh(...a);
+      playerCarMesh=()=>[];
       drawCar=()=>{};drawCockpit=()=>{};
       hazard.impact=0;hazard.kind='road';
       // Repeated readback can switch Chromium's 2D Canvas raster backend.
@@ -37,7 +37,7 @@ const checks=[],pictures=[],errors=[];fs.mkdirSync(out,{recursive:true});
        hazard.impact=kind==='impact'?.8:0;hazard.kind=kind==='impact'?'road':kind;draw();
        rows.push({id:`${map}/${view}/${kind}-world`,changedPixels:difference(road,pixels()),distance:typeof perspectivePose==='function'?perspectivePose().distance:null});
       }
-      cuboidMesh=mesh;drawCar=topCar;drawCockpit=cockpit;
+      playerCarMesh=mesh;drawCar=topCar;drawCockpit=cockpit;
       if(view!=='top'){
        hazard.kind='road';hazard.impact=0;draw();const still=pixels();
        hazard.impact=.8;draw();rows.push({id:`${map}/${view}/body-pixels`,bodyPixels:difference(still,pixels())});
@@ -56,7 +56,7 @@ const checks=[],pictures=[],errors=[];fs.mkdirSync(out,{recursive:true});
      }else rows.push({id:'readable-body',missing:true});
      selectMap('mountain');start();selectView('chase');car.speed=140;hazard.impact=.8;elapsed=.031;draw();
      return rows;
-    }finally{cuboidMesh=mesh;drawCar=topCar;drawCockpit=cockpit;drawHazardEffects=effects}
+    }finally{playerCarMesh=mesh;drawCar=topCar;drawCockpit=cockpit;drawHazardEffects=effects}
    });
    const name=`${backend}-${viewport.width}`;
    await page.screenshot({path:path.join(out,name+'-impact.png')});pictures.push(name+'-impact.png');

@@ -102,3 +102,28 @@ legal occlusion, deliberate hazard vibration and actual missing geometry.
 Retain the original failing beam pose and the loss-before-event failure with the
 baseline revision. Do not generalize finite models to continuous geometry or
 unmeasured physical-device performance.
+
+
+## Art and presentation acceptance
+
+Run the complete command after changing procedural art or feedback. It now includes
+`browser-presentation.cjs`, `browser-slice.cjs`, `Presentation.tla` and three named
+presentation counterexamples. Read actual `results.json` for current counts;
+older numerical summaries above describe earlier suites.
+
+Require exact full/low gameplay equality across five maps, an actual Web Audio
+waveform after a user gesture, silence after pause/off, bounded particles, reset,
+preference persistence, reduced motion and reachable narrow-screen controls.
+Player visibility probes must remove the complete `playerCarMesh` function so
+new wheel or spoiler geometry cannot defeat missing-car negative controls.
+
+Require the normal-animation Map 01 recording to finish three earned laps in
+60–90 seconds through ordinary keyboard events. Require physical AI contact,
+observed impact and finish effects, a saved score and frozen finish ranking.
+Do not substitute fixture teleporting, direct finish calls or clock overrides.
+Keep the original screenshot, labelled paintover and actual runtime images distinct.
+
+For desktop timing observations, run `tests/profile-slice.cjs` with an explicit
+`DRIVE_BASELINE_URL` for frozen baseline assets. It alternates five trials per
+side and reports raw frame intervals and draw duration. Retain shared-host load
+and timing-method limitations. This profile does not establish phone performance.

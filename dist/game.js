@@ -24,7 +24,7 @@ function format(t){return `${String(Math.floor(t/60)).padStart(2,'0')}:${(t%60).
 if(best)$('#best').textContent=format(best);
 function setInputSource(source,action,pressed){if(pressed){if(state!=='running'||hazard.fall)return;inputSources.set(source,action)}else inputSources.delete(source);Object.keys(input).forEach(k=>input[k]=false);for(const key of inputSources.values())input[key]=true;for(const b of document.querySelectorAll('[data-key]'))b.classList.toggle('pressed',input[b.dataset.key])}
 function clearInput(){inputSources.clear();Object.keys(input).forEach(k=>input[k]=false);document.querySelectorAll('.pressed').forEach(b=>b.classList.remove('pressed'))}
-function reset(){racers=DriveRacers.create(activeMap);if(typeof resetCourseWorld==='function')resetCourseWorld();hazard={kind:'road',impact:0,cooldown:0,fall:0,dust:0};clearTimeout(toastTimer);$('#toast').style.display='none';const spawn=track[0],next=track[1];car={x:spawn.x,y:spawn.y,z:spawn.z,angle:Math.atan2(next.y-spawn.y,next.x-spawn.x),speed:0,steer:0};if(activeMap.id==='circuit')car.angle=Math.PI;checkpointIndex=0;elapsed=0;lap=1;progress=0;lastIndex=0;skids=[];particles=[];clearInput();camera={x:car.x,y:car.y};$('#lap').innerHTML='1 <em>/ 3</em>';$('#time').textContent=format(0);$('#pause').textContent='Ⅱ';updateRaceHUD();updateFeedback();}
+function reset(){if(typeof DrivePresentation!=='undefined')DrivePresentation.reset();racers=DriveRacers.create(activeMap);if(typeof resetCourseWorld==='function')resetCourseWorld();hazard={kind:'road',impact:0,cooldown:0,fall:0,dust:0};clearTimeout(toastTimer);$('#toast').style.display='none';const spawn=track[0],next=track[1];car={x:spawn.x,y:spawn.y,z:spawn.z,angle:Math.atan2(next.y-spawn.y,next.x-spawn.x),speed:0,steer:0};if(activeMap.id==='circuit')car.angle=Math.PI;checkpointIndex=0;elapsed=0;lap=1;progress=0;lastIndex=0;skids=[];particles=[];clearInput();camera={x:car.x,y:car.y};$('#lap').innerHTML='1 <em>/ 3</em>';$('#time').textContent=format(0);$('#pause').textContent='Ⅱ';updateRaceHUD();updateFeedback();}
 function show(title,body,button){if(state==='ready')body+='<br><span class="team-note">2 对 2 · 你与蓝队友，对抗两辆红色对手。</span>';if(state==='finished'){const score=DriveRacers.standings(racers,{progress}).teamScores;body+=`<br><span class="team-note">玩家完赛时积分 · 蓝队 ${score.blue} : ${score.red} 红队</span>`;}$('#overlay h1').innerHTML=title;$('#overlay p').innerHTML=body;$('#start').innerHTML=button+' <span>↗</span>';$('#overlay').hidden=false}
 function start(){if(state==='paused'){state='running'}else{reset();state='running'}$('#overlay').hidden=true;$('#pause').textContent='Ⅱ';}
 function pause(){if(state==='running'){state='paused';clearInput();show('先歇一会儿。','计时已暂停。准备好后继续这圈。','继续驾驶');$('#pause').textContent='▶'}else if(state==='paused')start()}
@@ -126,6 +126,7 @@ const incoming=(Math.cos(car.angle)*dx+Math.sin(car.angle)*dy)*car.speed;if(inco
 }}
 function updateFeedback(){const kind=hazard.fall?'fall':hazard.impact>.1?'impact':hazard.kind;const labels={road:['柏油路面',''],curb:['压到路肩','轮胎颠簸 · 向赛道内侧修正'],runoff:['驶出赛道','抓地力下降 · 正在减速'],edge:[activeMap.mountain?'悬崖边缘 · 危险':'前方是落差区','立即刹车，向赛道内侧转向'],impact:['发生撞击','车辆已反弹 · 松油调整方向'],fall:['车辆掉落','自动回赛道 · 加时 5 秒']};const [title,detail]=labels[kind]||labels.road;$('#surface').textContent=kind==='road'&&activeMap.generic?(courseState.jump.height?'车辆腾空':courseSurface(nearest(car.x,car.y)).label):title;$('#feedback').hidden=kind==='road';$('#feedback').dataset.kind=kind;$('#feedback-title').textContent=title;$('#feedback-detail').textContent=detail;$('#speed').textContent=Math.round(Math.abs(car.speed)*.36)}
 function drawHazardEffects(){
+if(typeof DrivePresentation!=='undefined')DrivePresentation.draw();
 if(hazard.dust>.05&&!hazard.fall){ctx.fillStyle=`rgba(163,133,80,${hazard.dust*.13})`;ctx.fillRect(0,0,w,h);ctx.fillStyle=`rgba(219,195,143,${hazard.dust*.28})`;for(let i=0;i<15;i++){const x=(i*173+elapsed*(30+i*3))%w,y=h*.5+((i*79+elapsed*70)%(h*.5));ctx.beginPath();ctx.arc(x,y,2+i%4,0,TAU);ctx.fill()}}
 if(hazard.impact>.05){ctx.fillStyle=`rgba(244,98,57,${hazard.impact*.25})`;ctx.fillRect(0,0,w,h)}
 if(hazard.kind==='edge'){ctx.strokeStyle=`rgba(255,177,57,${.5+.3*Math.sin(elapsed*9)})`;ctx.lineWidth=14;ctx.strokeRect(7,7,w-14,h-14)}
@@ -208,7 +209,8 @@ function racerMesh(){
   const palette=DriveRacers.palettes[actor.team],fx=Math.cos(actor.angle),fy=Math.sin(actor.angle);
   const n=DriveRacers.nearest(racers,actor.x,actor.y),grade=n.grade*Math.cos(actor.angle-n.angle);
   const mesh=[...cuboidMesh(actor.x,actor.y,40,22,12,palette,actor.angle,actor.z+1.5),
-   ...cuboidMesh(actor.x-fx*3,actor.y-fy*3,18,18,8,['#526c74','#314e58','#48636c'],actor.angle,actor.z+13.5)];
+   ...cuboidMesh(actor.x-fx*3,actor.y-fy*3,18,18,8,['#526c74','#314e58','#48636c'],actor.angle,actor.z+13.5),
+   ...(typeof DriveArt!=='undefined'?DriveArt.carDetails(actor.x,actor.y,actor.angle,palette[0],actor.z+1.5):[])];
   for(const face of mesh)face.vertices=face.vertices.map(([x,y,z])=>[x,y+((x-actor.x)*fx+(z-actor.y)*fy)*grade,z]);
   faces.push(...mesh);
  }

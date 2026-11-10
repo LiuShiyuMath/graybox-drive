@@ -1,0 +1,7 @@
+recorded_at	phase	decision	why	evidence	result
+2026-11-10T13:17:03.770239+00:00	baseline	Freeze cdf296f and use isolated Mac checkout	Work-host complete navigation crashes; actual Mac Chromium renders the baseline	before.jpg	VERIFIED
+2026-11-10T13:17:03.770253+00:00	design	Reuse meshes and keep presentation separate	Retain three render paths and all physics/race ownership	../../docs/VERTICAL-SLICE.md	implemented
+2026-11-10T13:17:03.770256+00:00	proof	Hide the complete player mesh in visibility probes	Wheels and spoilers must not evade missing-car controls	../../tests/browser-flicker.cjs	targeted body-camera PASS
+2026-11-10T13:17:03.770258+00:00	race	Drive the original three-lap circuit through normal keys	Keep natural clock, progress, AI contact and finish rules	full-race.mp4	66.10s, 2 contacts, natural finish
+2026-11-10T13:17:03.770260+00:00	effects	Compare all gameplay fields in full and low modes	Settings must not alter the race	../../tests/browser-presentation.cjs	100 exact snapshots agree
+2026-11-10T13:17:03.770262+00:00	performance	Separate descriptive timings from performance claims	Shared-host recording includes long tail frames	../../tests/profile-slice.cjs	INCONCLUSIVE until isolated timing

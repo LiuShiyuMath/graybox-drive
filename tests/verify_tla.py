@@ -25,7 +25,7 @@ def main():
     if hashlib.sha256(JAR.read_bytes()).hexdigest() != SHA256:
         raise RuntimeError('TLC jar checksum mismatch; do not execute it')
     rows = []
-    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain', 'Courses', 'Rendering', 'VehicleWorld', 'Competitors', 'CompetitorsRace', 'CameraFeedback']]
+    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain', 'Courses', 'Rendering', 'VehicleWorld', 'Competitors', 'CompetitorsRace', 'CameraFeedback', 'Presentation']]
     cases += [('Mountain', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'SummitRequiresCheckpoints'),
               ('Courses', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'FinishedHasCheckpoints'),
               ('Courses', ('BuggyCheckpoint = FALSE', 'BuggyCheckpoint = TRUE'), 'EveryLapRequiresCheckpoints'),
@@ -52,7 +52,10 @@ def main():
               ('CompetitorsRace', ('BuggyRank = FALSE', 'BuggyRank = TRUE'), 'EveryRankUnique'),
               ('CameraFeedback', ('BuggyJump = FALSE', 'BuggyJump = TRUE'), 'CameraFollowsSupport'),
               ('CameraFeedback', ('BuggyShake = FALSE', 'BuggyShake = TRUE'), 'WorldRemainsStable'),
-              ('CameraFeedback', ('BuggyBody = FALSE', 'BuggyBody = TRUE'), 'BodyPresentsFeedback')]
+              ('CameraFeedback', ('BuggyBody = FALSE', 'BuggyBody = TRUE'), 'BodyPresentsFeedback'),
+              ('Presentation', ('BuggyToggle = FALSE', 'BuggyToggle = TRUE'), 'TogglePreservesScore'),
+              ('Presentation', ('BuggyAudio = FALSE', 'BuggyAudio = TRUE'), 'QuietOutsideRace'),
+              ('Presentation', ('BuggyBound = FALSE', 'BuggyBound = TRUE'), 'BoundedParticles')]
     for name, mutation, expected in cases:
         label = name if not mutation else name + '-regression-' + expected
         if mutation and name == 'Rendering':

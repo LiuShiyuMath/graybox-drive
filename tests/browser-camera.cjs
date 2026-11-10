@@ -21,12 +21,12 @@ const checks=[],pictures=[],errors=[];fs.mkdirSync(out,{recursive:true});
    },backend);
    const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));await page.goto(base.href);
    const result=await page.evaluate(()=>{
-    start();selectView('chase');const original=cuboidMesh,frames=[];let capture;
+    start();selectView('chase');const original=playerCarMesh,frames=[];let capture;
     setInputSource('camera-regression','gas',true);
     for(let step=0;step<75;step++){
      update(.02);drawPerspective();const actual=ctx.getImageData(0,0,w,h).data;
-     try{cuboidMesh=(...a)=>a[2]===42&&a[3]===23||a[2]===19&&a[3]===20?[]:original(...a);drawPerspective();}
-     finally{cuboidMesh=original;}
+     try{playerCarMesh=()=>[];drawPerspective();}
+     finally{playerCarMesh=original;}
      const blank=ctx.getImageData(0,0,w,h).data;let pixels=0;
      for(let i=0;i<actual.length;i+=4)if(Math.abs(actual[i]-blank[i])+Math.abs(actual[i+1]-blank[i+1])+Math.abs(actual[i+2]-blank[i+2])>20)pixels++;
      const pose=typeof perspectivePose==='function'?perspectivePose():null;

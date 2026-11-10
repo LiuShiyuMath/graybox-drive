@@ -18,12 +18,12 @@ if(process.env.DRIVE_CHROMIUM_PATH)options.executablePath=process.env.DRIVE_CHRO
    const page=await context.newPage();await page.goto(base.href);
    const rows=await page.evaluate(()=>{
     reset();state='running';$('#overlay').hidden=true;selectView('chase');
-    const original=cuboidMesh,results=[];
+    const original=playerCarMesh,results=[];
     const region=()=>{
      const x=Math.floor(w*.3),y=Math.floor(h*.25),width=Math.floor(w*.4),height=Math.floor(h*.67);
      drawPerspective();const withCar=ctx.getImageData(x,y,width,height).data;
-     try{cuboidMesh=(...args)=>args[2]===42&&args[3]===23||args[2]===19&&args[3]===20?[]:original(...args);drawPerspective();}
-     finally{cuboidMesh=original;}
+     try{playerCarMesh=()=>[];drawPerspective();}
+     finally{playerCarMesh=original;}
      const withoutCar=ctx.getImageData(x,y,width,height).data;
      let pixels=0,minX=width,minY=height,maxX=0,maxY=0;
      for(let i=0;i<withCar.length;i+=4)if(Math.abs(withCar[i]-withoutCar[i])+Math.abs(withCar[i+1]-withoutCar[i+1])+Math.abs(withCar[i+2]-withoutCar[i+2])>20){

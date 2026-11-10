@@ -394,3 +394,26 @@ score, independent time, yielding, passing, contacts and earned recovery.
 Its DOM fixture does not establish pixels or real animation. The separate
 `tests/browser-racers.cjs` suite supplies real Chromium animation, input, visual
 and lifecycle evidence. Both are part of the full project verification entry.
+
+## Presentation observer
+
+`dist/art.js` owns procedural meshes and the Map 01 palette. `dist/presentation.js`
+reads simulation facts and owns optional effects, local preferences, event cursors
+and Web Audio. It does not write physics, race clocks, checkpoints, AI or camera.
+
+| State | Transition | Verification |
+| --- | --- | --- |
+| Effects | full ⇄ low; low empties the particle pool | 100 exact gameplay snapshots across five maps agree in both modes |
+| Particles | eligible real impact, skid or landing → emit → decay; maximum 48 | Fixture event checks and real keyboard race contact |
+| Sound | off → user gesture → running AudioContext; pause, blur, hidden or off → mute | Real Web Audio analyser output, frequency and mute checks |
+| Event cursor | one rising impact, earned checkpoint, landing or finish → one notification | Real race finish count and bounded-event fixtures |
+| New run | reset → empty effects and event counts | Browser reset and map lifecycle checks |
+
+`Presentation.tla` is a finite abstraction of effects quality, particles, sound,
+race lifecycle and score isolation. It requires three deliberate failures to
+violate score preservation, pause silence and the particle bound. It does not
+prove JavaScript refinement, audio quality, geometry or physical-device timing.
+`browser-presentation.cjs` executes the implementation and checks waveform output.
+`browser-slice.cjs` drives normal keyboard events through native animation and
+requires a natural 60–90 second three-lap race, real AI contact, a saved score and
+frozen finish ranking. It never teleports the player or calls finish directly.

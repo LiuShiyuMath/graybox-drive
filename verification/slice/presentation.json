@@ -1,0 +1,187 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "id": "full and low effects preserve 100 exact gameplay snapshots across five maps",
+      "passed": true,
+      "snapshots": 100
+    },
+    {
+      "id": "fixture events reflect impact and landing, particles are bounded, reset clears effects",
+      "passed": true,
+      "fixture": {
+        "idle": {
+          "quality": "full",
+          "sound": false,
+          "reducedMotion": false,
+          "particles": 0,
+          "events": {
+            "impact": 0,
+            "checkpoint": 0,
+            "landing": 0,
+            "finish": 0,
+            "skid": 0
+          },
+          "audio": null
+        },
+        "impact": {
+          "quality": "full",
+          "sound": false,
+          "reducedMotion": false,
+          "particles": 18,
+          "events": {
+            "impact": 1,
+            "checkpoint": 0,
+            "landing": 0,
+            "finish": 0,
+            "skid": 0
+          },
+          "audio": null
+        },
+        "landing": {
+          "quality": "full",
+          "sound": false,
+          "reducedMotion": false,
+          "particles": 30,
+          "events": {
+            "impact": 1,
+            "checkpoint": 0,
+            "landing": 1,
+            "finish": 0,
+            "skid": 0
+          },
+          "audio": null
+        },
+        "bounded": {
+          "quality": "full",
+          "sound": false,
+          "reducedMotion": false,
+          "particles": 48,
+          "events": {
+            "impact": 101,
+            "checkpoint": 0,
+            "landing": 1,
+            "finish": 0,
+            "skid": 0
+          },
+          "audio": null
+        },
+        "resetState": {
+          "quality": "full",
+          "sound": false,
+          "reducedMotion": false,
+          "particles": 0,
+          "events": {
+            "impact": 0,
+            "checkpoint": 0,
+            "landing": 0,
+            "finish": 0,
+            "skid": 0
+          },
+          "audio": null
+        }
+      }
+    },
+    {
+      "id": "settings and recover stay reachable at 844",
+      "passed": true,
+      "hit": [
+        {
+          "id": "effects-toggle",
+          "inside": true,
+          "hit": "effects-toggle"
+        },
+        {
+          "id": "sound-toggle",
+          "inside": true,
+          "hit": "sound-toggle"
+        },
+        {
+          "id": "recover",
+          "inside": true,
+          "hit": "recover"
+        }
+      ]
+    },
+    {
+      "id": "settings and recover stay reachable at 390",
+      "passed": true,
+      "hit": [
+        {
+          "id": "effects-toggle",
+          "inside": true,
+          "hit": "effects-toggle"
+        },
+        {
+          "id": "sound-toggle",
+          "inside": true,
+          "hit": "sound-toggle"
+        },
+        {
+          "id": "recover",
+          "inside": true,
+          "hit": "recover"
+        }
+      ]
+    },
+    {
+      "id": "settings and recover stay reachable at 320",
+      "passed": true,
+      "hit": [
+        {
+          "id": "effects-toggle",
+          "inside": true,
+          "hit": "effects-toggle"
+        },
+        {
+          "id": "sound-toggle",
+          "inside": true,
+          "hit": "sound-toggle"
+        },
+        {
+          "id": "recover",
+          "inside": true,
+          "hit": "recover"
+        }
+      ]
+    },
+    {
+      "id": "effects toggle does not advance or reset gameplay",
+      "passed": true
+    },
+    {
+      "id": "effects preference persists after reload",
+      "passed": true
+    },
+    {
+      "id": "user gesture starts real Web Audio and speed changes engine frequency",
+      "passed": true,
+      "audio": {
+        "state": "running",
+        "gain": 0.024529019370675087,
+        "frequency": 104.19206237792969,
+        "rms": 0.011840417278578751
+      }
+    },
+    {
+      "id": "pause mutes engine",
+      "passed": true,
+      "gain": 0
+    },
+    {
+      "id": "sound toggle mutes audio",
+      "passed": true,
+      "gain": 0
+    },
+    {
+      "id": "reduced motion suppresses particles for an observed impact",
+      "passed": true
+    }
+  ],
+  "pictures": [
+    "circuit-844.jpg",
+    "circuit-390.jpg",
+    "circuit-320.jpg"
+  ],
+  "errors": []
+}
