@@ -216,7 +216,12 @@ function matchesFresh(difference){return difference.sameSize&&difference.mean<1&
     window.requestAnimationFrame=()=>0;
     if(backend==='software'){
      const original=HTMLCanvasElement.prototype.getContext;
-     HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/i.test(type)?null:original.call(this,type,...args);};
+     // Exact paired-pixel fixtures need a stable 2D readback path from creation.
+     // Native-animation coverage above keeps the browser's default Canvas path.
+     HTMLCanvasElement.prototype.getContext=function(type,...args){
+      if(/webgl/i.test(type))return null;
+      return type==='2d'?original.call(this,type,{...(args[0]||{}),willReadFrequently:true}):original.call(this,type,...args);
+     };
     }
    },backend);
    const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));

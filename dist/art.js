@@ -94,7 +94,11 @@ const DriveArt=(()=>{
  function backdrop(pose){
   const skyline=pose.horizon-Math.tan(pose.pitch)*pose.focal;
   const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#565272');sky.addColorStop(.48,'#dda4a3');sky.addColorStop(1,'#6f627e');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
-  if(dusk.complete&&dusk.naturalWidth){ctx.save();ctx.globalAlpha=.92;ctx.drawImage(dusk,870,0,235,145,0,0,w,Math.max(h*.52,skyline));ctx.restore()}
+  if(dusk.complete&&dusk.naturalWidth){
+   const height=Math.max(h*.52,skyline),scale=Math.max(w/dusk.naturalWidth,height/dusk.naturalHeight);
+   const sourceWidth=w/scale,sourceHeight=height/scale;
+   ctx.save();ctx.globalAlpha=.92;ctx.drawImage(dusk,(dusk.naturalWidth-sourceWidth)/2,(dusk.naturalHeight-sourceHeight)/2,sourceWidth,sourceHeight,0,0,w,height);ctx.restore();
+  }
   const sunX=((.75-car.angle/TAU)%1+1)%1*w,sunY=Math.max(25,skyline-h*.16);
   const glow=ctx.createRadialGradient(sunX,sunY,2,sunX,sunY,h*.3);glow.addColorStop(0,'#ffe8b775');glow.addColorStop(1,'#ffe8b700');ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
   ctx.fillStyle='#fff1ce';ctx.beginPath();ctx.arc(sunX,sunY,Math.max(9,h*.022),0,TAU);ctx.fill();

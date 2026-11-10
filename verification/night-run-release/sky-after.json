@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "source": "http://127.0.0.1:36893/?map=circuit",
+  "browser": "134.0.6998.35",
+  "checks": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "backend": "webgl",
+      "differentPixelRatio": 0.9976936005976096,
+      "meanChannelDifference": 44.37944264608234,
+      "pictures": [
+        "1280-webgl-clouds.png",
+        "1280-webgl-fallback.png"
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "backend": "webgl",
+      "differentPixelRatio": 0.9980485085029273,
+      "meanChannelDifference": 44.195427934206855,
+      "pictures": [
+        "844-webgl-clouds.png",
+        "844-webgl-fallback.png"
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "backend": "webgl",
+      "differentPixelRatio": 0.9909865275966971,
+      "meanChannelDifference": 39.42854700854701,
+      "pictures": [
+        "390-webgl-clouds.png",
+        "390-webgl-fallback.png"
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "backend": "software",
+      "differentPixelRatio": 0.9980485085029273,
+      "meanChannelDifference": 44.195427934206855,
+      "pictures": [
+        "844-software-clouds.png",
+        "844-software-fallback.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Real Chromium scene captures plus backdrop pixels with the real cloud asset present and deliberately missing. Frozen scene inputs; independent normal-animation race remains required."
+}

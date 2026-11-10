@@ -5,6 +5,9 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import threading
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from datetime import datetime, timezone
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
@@ -13,8 +16,20 @@ OUT_ROOT = Path(os.environ.get('DRIVE_VERIFY_DIR', ROOT / 'verification/latest')
 OUT = OUT_ROOT / datetime.now(timezone.utc).strftime('run-%Y%m%dT%H%M%S%fZ')
 
 
+class VerificationHandler(SimpleHTTPRequestHandler):
+    def log_message(self, format, *args):
+        pass
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    server = None
+    target = os.environ.get('DRIVE_URL')
+    if not target:
+        handler = partial(VerificationHandler, directory=str(ROOT / 'dist'))
+        server = ThreadingHTTPServer(('127.0.0.1', 0), handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        target = f'http://127.0.0.1:{server.server_port}/'
     files = list((ROOT / 'dist').glob('*')) + list((ROOT / 'specs').glob('*')) + list((ROOT / 'tests').glob('*'))
     files += [ROOT / '.agents/skills/verify/SKILL.md', ROOT / '.github/workflows/pages.yml',
               ROOT / 'package.json', ROOT / 'package-lock.json']
@@ -23,11 +38,11 @@ def main():
                'worktreeDirty': bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip()),
                'sourceSha256': {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                                 for p in sorted(files) if p.is_file()},
-               'target': os.environ.get('DRIVE_URL', (ROOT / 'dist/index.html').as_uri()), 'evidence': str(OUT)}
-    mountain_url = urlsplit(os.environ.get('DRIVE_URL', (ROOT / 'dist/index.html').as_uri()))
+               'target': target, 'evidence': str(OUT)}
+    mountain_url = urlsplit(target)
     query = dict(parse_qsl(mountain_url.query), map='mountain')
     mountain_url = urlunsplit(mountain_url._replace(query=urlencode(query)))
-    env = dict(os.environ, DRIVE_MOUNTAIN_URL=mountain_url, DRIVE_MOUNTAIN_EVIDENCE=str(OUT / 'mountain'),
+    env = dict(os.environ, DRIVE_URL=target, DRIVE_MOUNTAIN_URL=mountain_url, DRIVE_MOUNTAIN_EVIDENCE=str(OUT / 'mountain'),
                DRIVE_CAPTURE='1', DRIVE_VERIFY_DIR=str(OUT),
                DRIVE_EVIDENCE_DIR=str(OUT / 'browser-states'))
     commands = [['node', '--check', 'dist/' + p] for p in ['maps.js', 'course-pack.js', 'course-world.js', 'racers.js', 'game.js', 'art.js', 'perspective.js', 'presentation.js']] + [
@@ -38,7 +53,7 @@ def main():
                 ['node', 'tests/browser-mountain.cjs'], ['node', 'tests/browser-courses.cjs'], ['node', 'tests/browser-effects.cjs'],
                 ['node', 'tests/browser-flicker.cjs'], ['node', 'tests/browser-camera.cjs'], ['node', 'tests/browser-body-camera.cjs'],
                 [sys.executable, 'tests/browser_e2e.py'], ['node', 'tests/browser-racers.cjs'],
-                ['node', 'tests/browser-presentation.cjs'], ['node', 'tests/browser-concept.cjs'], ['node', 'tests/browser-slice.cjs']]
+                ['node', 'tests/browser-presentation.cjs'], ['node', 'tests/browser-concept.cjs'], ['node', 'tests/browser-sky.cjs'], ['node', 'tests/browser-slice.cjs']]
     try:
         for index, command in enumerate(commands):
             print('RUN', ' '.join(command), flush=True)
@@ -116,6 +131,12 @@ def main():
         concept = json.loads((OUT / 'concept/results.json').read_text())
         assert concept['passed'] and len(concept['checks']) == 5
         assert all((OUT / 'concept' / name).is_file() for name in concept['pictures'])
+        sky = json.loads((OUT / 'sky/results.json').read_text())
+        assert sky['passed'] and len(sky['checks']) == 4
+        assert all(row['differentPixelRatio'] > .1 for row in sky['checks'])
+        assert all((OUT / 'sky' / name).is_file() for row in sky['checks'] for name in row['pictures'])
+        summary['skyChecks'] = len(sky['checks'])
+        summary['screenshots'] += sum(len(row['pictures']) for row in sky['checks'])
         summary['conceptChecks'] = len(concept['checks'])
         summary['screenshots'] += len(concept['pictures'])
         summary['passed'] = True
@@ -125,6 +146,9 @@ def main():
     finally:
         (OUT / 'results.json').write_text(json.dumps(summary, indent=2) + '\n')
         (OUT_ROOT / 'results.json').write_text(json.dumps(summary, indent=2) + '\n')
+        if server:
+            server.shutdown()
+            server.server_close()
     print('VERIFY PASS' if summary['passed'] else 'VERIFY FAIL', flush=True)
     if not summary['passed']:
         raise SystemExit(1)

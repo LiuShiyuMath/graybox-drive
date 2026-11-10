@@ -145,3 +145,15 @@ validation and photorealistic final assets remain independent open items.
 - [x] Save/read back the concept child Page, game Page and personal overview. Retain four old original images, eight runtime images, a full 75.72 s video and explicit open concept differences. Inline video playback is not claimed.
 
 See [concept fidelity](CONCEPT-FIDELITY.md) for precise implementation coverage.
+
+## NIGHT_RUN P1: visible concept sky and real recording
+
+- [x] Reproduce the invisible sky asset and fix the actual-image source crop with aspect-preserving cover rendering.
+- [x] Compare loaded/missing sky at three viewports and in software rendering; preserve identical initial gameplay state.
+- [x] Preserve all verification assertions and add failure diagnostics for the observed map-navigation cancellation.
+- [x] Reproduce the five-pixel software negative-control artifact; stabilize the paired readback fixture while retaining all 540 native frames on the default path.
+- [x] Complete the frozen-source full verify: 29 commands, 65 source hashes, 570 screenshots, eight recordings and a 66.46-second natural three-lap race.
+- [x] Prepare a reproducible normal-input production recorder with asset-hash gates and immutable raw video.
+
+See [the P1 acceptance report](../verification/night-run-release/acceptance.md).
+Publication and production-media receipts are recorded after execution.

@@ -138,3 +138,16 @@ implemented behavior distinct from unrecreated imagery. The original red car
 replaces the old lime pixel, so vehicle tests must compare the full mesh region
 and retain building-occlusion and missing-mesh negative controls. Never update a
 hardcoded RGB value solely to make an occlusion test pass.
+
+The entry serves local `dist` through a temporary loopback HTTP server so bitmap
+assets use the same origin as the game, matching the public deployment. Do not
+disable browser security to read pixels from a `file:` canvas. The server stops
+after the run. `browser-sky.cjs` compares rendered cloud pixels with the actual
+asset deliberately unavailable at three viewports and with WebGL disabled.
+Require visible pixel differences and identical starting gameplay. Inspect the
+cloud/fallback scene pairs. Asset download success alone does not prove rendering.
+
+The exact software missing-player fixture declares `willReadFrequently` when
+creating its 2D contexts. This keeps paired pixel reads on a stable readback path.
+Keep its zero-pixel assertion and the separate 540 native-animation frames,
+which use the browser's default Canvas configuration.

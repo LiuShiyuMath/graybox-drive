@@ -13,7 +13,15 @@ const url=id=>{const u=new URL(base);u.searchParams.set('map',id);return u.href;
 const snap=p=>p.evaluate(()=>gameSnapshot());
 async function capture(page,name){await page.screenshot({path:path.join(out,name+'.png')});screenshots.push(name+'.png');}
 async function check(name,fn){await fn();checks.push(name);console.log('PASS',name);}
-function trackErrors(page){page.on('pageerror',e=>errors.push(e.message));page.on('console',e=>{if(e.type()==='error'&&!e.text().includes('favicon'))errors.push(e.text());});}
+function trackErrors(page){
+ const events=[],record=event=>{events.push({at:new Date().toISOString(),...event});if(events.length>64)events.shift();};
+ page.on('pageerror',e=>errors.push(e.message));page.on('console',e=>{if(e.type()==='error'&&!e.text().includes('favicon'))errors.push(e.text());});
+ page.on('requestfailed',request=>record({kind:'requestfailed',url:request.url(),resourceType:request.resourceType(),error:request.failure()?.errorText}));
+ page.on('framenavigated',frame=>{if(frame===page.mainFrame())record({kind:'main-frame-navigated',url:frame.url()});});
+ page.on('framedetached',frame=>record({kind:'frame-detached',url:frame.url()}));
+ page.on('crash',()=>record({kind:'page-crash'}));page.on('close',()=>record({kind:'page-close'}));
+ return events;
+}
 
 (async()=>{
  const browser=await chromium.launch(options);
@@ -46,7 +54,7 @@ function trackErrors(page){page.on('pageerror',e=>errors.push(e.message));page.o
    });
   }
   for(const size of[{width:844,height:390},{width:390,height:844},{width:320,height:740}]){
-   const context=await browser.newContext({viewport:size,hasTouch:true,isMobile:true,deviceScaleFactor:1}),page=await context.newPage();trackErrors(page);
+   const context=await browser.newContext({viewport:size,hasTouch:true,isMobile:true,deviceScaleFactor:1}),page=await context.newPage(),navigationEvents=trackErrors(page);
    for(const id of ids){
     await page.goto(url(id));
     await check(`${size.width}/${id}: picker starts selected map and real throttle accelerates`,async()=>{
@@ -86,7 +94,15 @@ function trackErrors(page){page.on('pageerror',e=>errors.push(e.message));page.o
      await page.locator('#map-menu').click();const paused=await snap(page);assert.equal(paused.state,'paused');
      await page.waitForTimeout(120);assert.deepEqual(await snap(page),paused);
      await page.locator(`[data-map=${id}]`).click();assert.equal((await snap(page)).state,'ready');assert.equal((await snap(page)).elapsed,0);
-     await page.goto(base);assert.equal((await snap(page)).map,id);
+     try{await page.goto(base);}
+     catch(error){
+      const diagnostic={requested:base,current:page.url(),browserConnected:browser.isConnected(),pageClosed:page.isClosed(),events:navigationEvents,errors};
+      try{diagnostic.document=await page.evaluate(()=>({snapshot:gameSnapshot(),ready:document.readyState,visibility:document.visibilityState}));}catch(failure){diagnostic.snapshotError=failure.message;}
+      fs.writeFileSync(path.join(out,`${size.width}-${id}-navigation-failure.json`),JSON.stringify(diagnostic,null,2));
+      try{await capture(page,`${size.width}-${id}-navigation-failure`);}catch{}
+      throw error;
+     }
+     assert.equal((await snap(page)).map,id);
      await cdp.detach();
     });
    }

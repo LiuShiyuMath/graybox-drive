@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "source": "local baseline dist/index.html",
+  "browser": "134.0.6998.35",
+  "checks": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "differentPixelRatio": 0,
+      "meanChannelDifference": 0,
+      "pictures": [
+        "1280-clouds.png",
+        "1280-fallback.png"
+      ]
+    }
+  ],
+  "errors": [],
+  "error": "The concept clouds must be visible, not merely downloaded: {\"viewport\":{\"width\":1280,\"height\":720},\"differentPixelRatio\":0,\"meanChannelDifference\":0,\"pictures\":[\"1280-clouds.png\",\"1280-fallback.png\"]}",
+  "scope": "Real Chromium scene captures plus backdrop pixels with the real cloud asset present and deliberately missing. Frozen scene inputs; independent normal-animation race remains required."
+}

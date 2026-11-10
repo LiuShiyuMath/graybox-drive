@@ -1,0 +1,32 @@
+PASS proving: delayed perspective script cannot freeze startup
+PASS city: delayed perspective script cannot freeze startup
+PASS offroad: delayed perspective script cannot freeze startup
+PASS 844/circuit: picker starts selected map and real throttle accelerates
+PASS 844/circuit: pedals, steering and map menu remain reachable
+PASS 844/circuit: multitouch release, pause, map switch and persistence
+PASS 844/mountain: picker starts selected map and real throttle accelerates
+PASS 844/mountain: pedals, steering and map menu remain reachable
+PASS 844/mountain: multitouch release, pause, map switch and persistence
+PASS 844/proving: picker starts selected map and real throttle accelerates
+PASS 844/proving: pedals, steering and map menu remain reachable
+PASS 844/proving: multitouch release, pause, map switch and persistence
+PASS 844/city: picker starts selected map and real throttle accelerates
+PASS 844/city: pedals, steering and map menu remain reachable
+PASS 844/city: multitouch release, pause, map switch and persistence
+PASS 844/offroad: picker starts selected map and real throttle accelerates
+PASS 844/offroad: pedals, steering and map menu remain reachable
+PASS 844/offroad: multitouch release, pause, map switch and persistence
+PASS 390/circuit: picker starts selected map and real throttle accelerates
+PASS 390/circuit: pedals, steering and map menu remain reachable
+PASS 390/circuit: multitouch release, pause, map switch and persistence
+PASS 390/mountain: picker starts selected map and real throttle accelerates
+PASS 390/mountain: pedals, steering and map menu remain reachable
+page.goto: net::ERR_ABORTED; maybe frame was detached?
+Call log:
+[2m  - navigating to "http://127.0.0.1:42505/", waiting until "load"[22m
+
+    at REPO/tests/browser-courses.cjs:89:17
+    at async check (REPO/tests/browser-courses.cjs:15:31)
+    at async REPO/tests/browser-courses.cjs:79:5 {
+  name: 'Error'
+}

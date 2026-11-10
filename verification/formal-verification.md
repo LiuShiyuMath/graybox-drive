@@ -146,3 +146,16 @@ Runtime `de688eb` passes Linux verify, deployment and the full public-site verif
 
 Normal-animation frame timing on this shared Work host was p50 66.6 ms and p95
 133.3 ms. Functional acceptance is not a 60 FPS or phone-performance claim.
+
+## NIGHT_RUN P1 candidate, 2026-11-10
+
+The complete Mac candidate verification passes all 29 commands with 65 frozen
+source hashes, 570 screenshots and eight recordings. The required native-frame,
+camera, body/world-isolation, five-map, team-race and formal-model checks remain.
+Four real-pixel sky negative controls cover landscape, portrait and software
+rendering. A normal-input three-lap race takes 66.46 seconds with two AI contacts.
+
+The retained failure history includes one unexplained navigation cancellation and
+a separately reproduced five-pixel Canvas readback artifact. No retry or relaxed
+assertion was introduced. See [the acceptance report](night-run-release/acceptance.md),
+[complete result](night-run-release/precommit.json) and [race result](night-run-release/race.json).
