@@ -236,6 +236,6 @@ function drawCourseTop() {
  for(const item of activeMap.collectibles||[])if(!courseState.collected.has(item.id)){ctx.fillStyle='#ffe894';ctx.beginPath();ctx.arc(item.x,item.y,13,0,TAU);ctx.fill();}
  for(const signal of activeMap.intersections||[]){const p=track[signal.stopIndex];ctx.fillStyle={red:'#f16a4b',green:'#9bdf72',amber:'#f7cd58'}[courseSignal(signal)];ctx.beginPath();ctx.arc(p.x,p.y,14,0,TAU);ctx.fill();}
  for(const vehicle of courseState.traffic){const p=sampleTraffic(vehicle.route,vehicle.distance);drawCar(p.x,p.y,p.angle,.85);}
- drawCar(car.x,car.y,car.angle);ctx.restore();
+ drawRacersTop();drawCar(car.x,car.y,car.angle);ctx.restore();
  drawMinimap();
 }

@@ -55,6 +55,16 @@
 - [x] Verify clear feedback and reachable simultaneous controls in Chromium at 844×390, 390×844 and 320×740 across all five maps.
 - [ ] Measure rendering performance and touch behavior on physical Android/iPhone devices. Headless viewport results do not establish real-device smoothness.
 
+## Computer teammates and rivals
+
+- [x] Add a blue computer teammate and two red rivals to every map, with physical waypoint driving, yielding, passing and vehicle contacts.
+- [x] Display stable four-car standings and current team points. Freeze the result when the player finishes and label it as that snapshot.
+- [x] Verify pause, resume, restart, map reset, earned-checkpoint recovery and finished-car behavior with 25 actual-runtime contracts, including idle players and live city traffic.
+- [x] Add finite TLA+ models with named mutation counterexamples, preserving the existing models and negative controls. Ten models and 24 specified counterexamples pass.
+- [ ] Run the full pre-commit command and inspect real Chromium screenshots and recordings. After publication, repeat the full command against the public site and compare every dist asset.
+
+The computer drivers use their own vehicle state. They do not replace the global player car or use penalty-adjusted elapsed time as their position clock. Physical-phone acceptance stays separate.
+
 ## Historical reference / migration
 
 - [Issue #1](https://github.com/LiuShiyuMath/graybox-drive/issues/1) — public launch, completed.

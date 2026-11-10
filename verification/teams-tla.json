@@ -1,0 +1,305 @@
+{
+  "passed": true,
+  "tlcVersion": "1.7.4",
+  "jarSha256": "936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88",
+  "mode": "exhaustive BFS, no state constraints, one worker",
+  "positiveModels": 10,
+  "namedCounterexamples": 24,
+  "reachableStates": 1084054,
+  "models": [
+    {
+      "model": "Race",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 3705,
+      "distinct": 532
+    },
+    {
+      "model": "Input",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 5170,
+      "distinct": 261
+    },
+    {
+      "model": "Hazards",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 35030,
+      "distinct": 2675
+    },
+    {
+      "model": "Persistence",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 385,
+      "distinct": 48
+    },
+    {
+      "model": "Mountain",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 4058,
+      "distinct": 855
+    },
+    {
+      "model": "Courses",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 15633,
+      "distinct": 1705
+    },
+    {
+      "model": "Rendering",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 592019,
+      "distinct": 54481
+    },
+    {
+      "model": "VehicleWorld",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 264568,
+      "distinct": 23617
+    },
+    {
+      "model": "Competitors",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 11459703,
+      "distinct": 989787
+    },
+    {
+      "model": "CompetitorsRace",
+      "passed": true,
+      "expectedViolation": null,
+      "exitCode": 0,
+      "generated": 63811,
+      "distinct": 10093
+    },
+    {
+      "model": "Mountain-regression-SummitRequiresCheckpoints",
+      "passed": true,
+      "expectedViolation": "SummitRequiresCheckpoints",
+      "exitCode": 12,
+      "generated": 8,
+      "distinct": 6
+    },
+    {
+      "model": "Courses-regression-FinishedHasCheckpoints",
+      "passed": true,
+      "expectedViolation": "FinishedHasCheckpoints",
+      "exitCode": 12,
+      "generated": 6762,
+      "distinct": 930
+    },
+    {
+      "model": "Courses-regression-EveryLapRequiresCheckpoints",
+      "passed": true,
+      "expectedViolation": "EveryLapRequiresCheckpoints",
+      "exitCode": 13,
+      "generated": 11,
+      "distinct": 8
+    },
+    {
+      "model": "Input-regression-ActiveMatchesHeld",
+      "passed": true,
+      "expectedViolation": "ActiveMatchesHeld",
+      "exitCode": 12,
+      "generated": 64,
+      "distinct": 26
+    },
+    {
+      "model": "Hazards-regression-ExactRecoveryPenalty",
+      "passed": true,
+      "expectedViolation": "ExactRecoveryPenalty",
+      "exitCode": 12,
+      "generated": 954,
+      "distinct": 131
+    },
+    {
+      "model": "Race-regression-ReverseCannotAddLap",
+      "passed": true,
+      "expectedViolation": "ReverseCannotAddLap",
+      "exitCode": 13,
+      "generated": 11,
+      "distinct": 10
+    },
+    {
+      "model": "Hazards-regression-CooldownSuppressesFeedback",
+      "passed": true,
+      "expectedViolation": "CooldownSuppressesFeedback",
+      "exitCode": 13,
+      "generated": 1580,
+      "distinct": 227
+    },
+    {
+      "model": "Rendering-regression-NoStaleFrame-BuggyLoss",
+      "passed": true,
+      "expectedViolation": "NoStaleFrame",
+      "exitCode": 12,
+      "generated": 920,
+      "distinct": 365
+    },
+    {
+      "model": "Rendering-regression-NoStaleFrame-BuggyRestore",
+      "passed": true,
+      "expectedViolation": "NoStaleFrame",
+      "exitCode": 12,
+      "generated": 3657,
+      "distinct": 949
+    },
+    {
+      "model": "Rendering-regression-CurrentMeshPresented-BuggyMesh",
+      "passed": true,
+      "expectedViolation": "CurrentMeshPresented",
+      "exitCode": 12,
+      "generated": 133,
+      "distinct": 100
+    },
+    {
+      "model": "Rendering-regression-DependenciesBeforeDrawing-BuggyBoot",
+      "passed": true,
+      "expectedViolation": "DependenciesBeforeDrawing",
+      "exitCode": 12,
+      "generated": 3,
+      "distinct": 3
+    },
+    {
+      "model": "Rendering-regression-NearCameraKeepsCar-BuggyCamera",
+      "passed": true,
+      "expectedViolation": "NearCameraKeepsCar",
+      "exitCode": 12,
+      "generated": 889,
+      "distinct": 338
+    },
+    {
+      "model": "VehicleWorld-regression-RecoveryClearsFlightAndSlip",
+      "passed": true,
+      "expectedViolation": "RecoveryClearsFlightAndSlip",
+      "exitCode": 12,
+      "generated": 888,
+      "distinct": 214
+    },
+    {
+      "model": "VehicleWorld-regression-CrossingRequiresNegativeSide",
+      "passed": true,
+      "expectedViolation": "CrossingRequiresNegativeSide",
+      "exitCode": 13,
+      "generated": 2174,
+      "distinct": 438
+    },
+    {
+      "model": "VehicleWorld-regression-FallDominatesImpact",
+      "passed": true,
+      "expectedViolation": "FallDominatesImpact",
+      "exitCode": 12,
+      "generated": 2434,
+      "distinct": 528
+    },
+    {
+      "model": "VehicleWorld-regression-NewToastOwnsTimeout",
+      "passed": true,
+      "expectedViolation": "NewToastOwnsTimeout",
+      "exitCode": 12,
+      "generated": 2476,
+      "distinct": 549
+    },
+    {
+      "model": "VehicleWorld-regression-CollectionNeverShrinks",
+      "passed": true,
+      "expectedViolation": "CollectionNeverShrinks",
+      "exitCode": 13,
+      "generated": 2282,
+      "distinct": 477
+    },
+    {
+      "model": "Competitors-regression-PausedCompetitorsFrozen",
+      "passed": true,
+      "expectedViolation": "PausedCompetitorsFrozen",
+      "exitCode": 13,
+      "generated": 185,
+      "distinct": 89
+    },
+    {
+      "model": "Competitors-regression-RecoveryCannotAdvanceProgress",
+      "passed": true,
+      "expectedViolation": "RecoveryCannotAdvanceProgress",
+      "exitCode": 13,
+      "generated": 2428,
+      "distinct": 933
+    },
+    {
+      "model": "Competitors-regression-AllyYieldsToPlayer",
+      "passed": true,
+      "expectedViolation": "AllyYieldsToPlayer",
+      "exitCode": 13,
+      "generated": 23,
+      "distinct": 23
+    },
+    {
+      "model": "Competitors-regression-CooldownSuppressesContact",
+      "passed": true,
+      "expectedViolation": "CooldownSuppressesContact",
+      "exitCode": 13,
+      "generated": 387,
+      "distinct": 190
+    },
+    {
+      "model": "CompetitorsRace-regression-FinishRequiresCheckpoints",
+      "passed": true,
+      "expectedViolation": "FinishRequiresCheckpoints",
+      "exitCode": 12,
+      "generated": 58,
+      "distinct": 28
+    },
+    {
+      "model": "CompetitorsRace-regression-ResetClearsResults",
+      "passed": true,
+      "expectedViolation": "ResetClearsResults",
+      "exitCode": 12,
+      "generated": 750,
+      "distinct": 305
+    },
+    {
+      "model": "CompetitorsRace-regression-EveryRankUnique",
+      "passed": true,
+      "expectedViolation": "EveryRankUnique",
+      "exitCode": 12,
+      "generated": null,
+      "distinct": null
+    }
+  ],
+  "modelSha256": {
+    "Hazards.tla": "fe7a8448fe550a17fee4691f320f158c30d955bef068008372aac9046f951e35",
+    "Race.cfg": "78acd830ab7245abd95ab35b7fb55f66af20d4fcc492dc38f0d1b057d6c97561",
+    "Rendering.tla": "8ea4b60f5bd9bab6ed365ccbed06387d6e27ceabe3a86e1d9cbac4a26edec988",
+    "Courses.tla": "69e08b63d038f70b54ae4ebbc20c681281308ef79252116a861b4c49b4585b34",
+    "Persistence.cfg": "90291c3002321e34d3e0936ce5ec36c9a683c74f90479c92a4436bc86e48f11a",
+    "Input.tla": "6d145cbff97c3da7e32d1a01b96083f042c06850a32dc0eb58679b3e444c4446",
+    "Competitors.cfg": "d51ad16c3e5e65a234d208db02d3b03a43ad058983c209b8831eb78d4079be9e",
+    "Mountain.cfg": "e53210cfcb4588cc2949f19d2dbcdb83c28dc4f03808961f7f0581ce6efed8e1",
+    "Mountain.tla": "dfe67f114f8841eb35e758f7c68b8ca44d87891f73681013bf9269e6bcf6efe6",
+    "Courses.cfg": "c0dbeb5ceec01ba22994efdae749893b451171ea4bbf067b7f0337e145926a36",
+    "CompetitorsRace.cfg": "f4dc3b372ced6ce1e556eb860305cf97233cd2c565176b808fdae87b2d4134f6",
+    "CompetitorsRace.tla": "a348a745959e42f7062f7076dc6cc7312e601532f45a7d517e96d64d9e89b824",
+    "Input.cfg": "fa96765ce7e859bfd48861ab923c4697944b90bdf6d2c807d2dfaade79753071",
+    "Competitors.tla": "fc9daa7a1ed12b910bda1e10706ad490189d29b79ed2b8adfdf020569676166d",
+    "Rendering.cfg": "9604a481653876240297ce37ba0c81179bba8ceef068c0f298c186e5b15593a3",
+    "Persistence.tla": "7fd52d50041a2f8d7e4636e326d67e31eeddcfc9241264777aeb8679899fb2eb",
+    "Race.tla": "bb78c1d231bfdc4f114d5b90b5998c7335669d5f7d80cf8544749f7f69ace096",
+    "Hazards.cfg": "f05f54257ffef63c55e07aea93028ade3686c2519238039d61278b895e03d7e0",
+    "VehicleWorld.cfg": "b4935a69e5ad1170c1bb450d3c33e9efaae29988980273ad4839d55f1979bf51",
+    "VehicleWorld.tla": "ffe2b22e0638564b3a8d4e50d8ef65b15c4e23ab45c4e8fd52b508c4d0019087"
+  }
+}

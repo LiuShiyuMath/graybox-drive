@@ -25,7 +25,7 @@ def main():
     if hashlib.sha256(JAR.read_bytes()).hexdigest() != SHA256:
         raise RuntimeError('TLC jar checksum mismatch; do not execute it')
     rows = []
-    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain', 'Courses', 'Rendering', 'VehicleWorld']]
+    cases = [(name, None, None) for name in ['Race', 'Input', 'Hazards', 'Persistence', 'Mountain', 'Courses', 'Rendering', 'VehicleWorld', 'Competitors', 'CompetitorsRace']]
     cases += [('Mountain', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'SummitRequiresCheckpoints'),
               ('Courses', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'FinishedHasCheckpoints'),
               ('Courses', ('BuggyCheckpoint = FALSE', 'BuggyCheckpoint = TRUE'), 'EveryLapRequiresCheckpoints'),
@@ -42,7 +42,14 @@ def main():
               ('VehicleWorld', ('BuggyCrossing = FALSE', 'BuggyCrossing = TRUE'), 'CrossingRequiresNegativeSide'),
               ('VehicleWorld', ('BuggyFeedback = FALSE', 'BuggyFeedback = TRUE'), 'FallDominatesImpact'),
               ('VehicleWorld', ('BuggyToast = FALSE', 'BuggyToast = TRUE'), 'NewToastOwnsTimeout'),
-              ('VehicleWorld', ('BuggyCollection = FALSE', 'BuggyCollection = TRUE'), 'CollectionNeverShrinks')]
+              ('VehicleWorld', ('BuggyCollection = FALSE', 'BuggyCollection = TRUE'), 'CollectionNeverShrinks'),
+              ('Competitors', ('BuggyPause = FALSE', 'BuggyPause = TRUE'), 'PausedCompetitorsFrozen'),
+              ('Competitors', ('BuggyRecovery = FALSE', 'BuggyRecovery = TRUE'), 'RecoveryCannotAdvanceProgress'),
+              ('Competitors', ('BuggyYield = FALSE', 'BuggyYield = TRUE'), 'AllyYieldsToPlayer'),
+              ('Competitors', ('BuggyContact = FALSE', 'BuggyContact = TRUE'), 'CooldownSuppressesContact'),
+              ('CompetitorsRace', ('BuggyFinish = FALSE', 'BuggyFinish = TRUE'), 'FinishRequiresCheckpoints'),
+              ('CompetitorsRace', ('BuggyReset = FALSE', 'BuggyReset = TRUE'), 'ResetClearsResults'),
+              ('CompetitorsRace', ('BuggyRank = FALSE', 'BuggyRank = TRUE'), 'EveryRankUnique')]
     for name, mutation, expected in cases:
         label = name if not mutation else name + '-regression-' + expected
         if mutation and name == 'Rendering':

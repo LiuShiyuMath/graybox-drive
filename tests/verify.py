@@ -30,14 +30,14 @@ def main():
     env = dict(os.environ, DRIVE_MOUNTAIN_URL=mountain_url, DRIVE_MOUNTAIN_EVIDENCE=str(OUT / 'mountain'),
                DRIVE_CAPTURE='1', DRIVE_VERIFY_DIR=str(OUT),
                DRIVE_EVIDENCE_DIR=str(OUT / 'browser-states'))
-    commands = [['node', '--check', 'dist/' + p] for p in ['maps.js', 'course-pack.js', 'course-world.js', 'game.js', 'perspective.js']] + [
+    commands = [['node', '--check', 'dist/' + p] for p in ['maps.js', 'course-pack.js', 'course-world.js', 'racers.js', 'game.js', 'perspective.js']] + [
                 ['node', 'tests/drive.cjs'], ['node', 'tests/mountain.cjs'],
                 ['node', 'tests/course-pack.cjs'], ['node', 'tests/courses.cjs'], ['node', 'tests/state-contract.cjs'],
-                ['node', 'tests/hidden-state-contract.cjs'],
+                ['node', 'tests/hidden-state-contract.cjs'], ['node', 'tests/racers.cjs'],
                 [sys.executable, 'tests/verify_tla.py'], ['node', 'tests/browser-states.cjs'],
                 ['node', 'tests/browser-mountain.cjs'], ['node', 'tests/browser-courses.cjs'], ['node', 'tests/browser-effects.cjs'],
                 ['node', 'tests/browser-flicker.cjs'], ['node', 'tests/browser-camera.cjs'],
-                [sys.executable, 'tests/browser_e2e.py']]
+                [sys.executable, 'tests/browser_e2e.py'], ['node', 'tests/browser-racers.cjs']]
     try:
         for index, command in enumerate(commands):
             print('RUN', ' '.join(command), flush=True)
@@ -82,6 +82,15 @@ def main():
         summary['screenshots'] += len(camera['pictures'])
         summary['courseChecks'] = len(courses['checks'])
         summary['matrixChecks'] = len(matrix['checks'])
+        racers = json.loads((OUT / 'racers-browser/results.json').read_text())
+        assert racers['passed'] and racers['normalAnimation']
+        assert racers['checks'] and all(row['passed'] for row in racers['checks'])
+        assert racers['screenshots'] and racers['videos']
+        assert all((OUT / 'racers-browser' / name).is_file()
+                   for name in racers['screenshots'] + racers['videos'])
+        summary['racerChecks'] = len(racers['checks'])
+        summary['screenshots'] += len(racers['screenshots'])
+        summary['videos'] += len(racers['videos'])
         summary['passed'] = True
     except Exception as error:
         summary['error'] = str(error)

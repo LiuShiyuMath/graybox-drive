@@ -134,6 +134,7 @@ const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#8baba6');sky.ad
 const transform=v=>{const dx=v[0]-cx,dy=v[1]-cy,dz=v[2]-cz,forward=dx*fx+dz*fz;return[dx*rx+dz*rz,dy*cp+forward*sp,forward*cp-dy*sp]};
 const faces=[];const add=face=>{let pts=clipNear(face.vertices.map(transform));if(pts.length<3)return;const depth=pts.reduce((s,p)=>s+p[2],0)/pts.length;if(depth>2200)return;faces.push({pts,depth,color:face.color,ground:!!face.ground,layer:face.layer||0})};
 for(const face of roadMesh)add(face);
+for(const face of racerMesh())add(face);
 if(activeMap.generic)for(const face of courseDynamicMesh())add(face);
 if(chase){const lift=activeMap.mountain||activeMap.generic?1.5:0;for(const face of cuboidMesh(car.x,car.y,42,23,12,['#d2fa60','#869e3d','#aec64e'],car.angle))add({...face,vertices:face.vertices.map(([x,y,z])=>[x,y+(car.z||0)+drop+lift+((x-car.x)*fx+(z-car.y)*fz)*mountainGrade,z])});for(const face of cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle))add({...face,vertices:face.vertices.map(([x,y,z])=>[x,y+12+(car.z||0)+drop+lift+((x-car.x)*fx+(z-car.y)*fz)*mountainGrade,z])})}
 if((activeMap.mountain||activeMap.generic)&&drawSoftwareDepth(faces,focal,horizon)){if(!chase)drawCockpit();return;}
@@ -156,9 +157,9 @@ function drawMinimap(){
   const b=activeMap.bounds,pad=14,scale=Math.min((mw-pad*2)/(b.maxX-b.minX),(mh-pad*2)/(b.maxY-b.minY));
   ctx.translate(mw/2,mh/2);ctx.scale(scale,scale);ctx.translate(-(b.minX+b.maxX)/2,-(b.minY+b.maxY)/2);line('#dce4b7',Math.max(20,2/scale));
   for(const index of(activeMap.generic?activeMap.checkpoints:[40,80,120,160,200,N-1])){const p=track[index];ctx.fillStyle=index<=checkpointIndex?'#d2fa60':'#d5b86c';ctx.beginPath();ctx.arc(p.x,p.y,3/scale,0,TAU);ctx.fill()}
-  ctx.translate(car.x,car.y);ctx.rotate(car.angle);ctx.fillStyle='#d2fa60';ctx.beginPath();ctx.moveTo(6/scale,0);ctx.lineTo(-4/scale,-3/scale);ctx.lineTo(-4/scale,3/scale);ctx.closePath();ctx.fill();
+  drawRacerMarkers(3/scale);ctx.translate(car.x,car.y);ctx.rotate(car.angle);ctx.fillStyle='#d2fa60';ctx.beginPath();ctx.moveTo(6/scale,0);ctx.lineTo(-4/scale,-3/scale);ctx.lineTo(-4/scale,3/scale);ctx.closePath();ctx.fill();
  }else{
-  ctx.scale(mw/1500,mh/1000);line('#abb8a2',45);ctx.translate(car.x,car.y);ctx.rotate(car.angle);ctx.fillStyle='#d2fa60';ctx.beginPath();ctx.moveTo(40,0);ctx.lineTo(-25,-23);ctx.lineTo(-25,23);ctx.closePath();ctx.fill();
+  ctx.scale(mw/1500,mh/1000);line('#abb8a2',45);drawRacerMarkers(26);ctx.translate(car.x,car.y);ctx.rotate(car.angle);ctx.fillStyle='#d2fa60';ctx.beginPath();ctx.moveTo(40,0);ctx.lineTo(-25,-23);ctx.lineTo(-25,23);ctx.closePath();ctx.fill();
  }
  ctx.restore();
 }
@@ -240,6 +241,7 @@ function drawMountainPerspective(){
   faces.push(...cuboidMesh(car.x-fx*3,car.y-fz*3,19,20,8,['#526c60','#314e44','#486359'],car.angle,(car.z||0)+drop+13.5));
  }
  for(const face of faces)face.vertices=face.vertices.map(([x,y,z])=>[x,y+((x-car.x)*fx+(z-car.y)*fz)*grade,z]);
+ faces.push(...racerMesh());
  if(activeMap.generic)faces.push(...courseDynamicMesh());
  if(!mountainRenderer.draw(pose.camera,pose.forward,pose.right,pitch,focal,horizon,faces))return false;
  if(!chase)drawCockpit();

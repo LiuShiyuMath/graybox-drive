@@ -2,7 +2,7 @@ const vm=require('node:vm'),fs=require('node:fs'),assert=require('node:assert/st
 const elements=new Map(),storage=new Map();
 const get=s=>{if(!elements.has(s))elements.set(s,{textContent:'',innerHTML:'',hidden:false,style:{},dataset:{},classList:{remove(){},add(){},toggle(){}},addEventListener(){},setAttribute(){},getBoundingClientRect:()=>({width:844,height:332}),getContext:()=>new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||((...args)=>{for(const value of args)if(typeof value==='number')assert(Number.isFinite(value),'finite rendering coordinates')})})});return elements.get(s)};
 const env={document:{body:{classList:{toggle(){}}},querySelector:get,querySelectorAll:()=>[],addEventListener(){}},window:{addEventListener(){},location:{search:'?map=mountain'}},localStorage:{getItem:key=>storage.get(key)||null,setItem:(key,value)=>storage.set(key,String(value))},URLSearchParams,devicePixelRatio:1,requestAnimationFrame(){},setTimeout(){},clearTimeout(){},console};
-vm.createContext(env);for(const name of['maps','game','perspective'])vm.runInContext(fs.readFileSync(`dist/${name}.js`,'utf8'),env);
+vm.createContext(env);for(const name of['maps','racers','game','perspective'])vm.runInContext(fs.readFileSync(`dist/${name}.js`,'utf8'),env);
 const run=s=>vm.runInContext(`{${s}}`,env);
 assert.equal(run('activeMap.id'),'mountain');assert.equal(run('activeMap.closed'),false);assert.equal(run('track.length'),240);assert(run('activeMap.length')>7000);assert.equal(run('track.at(-1).z'),1020);
 assert(run('track.every((p,i)=>!i||p.z>=track[i-1].z)'));

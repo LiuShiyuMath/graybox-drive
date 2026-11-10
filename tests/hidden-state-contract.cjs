@@ -18,7 +18,7 @@ function runtime(){
   setTimeout:(callback,delay)=>{const id=++nextTimer;timers.set(id,{callback,due:wallTime+delay});return id;},
   clearTimeout:id=>timers.delete(id)};
  vm.createContext(env);
- for(const name of['maps','course-pack','course-world','game','perspective'])
+ for(const name of['maps','course-pack','course-world','racers','game','perspective'])
   vm.runInContext(fs.readFileSync(`dist/${name}.js`,'utf8'),env,{filename:`dist/${name}.js`});
  const run=source=>vm.runInContext(`{${source}}`,env);
  return{run,node,storage,env,timers,

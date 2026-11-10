@@ -1,5 +1,7 @@
 # State-machine and TLA+ verification
 
+The current computer-team extension and its exact acceptance scope are tracked in [computer teammates and rivals](teams-verification.md). The earlier sections below retain their original release evidence.
+
 Date: 2026-11-09. Full project `/verify`: **PASS** on the authorized Mac mini,
 using Python Playwright 1.51.0 and its installed Chromium Headless Shell.
 The pre-commit base is `f25a8e7`; the exact tested runtime, models, scripts,

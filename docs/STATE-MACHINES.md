@@ -252,3 +252,105 @@ input for 540 frames. Physical phone/GPU-driver coverage remains separate.
 | `BuggyMesh` | `CurrentMeshPresented` |
 | `BuggyBoot` | `DependenciesBeforeDrawing` |
 | `BuggyCamera` | `NearCameraKeepsCar` |
+
+## Computer racers and team standings
+
+`dist/racers.js` owns three computer vehicles. `ally` is a blue teammate;
+`rival-1` and `rival-2` are red opponents. The player completes the four-member
+roster on the blue team. `game.js` owns the active racer world and feeds its
+current player, map, traffic and obstacles into `DriveRacers.step()`.
+The controller chooses a forward waypoint, throttle, steering and a safe lane.
+Positions advance by velocity integration. Only explicit recovery replaces a
+vehicle pose with an earned checkpoint pose. Recovery is visible as a separate
+`recovering` state. It is not ordinary driving.
+
+| State | Entry | Allowed update | Exit |
+| --- | --- | --- | --- |
+| `racing` | New run or completed recovery | Physical steering, acceleration, road progress and contacts | Earn all checkpoints and finish, or begin recovery |
+| `recovering` | Off-route or stuck computer | Running simulation counts down one second | Return to the earned checkpoint without increasing race progress |
+| `finished` | Legal final crossing or mountain summit | None | Restart or map change creates a new actor |
+
+The world advances only while the player race is `running`. `ready`, `paused`
+and `finished` freeze computer state, recovery countdowns and simulation time.
+Computer `simulationTime` is independent of the player's penalty-adjusted
+`elapsed`, so a three-second recovery penalty cannot teleport the other cars.
+Each restart and map switch creates a fresh roster, clears contacts and finishes,
+and resets computer simulation time. Finished vehicles leave the contact set.
+
+Contacts separate vehicle bodies and change approaching velocities. A height
+difference of 24 world units prevents a contact. A contact cooldown prevents repeated
+impulses and contact counts while the bodies remain close. It does not permit
+overlap. These geometric rules need implementation and browser tests; the TLA+
+contact event only abstracts contact eligibility and cooldown.
+
+The teammate chooses `yield` and slows or changes lane when the player approaches
+from behind on the same route. Computers can pass a slow or stopped forward car
+when an adjacent lane is clear, and brake when it is blocked. Road width, height, bend and traffic decisions
+remain continuous controller obligations. The controller uses the existing city
+signal clock to stop before non-green lights.
+
+Standings keep captured finish order before comparing remaining route progress.
+Tied progress uses fixed ID order `ally`, `player`, `rival-1`, `rival-2`.
+Ranks award 4, 3, 2 and 1 points. Blue and red points always sum to 10.
+The HUD shows current team points. The existing player finish rule freezes the
+world and records the points at the player's finish. It does not pretend that
+unfinished cars have completed the race or that provisional team points are a
+final all-car result.
+
+### Finite computer models
+
+`Competitors.tla` explores each of the three computer roles as one selected
+actor, with the fixed four-member roster, two maps, two run epochs, four player
+race phases, seven coarse progress positions, two ordered checkpoints, a
+two-tick recovery, one-bit contact cooldown and two counted contacts. Eligible
+player approach from behind, a forward car and a blocked lane are abstract
+boolean inputs. An ally can pass a stopped forward car when its lane is free;
+the yield obligation concerns an approaching player from behind. The clock wraps
+over three values.
+Reverse movement retains earned checkpoints. Recovery returns race progress to
+the smaller of current progress and the earned checkpoint, so contact followed
+by reversal cannot award progress. The recovery liveness property uses weak
+fairness of running ticks: a pending
+recovery eventually ends or the player race stops. It does not promise progress
+while indefinitely paused. The selected-actor partition does not enumerate the
+full simultaneous continuous three-computer world.
+
+`CompetitorsRace.tla` separately explores all four racers together. Each has
+three coarse progress positions and two checkpoint obligations. The finite
+model explores bypassed checkpoints, finish interleavings, resets and tied
+progress. It checks unique ranks, stable unique finish order, legal finishes,
+frozen finished racers and team score conservation. A player finish stops the
+world, matching the runtime. The final-course abstraction does not replace the
+implementation's three-lap and five-checkpoint tests on each actual map.
+
+| Computer mutation | Required counterexample |
+| --- | --- |
+| `Competitors.BuggyPause` | `PausedCompetitorsFrozen` |
+| `Competitors.BuggyRecovery` | `RecoveryCannotAdvanceProgress` |
+| `Competitors.BuggyYield` | `AllyYieldsToPlayer` |
+| `Competitors.BuggyContact` | `CooldownSuppressesContact` |
+| `CompetitorsRace.BuggyFinish` | `FinishRequiresCheckpoints` |
+| `CompetitorsRace.BuggyReset` | `ResetClearsResults` |
+| `CompetitorsRace.BuggyRank` | `EveryRankUnique` |
+
+`tests/verify_tla.py` retains the previous eight models and 17 named regression
+counterexamples, then runs both computer models and all seven named computer
+mutations. A successful run requires exhaustive checking without state
+constraints and the specific expected property failure for each mutation.
+Finite model success is not a JavaScript refinement proof, a floating-point
+physics proof, a rendering proof or physical-phone performance evidence.
+
+`tests/racers.cjs` executes the actual controller and game code. Its route
+completion cases run all five actual maps and static obstacles through ordinary
+fixed physics steps until all three computers finish. They place the player far
+away and omit moving cross traffic to isolate route completion. A stationary
+player or traffic blockade can make a safe controller wait; those cases do not
+establish unconditional finishing in the full game. Separate full-game city and
+offroad cases retain an idle player and the actual city traffic and require the
+computers to finish within 400 simulated seconds, catching indefinite braking
+when a safe passing lane exists. The other contracts cover
+checkpoint bypass rejection, pause, reset, map changes, finish order,
+score, independent time, yielding, passing, contacts and earned recovery.
+Its DOM fixture does not establish pixels or real animation. The separate
+`tests/browser-racers.cjs` suite supplies real Chromium animation, input, visual
+and lifecycle evidence. Both are part of the full project verification entry.

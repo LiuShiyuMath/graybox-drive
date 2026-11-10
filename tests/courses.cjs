@@ -6,7 +6,7 @@ const node=s=>{
 };
 const env={document:{querySelector:node,querySelectorAll:()=>[],addEventListener(){},body:{classList:{toggle(){}}}},window:{addEventListener(){},location:{search:''}},URLSearchParams,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,String(v))},requestAnimationFrame(){},setTimeout(){},clearTimeout(){},devicePixelRatio:1,console};
 vm.createContext(env);
-for(const file of['maps','course-pack','course-world','game','perspective'])vm.runInContext(fs.readFileSync(`dist/${file}.js`,'utf8'),env);
+for(const file of['maps','course-pack','course-world','racers','game','perspective'])vm.runInContext(fs.readFileSync(`dist/${file}.js`,'utf8'),env);
 const run=s=>vm.runInContext(`{${s}}`,env);
 function check(name,fn){fn();console.log('PASS',name)}
 
