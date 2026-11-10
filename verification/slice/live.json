@@ -1,0 +1,545 @@
+{
+  "runtimeCommit": "41bd106aa29f5f8873f2bc11e66416563dcf3a35",
+  "workflow": "https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42831782524",
+  "artifactId": 13773666890,
+  "artifactSha256": "38f1174055f43ef0015d831169372df1c5d0cfe26a75c1ef7aae79f613814ed7",
+  "sourceCount": 61,
+  "sourceMatchesPrecommitAndCI": true,
+  "verify": {
+    "createdAt": "2026-11-10T14:24:33.811361+00:00",
+    "passed": true,
+    "steps": [
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/maps.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/course-pack.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/course-world.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/racers.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/game.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/art.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/perspective.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "--check",
+          "dist/presentation.js"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/drive.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/mountain.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/course-pack.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/courses.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/state-contract.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/hidden-state-contract.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/racers.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python3",
+          "tests/verify_tla.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-states.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-mountain.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-courses.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-effects.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-flicker.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-camera.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-body-camera.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "python3",
+          "tests/browser_e2e.py"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-racers.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-presentation.cjs"
+        ],
+        "exitCode": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-slice.cjs"
+        ],
+        "exitCode": 0
+      }
+    ],
+    "revision": "41bd106aa29f5f8873f2bc11e66416563dcf3a35",
+    "worktreeDirty": false,
+    "sourceSha256": {
+      ".agents/skills/verify/SKILL.md": "7fc11c1a9e2c419e9cd1184cbdb7e1168d45fa4027ff775409accd60158bd323",
+      ".github/workflows/pages.yml": "109103d9b4e9342603bec51464fd9a57a049fd8fe98b137f163f79fb53364893",
+      "dist/art.js": "c3fe952e4254fadc75d51ac23869f110fabe326d586c0a6fa9b0ca2bc9b661d4",
+      "dist/course-pack.js": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87",
+      "dist/course-world.js": "e815d06683e1e0b3b79ec7c6a579b7e8e73c07ddb401bf8816c12c761dbf2238",
+      "dist/game.js": "4544e2e88ca695adb6117ae734af7ed6feffe20e640a22a94df1df50e9333c36",
+      "dist/index.html": "5112fb576f502afdd0f5653dace7de70ee89d9ea276ed5df5c250906d6568487",
+      "dist/maps.js": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
+      "dist/perspective.js": "4f7235da1fe64f56f661b21cfb8b7c1982a79304add5a48d1187f47025cfe280",
+      "dist/presentation.js": "86000078fb8fe9632f08398169acdaaeb46e202572977f23e2877999fcbc1a6e",
+      "dist/racers.js": "3543ff246b66b908bc77c0e3b0399b623002a573dba1ea77246d0bb0e0f1794f",
+      "dist/style.css": "c0f8b164506d413d13b77532bc8739b151cef63e560d1c1f98af4e15484f7989",
+      "package-lock.json": "d7fb1ffb112245f2b007ad0bccf71af1bd1eebe90e8aa1b6305d8af7a8da9536",
+      "package.json": "84ce6881d1e1b2cc6b1ed49f98557cd1a472d88835205d442c3a537a479d4600",
+      "specs/CameraFeedback.cfg": "b7cded30516516c40b3bdafed476fde54d7b7d79746014fbfb24d8eb0665634f",
+      "specs/CameraFeedback.tla": "0d9cf9cabe4aa69fa8b8d82da4c8f2e27a6919b5781e544c44ca786f49134c4e",
+      "specs/Competitors.cfg": "d51ad16c3e5e65a234d208db02d3b03a43ad058983c209b8831eb78d4079be9e",
+      "specs/Competitors.tla": "fc9daa7a1ed12b910bda1e10706ad490189d29b79ed2b8adfdf020569676166d",
+      "specs/CompetitorsRace.cfg": "f4dc3b372ced6ce1e556eb860305cf97233cd2c565176b808fdae87b2d4134f6",
+      "specs/CompetitorsRace.tla": "a348a745959e42f7062f7076dc6cc7312e601532f45a7d517e96d64d9e89b824",
+      "specs/Courses.cfg": "c0dbeb5ceec01ba22994efdae749893b451171ea4bbf067b7f0337e145926a36",
+      "specs/Courses.tla": "69e08b63d038f70b54ae4ebbc20c681281308ef79252116a861b4c49b4585b34",
+      "specs/Hazards.cfg": "f05f54257ffef63c55e07aea93028ade3686c2519238039d61278b895e03d7e0",
+      "specs/Hazards.tla": "fe7a8448fe550a17fee4691f320f158c30d955bef068008372aac9046f951e35",
+      "specs/Input.cfg": "fa96765ce7e859bfd48861ab923c4697944b90bdf6d2c807d2dfaade79753071",
+      "specs/Input.tla": "6d145cbff97c3da7e32d1a01b96083f042c06850a32dc0eb58679b3e444c4446",
+      "specs/Mountain.cfg": "e53210cfcb4588cc2949f19d2dbcdb83c28dc4f03808961f7f0581ce6efed8e1",
+      "specs/Mountain.tla": "dfe67f114f8841eb35e758f7c68b8ca44d87891f73681013bf9269e6bcf6efe6",
+      "specs/Persistence.cfg": "90291c3002321e34d3e0936ce5ec36c9a683c74f90479c92a4436bc86e48f11a",
+      "specs/Persistence.tla": "7fd52d50041a2f8d7e4636e326d67e31eeddcfc9241264777aeb8679899fb2eb",
+      "specs/Presentation.cfg": "a279444c0333765744a9bcb93dc600382c37bbb23073a825e2a84a6f366f3b5a",
+      "specs/Presentation.tla": "a2fdd81ed0141348699557eef41af9e0a162adbdd28470f00b4da14eaaf5f9e4",
+      "specs/Race.cfg": "78acd830ab7245abd95ab35b7fb55f66af20d4fcc492dc38f0d1b057d6c97561",
+      "specs/Race.tla": "bb78c1d231bfdc4f114d5b90b5998c7335669d5f7d80cf8544749f7f69ace096",
+      "specs/Rendering.cfg": "9604a481653876240297ce37ba0c81179bba8ceef068c0f298c186e5b15593a3",
+      "specs/Rendering.tla": "8ea4b60f5bd9bab6ed365ccbed06387d6e27ceabe3a86e1d9cbac4a26edec988",
+      "specs/VehicleWorld.cfg": "b4935a69e5ad1170c1bb450d3c33e9efaae29988980273ad4839d55f1979bf51",
+      "specs/VehicleWorld.tla": "ffe2b22e0638564b3a8d4e50d8ef65b15c4e23ab45c4e8fd52b508c4d0019087",
+      "tests/browser-body-camera.cjs": "055ff3aefff3084e6f80e3ff53c260f61d3530f21f9bff83a8b7c16a955747ff",
+      "tests/browser-camera.cjs": "5568d1ab80824ca7b47bc55a4d2aa48c1e0e49d830a47ccf6d92c159c7dc885f",
+      "tests/browser-courses.cjs": "b87dd0118dd3027dcd7588d88ce3227ac788bd704614ae1663b41f8ca7b2f840",
+      "tests/browser-effects.cjs": "a252356670e9f5f8683c4d95570d5cdcd8b709f38c0c7a9cc4a112d93ab82722",
+      "tests/browser-flicker.cjs": "fa099307b4c08eed96214753ef9c4a3d2c6096811fd96098cb84e230b55b0dec",
+      "tests/browser-mountain.cjs": "5d881de50412617a5981b289045f870b6a04fdfb484a9fdeab7054a1ced6ee47",
+      "tests/browser-presentation.cjs": "27a1e2f8376cf09e49d87f52a511230fb2e49480005467f10caab3ec9391c9e3",
+      "tests/browser-racers.cjs": "3900d7466f305d87b39b50c83d16c51ffb07198751a0604d44de664ffacd69f6",
+      "tests/browser-slice.cjs": "7d7d3026fe89f5efd252c62c1aa586f72fcb832d96f0c54178c216d71162f350",
+      "tests/browser-states.cjs": "75148b8584cfcd31aee12334f50c3b8626e40f0b1bf7346ab85133d65e10c2c5",
+      "tests/browser_e2e.py": "a3215f847e94a323c292c1bcf881f35407161401087ed236d07376c44f97e5a2",
+      "tests/build-state-report.py": "4725864bd47a37722df3b14e71ac1429442eb2dc54a6b17275a8279251c9874b",
+      "tests/course-pack.cjs": "b8ed0acb1d8d93913e2a70b769541d057669e752b5847eb23722da16a99b773a",
+      "tests/courses.cjs": "3d83e85eba0dff66da48bf14c09054f21e4ed370b643ab0be83190325e61c834",
+      "tests/drive.cjs": "ac075d2c5d32c7dfa8ca7b7e171cd55a910d37e8a241fd7886d08f3bd8e1e2b2",
+      "tests/hidden-state-contract.cjs": "acad4f2acb765de9e2ebf1bdf6e68e4a7c6a5216d9e3caa0e7d846a8bac52cb0",
+      "tests/mountain.cjs": "c794e1075705ba386804e4656ab21d2cba98d652b6b6171d631c173ba1fe8933",
+      "tests/profile-slice.cjs": "47f0f7a8d2fe4dd2b09801a14cc64b0d0c54af70c2174cb7b43f2a97bb49e5cc",
+      "tests/racers.cjs": "9cc82fafaf6c40d4e38b846ab7cf8554e5a0734db216b0a7f44da4ea89251e06",
+      "tests/requirements-verify.txt": "3ac03b3e052baefd9bf6c5a9f06765194c63c546316e2b54bc30b38b3dedc2ad",
+      "tests/state-contract.cjs": "781364cc05b4963fc748a9f4db2cf6d1cc2261055227ff8d4b4848f6f4fee5f5",
+      "tests/verify.py": "0ca3d40181d8be8f5da271c8a6d2729f99e7e44491058d51b59c806f2f8eeb41",
+      "tests/verify_tla.py": "09a7dae942fb15e05492001851441fbad5642d8c48278fedd446948049f484d3"
+    },
+    "mountainChecks": 51,
+    "screenshots": 551,
+    "videos": 8,
+    "vehicleRegions": 486,
+    "temporalFrames": 540,
+    "flickerChecks": 27,
+    "terrainOcclusionFixtures": 2,
+    "cameraFrames": 450,
+    "bodyCameraChecks": 232,
+    "courseChecks": 56,
+    "matrixChecks": 30,
+    "racerChecks": 93,
+    "presentationChecks": 11,
+    "sliceRaceSeconds": 66.58060000000195
+  },
+  "race": {
+    "passed": true,
+    "browser": "134.0.6998.35",
+    "animation": "native requestAnimationFrame; normal keyboard input; read-only route observations; no teleports, finish calls or clock overrides",
+    "raceSeconds": 66.58060000000195,
+    "wallSeconds": 66.774,
+    "laps": [
+      1,
+      2,
+      3
+    ],
+    "contacts": 2,
+    "events": {
+      "impact": 1,
+      "checkpoint": 2,
+      "landing": 0,
+      "finish": 1,
+      "skid": 12
+    },
+    "frames": 3979,
+    "frameMs": {
+      "p50": 16.69999999999709,
+      "p95": 16.700000000004366,
+      "max": 16.80000000000291
+    },
+    "final": {
+      "hazard": {
+        "kind": "road",
+        "impact": 0,
+        "cooldown": 0,
+        "fall": 0,
+        "dust": 0
+      },
+      "view": "chase",
+      "state": "finished",
+      "lap": 3,
+      "elapsed": 66.58060000000195,
+      "progress": 720,
+      "speed": 123.74517742940454,
+      "x": 756.2431016328401,
+      "y": 809.8346361575256,
+      "elevation": 0,
+      "map": "circuit",
+      "checkpoint": 0,
+      "racers": {
+        "mapId": "circuit",
+        "enabled": true,
+        "simulationTime": 66.58060000000195,
+        "actors": [
+          {
+            "id": "ally",
+            "name": "蓝队友",
+            "team": "blue",
+            "role": "teammate",
+            "grid": 66,
+            "lane": 59.45592917868823,
+            "pace": 210,
+            "x": 1229.1442332238125,
+            "y": 583.0679055428366,
+            "z": 0,
+            "angle": 14.75099179829242,
+            "index": 4.509372162075216,
+            "grade": 0,
+            "width": 87,
+            "material": "asphalt",
+            "speed": 89.64718850106465,
+            "steer": 0.5110847937622952,
+            "progress": 674.3003780494643,
+            "lastIndex": 194.30037804946377,
+            "nextCheckpoint": 4,
+            "lap": 3,
+            "checkpointProgress": 640,
+            "finishTime": null,
+            "recovery": 0,
+            "collisionCooldown": 0,
+            "contacts": 0,
+            "stuck": 0,
+            "targetLane": 59.45592917868823,
+            "phase": "racing",
+            "intent": "race"
+          },
+          {
+            "id": "rival-1",
+            "name": "红对手 1",
+            "team": "red",
+            "role": "rival",
+            "grid": 132,
+            "lane": -45.70029023994521,
+            "pace": 225,
+            "x": 191.2443360141213,
+            "y": 366.34533254491663,
+            "z": 0,
+            "angle": 11.56649755064223,
+            "index": 9.062478823405867,
+            "grade": 0,
+            "width": 87,
+            "material": "asphalt",
+            "speed": 92.67127339399991,
+            "steer": 0.2953315561950154,
+            "progress": 553.1897376136853,
+            "lastIndex": 73.87284337531085,
+            "nextCheckpoint": 1,
+            "lap": 3,
+            "checkpointProgress": 520,
+            "finishTime": null,
+            "recovery": 0,
+            "collisionCooldown": 0,
+            "contacts": 1,
+            "stuck": 0,
+            "targetLane": -45.70029023994521,
+            "phase": "racing",
+            "intent": "race"
+          },
+          {
+            "id": "rival-2",
+            "name": "红对手 2",
+            "team": "red",
+            "role": "rival",
+            "grid": 198,
+            "lane": 53.70697929179955,
+            "pace": 235,
+            "x": 748.5163632169414,
+            "y": 756.5424813453704,
+            "z": 0,
+            "angle": 15.709265156923864,
+            "index": 13.707724183107574,
+            "grade": 0,
+            "width": 87,
+            "material": "asphalt",
+            "speed": 0,
+            "steer": 0.08864945326586306,
+            "progress": 719.210257126679,
+            "lastIndex": 0.1276290795705957,
+            "nextCheckpoint": 5,
+            "lap": 3,
+            "checkpointProgress": 680,
+            "finishTime": 64.91400000000165,
+            "recovery": 0,
+            "collisionCooldown": 0,
+            "contacts": 1,
+            "stuck": 0,
+            "targetLane": 53.70697929179955,
+            "phase": "finished",
+            "intent": "race"
+          }
+        ],
+        "finishOrder": [
+          "rival-2",
+          "player"
+        ],
+        "playerCooldown": 0,
+        "playerContacts": 2,
+        "standings": [
+          {
+            "id": "rival-2",
+            "name": "红对手 2",
+            "team": "red",
+            "progress": 719.210257126679,
+            "phase": "finished",
+            "rank": 1,
+            "points": 4
+          },
+          {
+            "id": "player",
+            "name": "你 · 蓝队",
+            "team": "blue",
+            "progress": 720,
+            "phase": "finished",
+            "rank": 2,
+            "points": 3
+          },
+          {
+            "id": "ally",
+            "name": "蓝队友",
+            "team": "blue",
+            "progress": 674.3003780494643,
+            "phase": "racing",
+            "rank": 3,
+            "points": 2
+          },
+          {
+            "id": "rival-1",
+            "name": "红对手 1",
+            "team": "red",
+            "progress": 553.1897376136853,
+            "phase": "racing",
+            "rank": 4,
+            "points": 1
+          }
+        ],
+        "teamScores": {
+          "blue": 5,
+          "red": 5
+        },
+        "playerRank": 2
+      },
+      "input": {
+        "left": false,
+        "right": false,
+        "gas": false,
+        "brake": false
+      },
+      "course": null
+    },
+    "pictures": [
+      "01-start.jpg",
+      "02-lap-1.jpg",
+      "04-real-contact.jpg",
+      "03-lap-2.jpg",
+      "04-lap-3.jpg",
+      "05-natural-finish.jpg"
+    ],
+    "errors": [],
+    "physicalPhone": false,
+    "video": "full-race.webm"
+  },
+  "normalAnimationE2E": {
+    "passed": true,
+    "browser": "134.0.6998.35",
+    "animation": "normal requestAnimationFrame; no clock stubs",
+    "checks": [
+      "circuit 844x390: real animation accelerates; pause freezes full snapshot",
+      "circuit 844x390: three cameras and independent keyboard releases",
+      "circuit 844x390: camera persists after reload",
+      "circuit 390x844: real animation accelerates; pause freezes full snapshot",
+      "circuit 390x844: three cameras and independent keyboard releases",
+      "circuit 390x844: camera persists after reload",
+      "mountain 844x390: real animation accelerates; pause freezes full snapshot",
+      "mountain 844x390: three cameras and independent keyboard releases",
+      "mountain 844x390: camera persists after reload",
+      "mountain 390x844: real animation accelerates; pause freezes full snapshot",
+      "mountain 390x844: three cameras and independent keyboard releases",
+      "mountain 390x844: camera persists after reload",
+      "proving 844x390: real animation accelerates; pause freezes full snapshot",
+      "proving 844x390: three cameras and independent keyboard releases",
+      "proving 844x390: camera persists after reload",
+      "proving 390x844: real animation accelerates; pause freezes full snapshot",
+      "proving 390x844: three cameras and independent keyboard releases",
+      "proving 390x844: camera persists after reload",
+      "city 844x390: real animation accelerates; pause freezes full snapshot",
+      "city 844x390: three cameras and independent keyboard releases",
+      "city 844x390: camera persists after reload",
+      "city 390x844: real animation accelerates; pause freezes full snapshot",
+      "city 390x844: three cameras and independent keyboard releases",
+      "city 390x844: camera persists after reload",
+      "offroad 844x390: real animation accelerates; pause freezes full snapshot",
+      "offroad 844x390: three cameras and independent keyboard releases",
+      "offroad 844x390: camera persists after reload",
+      "offroad 390x844: real animation accelerates; pause freezes full snapshot",
+      "offroad 390x844: three cameras and independent keyboard releases",
+      "offroad 390x844: camera persists after reload"
+    ],
+    "consoleErrors": [],
+    "physicalPhone": false
+  }
+}

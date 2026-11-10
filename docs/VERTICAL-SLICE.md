@@ -85,8 +85,9 @@ attempt in `verification/slice/loadedProfile.json`.
 
 The first art precommit at a84a657 passed all 27 commands with 61 matching source hashes,
 554 screenshots and eight recordings. Its natural keyboard race finished in
-66.75 seconds with four physical AI contacts. The release proof is
-`verification/slice/precommit.json`; CI and live gates are recorded separately.
+66.75 seconds with four physical AI contacts. This is the first candidate's
+historical run; `first-ci.json` records its Linux evidence. The current
+`precommit.json` contains the later HUD-polished run.
 
 
 Media review of a84a657 found that the new event-message layer duplicated the
@@ -101,4 +102,29 @@ source hashes, 551 screenshots, eight recordings and a 66.50 second real-keyboar
 three-lap race with two physical AI contacts. The first candidate's Linux run
 independently matched all 61 source hashes and recorded 3,977 frames with a
 16.7 ms p95 interval. That Linux timing refers to a84a657; the polished release
-receives its own workflow and timing evidence.
+has its own workflow and timing evidence below.
+
+## Published acceptance
+
+Runtime `41bd106` passed all three jobs in
+[workflow 42831782524](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42831782524):
+Linux verification, Pages deployment and the same complete public-site verification.
+All 61 source hashes match the frozen Mac run and every deployed dist asset
+matches the tested source. Documentation and media commits leave those files unchanged.
+
+| Run | Screenshots | Recordings | Natural three-lap race | Physical AI contacts |
+| --- | --- | --- | --- | --- |
+| Frozen Mac precommit | 551 | 8 | 66.50 s | 2 |
+| Linux verify | 551 | 8 | 66.01 s | 2 |
+| Public verify-live | 551 | 8 | 66.58 s | 2 |
+
+The two Linux race recordings measured 3,956 and 3,979 native animation frames,
+respectively, with a 16.7 ms p95 interval in each run. This describes those
+desktop runs; it does not resolve the shared-Mac delays or establish phone performance.
+
+The [acceptance report](../verification/slice/verification.md) includes the
+real screen sequence, full 82.16 s video and edited 8 s clip. Media provenance
+and hashes are in `media.json`; source equality, gates and boundaries are in
+`release.json`, `ci.json`, `live.json` and `deployed-assets.json`.
+The game Page and personal overview were saved and read back. The native Page
+players both reached the end and the four flow screenshots loaded.

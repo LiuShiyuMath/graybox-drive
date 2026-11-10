@@ -10,11 +10,20 @@ were changed.
 | Gate | Status | Evidence |
 | --- | --- | --- |
 | Frozen precommit source | PASS | 27 commands, 551 screenshots, 8 recordings, all 61 source hashes match |
-| Linux verify | PENDING for polish | First candidate a84a657 passed; require the new exact-source workflow |
-| GitHub Pages deploy | PENDING for polish | First candidate a84a657 passed; require the new exact-source workflow |
-| Deployed verify-live | PENDING | Full suite and every dist resource hash |
+| Linux verify | PASS | Runtime 41bd106, 27 commands, 551 screenshots, 8 recordings, all 61 hashes match precommit |
+| GitHub Pages deploy | PASS | Exact runtime 41bd106, workflow 42831782524 |
+| Deployed verify-live | PASS | Same full suite, 551 screenshots, 8 recordings, 61 hashes match; all 10 dist assets match |
 | Real keyboard race | PASS | Polished frozen run: 66.50 s, three natural laps, two AI contacts, saved score and frozen ranking |
 | Desktop performance profile | Measured; stable 60 FPS INCONCLUSIVE | Five alternating trials per side, `profile.json` |
+| Public cloud browser | PASS | Actual throttle, chase view, AI movement, low effects, sound on/off, pause/resume and restart |
+| Page media and readback | PASS | Both videos played to the end, all four flow images loaded; game and overview saved/read back |
+
+[All release jobs](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42831782524)
+passed for runtime `41bd106`. [Release summary](release.json), [Linux evidence](ci.json),
+[public-site evidence](live.json) and [each deployed asset hash](deployed-assets.json)
+retain the source and measurement details. The frozen precommit starts from
+a84a657 with a dirty worktree; its complete 61-file manifest exactly matches
+the later clean 41bd106 CI and live manifests.
 
 The first complete run passed 27 commands and retained 551 screenshots and eight
 videos. It is labelled diagnostic because its initial manifest predates the
@@ -32,6 +41,39 @@ are separate files. The paintover is not a screenshot of running software.
 ![Actual first art pass](after-first.jpg)
 
 [Frozen precommit evidence](precommit.json) · [Finite models and counterexamples](tla.json) · [Actual race evidence](race.json).
+
+## Final real race flow
+
+These four images and the two videos come from the HUD-polished `41bd106`
+Mac run. Its three earned laps take 66.50 s. The full 82.16 s video includes
+setup and gameplay; the 8 s version joins three excerpts. Neither uses mocked
+animation or a forced finish. Both contain video only.
+
+[Full 82-second recording](full-race.mp4) · [Edited 8-second preview](highlights-8s.mp4)
+· [Media provenance, excerpt times and six file hashes](media.json).
+
+### Start
+
+![Real start](start.jpg)
+
+### Physical AI contact
+
+![Real vehicle contact](contact.jpg)
+
+### Second lap
+
+![Second earned lap](lap2.jpg)
+
+### Natural finish and saved score
+
+![Natural three-lap finish](finish.jpg)
+
+The independent public-site run finishes in 66.58 s with two physical AI
+contacts. It records 3,979 native frames with a 16.7 ms p95 interval; Linux
+pre-deployment records 3,956 frames at the same p95. These are scoped desktop
+observations, not a general 60 FPS guarantee.
+
+![Additional real cloud-browser public-site check](live-smoke.png)
 
 ## Preserved behavior
 
@@ -63,9 +105,11 @@ models do not prove continuous geometry, audio quality or JavaScript refinement.
 
 ## Boundaries
 
-Work-host pinned Chromium actually crashed on full navigation. Actual runtime
-testing uses the authorized Mac mini and Linux CI. Phone-size emulation does
-not establish physical Android/iPhone or Safari/Firefox acceptance.
+The original Work-host pinned Chromium crashed on full navigation; that failure
+is retained. Complete runtime testing uses the authorized Mac mini and Linux CI.
+After the Work environment was restored, its shared cloud Chrome also passed
+the public interaction check and played both Page videos to the end. Phone-size
+emulation does not establish physical Android/iPhone or Safari/Firefox acceptance.
 
 The desktop timing host had load near 12.8 on 10 cores. Baseline and candidate
 both showed long frame-delivery delays. The five-trial data is descriptive;

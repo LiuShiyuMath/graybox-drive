@@ -1,0 +1,93 @@
+{
+  "runtimeCommit": "41bd106aa29f5f8873f2bc11e66416563dcf3a35",
+  "workflow": "https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42831782524",
+  "gates": {
+    "frozenPrecommit": "PASS",
+    "linuxVerify": "PASS",
+    "pagesDeploy": "PASS",
+    "fullVerifyLive": "PASS"
+  },
+  "identicalTestedSources": 61,
+  "deployedAssets": 10,
+  "runs": [
+    {
+      "environment": "Mac mini frozen precommit",
+      "screenshots": 551,
+      "videos": 8,
+      "raceSeconds": 66.49730000000213
+    },
+    {
+      "environment": "Linux verify",
+      "screenshots": 551,
+      "videos": 8,
+      "raceSeconds": 66.01410000000169,
+      "frames": 3956,
+      "frameMs": {
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "max": 16.80000000000291
+      }
+    },
+    {
+      "environment": "Public verify-live",
+      "screenshots": 551,
+      "videos": 8,
+      "raceSeconds": 66.58060000000195,
+      "frames": 3979,
+      "frameMs": {
+        "p50": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 16.80000000000291
+      }
+    }
+  ],
+  "finiteModels": 12,
+  "namedCounterexamples": 30,
+  "manualCloudBrowser": {
+    "passed": true,
+    "url": "https://liushiyumath.github.io/graybox-drive/?map=circuit",
+    "interactions": [
+      "start",
+      "chase camera",
+      "held throttle",
+      "AI movement",
+      "low effects",
+      "sound on/off",
+      "pause",
+      "resume",
+      "restart"
+    ],
+    "screenshot": "live-smoke.png"
+  },
+  "media": {
+    "sourceCommit": "41bd106aa29f5f8873f2bc11e66416563dcf3a35",
+    "fullVideoSeconds": 82.16,
+    "editedHighlightSeconds": 8,
+    "images": [
+      "start.jpg",
+      "contact.jpg",
+      "lap2.jpg",
+      "finish.jpg"
+    ],
+    "videoOnly": true,
+    "realWebAudioVerifiedSeparately": true
+  },
+  "boundaries": [
+    "Physical Android/iPhone not tested",
+    "Safari/Firefox not tested",
+    "No phone or general stable-60-FPS claim",
+    "Stylized first art pass; photorealistic final art not produced",
+    "Finite models do not prove continuous geometry or JavaScript refinement"
+  ],
+  "pageVerification": {
+    "gameSequence": 42,
+    "overviewSequence": 27,
+    "videos": 2,
+    "unrelatedProjectRowsUnchanged": true,
+    "gamePage": "https://chatgpt.com/space/page_b7e95e0e62948191a47974d9feeddc87",
+    "overviewPage": "https://chatgpt.com/space/page_9d077ffffb2481918afce322908833b8",
+    "fullVideoPlayedToEnd": true,
+    "highlightPlayedToEnd": true,
+    "fourFlowImagesLoaded": true
+  }
+}

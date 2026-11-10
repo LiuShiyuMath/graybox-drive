@@ -1,0 +1,77 @@
+{
+  "sourceCommit": "41bd106aa29f5f8873f2bc11e66416563dcf3a35",
+  "realBrowser": true,
+  "recording": "Native requestAnimationFrame and ordinary keyboard events. No mock, clock override or scripted finish. Video only; real audio signal verified separately.",
+  "raceSeconds": 66.49730000000213,
+  "fullVideo": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 480
+      }
+    ],
+    "format": {
+      "duration": "82.160000",
+      "size": "2594455"
+    }
+  },
+  "highlight": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 800,
+        "height": 480
+      }
+    ],
+    "format": {
+      "duration": "8.000000",
+      "size": "309141"
+    }
+  },
+  "highlightEdited": true,
+  "sourceSegmentsSeconds": [
+    [
+      0,
+      2.5
+    ],
+    [
+      39.437,
+      41.937
+    ],
+    [
+      79.16,
+      82.16
+    ]
+  ],
+  "files": {
+    "full-race.mp4": {
+      "sha256": "5b5c5532b244aadcb2cfff25c9ebcf63f3d65efc2ab5ebb9dc2181a7c039a23e",
+      "bytes": 2594455
+    },
+    "highlights-8s.mp4": {
+      "sha256": "10cf146627af67d124c1ad655082bf475d1e64c252e1412aa53c03a4e63a61a4",
+      "bytes": 309141
+    },
+    "start.jpg": {
+      "sha256": "8d8b03a5d97fb71c3d361980be32f024efbf267649dadb4065185faa7c2b3435",
+      "bytes": 62531
+    },
+    "contact.jpg": {
+      "sha256": "6d9ca14eca292b1c0745da4bd8597e9f4b859c846e03ce88ac731b4a3b87b4cb",
+      "bytes": 63630
+    },
+    "lap2.jpg": {
+      "sha256": "fbf835a22abee4585e1113bfde4e808d6e4c83b3b594ca6f44b3c8cf126c28e8",
+      "bytes": 64129
+    },
+    "finish.jpg": {
+      "sha256": "0e8de018fca59cffacbda83c9d1f8b22591ce9bb69e1c3a01eb7879b50ee08e0",
+      "bytes": 63306
+    }
+  }
+}

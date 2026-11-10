@@ -1,0 +1,68 @@
+{
+  "runtimeCommit": "41bd106aa29f5f8873f2bc11e66416563dcf3a35",
+  "checkedAt": "2026-11-10T14:40:27.471959+00:00",
+  "passed": true,
+  "assetCount": 10,
+  "assets": [
+    {
+      "file": "dist/art.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/art.js",
+      "sha256": "c3fe952e4254fadc75d51ac23869f110fabe326d586c0a6fa9b0ca2bc9b661d4",
+      "matches": true
+    },
+    {
+      "file": "dist/course-pack.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/course-pack.js",
+      "sha256": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87",
+      "matches": true
+    },
+    {
+      "file": "dist/course-world.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/course-world.js",
+      "sha256": "e815d06683e1e0b3b79ec7c6a579b7e8e73c07ddb401bf8816c12c761dbf2238",
+      "matches": true
+    },
+    {
+      "file": "dist/game.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/game.js",
+      "sha256": "4544e2e88ca695adb6117ae734af7ed6feffe20e640a22a94df1df50e9333c36",
+      "matches": true
+    },
+    {
+      "file": "dist/index.html",
+      "url": "https://liushiyumath.github.io/graybox-drive/index.html",
+      "sha256": "5112fb576f502afdd0f5653dace7de70ee89d9ea276ed5df5c250906d6568487",
+      "matches": true
+    },
+    {
+      "file": "dist/maps.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/maps.js",
+      "sha256": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
+      "matches": true
+    },
+    {
+      "file": "dist/perspective.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/perspective.js",
+      "sha256": "4f7235da1fe64f56f661b21cfb8b7c1982a79304add5a48d1187f47025cfe280",
+      "matches": true
+    },
+    {
+      "file": "dist/presentation.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/presentation.js",
+      "sha256": "86000078fb8fe9632f08398169acdaaeb46e202572977f23e2877999fcbc1a6e",
+      "matches": true
+    },
+    {
+      "file": "dist/racers.js",
+      "url": "https://liushiyumath.github.io/graybox-drive/racers.js",
+      "sha256": "3543ff246b66b908bc77c0e3b0399b623002a573dba1ea77246d0bb0e0f1794f",
+      "matches": true
+    },
+    {
+      "file": "dist/style.css",
+      "url": "https://liushiyumath.github.io/graybox-drive/style.css",
+      "sha256": "c0f8b164506d413d13b77532bc8739b151cef63e560d1c1f98af4e15484f7989",
+      "matches": true
+    }
+  ]
+}

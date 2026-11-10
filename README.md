@@ -23,7 +23,11 @@ Map 01 采用石墨色赛道、青绿色路肩、暖色天空和低多边形环�
 
 撞击火花、轮胎烟雾、检查点提示和完赛庆祝读取实际游戏状态。右下角可切换低特效。声音默认关闭，点击“声音 开”后，引擎音随车速变化。暂停和切到后台会静音。
 
-![Map 01 真实 Chromium 候选截图](verification/slice/after-first.jpg)
+![Map 01 最终版真实 Chromium 截图](verification/slice/start.jpg)
+
+[82 秒完整实机录像](verification/slice/full-race.mp4) · [8 秒实机剪辑](verification/slice/highlights-8s.mp4)。完整录像包含准备和 66.50 秒自然三圈比赛；8 秒版为三段剪辑。两者只含画面，实际音频波形与暂停静音另经验证。
+
+运行版 `41bd106` 的提交前、Linux 和正式站完整验证均 PASS：三轮各 551 张截图、8 段录像，61 项已测源码一致，10 个线上资源匹配。[发布流水线](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42831782524) · [机器可读验收](verification/slice/release.json)。
 
 [基线、Paintover、制作范围](docs/VERTICAL-SLICE.md) · [本轮验收与真实媒体](verification/slice/verification.md)。Paintover 仅是视觉目标，运行图是实际游戏截图。第一轮为程序化、平面着色的风格样板，写实资产和手机真机验收保持待完成。
 
@@ -106,4 +110,4 @@ Mountain Road 另含 42 个横竖屏场景、全线 240 个车后视角像素检
 
 完整验证覆盖五张地图、全部有限模型与指定反例、4,096 次输入转换、车身区域检查、撞击与恢复录像，以及新增的电脑车正常动画对战。跨地图检查包含三种屏幕尺寸、全部视角、软件渲染降级和延迟脚本加载的启动回归。每轮的实际数量保存在 `results.json`。部署后再次执行全套验证，并核对每个线上资源的 SHA-256。
 
-道路、材质、碰撞、坡度与路线提示共用地图数据。山路和新地图优先使用 WebGL 深度检测，Canvas 降级模式也使用软件深度缓冲处理坡面遮挡。[五地图验收与截图](verification/integration-check.md)。当前交付为可玩灰盒；Android/iPhone 真机性能与写实美术升级仍需独立验收。
+道路、材质、碰撞、坡度与路线提示共用地图数据。山路和新地图优先使用 WebGL 深度检测，Canvas 降级模式也使用软件深度缓冲处理坡面遮挡。[五地图验收与截图](verification/integration-check.md)。五图保留灰盒玩法，Map 01 已完成首轮风格化美术切片；Android/iPhone 真机、Safari/Firefox 和写实最终美术仍需独立验收。

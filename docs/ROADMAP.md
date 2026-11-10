@@ -128,8 +128,8 @@ explicit boundaries in `docs/STATE-MACHINES.md`.
 - [x] Implement one sports coupe, matching team cars and Map 01 procedural art.
 - [x] Add a separate bounded presentation observer, Web Audio and low-effects preference.
 - [x] Complete the exact-source precommit verify: 61 source hashes, 551 screenshots, 8 recordings, 66.50 s natural three-lap race with two AI contacts after removing the duplicate HUD layer. Retain inconclusive shared-host 60 FPS observations.
-- [ ] Publish main only, require verify/deploy/verify-live, compare every deployed asset hash.
-- [ ] Reconcile real screenshots, recording and final evidence into the project Page.
+- [x] Publish runtime `41bd106` directly to main. [Workflow 42831782524](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42831782524) passes verify, deploy and full verify-live. All three runs retain 551 screenshots and eight recordings; all 61 source hashes agree and all 10 deployed assets match. Public normal-keyboard three-lap race: 66.58 s, two AI contacts. [Release evidence](../verification/slice/release.json).
+- [x] Reconcile before/paintover/actual screenshots, four-screen race flow, 82.16 s recording and edited 8 s clip into the project Page and personal overview. Read both Pages back; both videos play to the end and all four flow images load. Preserve other projects and historical evidence.
 
 The slice preserves current race rules and camera/body decoupling. Physical-phone
 validation and photorealistic final assets remain independent open items.
