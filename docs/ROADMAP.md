@@ -127,7 +127,7 @@ explicit boundaries in `docs/STATE-MACHINES.md`.
 - [x] Produce a separately labelled screenshot paintover and concept fidelity table.
 - [x] Implement one sports coupe, matching team cars and Map 01 procedural art.
 - [x] Add a separate bounded presentation observer, Web Audio and low-effects preference.
-- [x] Complete the exact-source precommit verify: 61 source hashes, 554 screenshots, 8 recordings, 66.75 s natural three-lap race with four AI contacts. Retain inconclusive shared-host 60 FPS observations.
+- [x] Complete the exact-source precommit verify: 61 source hashes, 551 screenshots, 8 recordings, 66.50 s natural three-lap race with two AI contacts after removing the duplicate HUD layer. Retain inconclusive shared-host 60 FPS observations.
 - [ ] Publish main only, require verify/deploy/verify-live, compare every deployed asset hash.
 - [ ] Reconcile real screenshots, recording and final evidence into the project Page.
 

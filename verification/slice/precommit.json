@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-11-10T13:26:22.350420+00:00",
+  "createdAt": "2026-11-10T13:55:09.155107+00:00",
   "passed": true,
   "steps": [
     {
@@ -200,7 +200,7 @@
       "exitCode": 0
     }
   ],
-  "revision": "cdf296f6e6859f0a10ca9e3eacdb21cb3be0c0d9",
+  "revision": "a84a6570a42fc7e23eb1061a4bc28c806e49d3a5",
   "worktreeDirty": true,
   "sourceSha256": {
     ".agents/skills/verify/SKILL.md": "7fc11c1a9e2c419e9cd1184cbdb7e1168d45fa4027ff775409accd60158bd323",
@@ -209,12 +209,12 @@
     "dist/course-pack.js": "bd28fd470463260f22a7b2af4e77a64ee3c19d070f1bc6406b1da514e45a7b87",
     "dist/course-world.js": "e815d06683e1e0b3b79ec7c6a579b7e8e73c07ddb401bf8816c12c761dbf2238",
     "dist/game.js": "4544e2e88ca695adb6117ae734af7ed6feffe20e640a22a94df1df50e9333c36",
-    "dist/index.html": "330a828f64ffbc7894f9c3cde288ccfdf214aabe4615923c0fd73d5dbfeb8518",
+    "dist/index.html": "5112fb576f502afdd0f5653dace7de70ee89d9ea276ed5df5c250906d6568487",
     "dist/maps.js": "f5b676fa8d8f784ecf3c2455875c49937bd1f2c46e026ca7c0c6e1a6ec742299",
     "dist/perspective.js": "4f7235da1fe64f56f661b21cfb8b7c1982a79304add5a48d1187f47025cfe280",
-    "dist/presentation.js": "3b71a96925a2c5a5f204c1127a97a9ade2e806eda94a830a3e7f2813e93382ed",
+    "dist/presentation.js": "86000078fb8fe9632f08398169acdaaeb46e202572977f23e2877999fcbc1a6e",
     "dist/racers.js": "3543ff246b66b908bc77c0e3b0399b623002a573dba1ea77246d0bb0e0f1794f",
-    "dist/style.css": "785586690451ef8995dd1017d6d0c744446a5eeb97efe509644d7e2d8825b270",
+    "dist/style.css": "c0f8b164506d413d13b77532bc8739b151cef63e560d1c1f98af4e15484f7989",
     "package-lock.json": "d7fb1ffb112245f2b007ad0bccf71af1bd1eebe90e8aa1b6305d8af7a8da9536",
     "package.json": "84ce6881d1e1b2cc6b1ed49f98557cd1a472d88835205d442c3a537a479d4600",
     "specs/CameraFeedback.cfg": "b7cded30516516c40b3bdafed476fde54d7b7d79746014fbfb24d8eb0665634f",
@@ -266,7 +266,7 @@
     "tests/verify_tla.py": "09a7dae942fb15e05492001851441fbad5642d8c48278fedd446948049f484d3"
   },
   "mountainChecks": 51,
-  "screenshots": 554,
+  "screenshots": 551,
   "videos": 8,
   "vehicleRegions": 486,
   "temporalFrames": 540,
@@ -278,5 +278,5 @@
   "matrixChecks": 30,
   "racerChecks": 93,
   "presentationChecks": 11,
-  "sliceRaceSeconds": 66.74730000000244
+  "sliceRaceSeconds": 66.49730000000213
 }

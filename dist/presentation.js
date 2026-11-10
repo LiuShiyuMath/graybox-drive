@@ -3,13 +3,13 @@ const DrivePresentation=(()=>{
  let quality='full',sound=false;
  try{quality=localStorage.getItem('graybox-drive-effects')==='low'?'low':'full';sound=localStorage.getItem('graybox-drive-sound')==='on'}catch{}
  const reducedMotion=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- let last=null,particles=[],message='',messageUntil=0,celebration=0,serial=0,audio=null;
+ let last=null,particles=[],celebration=0,serial=0,audio=null;
  const events={impact:0,checkpoint:0,landing:0,finish:0,skid:0};
  const settings=document.querySelector('#presentation-settings'),qualityButton=document.querySelector('#effects-toggle'),soundButton=document.querySelector('#sound-toggle');
  const read=()=>({time:elapsed,state,map:activeMap.id,progress,lap,checkpoint:checkpointIndex,impact:hazard.impact,fall:hazard.fall,
   speed:car.speed,steer:car.steer,x:car.x,y:car.y,z:car.z||0,angle:car.angle,brake:input.brake,
   jump:activeMap.generic?courseState.jump.height:0,slip:activeMap.generic?courseState.slip:0});
- function reset(){last=null;particles=[];message='';messageUntil=0;celebration=0;for(const name of Object.keys(events))events[name]=0;mute()}
+ function reset(){last=null;particles=[];celebration=0;for(const name of Object.keys(events))events[name]=0;mute()}
  function mute(){if(audio)audio.master.gain.setTargetAtTime(0,audio.context.currentTime,.015)}
  function unlock(){
   if(!sound)return;
@@ -38,7 +38,6 @@ const DrivePresentation=(()=>{
     vx:Math.cos(angle)*22,vy:Math.sin(angle)*22,vz:kind==='spark'?30+i%4*8:9,life:kind==='spark'?.45:.65,max:kind==='spark'?.45:.65});
   }
  }
- function notify(text,s,frequency){message=text;messageUntil=s.time+1.4;tone(frequency)}
  function update(){
   const s=read();
   if(last&&(s.map!==last.map||s.time<last.time||s.state==='ready'&&last.state!=='ready'))reset();
@@ -46,18 +45,17 @@ const DrivePresentation=(()=>{
   if(s.state==='running'){
    for(const p of particles){p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.z+=p.vz*dt;p.vz-=p.kind==='spark'?90*dt:0}
    particles=particles.filter(p=>p.life>0&&p.z>=0);
-   if(last&&s.impact>last.impact+.1){events.impact++;emit('spark',s,18);notify('车辆接触 · 稳住方向',s,95)}
-   if(last&&(s.checkpoint>last.checkpoint||s.lap>last.lap)){events.checkpoint++;notify(s.lap>last.lap?`第 ${s.lap} 圈 · 继续冲刺`:'检查点通过',s,660)}
-   if(last&&last.jump>.1&&s.jump===0&&!s.fall){events.landing++;emit('dust',s,12);notify('稳稳落地',s,125)}
+   if(last&&s.impact>last.impact+.1){events.impact++;emit('spark',s,18);tone(95)}
+   if(last&&(s.checkpoint>last.checkpoint||s.lap>last.lap)){events.checkpoint++;tone(660)}
+   if(last&&last.jump>.1&&s.jump===0&&!s.fall){events.landing++;emit('dust',s,12);tone(125)}
    const skid=!s.fall&&s.jump===0&&(Math.abs(s.slip)>8||s.brake&&s.speed>140);
    if(skid&&dt>0){events.skid++;emit('smoke',s,2)}
    if(audio&&sound){audio.engine.frequency.setTargetAtTime(45+Math.abs(s.speed)*.48,audio.context.currentTime,.08);audio.filter.frequency.setTargetAtTime(skid?1100:420+Math.abs(s.speed),audio.context.currentTime,.08);audio.master.gain.setTargetAtTime(.018+Math.min(.02,Math.abs(s.speed)*.00005),audio.context.currentTime,.03)}
   }else mute();
-  if(last&&last.state==='running'&&s.state==='finished'){events.finish++;celebration=performance.now();notify('三圈完成 · 成绩已保存',s,880);setTimeout(()=>{if(state==='finished')tone(1174,.2)},120)}
+  if(last&&last.state==='running'&&s.state==='finished'){events.finish++;celebration=performance.now();tone(880);setTimeout(()=>{if(state==='finished')tone(1174,.2)},120)}
   last=s;
   const ratio=Math.max(0,Math.min(1,activeMap.closed?progress/(N*(activeMap.laps||3)):progress/(N-3)));
   const bar=document.querySelector('#race-progress');if(bar){bar.style.setProperty('--progress',`${ratio*100}%`);bar.setAttribute('aria-valuenow',String(Math.round(ratio*100)));}
-  const note=document.querySelector('#race-event');if(note){note.textContent=message&&s.time<=messageUntil&&s.state!=='ready'?message:'';note.hidden=!note.textContent;}
  }
  function worldMesh(){
   if(quality==='low'||!last||last.state!=='running')return [];

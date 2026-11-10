@@ -24,7 +24,7 @@ through existing geometry functions and keeps effects in a separate observer.
 The renderer still owns depth. The simulation still owns all race state.
 
 The presentation model contains settings, an event cursor, bounded particles,
-short event messages and optional audio nodes. It reads vehicle and race facts.
+optional audio nodes. It reads vehicle and race facts.
 It never assigns vehicle, camera, timer, lap, checkpoint or competitor fields.
 The existing game snapshot stays limited to gameplay state.
 
@@ -83,7 +83,22 @@ Raw trials are retained in `verification/slice/profile.json` and the loaded
 attempt in `verification/slice/loadedProfile.json`.
 
 
-The frozen precommit run passed all 27 commands with 61 matching source hashes,
+The first art precommit at a84a657 passed all 27 commands with 61 matching source hashes,
 554 screenshots and eight recordings. Its natural keyboard race finished in
 66.75 seconds with four physical AI contacts. The release proof is
 `verification/slice/precommit.json`; CI and live gates are recorded separately.
+
+
+Media review of a84a657 found that the new event-message layer duplicated the
+existing toast, hazard HUD and finish overlay. The final polish removes that
+layer. Existing gameplay owns all visible event messages; the observer only
+adds particles, sound, progress and celebration. Physics and race rules are
+unchanged. Profile trials above refer to a84a657 before this HUD subtraction.
+
+
+The HUD-polished source passed a fresh complete precommit run with 61 matching
+source hashes, 551 screenshots, eight recordings and a 66.50 second real-keyboard
+three-lap race with two physical AI contacts. The first candidate's Linux run
+independently matched all 61 source hashes and recorded 3,977 frames with a
+16.7 ms p95 interval. That Linux timing refers to a84a657; the polished release
+receives its own workflow and timing evidence.

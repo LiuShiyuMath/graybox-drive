@@ -5,3 +5,4 @@ recorded_at	phase	decision	why	evidence	result
 2026-11-10T13:17:03.770258+00:00	race	Drive the original three-lap circuit through normal keys	Keep natural clock, progress, AI contact and finish rules	full-race.mp4	66.10s, 2 contacts, natural finish
 2026-11-10T13:17:03.770260+00:00	effects	Compare all gameplay fields in full and low modes	Settings must not alter the race	../../tests/browser-presentation.cjs	100 exact snapshots agree
 2026-11-10T13:17:03.770262+00:00	performance	Separate descriptive timings from performance claims	Shared-host recording includes long tail frames	../../tests/profile-slice.cjs	INCONCLUSIVE until isolated timing
+2026-11-10T14:11:14.532903+00:00	polish	Remove duplicate event-message layer	Actual impact screenshot covered the bumper with a third repeated message	contact-before-hud.jpg, contact-clean-target.jpg	Complete polished precommit PASS,61hashes,551shots,66.50s

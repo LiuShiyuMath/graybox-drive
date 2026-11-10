@@ -9,11 +9,11 @@ were changed.
 
 | Gate | Status | Evidence |
 | --- | --- | --- |
-| Frozen precommit source | PASS | 27 commands, 554 screenshots, 8 recordings, all 61 source hashes match |
-| Linux verify | PENDING | Exact release workflow |
-| GitHub Pages deploy | PENDING | Exact release workflow |
+| Frozen precommit source | PASS | 27 commands, 551 screenshots, 8 recordings, all 61 source hashes match |
+| Linux verify | PENDING for polish | First candidate a84a657 passed; require the new exact-source workflow |
+| GitHub Pages deploy | PENDING for polish | First candidate a84a657 passed; require the new exact-source workflow |
 | Deployed verify-live | PENDING | Full suite and every dist resource hash |
-| Real keyboard race | PASS | Frozen run: 66.75 s, three natural laps, four AI contacts, saved score and frozen ranking |
+| Real keyboard race | PASS | Polished frozen run: 66.50 s, three natural laps, two AI contacts, saved score and frozen ranking |
 | Desktop performance profile | Measured; stable 60 FPS INCONCLUSIVE | Five alternating trials per side, `profile.json` |
 
 The first complete run passed 27 commands and retained 551 screenshots and eight
@@ -74,3 +74,17 @@ stylized flat-shaded first art pass. Photorealistic final assets remain open.
 
 Playwright recordings contain video only. Actual Web Audio output is verified
 separately through the browser's analyser.
+
+
+## HUD subtraction after media review
+
+Real a84a657 collision media exposed a duplicate event-message layer over the
+car. The final polish removes this added layer and keeps the existing toast,
+hazard HUD, particles and sound. The supplementary ordinary-keyboard contact
+probe captured the unobscured car after the change. The final source receives
+its own complete precommit and deployment gates; the first candidate's success
+is not reused as proof for the changed files.
+
+![Before HUD subtraction, real a84a657 contact](contact-before-hud.jpg)
+
+![After HUD subtraction, supplementary real keyboard contact](contact-clean-target.jpg)

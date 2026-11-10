@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "sourceFiles": 61,
+  "sourceCommit": "a84a6570a42fc7e23eb1061a4bc28c806e49d3a5",
+  "screenshots": 551,
+  "videos": 8,
+  "raceSeconds": 66.53070000000181,
+  "frameMs": {
+    "p50": 16.69999999999709,
+    "p95": 16.70000000001164,
+    "max": 16.80000000000291
+  },
+  "frames": 3977
+}
