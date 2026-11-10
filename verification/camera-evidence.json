@@ -436,5 +436,102 @@
       "penalty": 4.999999999999984,
       "negativeRejected": true
     }
-  ]
+  ],
+  "release": {
+    "runtimeRevision": "ba0e6bd40dd65e92694bf2c03bc7dfccb63a62f1",
+    "verifiedRevision": "8d7e9cc45318749cd5e115397311a3067281c456",
+    "workflow": "https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42793331323",
+    "allJobs": "success",
+    "all54SourceHashesMatch": true,
+    "linuxVerify": {
+      "createdAt": "2026-11-10T09:46:20.676063+00:00",
+      "passed": true,
+      "revision": "8d7e9cc45318749cd5e115397311a3067281c456",
+      "worktreeDirty": false,
+      "mountainChecks": 51,
+      "screenshots": 542,
+      "videos": 7,
+      "vehicleRegions": 486,
+      "temporalFrames": 540,
+      "flickerChecks": 27,
+      "terrainOcclusionFixtures": 2,
+      "cameraFrames": 450,
+      "bodyCameraChecks": 232,
+      "courseChecks": 56,
+      "matrixChecks": 30,
+      "racerChecks": 93,
+      "target": "dist/index.html",
+      "occlusionSummary": {
+        "nativeOccludedFrames": 0,
+        "fixtures": [
+          {
+            "backend": "webgl",
+            "passed": true,
+            "hiddenPixels": 0,
+            "blockedRays": 50,
+            "rays": 50,
+            "recoveredPixels": 2974,
+            "negativeRejected": true
+          },
+          {
+            "backend": "software",
+            "passed": true,
+            "hiddenPixels": 0,
+            "blockedRays": 50,
+            "rays": 50,
+            "recoveredPixels": 2812,
+            "negativeRejected": true
+          }
+        ]
+      },
+      "sourceManifestMatchesPrecommit": true,
+      "sourceFileCount": 54
+    },
+    "publicVerify": {
+      "createdAt": "2026-11-10T09:59:22.646888+00:00",
+      "passed": true,
+      "revision": "8d7e9cc45318749cd5e115397311a3067281c456",
+      "worktreeDirty": false,
+      "target": "https://liushiyumath.github.io/graybox-drive/",
+      "mountainChecks": 51,
+      "screenshots": 545,
+      "videos": 7,
+      "vehicleRegions": 486,
+      "temporalFrames": 540,
+      "flickerChecks": 27,
+      "terrainOcclusionFixtures": 2,
+      "cameraFrames": 450,
+      "bodyCameraChecks": 232,
+      "courseChecks": 56,
+      "matrixChecks": 30,
+      "racerChecks": 93,
+      "occlusionSummary": {
+        "nativeOccludedFrames": 5,
+        "nativeRecoveries": 1,
+        "fixtures": [
+          {
+            "backend": "webgl",
+            "passed": true,
+            "hiddenPixels": 0,
+            "blockedRays": 50,
+            "rays": 50,
+            "recoveredPixels": 2974,
+            "negativeRejected": true
+          },
+          {
+            "backend": "software",
+            "passed": true,
+            "hiddenPixels": 0,
+            "blockedRays": 50,
+            "rays": 50,
+            "recoveredPixels": 2812,
+            "negativeRejected": true
+          }
+        ]
+      },
+      "sourceManifestMatchesPrecommit": true,
+      "sourceFileCount": 54
+    },
+    "deployedDistAssetsCompared": 8
+  }
 }

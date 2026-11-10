@@ -1,6 +1,6 @@
 # State-machine and TLA+ verification
 
-The current computer-team extension and its exact acceptance scope are tracked in [computer teammates and rivals](teams-verification.md). The earlier sections below retain their original release evidence.
+The latest camera/body release and its exact acceptance scope are tracked in [camera stability and vehicle feedback](camera-verification.md). Computer-team evidence is retained in [computer teammates and rivals](teams-verification.md). The earlier sections below retain their original release evidence.
 
 Date: 2026-11-09. Full project `/verify`: **PASS** on the authorized Mac mini,
 using Python Playwright 1.51.0 and its installed Chromium Headless Shell.
@@ -109,3 +109,28 @@ Both retained artifact manifests match all 44 precommit source hashes and contai
 471 screenshots, six recordings, 990 new temporal/fixture frame checks, eight
 normal models and 17 named negative controls. All seven deployed assets match.
 [Release manifests](flicker-release.json) and [full result](flicker-verification.md).
+
+## Camera/body release, 2026-11-10
+
+Runtime `ba0e6bd` and verification revision `8d7e9cc` pass the complete Mac,
+Linux pre-publication and public-site checks. The [final workflow](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42793331323)
+reports success for verify, deploy and verify-live. All 54 runtime/model/test
+source hashes match across those full runs, and every one of the eight deployed
+assets is compared with the checkout.
+
+The suite checks 11 finite models and 27 named counterexamples. The independent
+finite model graphs contain 1,089,131 reachable states, including 5,077 in
+CameraFeedback. This model checks output isolation; it does not prove continuous
+suspension, geometry or JavaScript refinement.
+
+Mac and Linux pre-publication runs retain 542 screenshots each; the public run
+retains 545. Each retains seven recordings. The public native-animation flicker
+probe encounters five real terrain-occluded frames and requires a visible actual
+automatic recovery. Both rendering backends also replay the exact deep-fall
+fixture and reject the open-road missing-car negative control. Grounded
+visibility thresholds and all 540 native frames remain required.
+
+See [the acceptance report](camera-verification.md) and
+[machine-readable manifests](camera-evidence.json) for the initial failure,
+root cause, final source hashes and actual screenshots. Physical phones,
+Safari/Firefox and this Work host's failing browser path remain outside PASS.

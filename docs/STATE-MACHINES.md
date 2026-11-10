@@ -1,8 +1,8 @@
 # Vehicle state machines and verification
 
 The runtime source is `dist/game.js`, `dist/course-world.js`, `dist/course-pack.js`,
-`dist/maps.js`, `dist/racers.js` and `dist/perspective.js`. The original audit below
-lists 27 overlapping groups of stored, derived and temporal state. The computer
+`dist/maps.js`, `dist/racers.js` and `dist/perspective.js`. The inventory below
+lists 28 overlapping groups of stored, derived and temporal state. The computer
 teams extension adds its actor, policy, contact and standings state in the later
 section. This is a code inventory, not a claim that every possible emergent
 behavior has a finite proof.

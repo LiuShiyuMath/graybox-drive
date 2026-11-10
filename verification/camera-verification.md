@@ -26,7 +26,7 @@ AssertionError [ERR_ASSERTION]: webgl-844/circuit/first/impact-world: feedback m
 The same test passes against the repaired assets in both real renderers and
 both 844×390 and 390×844 viewports. It records 232 checks across the four
 configurations, including 180 full-draw world/minimap comparisons, 40 visible
-body comparisons and 12 jump/body/recovery checks. The largest world-image
+body comparisons and 12 jump/body/recovery checks. In the Mac targeted run, the largest world-image
 change is zero pixels above the per-pixel RGB-sum threshold of 12. Every jump-camera delta is zero. The smallest visible
 body-image change is 138 pixels. Color overlays and player geometry are removed
 only for the isolated world comparison. Complete draws separately verify visible
@@ -65,7 +65,21 @@ checkout being committed. The selected summaries and full hash list are in
 | Full-draw body/camera isolation | PASS, 232 records |
 | Deterministic deep-fall occlusion, automatic recovery and missing-mesh rejection | PASS, both real rendering backends |
 | Native Python Playwright animation and keyboard input | PASS, 30 checks |
-| Linux CI, publication and complete public-site rerun | Pending |
+| Linux CI, publication and complete public-site rerun | [All three jobs PASS](https://github.com/LiuShiyuMath/graybox-drive/actions/runs/42793331323) |
+
+The verified revision is `8d7e9cc45318749cd5e115397311a3067281c456`; its
+runtime assets are unchanged from the camera repair `ba0e6bd`. Mac and Linux
+pre-publication runs retain 542 screenshots each. The complete public-site run
+retains 545 screenshots and seven recordings. It actually encounters five
+terrain-occluded native frames and then verifies one visible automatic recovery.
+Both deterministic backend fixtures and both missing-mesh negative controls pass.
+All 54 tested source hashes match across the three full runs; all eight public
+assets are compared with the checkout. Extra public captures document the
+observed native occlusion and recovery rather than a different source version.
+
+The screenshot below is from the verified public game with native animation.
+
+![Public game after the repair](camera-live.jpg)
 
 This first-view screenshot comes from the actual native-animation collision
 recording, with real keyboard input and the game's physical collision response.
@@ -122,7 +136,9 @@ a pass.
 The deterministic replay passed both real rendering backends. All 50 rays are
 blocked and the entire projected body remains inside the viewport. The original
 full-vehicle threshold remains greater than 100 difference pixels. A missing
-player mesh on open road is rejected even with a falling state.
+player mesh on open road is rejected even with a falling state. The following
+pixel counts are from the Mac pre-commit replay; Linux counts are retained in
+the machine-readable evidence.
 
 | Renderer | Occluded difference pixels | Recovered difference pixels | Recovery penalty | Missing-mesh control |
 | --- | ---: | ---: | ---: | --- |
